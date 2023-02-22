@@ -868,6 +868,10 @@ PrefabInstance:
       value: 16.15
       objectReference: {fileID: 0}
     - target: {fileID: 105299981, guid: 080da32e44fcb264bba5b4be0dd5230d, type: 3}
+      propertyPath: _picturableLayer.m_Bits
+      value: 64
+      objectReference: {fileID: 0}
+    - target: {fileID: 105299981, guid: 080da32e44fcb264bba5b4be0dd5230d, type: 3}
       propertyPath: _currentPictures.Array.size
       value: 0
       objectReference: {fileID: 0}
