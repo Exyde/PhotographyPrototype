@@ -34,14 +34,18 @@ public class ObjectManager : MonoBehaviour
         foreach (Object_XNod item in _xNodeObjectsAvailable){
             Vector3 pos = _cabineSpawnPoints.GetChild(index).transform.position;
             GameObject picturable = Instantiate(item.PrefabObjectToSpawn, pos, Quaternion.identity);
+            picturable.GetComponent<PicturableObject>().Initialize(item);
             picturable.transform.parent = this.transform;
             index++;
         }
     }
 
     public void UpdatePicturedXNodeObjets(List<Object_XNod> picturedObjects){
+        if (picturedObjects.Count <= 0) return;
+
         foreach(Object_XNod o in picturedObjects){
-            o.TakePicture();
+            if (o != null)
+                o.TakePicture();
         }
     }
 }

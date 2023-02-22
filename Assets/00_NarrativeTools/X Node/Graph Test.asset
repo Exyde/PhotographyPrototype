@@ -47,7 +47,7 @@ MonoBehaviour:
   PictureTaken: 0
   DisponibleIfParticularCondition: 0
   PrefabObjectToSpawn: {fileID: 5588329769373306622, guid: 1b489c374981d1e5f9ecba198d7198c6, type: 3}
-  PictureDebugTexture: {fileID: 0}
+  PictureDebugTexture: {fileID: 2800000, guid: fe6a1d2812f70bc4fbf57a9ee865004f, type: 3}
 --- !u!114 &-4442200725438504682
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -160,7 +160,7 @@ MonoBehaviour:
   PictureTaken: 0
   DisponibleIfParticularCondition: 0
   PrefabObjectToSpawn: {fileID: 5588329769373306622, guid: ff8c1d4ac855deb75ae4a172d1f46f5d, type: 3}
-  PictureDebugTexture: {fileID: 0}
+  PictureDebugTexture: {fileID: 2800000, guid: b3f9d6998c4cf4044b2c686e65dcd180, type: 3}
 --- !u!114 &-2240352099877011316
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -267,7 +267,7 @@ MonoBehaviour:
   PictureTaken: 0
   DisponibleIfParticularCondition: 0
   PrefabObjectToSpawn: {fileID: 5588329769373306622, guid: 6cb750999631e6aecb28d7acca6e6273, type: 3}
-  PictureDebugTexture: {fileID: 0}
+  PictureDebugTexture: {fileID: 2800000, guid: 9ba8e298c0c28894081a168f0786b1bc, type: 3}
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -418,7 +418,7 @@ MonoBehaviour:
   PictureTaken: 0
   DisponibleIfParticularCondition: 0
   PrefabObjectToSpawn: {fileID: 5588329769373306622, guid: dbd01ddfc59a46ea2ac2e4461b69b3be, type: 3}
-  PictureDebugTexture: {fileID: 0}
+  PictureDebugTexture: {fileID: 2800000, guid: 570a9373717fb36449c6020be8559550, type: 3}
 --- !u!114 &4860584244364962389
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -486,7 +486,7 @@ MonoBehaviour:
   PictureTaken: 0
   DisponibleIfParticularCondition: 0
   PrefabObjectToSpawn: {fileID: 5588329769373306622, guid: 1ec0e05e5093bc4d8ab125f968656d42, type: 3}
-  PictureDebugTexture: {fileID: 0}
+  PictureDebugTexture: {fileID: 2800000, guid: 570a9373717fb36449c6020be8559550, type: 3}
 --- !u!114 &8738126090109506005
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -534,7 +534,7 @@ MonoBehaviour:
   PictureTaken: 0
   DisponibleIfParticularCondition: 0
   PrefabObjectToSpawn: {fileID: 5588329769373306622, guid: ad9c1202f94427d15a5ba1c271dc5b98, type: 3}
-  PictureDebugTexture: {fileID: 0}
+  PictureDebugTexture: {fileID: 2800000, guid: f3d8a8d47f6afdd48ada5cdf62f47cf6, type: 3}
 --- !u!114 &8839235430469026456
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -582,7 +582,7 @@ MonoBehaviour:
   PictureTaken: 0
   DisponibleIfParticularCondition: 0
   PrefabObjectToSpawn: {fileID: 5588329769373306622, guid: 7b3c25d92353d65c5957c7c989c0ca8c, type: 3}
-  PictureDebugTexture: {fileID: 0}
+  PictureDebugTexture: {fileID: 2800000, guid: 64d3c8d56ec07724295f5bccc3013e69, type: 3}
 --- !u!114 &9131805213518582990
 MonoBehaviour:
   m_ObjectHideFlags: 0
