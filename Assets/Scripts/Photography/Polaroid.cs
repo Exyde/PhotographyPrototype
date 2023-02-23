@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
+using TMPro;
 
 public class Polaroid : MonoBehaviour
 {
@@ -16,6 +17,7 @@ public class Polaroid : MonoBehaviour
     public Object_XNod[] _currentPicturesObjects;
     public Texture[] _pictures;
     public Image[] _UIImagePictureSlots;
+    public TMP_Text _pictureOverrideTxt;
     public List<Object_XNod> _selectedPicturesObjects = new List<Object_XNod>();
 
     [Header ("Events")]
@@ -45,7 +47,7 @@ public class Polaroid : MonoBehaviour
     }
     #endregion
 
-    public void TakePicture(){
+    public void TakePicture(){ //Can't do this with index incrementation like this, we need to have custom slots @TODO
         RaycastHit hit;
         if (Physics.Raycast(transform.position, transform.forward, out hit, _photographyMaxDistance, _picturableLayer)){
             PicturableObject picturable = hit.collider.gameObject.GetComponent<PicturableObject>();
@@ -58,13 +60,32 @@ public class Polaroid : MonoBehaviour
                 _PS_Flash.Play();
             }
             else {
-                HandlePictureSlotSelection();
+                StartCoroutine(HandlePictureSlotSelection());
             }
         }
     }
 
-    void HandlePictureSlotSelection(){
-        Debug.Log("Not implemented");
+    IEnumerator HandlePictureSlotSelection(){
+        _pictureOverrideTxt.gameObject.SetActive(true);
+        //Disable movement & Stuff ? Coroutine ? While ?
+        int index = -1;
+        
+        
+        while(index == -1){
+            if (Input.GetKeyDown(KeyCode.I)) index = 0;
+            else if (Input.GetKeyDown(KeyCode.I)) index = 1;
+            else if (Input.GetKeyDown(KeyCode.I)) index = 2;
+
+            yield return new WaitForSeconds(.1f);
+        }
+
+        _currentPicturesObjects[_pictureTakensCount] = null;
+        _pictures[_pictureTakensCount] = null;
+        _UIImagePictureSlots[_pictureTakensCount].sprite = null;
+
+        _pictureOverrideTxt.gameObject.SetActive(false);
+        TakePicture();
+
     }
     
     private void OnTriggerEnter(Collider other) {
