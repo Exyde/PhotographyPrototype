@@ -19,6 +19,7 @@ MonoBehaviour:
     - BlocOfNarration
     - ParticularConditionForActivate
     - MyUnderBloc
+    - ActiveABloc
     values:
     - _fieldName: BlocOfNarration
       _node: {fileID: -8102688259813258779}
@@ -50,12 +51,22 @@ MonoBehaviour:
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 0
+    - _fieldName: ActiveABloc
+      _node: {fileID: -8102688259813258779}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
   BlocOfNarration: {fileID: 0}
   ParticularConditionForActivate: 0
   MyUnderBloc: {fileID: 0}
   NameOfTheObject: "Une Boule \xE0 neige du Sahara"
   ValueForBloc: 3
   PictureTaken: 1
+  ActiveABloc: 0
   DisponibleIfParticularCondition: 0
   HaveAUnderBloc: 0
   PrefabObjectToSpawn: {fileID: 5588329769373306622, guid: dbd01ddfc59a46ea2ac2e4461b69b3be, type: 3}
@@ -150,10 +161,10 @@ MonoBehaviour:
         Culture=neutral, PublicKeyToken=null
       connections:
       - fieldName: BlocOfNarration
-        node: {fileID: 3306549139796323581}
+        node: {fileID: -843366514640405745}
         reroutePoints: []
       - fieldName: BlocOfNarration
-        node: {fileID: -843366514640405745}
+        node: {fileID: 3306549139796323581}
         reroutePoints: []
       _direction: 1
       _connectionType: 0
@@ -196,6 +207,7 @@ MonoBehaviour:
     - BlocOfNarration
     - ParticularConditionForActivate
     - MyUnderBloc
+    - ActiveABloc
     values:
     - _fieldName: BlocOfNarration
       _node: {fileID: -4033170502625259137}
@@ -227,12 +239,22 @@ MonoBehaviour:
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 0
+    - _fieldName: ActiveABloc
+      _node: {fileID: -4033170502625259137}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
   BlocOfNarration: {fileID: 0}
   ParticularConditionForActivate: 0
   MyUnderBloc: {fileID: 0}
   NameOfTheObject: Statue de Petit
   ValueForBloc: 3
   PictureTaken: 1
+  ActiveABloc: 0
   DisponibleIfParticularCondition: 0
   HaveAUnderBloc: 0
   PrefabObjectToSpawn: {fileID: 5588329769373306622, guid: dbd01ddfc59a46ea2ac2e4461b69b3be, type: 3}
@@ -247,7 +269,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 309bb0624c7cb7343ae5792c57a26fbb, type: 3}
-  m_Name: sssss / ( 5 / 20 )
+  m_Name: Question du pallier 3 ? / ( 5 / 20 )
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
   position: {x: 2072, y: -120}
@@ -290,7 +312,7 @@ MonoBehaviour:
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 0
-  Question: sssss
+  Question: Question du pallier 3 ?
   NecessaryResolution: 20
   ActualResolution: 0
   TrueForActivate: 0
@@ -315,6 +337,7 @@ MonoBehaviour:
     - BlocOfNarration
     - ParticularConditionForActivate
     - MyUnderBloc
+    - ActiveABloc
     values:
     - _fieldName: BlocOfNarration
       _node: {fileID: -843366514640405745}
@@ -346,12 +369,26 @@ MonoBehaviour:
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 0
+    - _fieldName: ActiveABloc
+      _node: {fileID: -843366514640405745}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
   BlocOfNarration: {fileID: 0}
   ParticularConditionForActivate: 0
   MyUnderBloc: {fileID: 0}
   NameOfTheObject: Objet de Palier 2
   ValueForBloc: 2
+<<<<<<< Updated upstream
   PictureTaken: 0
+=======
+  PictureTaken: 1
+  ActiveABloc: 0
+>>>>>>> Stashed changes
   DisponibleIfParticularCondition: 0
   HaveAUnderBloc: 0
   PrefabObjectToSpawn: {fileID: 5588329769373306622, guid: dbd01ddfc59a46ea2ac2e4461b69b3be, type: 3}
@@ -369,9 +406,9 @@ MonoBehaviour:
   m_Name: Graph Test
   m_EditorClassIdentifier: 
   nodes:
-  - {fileID: 4860584244364962389}
   - {fileID: 2415145725344299283}
   - {fileID: 976835887981512359}
+  - {fileID: 4860584244364962389}
   - {fileID: 9131805213518582990}
   - {fileID: -4033170502625259137}
   - {fileID: -8102688259813258779}
@@ -471,12 +508,13 @@ MonoBehaviour:
   m_Name: Autre objet de Pallier 2 / + 3
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 1416, y: 120}
+  position: {x: 1432, y: 232}
   ports:
     keys:
     - BlocOfNarration
     - ParticularConditionForActivate
     - MyUnderBloc
+    - ActiveABloc
     values:
     - _fieldName: BlocOfNarration
       _node: {fileID: 3306549139796323581}
@@ -508,12 +546,26 @@ MonoBehaviour:
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 0
+    - _fieldName: ActiveABloc
+      _node: {fileID: 3306549139796323581}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
   BlocOfNarration: {fileID: 0}
   ParticularConditionForActivate: 0
   MyUnderBloc: {fileID: 0}
   NameOfTheObject: Autre objet de Pallier 2
   ValueForBloc: 3
+<<<<<<< Updated upstream
   PictureTaken: 0
+=======
+  PictureTaken: 1
+  ActiveABloc: 0
+>>>>>>> Stashed changes
   DisponibleIfParticularCondition: 0
   HaveAUnderBloc: 0
   PrefabObjectToSpawn: {fileID: 5588329769373306622, guid: dbd01ddfc59a46ea2ac2e4461b69b3be, type: 3}
@@ -551,12 +603,13 @@ MonoBehaviour:
   m_Name: "Tasse de Caf\xE9  / + 5"
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -680, y: -296}
+  position: {x: -360, y: -8}
   ports:
     keys:
     - BlocOfNarration
     - ParticularConditionForActivate
     - MyUnderBloc
+    - ActiveABloc
     values:
     - _fieldName: BlocOfNarration
       _node: {fileID: 8703900324349714643}
@@ -591,12 +644,22 @@ MonoBehaviour:
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 0
+    - _fieldName: ActiveABloc
+      _node: {fileID: 8703900324349714643}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
   BlocOfNarration: {fileID: 0}
   ParticularConditionForActivate: 0
   MyUnderBloc: {fileID: 0}
   NameOfTheObject: "Tasse de Caf\xE9 "
   ValueForBloc: 5
-  PictureTaken: 1
+  PictureTaken: 0
+  ActiveABloc: 0
   DisponibleIfParticularCondition: 0
   HaveAUnderBloc: 1
   PrefabObjectToSpawn: {fileID: 5588329769373306622, guid: dbd01ddfc59a46ea2ac2e4461b69b3be, type: 3}
@@ -620,6 +683,7 @@ MonoBehaviour:
     - BlocOfNarration
     - ParticularConditionForActivate
     - MyUnderBloc
+    - ActiveABloc
     values:
     - _fieldName: BlocOfNarration
       _node: {fileID: 8738126090109506005}
@@ -651,12 +715,26 @@ MonoBehaviour:
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 0
+    - _fieldName: ActiveABloc
+      _node: {fileID: 8738126090109506005}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
   BlocOfNarration: {fileID: 0}
   ParticularConditionForActivate: 0
   MyUnderBloc: {fileID: 0}
   NameOfTheObject: Objet de Pallier 3
   ValueForBloc: 5
+<<<<<<< Updated upstream
   PictureTaken: 0
+=======
+  PictureTaken: 1
+  ActiveABloc: 0
+>>>>>>> Stashed changes
   DisponibleIfParticularCondition: 0
   HaveAUnderBloc: 0
   PrefabObjectToSpawn: {fileID: 5588329769373306622, guid: dbd01ddfc59a46ea2ac2e4461b69b3be, type: 3}
@@ -674,12 +752,13 @@ MonoBehaviour:
   m_Name: Carte Postale / + 1
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -680, y: 280}
+  position: {x: -440, y: 616}
   ports:
     keys:
     - BlocOfNarration
     - ParticularConditionForActivate
     - MyUnderBloc
+    - ActiveABloc
     values:
     - _fieldName: BlocOfNarration
       _node: {fileID: 8839235430469026456}
@@ -714,12 +793,22 @@ MonoBehaviour:
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 0
+    - _fieldName: ActiveABloc
+      _node: {fileID: 8839235430469026456}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
   BlocOfNarration: {fileID: 0}
   ParticularConditionForActivate: 0
   MyUnderBloc: {fileID: 0}
   NameOfTheObject: Carte Postale
   ValueForBloc: 1
   PictureTaken: 1
+  ActiveABloc: 0
   DisponibleIfParticularCondition: 0
   HaveAUnderBloc: 1
   PrefabObjectToSpawn: {fileID: 5588329769373306622, guid: dbd01ddfc59a46ea2ac2e4461b69b3be, type: 3}

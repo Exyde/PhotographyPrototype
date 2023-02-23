@@ -23,6 +23,8 @@ public class Object_XNod : Node {
 
 	public bool PictureTaken;
 
+	[Output] public bool ActiveABloc;
+
 	public bool DisponibleIfParticularCondition;
 
 	public bool HaveAUnderBloc;
@@ -33,9 +35,9 @@ public class Object_XNod : Node {
 
 	public override object GetValue(NodePort port)
 	{
-		if (port.fieldName == "IsDisponible")
+		if (port.fieldName == "ActiveABloc")
 		{
-			return GetInputValue<bool>("TrueForActivate") && !PictureTaken;
+			return PictureTaken;
 		}
 		else
 		{
@@ -57,7 +59,6 @@ public class Object_XNod : Node {
 			GetInputValue<UnderBloc_XNode>("MyUnderBloc").AddPictureToMyValue();
 
 		}
-
 
 		PictureTaken = true;
 		GetInputValue<NarrativeBloc_XNode>("BlocOfNarration", this.BlocOfNarration).AddResolution(ValueForBloc);

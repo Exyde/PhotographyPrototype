@@ -127,7 +127,7 @@ public class Editor_Object_XNod : NodeEditor
 
         EditorGUILayout.LabelField("Output", EditorStyles.whiteLargeLabel);
 
-        //NodeEditorGUILayout.PropertyField(serializedObject.FindProperty("IsDisponible"));
+        NodeEditorGUILayout.PropertyField(serializedObject.FindProperty("ActiveABloc"), new GUIContent("Active un bloc narratif"));
 
         EditorGUILayout.EndHorizontal();
 
