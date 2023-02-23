@@ -839,6 +839,7 @@ GameObject:
   - component: {fileID: 945470638}
   - component: {fileID: 945470637}
   - component: {fileID: 945470636}
+  - component: {fileID: 945470640}
   m_Layer: 0
   m_Name: BlackBoard
   m_TagString: Untagged
@@ -924,6 +925,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+--- !u!114 &945470640
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 945470635}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0acaf3f39346ea1dabf66039fd3d8a92, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _picturePrefab: {fileID: 8391563003463319212, guid: 7ffa79f55f9065284a9385d00d52ebba, type: 3}
+  _pictureSpawnRange: 5
+  _pictureZOffset: -0.51
 --- !u!1 &1004528143
 GameObject:
   m_ObjectHideFlags: 0
@@ -1289,6 +1305,10 @@ PrefabInstance:
       propertyPath: _PS_Flash
       value: 
       objectReference: {fileID: 729070017}
+    - target: {fileID: 105299981, guid: 080da32e44fcb264bba5b4be0dd5230d, type: 3}
+      propertyPath: _blackboard
+      value: 
+      objectReference: {fileID: 945470640}
     - target: {fileID: 105299981, guid: 080da32e44fcb264bba5b4be0dd5230d, type: 3}
       propertyPath: _objetManager
       value: 

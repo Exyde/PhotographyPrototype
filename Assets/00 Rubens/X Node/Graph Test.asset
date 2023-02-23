@@ -173,7 +173,7 @@ MonoBehaviour:
       _dynamic: 0
   Question: Qui est le machiniste ?
   NecessaryResolution: 5
-  ActualResolution: 5
+  ActualResolution: 0
   TrueForActivate: 1
   Myself: {fileID: 0}
   WillActivateWhenResolution: 0
@@ -292,7 +292,7 @@ MonoBehaviour:
       _dynamic: 0
   Question: sssss
   NecessaryResolution: 20
-  ActualResolution: 5
+  ActualResolution: 0
   TrueForActivate: 0
   Myself: {fileID: 0}
   WillActivateWhenResolution: 0
@@ -351,7 +351,7 @@ MonoBehaviour:
   MyUnderBloc: {fileID: 0}
   NameOfTheObject: Objet de Palier 2
   ValueForBloc: 2
-  PictureTaken: 1
+  PictureTaken: 0
   DisponibleIfParticularCondition: 0
   HaveAUnderBloc: 0
   PrefabObjectToSpawn: {fileID: 5588329769373306622, guid: dbd01ddfc59a46ea2ac2e4461b69b3be, type: 3}
@@ -384,7 +384,9 @@ MonoBehaviour:
   - {fileID: 8703900324349714643}
   - {fileID: -843366514640405745}
   - {fileID: -5354627152681470523}
-  ListObjectsDisponibles: []
+  ListObjectsDisponibles:
+  - {fileID: 3306549139796323581}
+  - {fileID: -843366514640405745}
 --- !u!114 &976835887981512359
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -511,7 +513,7 @@ MonoBehaviour:
   MyUnderBloc: {fileID: 0}
   NameOfTheObject: Autre objet de Pallier 2
   ValueForBloc: 3
-  PictureTaken: 1
+  PictureTaken: 0
   DisponibleIfParticularCondition: 0
   HaveAUnderBloc: 0
   PrefabObjectToSpawn: {fileID: 5588329769373306622, guid: dbd01ddfc59a46ea2ac2e4461b69b3be, type: 3}
@@ -654,7 +656,7 @@ MonoBehaviour:
   MyUnderBloc: {fileID: 0}
   NameOfTheObject: Objet de Pallier 3
   ValueForBloc: 5
-  PictureTaken: 1
+  PictureTaken: 0
   DisponibleIfParticularCondition: 0
   HaveAUnderBloc: 0
   PrefabObjectToSpawn: {fileID: 5588329769373306622, guid: dbd01ddfc59a46ea2ac2e4461b69b3be, type: 3}

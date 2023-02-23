@@ -82,14 +82,18 @@ public class Polaroid : MonoBehaviour
     }
 
     void ResetPolaroid(){
-        // _selectedPicturesObjects.AddRange(_currentPicturesObjects);
         Debug.Log("Reset Polaroid.");
         for (int i = 0; i < _currentPicturesObjects.Length; i++){
             _selectedPicturesObjects.Add(_currentPicturesObjects[i]);
-
-            _blackboard.CreatePictureOnBoard(_UIImagePictureSlots[i].sprite);
-            _UIImagePictureSlots[i].sprite = null;
         }
+
+        for (int i =0; i < _maxPicturesSlots; i++){
+            if (_UIImagePictureSlots[i].sprite != null){
+                _blackboard.CreatePictureOnBoard(_UIImagePictureSlots[i].sprite);
+                _UIImagePictureSlots[i].sprite = null;
+            }
+        }
+        
         _objetManager.UpdatePicturedXNodeObjets(_selectedPicturesObjects);
         _pictureTakensCount = 0;
 

@@ -5,13 +5,22 @@ using UnityEngine;
 
 public class Blackboard : MonoBehaviour
 {
-    GameObject _picturePrefab;
+    [SerializeField] GameObject _picturePrefab;
+    [SerializeField] float _pictureSpawnRange;
+    [SerializeField] float _pictureZOffset = 0.5f;
 
     public void CreatePictureOnBoard(Sprite sprite)
     {
-        //Create prefab Instance
-        //Initialize with sprite
         //Position it on the board? Where ?
+        Vector3 pos = transform.position + UnityEngine.Random.insideUnitSphere * _pictureSpawnRange;
+        pos.z = transform.position.z + _pictureZOffset;
+
+        //Create prefab Instance
+        GameObject picture = Instantiate(_picturePrefab, pos, Quaternion.identity);
+        picture.transform.parent = this.transform;
+
+        //Initialize with sprite
+        picture.GetComponentInChildren<SpriteRenderer>().sprite = sprite;
     }
 
 }
