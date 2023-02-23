@@ -26,6 +26,9 @@ public class ObjectManager : MonoBehaviour
     }
 
     void SpawnObjects(){
+
+        if (_xNodeObjectsAvailable.Count <= 0) return;
+        
         foreach(Transform t in this.transform){
             Destroy(t.gameObject); 
         }

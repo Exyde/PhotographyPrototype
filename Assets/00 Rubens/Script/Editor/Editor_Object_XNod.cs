@@ -45,6 +45,10 @@ public class Editor_Object_XNod : NodeEditor
 
             EditorGUILayout.Space(5);
 
+            NodeEditorGUILayout.PropertyField(serializedObject.FindProperty("HaveAUnderBloc"), new GUIContent("Lié à un sous-bloc ?"));
+
+            EditorGUILayout.Space(5);
+
             NodeEditorGUILayout.PropertyField(serializedObject.FindProperty("PrefabObjectToSpawn"), new GUIContent("Prefab Objet à spawn"));
 
             EditorGUILayout.Space(5);
@@ -67,7 +71,7 @@ public class Editor_Object_XNod : NodeEditor
         {
             EditorGUILayout.BeginVertical(EditorStyles.helpBox);
 
-            EditorGUILayout.LabelField("Photo prise : " + curent_object.PictureTaken.ToString(), EditorStyles.boldLabel);
+            EditorGUILayout.LabelField("Photo prise : " + curent_object.PictureTaken.ToString());
 
             EditorGUILayout.LabelField("Disponibilité : " + curent_object.IsDisponible());
 
@@ -109,11 +113,13 @@ public class Editor_Object_XNod : NodeEditor
 
         if (curent_object.DisponibleIfParticularCondition)
         {
-            NodeEditorGUILayout.PropertyField(serializedObject.FindProperty("ParticularConditionForActivate"), new GUIContent("Condition Particulière :"));
-
+            NodeEditorGUILayout.PropertyField(serializedObject.FindProperty("ParticularConditionForActivate"), new GUIContent("Condition Particulière"));
         }
 
-
+        if (curent_object.HaveAUnderBloc)
+        {
+            NodeEditorGUILayout.PropertyField(serializedObject.FindProperty("MyUnderBloc"), new GUIContent("Sous-bloc Narratif"));
+        }
 
         EditorGUILayout.EndVertical();
 

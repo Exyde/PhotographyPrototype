@@ -40,6 +40,12 @@ public class Graph_XNod : NodeGraph {
         {
             curentObject.ResetNarrativeBloc();
         }
+
+        List<UnderBloc_XNode> listUnderBloc = nodes.OfType<UnderBloc_XNode>().ToList();
+        foreach (UnderBloc_XNode curentObject in listUnderBloc)
+        {
+            curentObject.ResetUnderBloc();
+        }
     }
 
     public  List<Object_XNod> GetListOfItemsDisponibleForSpawn(int NumberOfObjectToSpawn)
@@ -62,8 +68,11 @@ public class Graph_XNod : NodeGraph {
 
         for (int i = 0; i < NbOfIterations; i++)
         {
-            listObject.Add(ListObjectsDisponibles[Random.Range(0, ListObjectsDisponibles.Count)]);
+            int RandomInList = Random.Range(0, ListObjectsDisponibles.Count);
+            listObject.Add(ListObjectsDisponibles[RandomInList]);
+            ListObjectsDisponibles.RemoveAt(RandomInList);
         }
+        UpdateListOfObjectDisponible();
 
         return listObject;
     }

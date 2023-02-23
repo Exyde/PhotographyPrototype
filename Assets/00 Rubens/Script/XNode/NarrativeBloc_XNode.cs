@@ -5,6 +5,9 @@ using XNode;
 
 
 [NodeWidth(450)]
+[NodeTint("#433627")]
+
+
 public class NarrativeBloc_XNode : Node {
 
 	[TextArea] public string Question;

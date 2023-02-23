@@ -58,7 +58,7 @@ public class Editor_NarrativeBloc_XNode : NodeEditor
 
         NodeEditorGUILayout.PropertyField(serializedObject.FindProperty("WillActivateWhenResolution"));
 
-        NodeEditorGUILayout.PropertyField(serializedObject.FindProperty("Myself"));
+        NodeEditorGUILayout.PropertyField(serializedObject.FindProperty("Myself")); 
 
         //NodeEditorGUILayout.PropertyField(serializedObject.FindProperty("isActivate"));
 

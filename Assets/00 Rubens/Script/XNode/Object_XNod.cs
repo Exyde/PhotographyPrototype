@@ -4,13 +4,18 @@ using UnityEngine;
 using XNode;
 
 [NodeWidth(400)]
-[NodeTint("#2E3ECC")]
+//[NodeTint("#2E3ECC")]
+[NodeTint("#262942")]
+
+
 
 public class Object_XNod : Node {
 
-	[Input] public NarrativeBloc_XNode BlocOfNarration;
+	[Input] public NarrativeBloc_XNode BlocOfNarration; 
 
 	[Input] public bool ParticularConditionForActivate; //Activé si DisponibleIfParticularCondition est true;
+
+	[Input] public UnderBloc_XNode MyUnderBloc; //Activé si HaveAUnderBlocIsTrue;
 
 	[TextArea] public string NameOfTheObject;
 
@@ -20,9 +25,11 @@ public class Object_XNod : Node {
 
 	public bool DisponibleIfParticularCondition;
 
+	public bool HaveAUnderBloc;
+
 	public GameObject PrefabObjectToSpawn;
 
-	public Texture PictureDebugTexture;
+	public Texture2D PictureDebugTexture;
 
 	public override object GetValue(NodePort port)
 	{
@@ -44,6 +51,12 @@ public class Object_XNod : Node {
 			Debug.Log("Photo déjà prise.");
 			return;
         }
+
+        if (HaveAUnderBloc)
+        {
+			GetInputValue<UnderBloc_XNode>("MyUnderBloc").AddPictureToMyValue();
+
+		}
 
 
 		PictureTaken = true;

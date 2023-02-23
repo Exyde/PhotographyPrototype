@@ -10,14 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 74ccbac823f815f479355e63d07977c6, type: 3}
-  m_Name: "Une Boule \xE0 neige du Sahara / + 4"
+  m_Name: "Une Boule \xE0 neige du Sahara / + 3"
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 424, y: 632}
+  position: {x: 408, y: 248}
   ports:
     keys:
     - BlocOfNarration
     - ParticularConditionForActivate
+    - MyUnderBloc
     values:
     - _fieldName: BlocOfNarration
       _node: {fileID: -8102688259813258779}
@@ -40,14 +41,77 @@ MonoBehaviour:
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 0
+    - _fieldName: MyUnderBloc
+      _node: {fileID: -8102688259813258779}
+      _typeQualifiedName: UnderBloc_XNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
   BlocOfNarration: {fileID: 0}
   ParticularConditionForActivate: 0
+  MyUnderBloc: {fileID: 0}
   NameOfTheObject: "Une Boule \xE0 neige du Sahara"
-  ValueForBloc: 4
+  ValueForBloc: 3
   PictureTaken: 1
   DisponibleIfParticularCondition: 0
-  PrefabObjectToSpawn: {fileID: 5588329769373306622, guid: 1b489c374981d1e5f9ecba198d7198c6, type: 3}
-  PictureDebugTexture: {fileID: 2800000, guid: fe6a1d2812f70bc4fbf57a9ee865004f, type: 3}
+  HaveAUnderBloc: 0
+  PrefabObjectToSpawn: {fileID: 5588329769373306622, guid: dbd01ddfc59a46ea2ac2e4461b69b3be, type: 3}
+  PictureDebugTexture: {fileID: 2800000, guid: 570a9373717fb36449c6020be8559550, type: 3}
+--- !u!114 &-5354627152681470523
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 686e27212ea95f749b1e36a8565aa8dd, type: 3}
+  m_Name: Qu'est ce que cette Tasse et cette Carte Postale ?  / + 6  / ( 2 / 2 )
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -1224, y: 200}
+  ports:
+    keys:
+    - BlocOfNarration
+    - MySelf
+    values:
+    - _fieldName: BlocOfNarration
+      _node: {fileID: -5354627152681470523}
+      _typeQualifiedName: NarrativeBloc_XNode, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: Myself
+        node: {fileID: 9131805213518582990}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: MySelf
+      _node: {fileID: -5354627152681470523}
+      _typeQualifiedName: UnderBloc_XNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: MyUnderBloc
+        node: {fileID: 8703900324349714643}
+        reroutePoints: []
+      - fieldName: MyUnderBloc
+        node: {fileID: 8839235430469026456}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  BlocOfNarration: {fileID: 0}
+  MySelf: {fileID: 0}
+  Question: 'Qu''est ce que cette Tasse et cette Carte Postale ? '
+  PictureToTakeForAddValue: 2
+  PictureTakenInUnderbloc: 2
+  ValueForBloc: 6
 --- !u!114 &-4442200725438504682
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -123,14 +187,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 74ccbac823f815f479355e63d07977c6, type: 3}
-  m_Name: Statue de Petit / + 1
+  m_Name: Statue de Petit / + 3
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 440, y: 120}
+  position: {x: 280, y: -312}
   ports:
     keys:
     - BlocOfNarration
     - ParticularConditionForActivate
+    - MyUnderBloc
     values:
     - _fieldName: BlocOfNarration
       _node: {fileID: -4033170502625259137}
@@ -153,14 +218,25 @@ MonoBehaviour:
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 0
+    - _fieldName: MyUnderBloc
+      _node: {fileID: -4033170502625259137}
+      _typeQualifiedName: UnderBloc_XNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
   BlocOfNarration: {fileID: 0}
   ParticularConditionForActivate: 0
+  MyUnderBloc: {fileID: 0}
   NameOfTheObject: Statue de Petit
-  ValueForBloc: 1
+  ValueForBloc: 3
   PictureTaken: 1
   DisponibleIfParticularCondition: 0
-  PrefabObjectToSpawn: {fileID: 5588329769373306622, guid: ff8c1d4ac855deb75ae4a172d1f46f5d, type: 3}
-  PictureDebugTexture: {fileID: 2800000, guid: b3f9d6998c4cf4044b2c686e65dcd180, type: 3}
+  HaveAUnderBloc: 0
+  PrefabObjectToSpawn: {fileID: 5588329769373306622, guid: dbd01ddfc59a46ea2ac2e4461b69b3be, type: 3}
+  PictureDebugTexture: {fileID: 2800000, guid: fe6a1d2812f70bc4fbf57a9ee865004f, type: 3}
 --- !u!114 &-2240352099877011316
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -216,7 +292,7 @@ MonoBehaviour:
       _dynamic: 0
   Question: sssss
   NecessaryResolution: 20
-  ActualResolution: 0
+  ActualResolution: 5
   TrueForActivate: 0
   Myself: {fileID: 0}
   WillActivateWhenResolution: 0
@@ -238,6 +314,7 @@ MonoBehaviour:
     keys:
     - BlocOfNarration
     - ParticularConditionForActivate
+    - MyUnderBloc
     values:
     - _fieldName: BlocOfNarration
       _node: {fileID: -843366514640405745}
@@ -260,13 +337,24 @@ MonoBehaviour:
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 0
+    - _fieldName: MyUnderBloc
+      _node: {fileID: -843366514640405745}
+      _typeQualifiedName: UnderBloc_XNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
   BlocOfNarration: {fileID: 0}
   ParticularConditionForActivate: 0
+  MyUnderBloc: {fileID: 0}
   NameOfTheObject: Objet de Palier 2
   ValueForBloc: 2
   PictureTaken: 1
   DisponibleIfParticularCondition: 0
-  PrefabObjectToSpawn: {fileID: 5588329769373306622, guid: 6cb750999631e6aecb28d7acca6e6273, type: 3}
+  HaveAUnderBloc: 0
+  PrefabObjectToSpawn: {fileID: 5588329769373306622, guid: dbd01ddfc59a46ea2ac2e4461b69b3be, type: 3}
   PictureDebugTexture: {fileID: 2800000, guid: 9ba8e298c0c28894081a168f0786b1bc, type: 3}
 --- !u!114 &11400000
 MonoBehaviour:
@@ -281,9 +369,9 @@ MonoBehaviour:
   m_Name: Graph Test
   m_EditorClassIdentifier: 
   nodes:
-  - {fileID: 976835887981512359}
   - {fileID: 4860584244364962389}
   - {fileID: 2415145725344299283}
+  - {fileID: 976835887981512359}
   - {fileID: 9131805213518582990}
   - {fileID: -4033170502625259137}
   - {fileID: -8102688259813258779}
@@ -295,8 +383,8 @@ MonoBehaviour:
   - {fileID: 8839235430469026456}
   - {fileID: 8703900324349714643}
   - {fileID: -843366514640405745}
-  ListObjectsDisponibles:
-  - {fileID: 8738126090109506005}
+  - {fileID: -5354627152681470523}
+  ListObjectsDisponibles: []
 --- !u!114 &976835887981512359
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -350,7 +438,7 @@ MonoBehaviour:
   m_Name: Depart_X Nod
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -600, y: 136}
+  position: {x: -1560, y: -120}
   ports:
     keys:
     - True
@@ -386,6 +474,7 @@ MonoBehaviour:
     keys:
     - BlocOfNarration
     - ParticularConditionForActivate
+    - MyUnderBloc
     values:
     - _fieldName: BlocOfNarration
       _node: {fileID: 3306549139796323581}
@@ -408,12 +497,23 @@ MonoBehaviour:
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 0
+    - _fieldName: MyUnderBloc
+      _node: {fileID: 3306549139796323581}
+      _typeQualifiedName: UnderBloc_XNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
   BlocOfNarration: {fileID: 0}
   ParticularConditionForActivate: 0
+  MyUnderBloc: {fileID: 0}
   NameOfTheObject: Autre objet de Pallier 2
   ValueForBloc: 3
   PictureTaken: 1
   DisponibleIfParticularCondition: 0
+  HaveAUnderBloc: 0
   PrefabObjectToSpawn: {fileID: 5588329769373306622, guid: dbd01ddfc59a46ea2ac2e4461b69b3be, type: 3}
   PictureDebugTexture: {fileID: 2800000, guid: 570a9373717fb36449c6020be8559550, type: 3}
 --- !u!114 &4860584244364962389
@@ -429,12 +529,12 @@ MonoBehaviour:
   m_Name: Node Group
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -360, y: -248}
+  position: {x: -1288, y: -440}
   ports:
     keys: []
     values: []
-  width: 1244
-  height: 1239
+  width: 2175
+  height: 1631
   color: {r: 1, g: 1, b: 1, a: 0.1}
 --- !u!114 &8703900324349714643
 MonoBehaviour:
@@ -446,14 +546,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 74ccbac823f815f479355e63d07977c6, type: 3}
-  m_Name: "Tasse de Caf\xE9 / + 2"
+  m_Name: "Tasse de Caf\xE9  / + 5"
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -184, y: 184}
+  position: {x: -680, y: -296}
   ports:
     keys:
     - BlocOfNarration
     - ParticularConditionForActivate
+    - MyUnderBloc
     values:
     - _fieldName: BlocOfNarration
       _node: {fileID: 8703900324349714643}
@@ -476,14 +577,28 @@ MonoBehaviour:
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 0
+    - _fieldName: MyUnderBloc
+      _node: {fileID: 8703900324349714643}
+      _typeQualifiedName: UnderBloc_XNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: MySelf
+        node: {fileID: -5354627152681470523}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
   BlocOfNarration: {fileID: 0}
   ParticularConditionForActivate: 0
-  NameOfTheObject: "Tasse de Caf\xE9"
-  ValueForBloc: 2
+  MyUnderBloc: {fileID: 0}
+  NameOfTheObject: "Tasse de Caf\xE9 "
+  ValueForBloc: 5
   PictureTaken: 1
   DisponibleIfParticularCondition: 0
-  PrefabObjectToSpawn: {fileID: 5588329769373306622, guid: 1ec0e05e5093bc4d8ab125f968656d42, type: 3}
-  PictureDebugTexture: {fileID: 2800000, guid: 570a9373717fb36449c6020be8559550, type: 3}
+  HaveAUnderBloc: 1
+  PrefabObjectToSpawn: {fileID: 5588329769373306622, guid: dbd01ddfc59a46ea2ac2e4461b69b3be, type: 3}
+  PictureDebugTexture: {fileID: 2800000, guid: 0d3c195be7863184888e1365dbe1f33b, type: 3}
 --- !u!114 &8738126090109506005
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -502,6 +617,7 @@ MonoBehaviour:
     keys:
     - BlocOfNarration
     - ParticularConditionForActivate
+    - MyUnderBloc
     values:
     - _fieldName: BlocOfNarration
       _node: {fileID: 8738126090109506005}
@@ -524,14 +640,25 @@ MonoBehaviour:
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 0
+    - _fieldName: MyUnderBloc
+      _node: {fileID: 8738126090109506005}
+      _typeQualifiedName: UnderBloc_XNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
   BlocOfNarration: {fileID: 0}
   ParticularConditionForActivate: 0
+  MyUnderBloc: {fileID: 0}
   NameOfTheObject: Objet de Pallier 3
   ValueForBloc: 5
-  PictureTaken: 0
+  PictureTaken: 1
   DisponibleIfParticularCondition: 0
-  PrefabObjectToSpawn: {fileID: 5588329769373306622, guid: ad9c1202f94427d15a5ba1c271dc5b98, type: 3}
-  PictureDebugTexture: {fileID: 2800000, guid: f3d8a8d47f6afdd48ada5cdf62f47cf6, type: 3}
+  HaveAUnderBloc: 0
+  PrefabObjectToSpawn: {fileID: 5588329769373306622, guid: dbd01ddfc59a46ea2ac2e4461b69b3be, type: 3}
+  PictureDebugTexture: {fileID: 2800000, guid: 0d3c195be7863184888e1365dbe1f33b, type: 3}
 --- !u!114 &8839235430469026456
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -542,14 +669,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 74ccbac823f815f479355e63d07977c6, type: 3}
-  m_Name: Carte Postale / + 2
+  m_Name: Carte Postale / + 1
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -136, y: 680}
+  position: {x: -680, y: 280}
   ports:
     keys:
     - BlocOfNarration
     - ParticularConditionForActivate
+    - MyUnderBloc
     values:
     - _fieldName: BlocOfNarration
       _node: {fileID: 8839235430469026456}
@@ -572,13 +700,27 @@ MonoBehaviour:
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 0
+    - _fieldName: MyUnderBloc
+      _node: {fileID: 8839235430469026456}
+      _typeQualifiedName: UnderBloc_XNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: MySelf
+        node: {fileID: -5354627152681470523}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
   BlocOfNarration: {fileID: 0}
   ParticularConditionForActivate: 0
+  MyUnderBloc: {fileID: 0}
   NameOfTheObject: Carte Postale
-  ValueForBloc: 2
+  ValueForBloc: 1
   PictureTaken: 1
   DisponibleIfParticularCondition: 0
-  PrefabObjectToSpawn: {fileID: 5588329769373306622, guid: 7b3c25d92353d65c5957c7c989c0ca8c, type: 3}
+  HaveAUnderBloc: 1
+  PrefabObjectToSpawn: {fileID: 5588329769373306622, guid: dbd01ddfc59a46ea2ac2e4461b69b3be, type: 3}
   PictureDebugTexture: {fileID: 2800000, guid: 64d3c8d56ec07724295f5bccc3013e69, type: 3}
 --- !u!114 &9131805213518582990
 MonoBehaviour:
@@ -590,10 +732,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 309bb0624c7cb7343ae5792c57a26fbb, type: 3}
-  m_Name: Que fait la machine ? / ( 9 / 5 )
+  m_Name: Que fait la machine ?  / ( 18 / 5 )
   m_EditorClassIdentifier: 
   graph: {fileID: 0}
-  position: {x: -232, y: -120}
+  position: {x: -1224, y: -424}
   ports:
     keys:
     - Myself
@@ -616,6 +758,9 @@ MonoBehaviour:
         reroutePoints: []
       - fieldName: BlocOfNarration
         node: {fileID: 8703900324349714643}
+        reroutePoints: []
+      - fieldName: BlocOfNarration
+        node: {fileID: -5354627152681470523}
         reroutePoints: []
       _direction: 1
       _connectionType: 0
@@ -645,9 +790,9 @@ MonoBehaviour:
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 0
-  Question: Que fait la machine ?
+  Question: 'Que fait la machine ? '
   NecessaryResolution: 5
-  ActualResolution: 9
+  ActualResolution: 18
   TrueForActivate: 0
   Myself: {fileID: 0}
   WillActivateWhenResolution: 0
