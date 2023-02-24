@@ -7,6 +7,11 @@ using TMPro;
 
 public class Polaroid : MonoBehaviour
 {
+    enum State{
+        Photography, SlotSelection
+    }
+
+    [SerializeField] State _state = State.Photography;
     #region Fields
     [Header ("Settings")]
     public ObjectManager _objetManager;
@@ -30,6 +35,7 @@ public class Polaroid : MonoBehaviour
     // [SerializeField] string _picturableTag = "Picturable";
     [SerializeField][Range(1, 20)] float _photographyMaxDistance = 10f;
     [SerializeField] ParticleSystem _PS_Flash;
+    [SerializeField] bool _automaticPictureTakenAfterSlotSelection = false;
     #endregion
 
     #region UnityCallbacks
@@ -42,13 +48,17 @@ public class Polaroid : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.P) || Input.GetMouseButtonDown(0)){
-            TakePicture();
+        if(_state == State.Photography){
+            if((Input.GetKeyDown(KeyCode.P) || Input.GetMouseButtonDown(0))){
+                TakePicture();
+            }
         }
+
+        if (_state == State.SlotSelection) HandlePictureSlotSelection();
     }
     #endregion
 
-    public void TakePicture(){ //Can't do this with index incrementation like this, we need to have custom slots @TODO
+    public void TakePicture(){
         RaycastHit hit;
         if (Physics.Raycast(transform.position, transform.forward, out hit, _photographyMaxDistance, _picturableLayer)){
             PicturableObject picturable = hit.collider.gameObject.GetComponent<PicturableObject>();
@@ -66,36 +76,39 @@ public class Polaroid : MonoBehaviour
                     _pictureTakensCount++;
                     _PS_Flash.Play();
                 }
-
             }
             else {
-                StartCoroutine(HandlePictureSlotSelection());
+                _state = State.SlotSelection;
             }
         }
     }
 
-    IEnumerator HandlePictureSlotSelection(){
+    void HandlePictureSlotSelection(){
         _pictureOverrideTxt.gameObject.SetActive(true);
-        //Disable movement & Stuff ? Coroutine ? While ?
         int playerPictureSlotIndexSelected = -1;
-
         
-        while(playerPictureSlotIndexSelected == -1){
-            if (Input.GetKeyDown(KeyCode.I)) playerPictureSlotIndexSelected = 0;
-            else if (Input.GetKeyDown(KeyCode.I)) playerPictureSlotIndexSelected = 1;
-            else if (Input.GetKeyDown(KeyCode.I)) playerPictureSlotIndexSelected = 2;
-            Debug.Log("In While");
-            yield return new WaitForSeconds(.1f);
+        if (Input.GetKeyDown(KeyCode.I)) playerPictureSlotIndexSelected = 0;
+        else if (Input.GetKeyDown(KeyCode.O)) playerPictureSlotIndexSelected = 1;
+        else if (Input.GetKeyDown(KeyCode.P)) playerPictureSlotIndexSelected = 2;
+        else if (Input.GetKey(KeyCode.Q)){
+            _pictureOverrideTxt.gameObject.SetActive(false);
+            _state = State.Photography;
+            return;
         }
+
+        if (playerPictureSlotIndexSelected == -1) return;
 
         _pictureTakenSlots[playerPictureSlotIndexSelected] = false;
         _currentPicturesObjects[playerPictureSlotIndexSelected] = null;
         _pictures[playerPictureSlotIndexSelected] = null;
         _UIImagePictureSlots[playerPictureSlotIndexSelected].sprite = null;
+        _pictureTakensCount--;
+
+         _state = State.Photography;
 
         _pictureOverrideTxt.gameObject.SetActive(false);
-        TakePicture();
 
+        if (_automaticPictureTakenAfterSlotSelection) TakePicture();
     }
 
     private int GetAvailableSlotIndex(){

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.23461942, g: 0.231689, b: 0.4033199, a: 1}
+  m_IndirectSpecularColor: {r: 0.23413126, g: 0.23120043, b: 0.40258667, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1315,6 +1315,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1332597507}
     - target: {fileID: 105299981, guid: 080da32e44fcb264bba5b4be0dd5230d, type: 3}
+      propertyPath: _pictureOverrideTxt
+      value: 
+      objectReference: {fileID: 2071861567}
+    - target: {fileID: 105299981, guid: 080da32e44fcb264bba5b4be0dd5230d, type: 3}
       propertyPath: _photographyMaxDistance
       value: 16.15
       objectReference: {fileID: 0}
@@ -1661,7 +1665,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 823a5bf10b962d25bb6a92e95eed74ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _graph: {fileID: 11400000, guid: 631d5d2d1c53cbd45869ea56da24260c, type: 2}
+  _graph: {fileID: 11400000, guid: 1b0ca82cf48b01347933a05d42ae0d6f, type: 2}
   _xNodeObjectsAvailable: []
   _cabineSpawnPoints: {fileID: 1699510562}
   _objectsInCabineCount: 3
