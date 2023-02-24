@@ -44,7 +44,7 @@ public class Polaroid : MonoBehaviour
     ///<summary>
     /// Texture reference to the XNod Picture.
     /// </summary>
-    [SerializeField] Texture[] _pictures; //@TODO : Will be generated and/or moved in the Picture Class itself. Will be a reference to the picture class
+    [SerializeField] Texture2D[] _pictures; //@TODO : Will be generated and/or moved in the Picture Class itself. Will be a reference to the picture class
 
 
     [Space(10)]
@@ -184,7 +184,7 @@ public class Polaroid : MonoBehaviour
         // Debug.Log("Reseting Arrays");
         _xNodSelectedPicturablesObjets.Clear();
         _currentXnodPicturedObjects = new Object_XNod[_maxPicturesSlots];
-        _pictures = new Texture[_maxPicturesSlots];
+        _pictures = new Texture2D[_maxPicturesSlots];
 
         _pictureTakenSlots = new bool[_maxPicturesSlots];
         for (int i =0; i < _maxPicturesSlots; i++){

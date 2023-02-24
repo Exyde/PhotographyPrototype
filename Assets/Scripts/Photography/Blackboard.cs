@@ -5,9 +5,14 @@ using UnityEngine;
 
 public class Blackboard : MonoBehaviour
 {
+    public static Blackboard _instance;
     [SerializeField] GameObject _picturePrefab;
     [SerializeField] float _pictureSpawnRange;
     [SerializeField] float _pictureZOffset = 0.5f;
+
+    private void Awake() {
+        _instance = this;
+    }
 
     public void CreatePictureOnBoard(Sprite sprite)
     {
