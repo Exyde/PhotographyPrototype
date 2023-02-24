@@ -65,7 +65,7 @@ MonoBehaviour:
   MyUnderBloc: {fileID: 0}
   NameOfTheObject: "Une Boule \xE0 neige du Sahara"
   ValueForBloc: 3
-  PictureTaken: 0
+  PictureTaken: 1
   ActiveABloc: 0
   DisponibleIfParticularCondition: 0
   HaveAUnderBloc: 0
@@ -121,7 +121,7 @@ MonoBehaviour:
   MySelf: {fileID: 0}
   Question: 'Qu''est ce que cette Tasse et cette Carte Postale ? '
   PictureToTakeForAddValue: 2
-  PictureTakenInUnderbloc: 0
+  PictureTakenInUnderbloc: 1
   ValueForBloc: 6
 --- !u!114 &-4442200725438504682
 MonoBehaviour:
@@ -419,9 +419,9 @@ MonoBehaviour:
   - {fileID: -5354627152681470523}
   ListObjectsDisponibles:
   - {fileID: -4033170502625259137}
-  - {fileID: -8102688259813258779}
+  - {fileID: 3306549139796323581}
   - {fileID: 8839235430469026456}
-  - {fileID: 8703900324349714643}
+  - {fileID: -843366514640405745}
 --- !u!114 &976835887981512359
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -652,7 +652,7 @@ MonoBehaviour:
   MyUnderBloc: {fileID: 0}
   NameOfTheObject: "Tasse de Caf\xE9 "
   ValueForBloc: 5
-  PictureTaken: 0
+  PictureTaken: 1
   ActiveABloc: 0
   DisponibleIfParticularCondition: 0
   HaveAUnderBloc: 1
@@ -813,7 +813,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 309bb0624c7cb7343ae5792c57a26fbb, type: 3}
-  m_Name: Que fait la machine ?  / ( 18 / 5 )
+  m_Name: Que fait la machine ?  / ( 8 / 5 )
   m_EditorClassIdentifier: 
   graph: {fileID: 0}
   position: {x: -1224, y: -424}
@@ -873,7 +873,7 @@ MonoBehaviour:
       _dynamic: 0
   Question: 'Que fait la machine ? '
   NecessaryResolution: 5
-  ActualResolution: 0
+  ActualResolution: 8
   TrueForActivate: 0
   Myself: {fileID: 0}
   WillActivateWhenResolution: 0

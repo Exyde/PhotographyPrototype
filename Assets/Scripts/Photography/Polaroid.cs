@@ -5,37 +5,60 @@ using UnityEngine.Events;
 using UnityEngine.UI;
 using TMPro;
 
+enum State{
+    Photography, SlotSelection
+}
+
 public class Polaroid : MonoBehaviour
 {
-    enum State{
-        Photography, SlotSelection
-    }
-
-    [SerializeField] State _state = State.Photography;
     #region Fields
-    [Header ("Settings")]
+    [Header ("References")] //@TODO : Replace thoses by Static Instance or Singletons ?
     public ObjectManager _objetManager;
     public Blackboard _blackboard;
-    public bool _inCabine;
-    public int _maxPicturesSlots = 3;
-    public bool[] _pictureTakenSlots;
-    public int  _pictureTakensCount = 0;
-    public Object_XNod[] _currentPicturesObjects;
-    public Texture[] _pictures;
+    [Space(5)]
+
+    [Header("UI References")] //@TODO : Replace with Event Broadcast & Observer Pattern Within the HUD ?
     public Image[] _UIImagePictureSlots;
     public TMP_Text _pictureOverrideTxt;
-    public List<Object_XNod> _selectedPicturesObjects = new List<Object_XNod>();
+    [Space(10)]
+
+    [Header ("Preview & Readonly")]
+    [SerializeField] State _state = State.Photography;
+    [SerializeField] bool _inCabine;
+    ///<summary>
+    /// XNod Objects currently saved in pictures slots.
+    /// </summary>
+    [SerializeField] Object_XNod[] _currentXnodPicturedObjects;
+   
+    ///<summary>
+    /// XNod Objects selected for tag update in the XNod Graph.
+    /// </summary>
+    [SerializeField] List<Object_XNod> _xNodSelectedPicturablesObjets = new List<Object_XNod>();
+
+    [Space (5)]
+    ///<summary>
+    /// Currently Available Slots. (false is empty, true is taken). @TODO : "Inventory Class"? 
+    /// </summary>
+    [SerializeField] bool[] _pictureTakenSlots;
+    [SerializeField] int _pictureTakensCount = 0;
+    ///<summary>
+    /// Texture reference to the XNod Picture.
+    /// </summary>
+    [SerializeField] Texture[] _pictures; //@TODO : Will be generated and/or moved in the Picture Class itself. Will be a reference to the picture class
+
+
+    [Space(10)]
+
+    [Header("Photography Mecanic Settings")]
+    [SerializeField][Tooltip("Nombre max de photos sur soi")] int _maxPicturesSlots = 3;
+    [SerializeField][Tooltip("Prise de photo automatique après avoir détruit une photo ?")] bool _automaticPictureTakenAfterSlotSelection = false;
+    [SerializeField][Tooltip("Distance maximale de photographie")][Range(1, 20)] float _photographyMaxDistance = 10f;
+    [SerializeField] LayerMask _picturableLayer;
+    [SerializeField] ParticleSystem _PS_Flash;
 
     [Header ("Events")]
     [HideInInspector] public UnityEvent _OnCabineEnter;
     [HideInInspector] public UnityEvent _OnCabineExit;
-
-    [Header("Photgraphy Mecanic")]
-    [SerializeField] LayerMask _picturableLayer;
-    // [SerializeField] string _picturableTag = "Picturable";
-    [SerializeField][Range(1, 20)] float _photographyMaxDistance = 10f;
-    [SerializeField] ParticleSystem _PS_Flash;
-    [SerializeField] bool _automaticPictureTakenAfterSlotSelection = false;
     #endregion
 
     #region UnityCallbacks
@@ -57,7 +80,7 @@ public class Polaroid : MonoBehaviour
         if (_state == State.SlotSelection) HandlePictureSlotSelection();
     }
     #endregion
-
+    #region Picture Methods
     public void TakePicture(){
         RaycastHit hit;
         if (Physics.Raycast(transform.position, transform.forward, out hit, _photographyMaxDistance, _picturableLayer)){
@@ -68,7 +91,7 @@ public class Polaroid : MonoBehaviour
                 Debug.Log("Slot index : " + slotIndex);
 
                 if (slotIndex >= 0){ //If a slot is available
-                    _currentPicturesObjects[slotIndex] = picturable._xNodeObject;
+                    _currentXnodPicturedObjects[slotIndex] = picturable.GetObject_XNod();
                     _pictures[slotIndex] = picturable.GetPictureTexture();
                     _UIImagePictureSlots[slotIndex].sprite = picturable.GetPictureAsSprite();
                     _pictureTakenSlots[slotIndex] = true;
@@ -83,7 +106,7 @@ public class Polaroid : MonoBehaviour
         }
     }
 
-    void HandlePictureSlotSelection(){
+    private void HandlePictureSlotSelection(){
         _pictureOverrideTxt.gameObject.SetActive(true);
         int playerPictureSlotIndexSelected = -1;
         
@@ -99,7 +122,7 @@ public class Polaroid : MonoBehaviour
         if (playerPictureSlotIndexSelected == -1) return;
 
         _pictureTakenSlots[playerPictureSlotIndexSelected] = false;
-        _currentPicturesObjects[playerPictureSlotIndexSelected] = null;
+        _currentXnodPicturedObjects[playerPictureSlotIndexSelected] = null;
         _pictures[playerPictureSlotIndexSelected] = null;
         _UIImagePictureSlots[playerPictureSlotIndexSelected].sprite = null;
         _pictureTakensCount--;
@@ -118,6 +141,8 @@ public class Polaroid : MonoBehaviour
         return -1;
     }
     
+    #endregion
+    #region Event Triggers
     private void OnTriggerEnter(Collider other) {
         if (other.gameObject.tag == "Cabine"){
             _inCabine = true;
@@ -131,11 +156,16 @@ public class Polaroid : MonoBehaviour
             _OnCabineExit?.Invoke();
         } 
     }
-
+    
+    void CallManagerUpdateList(){
+        _objetManager.UpdateObjectAndSpawnObjectInCabine(_objetManager._objectsInCabineCount);
+    }
+    #endregion
+    #region Resets
     void ResetPolaroid(){
         Debug.Log("Reset Polaroid.");
-        for (int i = 0; i < _currentPicturesObjects.Length; i++){
-            _selectedPicturesObjects.Add(_currentPicturesObjects[i]);
+        for (int i = 0; i < _currentXnodPicturedObjects.Length; i++){
+            _xNodSelectedPicturablesObjets.Add(_currentXnodPicturedObjects[i]);
         }
 
         for (int i =0; i < _maxPicturesSlots; i++){
@@ -145,19 +175,17 @@ public class Polaroid : MonoBehaviour
             }
         }
         
-        _objetManager.UpdatePicturedXNodeObjets(_selectedPicturesObjects);
+        _objetManager.UpdatePicturedXNodeObjets(_xNodSelectedPicturablesObjets);
 
         ResetPicturesArrayAndList();
     }
 
     void ResetPicturesArrayAndList(){
         // Debug.Log("Reseting Arrays");
-
-        _selectedPicturesObjects.Clear();
-        _currentPicturesObjects = new Object_XNod[_maxPicturesSlots];
+        _xNodSelectedPicturablesObjets.Clear();
+        _currentXnodPicturedObjects = new Object_XNod[_maxPicturesSlots];
         _pictures = new Texture[_maxPicturesSlots];
 
-        //One with remplace this second
         _pictureTakenSlots = new bool[_maxPicturesSlots];
         for (int i =0; i < _maxPicturesSlots; i++){
             _pictureTakenSlots[i] = false;
@@ -166,12 +194,11 @@ public class Polaroid : MonoBehaviour
         // Debug.Log("Finish Reseting Arrays");
     }
 
-    void CallManagerUpdateList(){
-        _objetManager.UpdateObjectList(_objetManager._objectsInCabineCount);
-    }
+    #endregion
 
     void OnDrawGizmos(){
         Gizmos.color = Color.blue;
         Gizmos.DrawLine(transform.position, transform.position + transform.forward * _photographyMaxDistance);
     }
 }
+

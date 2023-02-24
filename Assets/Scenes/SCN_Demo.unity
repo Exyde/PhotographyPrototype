@@ -262,8 +262,9 @@ GameObject:
   - component: {fileID: 367621997}
   - component: {fileID: 367621998}
   - component: {fileID: 367621999}
+  - component: {fileID: 367622000}
   m_Layer: 0
-  m_Name: Cabine
+  m_Name: Cabine - Object Manager
   m_TagString: Cabine
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -285,7 +286,7 @@ Transform:
   - {fileID: 1561112355}
   - {fileID: 1527323809}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &367621998
 BoxCollider:
@@ -316,6 +317,22 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &367622000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 367621996}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 823a5bf10b962d25bb6a92e95eed74ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _graph: {fileID: 11400000, guid: 1b0ca82cf48b01347933a05d42ae0d6f, type: 2}
+  _xNodeObjectsAvailable: []
+  _cabineSpawnPoints: {fileID: 1699510562}
+  _objectsInCabineCount: 3
 --- !u!1 &411497442
 GameObject:
   m_ObjectHideFlags: 0
@@ -382,7 +399,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &637164548
 GameObject:
@@ -923,7 +940,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!114 &945470640
 MonoBehaviour:
@@ -1038,7 +1055,7 @@ RectTransform:
   - {fileID: 2058509917}
   - {fileID: 2071861566}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1313,7 +1330,7 @@ PrefabInstance:
     - target: {fileID: 105299981, guid: 080da32e44fcb264bba5b4be0dd5230d, type: 3}
       propertyPath: _objetManager
       value: 
-      objectReference: {fileID: 1332597507}
+      objectReference: {fileID: 367622000}
     - target: {fileID: 105299981, guid: 080da32e44fcb264bba5b4be0dd5230d, type: 3}
       propertyPath: _pictureOverrideTxt
       value: 
@@ -1362,6 +1379,10 @@ PrefabInstance:
       propertyPath: _UIImagePictureSlots.Array.data[2]
       value: 
       objectReference: {fileID: 2058509918}
+    - target: {fileID: 105299981, guid: 080da32e44fcb264bba5b4be0dd5230d, type: 3}
+      propertyPath: _automaticPictureTakenAfterSlotSelection
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 26367746113858710, guid: 080da32e44fcb264bba5b4be0dd5230d, type: 3}
       propertyPath: m_MaxParticleSize
       value: 5000
@@ -1564,7 +1585,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3553652086242992560, guid: 080da32e44fcb264bba5b4be0dd5230d, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3553652086242992560, guid: 080da32e44fcb264bba5b4be0dd5230d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1636,54 +1657,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 080da32e44fcb264bba5b4be0dd5230d, type: 3}
---- !u!1 &1332597506
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1332597508}
-  - component: {fileID: 1332597507}
-  m_Layer: 0
-  m_Name: ObjectManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1332597507
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1332597506}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 823a5bf10b962d25bb6a92e95eed74ce, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _graph: {fileID: 11400000, guid: 1b0ca82cf48b01347933a05d42ae0d6f, type: 2}
-  _xNodeObjectsAvailable: []
-  _cabineSpawnPoints: {fileID: 1699510562}
-  _objectsInCabineCount: 3
---- !u!4 &1332597508
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1332597506}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1527323808
 GameObject:
   m_ObjectHideFlags: 0
@@ -2045,6 +2018,37 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1716434729}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1951500494
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1951500495}
+  m_Layer: 0
+  m_Name: -------- GAMEPLAY ELEMENTS -------------------
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1951500495
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1951500494}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1108.5382, y: 644.3853, z: -3.3292434}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1969820319
 GameObject:
   m_ObjectHideFlags: 0
@@ -2355,7 +2359,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Tapez 1, 2, ou 3 pour remplacer la photo...
+  m_text: 'Tapez I, O, ou P pour remplacer la photo...
+
+    Q pour annuler'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
