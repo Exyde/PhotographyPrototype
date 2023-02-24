@@ -13,6 +13,7 @@ public class Polaroid : MonoBehaviour
     public Blackboard _blackboard;
     public bool _inCabine;
     public int _maxPicturesSlots = 3;
+    public bool[] _pictureTakenSlots;
     public int  _pictureTakensCount = 0;
     public Object_XNod[] _currentPicturesObjects;
     public Texture[] _pictures;
@@ -53,11 +54,19 @@ public class Polaroid : MonoBehaviour
             PicturableObject picturable = hit.collider.gameObject.GetComponent<PicturableObject>();
 
             if(_pictureTakensCount < _maxPicturesSlots){
-                _currentPicturesObjects[_pictureTakensCount] = picturable._xNodeObject;
-                _pictures[_pictureTakensCount] = picturable.GetPictureTexture();
-                _UIImagePictureSlots[_pictureTakensCount].sprite = picturable.GetPictureAsSprite();
-                _pictureTakensCount++;
-                _PS_Flash.Play();
+                int slotIndex = GetAvailableSlotIndex();
+                Debug.Log("Slot index : " + slotIndex);
+
+                if (slotIndex >= 0){ //If a slot is available
+                    _currentPicturesObjects[slotIndex] = picturable._xNodeObject;
+                    _pictures[slotIndex] = picturable.GetPictureTexture();
+                    _UIImagePictureSlots[slotIndex].sprite = picturable.GetPictureAsSprite();
+                    _pictureTakenSlots[slotIndex] = true;
+
+                    _pictureTakensCount++;
+                    _PS_Flash.Play();
+                }
+
             }
             else {
                 StartCoroutine(HandlePictureSlotSelection());
@@ -68,24 +77,32 @@ public class Polaroid : MonoBehaviour
     IEnumerator HandlePictureSlotSelection(){
         _pictureOverrideTxt.gameObject.SetActive(true);
         //Disable movement & Stuff ? Coroutine ? While ?
-        int index = -1;
-        
-        
-        while(index == -1){
-            if (Input.GetKeyDown(KeyCode.I)) index = 0;
-            else if (Input.GetKeyDown(KeyCode.I)) index = 1;
-            else if (Input.GetKeyDown(KeyCode.I)) index = 2;
+        int playerPictureSlotIndexSelected = -1;
 
+        
+        while(playerPictureSlotIndexSelected == -1){
+            if (Input.GetKeyDown(KeyCode.I)) playerPictureSlotIndexSelected = 0;
+            else if (Input.GetKeyDown(KeyCode.I)) playerPictureSlotIndexSelected = 1;
+            else if (Input.GetKeyDown(KeyCode.I)) playerPictureSlotIndexSelected = 2;
+            Debug.Log("In While");
             yield return new WaitForSeconds(.1f);
         }
 
-        _currentPicturesObjects[_pictureTakensCount] = null;
-        _pictures[_pictureTakensCount] = null;
-        _UIImagePictureSlots[_pictureTakensCount].sprite = null;
+        _pictureTakenSlots[playerPictureSlotIndexSelected] = false;
+        _currentPicturesObjects[playerPictureSlotIndexSelected] = null;
+        _pictures[playerPictureSlotIndexSelected] = null;
+        _UIImagePictureSlots[playerPictureSlotIndexSelected].sprite = null;
 
         _pictureOverrideTxt.gameObject.SetActive(false);
         TakePicture();
 
+    }
+
+    private int GetAvailableSlotIndex(){
+        for (int i = 0; i < _maxPicturesSlots; i++){
+            if (_pictureTakenSlots[i] == false) return i;
+        }
+        return -1;
     }
     
     private void OnTriggerEnter(Collider other) {
@@ -116,7 +133,6 @@ public class Polaroid : MonoBehaviour
         }
         
         _objetManager.UpdatePicturedXNodeObjets(_selectedPicturesObjects);
-        _pictureTakensCount = 0;
 
         ResetPicturesArrayAndList();
     }
@@ -128,6 +144,12 @@ public class Polaroid : MonoBehaviour
         _currentPicturesObjects = new Object_XNod[_maxPicturesSlots];
         _pictures = new Texture[_maxPicturesSlots];
 
+        //One with remplace this second
+        _pictureTakenSlots = new bool[_maxPicturesSlots];
+        for (int i =0; i < _maxPicturesSlots; i++){
+            _pictureTakenSlots[i] = false;
+        }
+        _pictureTakensCount = 0;
         // Debug.Log("Finish Reseting Arrays");
     }
 
