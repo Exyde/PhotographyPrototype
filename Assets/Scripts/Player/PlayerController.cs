@@ -9,6 +9,8 @@ public class PlayerController : MonoBehaviour
         FPS, Blackboard
     }
 
+    [SerializeField] KeyCode _cameraToggleKeyCode = KeyCode.T;
+
     #region Fields
     // Public Fields
     [Header("Camera Stuffs")]
@@ -54,6 +56,7 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        if (Input.GetKeyDown(_cameraToggleKeyCode)) ToggleCamera();
         if ( _camState == CameraState.FPS) HandleMovement();
         else if (_camState == CameraState.Blackboard) HandleBlackboardInteraction();
     }
@@ -80,9 +83,6 @@ public class PlayerController : MonoBehaviour
             _moveDirection.y = movementDirectionY;
         }
 
-        if (Input.GetKeyDown(KeyCode.T)) ToggleCamera();
-
-
         if (!_characterController.isGrounded)
         {
             _moveDirection.y -= _gravity * Time.deltaTime;
@@ -102,31 +102,31 @@ public class PlayerController : MonoBehaviour
 
     void HandleBlackboardInteraction(){
         Debug.Log("Blackboard stuffs !");
+        //@TODO : Disable Rendering while in Blacboard => Toggle ? 
     }
     #endregion
 
     #region Camera Switch and Lerping
     void ToggleCamera(){
-        if(_camState == CameraState.FPS){ // Move to Blackboard
-            _mainCamera.transform.parent = _blackboardCameraHolder;
+        if(_camState == CameraState.FPS) SetBlackboardCamera(false);
+        else if (_camState == CameraState.Blackboard) SetFPSCamera(true);
+    }
 
-            //_mainCamera.transform.position = _blackboardCameraHolder.position;
-            StartCoroutine(LerpCameraPosition(_blackboardCameraHolder.position, 2f));
+    //@TODO : Must Become a Coroutine ?
+    void SetCamera(CameraState state, Transform parent, Vector3 targetPos = default(Vector3), bool lerpPosition = false, float transitionDuration = 1f){
+        _camState = state;
+        _mainCamera.transform.parent = parent;
 
-            _mainCamera.transform.LookAt(_blackboardCameraHolder.parent.transform);
-            _canMove = false;
-            _camState = CameraState.FPS;
+        if (lerpPosition)
+            StartCoroutine(LerpCameraPosition(targetPos, transitionDuration));
+        else
+            _mainCamera.transform.position = targetPos;
+    }
+    void SetFPSCamera(bool lerp) => SetCamera(CameraState.FPS, _fpsCameraHolder, _fpsCameraHolder.position, lerp, 2f);
+    void SetBlackboardCamera(bool lerp){
 
-        } else if (_camState == CameraState.Blackboard){ //Move to Fps
-
-            _mainCamera.transform.parent = _fpsCameraHolder;
-            //_mainCamera.transform.position = _fpsCameraPosition;
-            StartCoroutine(LerpCameraPosition(_fpsCameraPosition, 2f));
-
-            _canMove = true;
-            _camState = CameraState.Blackboard;
-
-        }
+        SetCamera(CameraState.Blackboard, _blackboardCameraHolder, _blackboardCameraHolder.position, lerp);
+        _mainCamera.transform.LookAt(_blackboardCameraHolder.parent.transform);
     }
 
     IEnumerator LerpCameraPosition(Vector3 to, float t){
