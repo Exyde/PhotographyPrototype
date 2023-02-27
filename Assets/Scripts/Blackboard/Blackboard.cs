@@ -10,11 +10,17 @@ public class Blackboard : MonoBehaviour
     [SerializeField] float _pictureSpawnRange;
     [SerializeField] float _pictureZOffset = 0.5f;
 
+    [Header("List")]
+    [SerializeField] List<BlackboardItemComponent> _blackboardObjects;
+    [SerializeField] List<BlackboardItem> _blackboaboardObjectsDatas;
+
     private void Awake() {
         _instance = this;
+        _blackboardObjects = new List<BlackboardItemComponent>();
+        _blackboaboardObjectsDatas = new List<BlackboardItem>();
     }
 
-    public void CreatePictureOnBoard(Sprite sprite)
+    public void CreatePictureOnBoard(Sprite sprite) //@TODO : Other implementation
     {
         //Position it on the board? Where ?
         Vector3 pos = transform.position + UnityEngine.Random.insideUnitSphere * _pictureSpawnRange;

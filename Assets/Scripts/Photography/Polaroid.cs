@@ -18,6 +18,7 @@ public class Polaroid : MonoBehaviour
     [Space(5)]
 
     [Header("UI References")] //@TODO : Replace with Event Broadcast & Observer Pattern Within the HUD ?
+    public GameObject _UIImagesHolder;
     public Image[] _UIImagePictureSlots;
     public TMP_Text _pictureOverrideTxt;
     [Space(10)]
@@ -44,9 +45,9 @@ public class Polaroid : MonoBehaviour
     ///<summary>
     /// Texture reference to the XNod Picture.
     /// </summary>
-    [SerializeField] Texture2D[] _pictures; //@TODO : Will be generated and/or moved in the Picture Class itself. Will be a reference to the picture class
-
-
+    [SerializeField] Picture[] _pictures;
+    [SerializeField] Texture2D[] _picturesTextures; //@TODO : Will be generated and/or moved in the Picture Class itself. Will be a reference to the picture class
+ 
     [Space(10)]
 
     [Header("Photography Mecanic Settings")]
@@ -64,6 +65,7 @@ public class Polaroid : MonoBehaviour
     #region UnityCallbacks
     void Start(){
         ResetPicturesArrayAndList();
+        _UIImagesHolder.SetActive(false);
 
         _OnCabineExit.AddListener(ResetPolaroid);
         _OnCabineExit.AddListener(CallManagerUpdateList);
@@ -88,16 +90,18 @@ public class Polaroid : MonoBehaviour
 
             if(_pictureTakensCount < _maxPicturesSlots){
                 int slotIndex = GetAvailableSlotIndex();
-                Debug.Log("Slot index : " + slotIndex);
+                //Debug.Log("Slot index : " + slotIndex);
 
                 if (slotIndex >= 0){ //If a slot is available
                     _currentXnodPicturedObjects[slotIndex] = picturable.GetObject_XNod();
-                    _pictures[slotIndex] = picturable.GetPictureTexture();
-                    _UIImagePictureSlots[slotIndex].sprite = picturable.GetPictureAsSprite();
-                    _pictureTakenSlots[slotIndex] = true;
+                    StartCoroutine(CreatePictureScriptable(slotIndex));
 
+                    // _picturesTextures[slotIndex] = picturable.GetPictureTexture();
+                   //_UIImagePictureSlots[slotIndex].sprite = picturable.GetPictureAsSprite();
+
+                    _pictureTakenSlots[slotIndex] = true;
                     _pictureTakensCount++;
-                    _PS_Flash.Play();
+                    //_PS_Flash.Play();
                 }
             }
             else {
@@ -107,6 +111,7 @@ public class Polaroid : MonoBehaviour
     }
 
     private void HandlePictureSlotSelection(){
+        _UIImagesHolder.SetActive(true);
         _pictureOverrideTxt.gameObject.SetActive(true);
         int playerPictureSlotIndexSelected = -1;
         
@@ -123,13 +128,15 @@ public class Polaroid : MonoBehaviour
 
         _pictureTakenSlots[playerPictureSlotIndexSelected] = false;
         _currentXnodPicturedObjects[playerPictureSlotIndexSelected] = null;
-        _pictures[playerPictureSlotIndexSelected] = null;
+        _picturesTextures[playerPictureSlotIndexSelected] = null;
         _UIImagePictureSlots[playerPictureSlotIndexSelected].sprite = null;
         _pictureTakensCount--;
 
          _state = State.Photography;
 
         _pictureOverrideTxt.gameObject.SetActive(false);
+        _UIImagesHolder.SetActive(false);
+
 
         if (_automaticPictureTakenAfterSlotSelection) TakePicture();
     }
@@ -171,6 +178,7 @@ public class Polaroid : MonoBehaviour
         for (int i =0; i < _maxPicturesSlots; i++){
             if (_UIImagePictureSlots[i].sprite != null){
                 _blackboard.CreatePictureOnBoard(_UIImagePictureSlots[i].sprite);
+                SaveSystem.SaveTexToPng(_picturesTextures[i], _picturesTextures[i].name, Random.Range(0, 2000)); //@TODO : Temp, remove this elsewhere
                 _UIImagePictureSlots[i].sprite = null;
             }
         }
@@ -184,7 +192,8 @@ public class Polaroid : MonoBehaviour
         // Debug.Log("Reseting Arrays");
         _xNodSelectedPicturablesObjets.Clear();
         _currentXnodPicturedObjects = new Object_XNod[_maxPicturesSlots];
-        _pictures = new Texture2D[_maxPicturesSlots];
+        _picturesTextures = new Texture2D[_maxPicturesSlots];
+        _pictures = new Picture[_maxPicturesSlots];
 
         _pictureTakenSlots = new bool[_maxPicturesSlots];
         for (int i =0; i < _maxPicturesSlots; i++){
@@ -199,6 +208,22 @@ public class Polaroid : MonoBehaviour
     void OnDrawGizmos(){
         Gizmos.color = Color.blue;
         Gizmos.DrawLine(transform.position, transform.position + transform.forward * _photographyMaxDistance);
+    }
+
+    IEnumerator CreatePictureScriptable(int index){
+        //Picture picture = ScriptableObject.CreateInstance("Picture") as Picture; // @TODO : Save and Load this in database ?
+        Picture picture = ScriptableObject.CreateInstance<Picture>(); // @TODO : Save and Load this in database ?
+
+        picture.name = _currentXnodPicturedObjects[index].name;
+
+        StartCoroutine(picture.CreateTextureAndSprite());
+        _pictures[index] = picture;
+
+        yield return new WaitForEndOfFrame();
+
+        _picturesTextures[index] = picture.GetTexture();
+        _UIImagePictureSlots[index].sprite = picture.GetSprite();
+
     }
 }
 
