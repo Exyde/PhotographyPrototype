@@ -7,23 +7,35 @@ using XNode;
 [CreateAssetMenu]
 public class Graph_XNod : NodeGraph {
 
-    public List<Object_XNod> ListObjectsDisponibles = new List<Object_XNod>();
+    //public List<Object_XNod> ListObjectsDisponibles = new List<Object_XNod>();
 
-    [ContextMenu("Mettre à jour la liste d'objets disponibles")]
-    void UpdateListOfObjectDisponible()
+    List<Object_XNod> getListOfObjectDisponible()
     {
-        ListObjectsDisponibles.Clear();
+        List<Object_XNod> listObjectsDisponibles = new List<Object_XNod>();
 
         List<Object_XNod> listObject = nodes.OfType<Object_XNod>().ToList();
 
         foreach (Object_XNod curentObject in listObject)
         {
-
             if (curentObject.IsDisponible())
             {
-                ListObjectsDisponibles.Add(curentObject);
+                listObjectsDisponibles.Add(curentObject);
             }
         }
+
+        return listObjectsDisponibles;
+    }
+
+    List<Object_XNod> getListOfObjectFilteredByCity(List<Object_XNod> listObject, Object_XNod.City city)
+    {
+        foreach(Object_XNod curentObject in listObject)
+        {
+            if(curentObject.FromCity != Object_XNod.City.DontMatter && curentObject.FromCity != city)
+            {
+                listObject.Remove(curentObject);
+            }
+        }
+        return listObject;
     }
 
     [ContextMenu("Reset les états de départ des objets")]
@@ -48,17 +60,19 @@ public class Graph_XNod : NodeGraph {
         }
     }
 
-    public  List<Object_XNod> GetListOfItemsDisponibleForSpawn(int NumberOfObjectToSpawn)
+    public  List<Object_XNod> GetListOfItemsDisponibleForSpawn(int numberOfObjectToSpawn, Object_XNod.City lastCityVisited)
     {
-        UpdateListOfObjectDisponible();
+        List<Object_XNod> listObjectsDisponibles = getListOfObjectDisponible();
 
-        List<Object_XNod> listObject = new List<Object_XNod>();
+        listObjectsDisponibles = getListOfObjectFilteredByCity(listObjectsDisponibles, lastCityVisited);
 
-        int NbOfIterations = NumberOfObjectToSpawn;
+        List<Object_XNod> myListObject = new List<Object_XNod>();
 
-        if(NbOfIterations > ListObjectsDisponibles.Count)
+        int NbOfIterations = numberOfObjectToSpawn;
+
+        if(NbOfIterations > listObjectsDisponibles.Count)
         {
-            NbOfIterations = ListObjectsDisponibles.Count;
+            NbOfIterations = listObjectsDisponibles.Count;
         }
 
         if (NbOfIterations == 0)
@@ -68,13 +82,13 @@ public class Graph_XNod : NodeGraph {
 
         for (int i = 0; i < NbOfIterations; i++)
         {
-            int RandomInList = Random.Range(0, ListObjectsDisponibles.Count);
-            listObject.Add(ListObjectsDisponibles[RandomInList]);
-            ListObjectsDisponibles.RemoveAt(RandomInList);
+            int RandomInList = Random.Range(0, listObjectsDisponibles.Count);
+            myListObject.Add(listObjectsDisponibles[RandomInList]);
+            listObjectsDisponibles.RemoveAt(RandomInList);
         }
-        UpdateListOfObjectDisponible();
+        getListOfObjectDisponible();
 
-        return listObject;
+        return myListObject;
     }
 
 	

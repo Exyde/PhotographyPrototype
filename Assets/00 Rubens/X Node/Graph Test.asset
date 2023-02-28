@@ -19,6 +19,7 @@ MonoBehaviour:
     - BlocOfNarration
     - ParticularConditionForActivate
     - MyUnderBloc
+    - ActiveABloc
     values:
     - _fieldName: BlocOfNarration
       _node: {fileID: -8102688259813258779}
@@ -50,14 +51,25 @@ MonoBehaviour:
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 0
+    - _fieldName: ActiveABloc
+      _node: {fileID: -8102688259813258779}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
   BlocOfNarration: {fileID: 0}
   ParticularConditionForActivate: 0
   MyUnderBloc: {fileID: 0}
   NameOfTheObject: "Une Boule \xE0 neige du Sahara"
   ValueForBloc: 3
+  ActiveABloc: 0
   PictureTaken: 0
   DisponibleIfParticularCondition: 0
   HaveAUnderBloc: 0
+  FromCity: 3
   PrefabObjectToSpawn: {fileID: 0}
   PictureDebugTexture: {fileID: 0}
 --- !u!114 &-5354627152681470523
@@ -187,7 +199,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 74ccbac823f815f479355e63d07977c6, type: 3}
-  m_Name: Statue de Petit / + 3
+  m_Name: Statue de Petit Lou / + 5
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
   position: {x: 280, y: -312}
@@ -196,6 +208,7 @@ MonoBehaviour:
     - BlocOfNarration
     - ParticularConditionForActivate
     - MyUnderBloc
+    - ActiveABloc
     values:
     - _fieldName: BlocOfNarration
       _node: {fileID: -4033170502625259137}
@@ -227,14 +240,25 @@ MonoBehaviour:
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 0
+    - _fieldName: ActiveABloc
+      _node: {fileID: -4033170502625259137}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
   BlocOfNarration: {fileID: 0}
   ParticularConditionForActivate: 0
   MyUnderBloc: {fileID: 0}
-  NameOfTheObject: Statue de Petit
-  ValueForBloc: 3
+  NameOfTheObject: Statue de Petit Lou
+  ValueForBloc: 5
+  ActiveABloc: 0
   PictureTaken: 1
   DisponibleIfParticularCondition: 0
   HaveAUnderBloc: 0
+  FromCity: 2
   PrefabObjectToSpawn: {fileID: 0}
   PictureDebugTexture: {fileID: 0}
 --- !u!114 &-2240352099877011316
@@ -315,6 +339,7 @@ MonoBehaviour:
     - BlocOfNarration
     - ParticularConditionForActivate
     - MyUnderBloc
+    - ActiveABloc
     values:
     - _fieldName: BlocOfNarration
       _node: {fileID: -843366514640405745}
@@ -346,14 +371,25 @@ MonoBehaviour:
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 0
+    - _fieldName: ActiveABloc
+      _node: {fileID: -843366514640405745}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
   BlocOfNarration: {fileID: 0}
   ParticularConditionForActivate: 0
   MyUnderBloc: {fileID: 0}
   NameOfTheObject: Objet de Palier 2
   ValueForBloc: 2
+  ActiveABloc: 0
   PictureTaken: 1
   DisponibleIfParticularCondition: 0
   HaveAUnderBloc: 0
+  FromCity: 3
   PrefabObjectToSpawn: {fileID: 0}
   PictureDebugTexture: {fileID: 0}
 --- !u!114 &11400000
@@ -477,6 +513,7 @@ MonoBehaviour:
     - BlocOfNarration
     - ParticularConditionForActivate
     - MyUnderBloc
+    - ActiveABloc
     values:
     - _fieldName: BlocOfNarration
       _node: {fileID: 3306549139796323581}
@@ -508,14 +545,25 @@ MonoBehaviour:
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 0
+    - _fieldName: ActiveABloc
+      _node: {fileID: 3306549139796323581}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
   BlocOfNarration: {fileID: 0}
   ParticularConditionForActivate: 0
   MyUnderBloc: {fileID: 0}
   NameOfTheObject: Autre objet de Pallier 2
   ValueForBloc: 3
+  ActiveABloc: 0
   PictureTaken: 1
   DisponibleIfParticularCondition: 0
   HaveAUnderBloc: 0
+  FromCity: 3
   PrefabObjectToSpawn: {fileID: 0}
   PictureDebugTexture: {fileID: 0}
 --- !u!114 &4860584244364962389
@@ -557,6 +605,7 @@ MonoBehaviour:
     - BlocOfNarration
     - ParticularConditionForActivate
     - MyUnderBloc
+    - ActiveABloc
     values:
     - _fieldName: BlocOfNarration
       _node: {fileID: 8703900324349714643}
@@ -591,14 +640,25 @@ MonoBehaviour:
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 0
+    - _fieldName: ActiveABloc
+      _node: {fileID: 8703900324349714643}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
   BlocOfNarration: {fileID: 0}
   ParticularConditionForActivate: 0
   MyUnderBloc: {fileID: 0}
   NameOfTheObject: "Tasse de Caf\xE9 "
   ValueForBloc: 5
+  ActiveABloc: 0
   PictureTaken: 1
   DisponibleIfParticularCondition: 0
   HaveAUnderBloc: 1
+  FromCity: 3
   PrefabObjectToSpawn: {fileID: 0}
   PictureDebugTexture: {fileID: 0}
 --- !u!114 &8738126090109506005
@@ -620,6 +680,7 @@ MonoBehaviour:
     - BlocOfNarration
     - ParticularConditionForActivate
     - MyUnderBloc
+    - ActiveABloc
     values:
     - _fieldName: BlocOfNarration
       _node: {fileID: 8738126090109506005}
@@ -651,14 +712,25 @@ MonoBehaviour:
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 0
+    - _fieldName: ActiveABloc
+      _node: {fileID: 8738126090109506005}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
   BlocOfNarration: {fileID: 0}
   ParticularConditionForActivate: 0
   MyUnderBloc: {fileID: 0}
   NameOfTheObject: Objet de Pallier 3
   ValueForBloc: 5
+  ActiveABloc: 0
   PictureTaken: 0
   DisponibleIfParticularCondition: 0
   HaveAUnderBloc: 0
+  FromCity: 3
   PrefabObjectToSpawn: {fileID: 0}
   PictureDebugTexture: {fileID: 0}
 --- !u!114 &8839235430469026456
@@ -680,6 +752,7 @@ MonoBehaviour:
     - BlocOfNarration
     - ParticularConditionForActivate
     - MyUnderBloc
+    - ActiveABloc
     values:
     - _fieldName: BlocOfNarration
       _node: {fileID: 8839235430469026456}
@@ -714,14 +787,25 @@ MonoBehaviour:
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 0
+    - _fieldName: ActiveABloc
+      _node: {fileID: 8839235430469026456}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
   BlocOfNarration: {fileID: 0}
   ParticularConditionForActivate: 0
   MyUnderBloc: {fileID: 0}
   NameOfTheObject: Carte Postale
   ValueForBloc: 1
+  ActiveABloc: 0
   PictureTaken: 1
   DisponibleIfParticularCondition: 0
   HaveAUnderBloc: 1
+  FromCity: 3
   PrefabObjectToSpawn: {fileID: 0}
   PictureDebugTexture: {fileID: 0}
 --- !u!114 &9131805213518582990

@@ -10,21 +10,21 @@ using XNodeEditor;
 public class Editor_UnderBloc_XNode : NodeEditor
 {
 
-    UnderBloc_XNode curent_object;
-    bool ShowImportantInformations = true;
+    UnderBloc_XNode _curent_object;
+    bool _showImportantInformations = true;
 
     public override void OnBodyGUI()
     {
-        if (curent_object == null)
+        if (_curent_object == null)
         {
-            curent_object = target as UnderBloc_XNode;
+            _curent_object = target as UnderBloc_XNode;
         }
 
         serializedObject.Update();
 
-        ShowImportantInformations = EditorGUILayout.BeginFoldoutHeaderGroup(ShowImportantInformations, "Afficher les informations importantes");
+        _showImportantInformations = EditorGUILayout.BeginFoldoutHeaderGroup(_showImportantInformations, "Afficher les informations importantes");
 
-        if (ShowImportantInformations)
+        if (_showImportantInformations)
         {
             EditorGUILayout.BeginVertical(EditorStyles.helpBox);
 
@@ -67,7 +67,7 @@ public class Editor_UnderBloc_XNode : NodeEditor
 
             if (serializedObject.ApplyModifiedProperties())
             {
-                curent_object.name = curent_object.Question + " / + "+ curent_object.ValueForBloc + "  / ( " + curent_object.PictureTakenInUnderbloc + " / " + curent_object.PictureToTakeForAddValue + " )";
+                _curent_object.name = _curent_object.Question + " / + "+ _curent_object.ValueForBloc + "  / ( " + _curent_object.PictureTakenInUnderbloc + " / " + _curent_object.PictureToTakeForAddValue + " )";
             }
 
         }

@@ -10,26 +10,27 @@ using XNodeEditor ;
 [CustomNodeEditor(typeof(Object_XNod))]
 public class Editor_Object_XNod : NodeEditor
 {
-    private Object_XNod curent_object;
+    private Object_XNod _curent_object;
 
-    bool ShowVariablesInformations = true;
-    bool ShowImportantInformations = true;
-    bool ShowButtons = true;
+    bool _showVariablesInformations = true;
+    bool _showImportantInformations = true;
+    bool _showYounesShit = true;
+    bool _showButtons = true;
 
 
 
     public override void OnBodyGUI() 
     {
-        if (curent_object == null)
+        if (_curent_object == null)
         {
-            curent_object = target as Object_XNod;
+            _curent_object = target as Object_XNod;
         }
 
         serializedObject.Update();
 
-        ShowImportantInformations = EditorGUILayout.BeginFoldoutHeaderGroup(ShowImportantInformations, "Afficher les informations importantes");
+        _showImportantInformations = EditorGUILayout.BeginFoldoutHeaderGroup(_showImportantInformations, "Afficher les informations importantes");
 
-        if (ShowImportantInformations)
+        if (_showImportantInformations)
         {
             EditorGUILayout.BeginVertical(EditorStyles.helpBox);
 
@@ -37,27 +38,34 @@ public class Editor_Object_XNod : NodeEditor
 
             EditorGUILayout.Space(5);
 
-            NodeEditorGUILayout.PropertyField(serializedObject.FindProperty("ValueForBloc"), new GUIContent("Valeur de la photo"));
+            EditorGUILayout.BeginHorizontal();
+            GUILayout.Label("Valeur de la photo");
+            NodeEditorGUILayout.PropertyField(serializedObject.FindProperty("ValueForBloc"), new GUIContent(""));
+            EditorGUILayout.EndHorizontal();
 
             EditorGUILayout.Space(5);
 
-            NodeEditorGUILayout.PropertyField(serializedObject.FindProperty("DisponibleIfParticularCondition"), new GUIContent("Débloqué si condition particulière ?"));
+            NodeEditorGUILayout.PropertyField(serializedObject.FindProperty("FromCity"), new GUIContent("Provenance"));
 
             EditorGUILayout.Space(5);
 
-            NodeEditorGUILayout.PropertyField(serializedObject.FindProperty("HaveAUnderBloc"), new GUIContent("Lié à un sous-bloc ?"));
+            //NodeEditorGUILayout.PropertyField(serializedObject.FindProperty("DisponibleIfParticularCondition"), new GUIContent("Débloqué si condition particulière ?"));
+            
+            EditorGUILayout.BeginHorizontal();
+            GUILayout.Label("Débloqué si condition particulière ?");
+            NodeEditorGUILayout.PropertyField(serializedObject.FindProperty("DisponibleIfParticularCondition"), new GUIContent(""));
+            EditorGUILayout.EndHorizontal();
+
 
             EditorGUILayout.Space(5);
 
-            NodeEditorGUILayout.PropertyField(serializedObject.FindProperty("PrefabObjectToSpawn"), new GUIContent("Prefab Objet à spawn"));
-
-            EditorGUILayout.Space(5);
-
-            NodeEditorGUILayout.PropertyField(serializedObject.FindProperty("PictureDebugTexture"), new GUIContent("Texture de la photo"));
-
-
+            EditorGUILayout.BeginHorizontal();
+            GUILayout.Label("Lié à un sous-bloc ?");
+            NodeEditorGUILayout.PropertyField(serializedObject.FindProperty("HaveAUnderBloc"), new GUIContent(""));
+            EditorGUILayout.EndHorizontal();
 
             EditorGUILayout.EndVertical();
+
         }
         
 
@@ -65,15 +73,24 @@ public class Editor_Object_XNod : NodeEditor
 
         EditorGUILayout.Space(5);
 
-        ShowVariablesInformations = EditorGUILayout.BeginFoldoutHeaderGroup(ShowVariablesInformations, "Afficher les informations variables");
+        _showYounesShit = EditorGUILayout.BeginFoldoutHeaderGroup(_showYounesShit, "Afficher les trucs de Younes là");
 
-        if (ShowVariablesInformations)
+        if (_showYounesShit)
         {
             EditorGUILayout.BeginVertical(EditorStyles.helpBox);
 
-            EditorGUILayout.LabelField("Photo prise : " + curent_object.PictureTaken.ToString());
+            EditorGUILayout.BeginHorizontal();
+            GUILayout.Label("Prefab Objet à spawn");
+            NodeEditorGUILayout.PropertyField(serializedObject.FindProperty("PrefabObjectToSpawn"), new GUIContent(""));
+            EditorGUILayout.EndHorizontal();
 
-            EditorGUILayout.LabelField("Disponibilité : " + curent_object.IsDisponible());
+
+            EditorGUILayout.Space(5);
+
+            EditorGUILayout.BeginHorizontal();
+            GUILayout.Label("Texture de la photo");
+            NodeEditorGUILayout.PropertyField(serializedObject.FindProperty("PictureDebugTexture"), new GUIContent(""));
+            EditorGUILayout.EndHorizontal();
 
 
             EditorGUILayout.EndVertical();
@@ -83,19 +100,37 @@ public class Editor_Object_XNod : NodeEditor
 
         EditorGUILayout.Space(5);
 
-        ShowButtons = EditorGUILayout.BeginFoldoutHeaderGroup(ShowButtons, "Afficher les boutons");
+        _showVariablesInformations = EditorGUILayout.BeginFoldoutHeaderGroup(_showVariablesInformations, "Afficher les informations variables");
 
-        if (ShowButtons)
+        if (_showVariablesInformations)
+        {
+            EditorGUILayout.BeginVertical(EditorStyles.helpBox);
+
+            EditorGUILayout.LabelField("Photo prise : " + _curent_object.PictureTaken.ToString());
+
+            EditorGUILayout.LabelField("Disponibilité : " + _curent_object.IsDisponible());
+
+
+            EditorGUILayout.EndVertical();
+        }
+
+        EditorGUILayout.EndFoldoutHeaderGroup();
+
+        EditorGUILayout.Space(5);
+
+        _showButtons = EditorGUILayout.BeginFoldoutHeaderGroup(_showButtons, "Afficher les boutons");
+
+        if (_showButtons)
         {
             EditorGUILayout.BeginHorizontal(EditorStyles.helpBox);
 
             if (GUILayout.Button("Prendre une photo"))
             {
-                curent_object.TakePicture();
+                _curent_object.TakePicture();
             }
             if (GUILayout.Button("Réinitialiser l'objet"))
             {
-                curent_object.ResetObject();
+                _curent_object.ResetObject();
             }
             EditorGUILayout.EndHorizontal();
         }
@@ -111,12 +146,12 @@ public class Editor_Object_XNod : NodeEditor
 
         NodeEditorGUILayout.PropertyField(serializedObject.FindProperty("BlocOfNarration"));
 
-        if (curent_object.DisponibleIfParticularCondition)
+        if (_curent_object.DisponibleIfParticularCondition)
         {
             NodeEditorGUILayout.PropertyField(serializedObject.FindProperty("ParticularConditionForActivate"), new GUIContent("Condition Particulière"));
         }
 
-        if (curent_object.HaveAUnderBloc)
+        if (_curent_object.HaveAUnderBloc)
         {
             NodeEditorGUILayout.PropertyField(serializedObject.FindProperty("MyUnderBloc"), new GUIContent("Sous-bloc Narratif"));
         }
@@ -138,7 +173,7 @@ public class Editor_Object_XNod : NodeEditor
 
         if (serializedObject.ApplyModifiedProperties())
         {
-            curent_object.name = curent_object.NameOfTheObject + " / + " + curent_object.ValueForBloc;
+            _curent_object.name = _curent_object.NameOfTheObject + " / + " + _curent_object.ValueForBloc;
         }
 
 

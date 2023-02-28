@@ -21,19 +21,27 @@ public class Object_XNod : Node {
 
 	[Range(0,5)] public int ValueForBloc = 1;
 
-	public bool PictureTaken;
-
 	[Output] public bool ActiveABloc;
+
+	public bool PictureTaken;
 
 	public bool DisponibleIfParticularCondition;
 
-	public bool HaveAUnderBloc;
+    public bool HaveAUnderBloc;
 
-	public GameObject PrefabObjectToSpawn;
+	public enum City { Military, Terraforming, Nomads, DontMatter}
 
-	public Texture2D PictureDebugTexture;
+	public City FromCity = City.DontMatter;
 
-	public override object GetValue(NodePort port)
+    //YOUNES SHIT LÀ LE CON DE SES MORTS
+
+    public GameObject PrefabObjectToSpawn;
+
+    public Texture2D PictureDebugTexture;
+
+	//FONCTIONS
+
+    public override object GetValue(NodePort port)
 	{
 		if (port.fieldName == "ActiveABloc")
 		{

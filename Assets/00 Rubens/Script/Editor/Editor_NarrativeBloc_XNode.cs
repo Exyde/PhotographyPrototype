@@ -9,23 +9,23 @@ using XNodeEditor;
 public class Editor_NarrativeBloc_XNode : NodeEditor
 {
 
-    private NarrativeBloc_XNode curent_object;
+    private NarrativeBloc_XNode _curentObject;
 
-    bool ShowImportantInformations = true;
+    bool _showImportantInformations = true;
 
     public override void OnBodyGUI()
     {
-        if (curent_object == null)
+        if (_curentObject == null)
         {
-            curent_object = target as NarrativeBloc_XNode;
+            _curentObject = target as NarrativeBloc_XNode;
         }
 
         serializedObject.Update();
 
 
-        ShowImportantInformations = EditorGUILayout.BeginFoldoutHeaderGroup(ShowImportantInformations, "Afficher les informations importantes");
+        _showImportantInformations = EditorGUILayout.BeginFoldoutHeaderGroup(_showImportantInformations, "Afficher les informations importantes");
 
-        if (ShowImportantInformations)
+        if (_showImportantInformations)
         {
             EditorGUILayout.BeginVertical(EditorStyles.helpBox);
 
@@ -68,7 +68,7 @@ public class Editor_NarrativeBloc_XNode : NodeEditor
 
         if (serializedObject.ApplyModifiedProperties())
         {
-            curent_object.name = curent_object.Question + " / ( " + curent_object.ActualResolution + " / "+ curent_object.NecessaryResolution + " )";
+            _curentObject.name = _curentObject.Question + " / ( " + _curentObject.ActualResolution + " / "+ _curentObject.NecessaryResolution + " )";
         }
 
 
