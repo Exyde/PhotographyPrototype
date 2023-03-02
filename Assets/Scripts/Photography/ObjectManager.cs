@@ -18,11 +18,14 @@ public class ObjectManager : MonoBehaviour
     void Start()
     {
         _graph.ResetGraph();
-        _xNodeObjectsAvailable = _graph.ListObjectsDisponibles;
+        //_xNodeObjectsAvailable = _graph.ListObjectsDisponibles;
+        //Je t'enleve cette ligne je vois pas trop à quoi elle sert de base
+        //Je te remplace par celle là au cas où t'as besoin de mettre quelque chose dans ta  list au debut, ça fait plus ou moins la meme chose :
+        _xNodeObjectsAvailable = _graph.GetListOfItemsDisponibleForSpawn(1000, Object_XNod.City.Military);
     }
 
     public void UpdateObjectAndSpawnObjectInCabine(int objectCount){
-        _xNodeObjectsAvailable = _graph.GetListOfItemsDisponibleForSpawn(objectCount);
+        _xNodeObjectsAvailable = _graph.GetListOfItemsDisponibleForSpawn(objectCount, Object_XNod.City.Military);
         SpawnObjects();
     }
 
