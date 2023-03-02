@@ -4,8 +4,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using XNode;
 
-[CreateAssetMenu]
-public class Graph_XNod : NodeGraph {
+[CreateAssetMenu(fileName = "Object Tool", menuName = "Our Tools/Object Tool", order = 1)]
+public class ObjectToolGraph_XNod : NodeGraph {
 
     //public List<Object_XNod> ListObjectsDisponibles = new List<Object_XNod>();
 

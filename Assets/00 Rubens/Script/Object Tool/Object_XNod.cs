@@ -8,7 +8,7 @@ using XNode;
 [NodeTint("#262942")]
 
 
-
+[CreateNodeMenu("Object Tool/Object Node")]
 public class Object_XNod : Node {
 
 	[Input] public NarrativeBloc_XNode BlocOfNarration; 

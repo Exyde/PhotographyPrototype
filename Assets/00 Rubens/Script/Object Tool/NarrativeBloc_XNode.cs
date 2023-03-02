@@ -7,7 +7,7 @@ using XNode;
 [NodeWidth(450)]
 [NodeTint("#433627")]
 
-
+[CreateNodeMenu("Object Tool/Narrative Bloc Node")]
 public class NarrativeBloc_XNode : Node {
 
 	[TextArea] public string Question;

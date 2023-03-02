@@ -8,7 +8,7 @@ public class ObjectManager : MonoBehaviour
 {
     #region Fields
     [Header ("XNod - Reference & Debug")]
-    [SerializeField] Graph_XNod _graph;
+    [SerializeField] ObjectToolGraph_XNod _graph;
     public List<Object_XNod> _xNodeObjectsAvailable;
 
     [Header ("Settings")]

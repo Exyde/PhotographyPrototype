@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using XNode;
 
+[CreateNodeMenu("Object Tool/Depart Node")]
 public class Depart_XNod : Node {
 
 	[Output] public bool True;

@@ -4,8 +4,9 @@ using UnityEngine;
 using XNode;
 
 [NodeWidth(450)]
-[NodeTint("#7A6235")] 
+[NodeTint("#7A6235")]
 
+[CreateNodeMenu("Object Tool/Under Bloc Node")]
 public class UnderBloc_XNode : Node {
 
 	[Input] public NarrativeBloc_XNode BlocOfNarration;
