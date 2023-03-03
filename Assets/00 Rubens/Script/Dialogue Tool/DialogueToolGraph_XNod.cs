@@ -2,20 +2,58 @@
 using System.Collections.Generic;
 using UnityEngine;
 using XNode;
+using System.Linq;
+
 
 [CreateAssetMenu(fileName = "Dialogue Tool", menuName = "Our Tools/Dialogue Tool", order =  1)]
 public class DialogueToolGraph_XNod : NodeGraph {
 
-    [HideInInspector] public int LastTagAtrributed;
+    int lastTagAtrributed;
 
-    public List<int> TagsDeleted;
+    List<int> tagsDeleted;
+
+    Dictionary<int, Dialogue_XNod> dictionaryTagToDialogueNode = new Dictionary<int, Dialogue_XNod>();
 
     private void OnEnable()
     {
-        if (TagsDeleted == null)
+        if (tagsDeleted == null)
         {
-            TagsDeleted = new();
+            tagsDeleted = new();
         }
     }
-    //Test
+
+    public int OnCreationOfDialogueNode(Dialogue_XNod dialogue)
+    {
+        int tagToAttribute;
+
+        if (tagsDeleted.Count == 0)
+        {
+            lastTagAtrributed++;
+            tagToAttribute = lastTagAtrributed;
+        }
+        else
+        {
+            tagsDeleted = tagsDeleted.OrderByDescending(n => n).ToList();
+            tagsDeleted.Reverse();
+            tagToAttribute = tagsDeleted[0];
+
+            tagsDeleted.RemoveAt(0);
+        }
+
+        dictionaryTagToDialogueNode.Add(tagToAttribute, dialogue);
+
+        return tagToAttribute;
+    }
+
+    public void OnDestructionOfDialogueNode(int tag)
+    {
+        dictionaryTagToDialogueNode.Remove(tag);
+
+        tagsDeleted.Add(tag);
+    }
+
+    public Dialogue_XNod getDialogueWithTag(int tag)
+    {
+        return dictionaryTagToDialogueNode[tag];
+    }
 }
