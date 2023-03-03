@@ -7,8 +7,6 @@ using XNode;
 [CreateAssetMenu(fileName = "Object Tool", menuName = "Our Tools/Object Tool", order = 1)]
 public class ObjectToolGraph_XNod : NodeGraph {
 
-    //public List<Object_XNod> ListObjectsDisponibles = new List<Object_XNod>();
-
     List<Object_XNod> getListOfObjectDisponible()
     {
         List<Object_XNod> listObjectsDisponibles = new List<Object_XNod>();

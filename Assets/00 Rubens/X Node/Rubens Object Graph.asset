@@ -402,7 +402,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7cd74240c4860bc49b1092ca1e3e26ba, type: 3}
-  m_Name: Graph Test
+  m_Name: Rubens Object Graph
   m_EditorClassIdentifier: 
   nodes:
   - {fileID: 4860584244364962389}
