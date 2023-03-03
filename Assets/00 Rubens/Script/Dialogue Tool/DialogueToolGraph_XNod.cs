@@ -52,7 +52,7 @@ public class DialogueToolGraph_XNod : NodeGraph {
         tagsDeleted.Add(tag);
     }
 
-    public Dialogue_XNod getDialogueWithTag(int tag)
+    public Dialogue_XNod GetDialogueWithTag(int tag)
     {
         return dictionaryTagToDialogueNode[tag];
     }

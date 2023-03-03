@@ -7,11 +7,20 @@ public class Dialogue_XNod : Node {
 
 	public int Tag;
 
-	[TextArea] public string Dialogue;
+	[TextArea] 
+	public string Dialogue;
 
-	[TextArea] public string Context;
+	[Range(1, 9)] 
+	public int Priority;
 
+	public AudioClip SonDialogue;
 
+	[TextArea] 
+	public string Context;
+
+	public float BufferTime = 1f;
+
+	public bool HasBeenPlayed = false;
 
 
 
@@ -19,8 +28,6 @@ public class Dialogue_XNod : Node {
 
 	protected override void Init() {
 		base.Init();
-
-		//DialogueToolGraph_XNod dTG = (Node.graphHotfix as DialogueToolGraph_XNod);
 
 		if (Tag == 0)
 		{
