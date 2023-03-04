@@ -7,6 +7,7 @@ using XNode;
 [NodeTint("#282828")]
 public class Dialogue_XNod : Node {
 
+	//IMPORTANT VARIABLES
 	public int Tag;
 
 	[TextArea(3, 10)] 
@@ -17,23 +18,37 @@ public class Dialogue_XNod : Node {
 
 	public AudioClip AudioClipDialogue;
 
-	[TextArea(4,10)] 
-	public string Annotation;
+	//SECONDARY VARIABLES
 
 	public float BufferTime = 1f;
 
+	public float preDialogueTime = 0.1f;
+
+	public float postDialogueTime = 0.36f;
+
+	public float defaultTime = 5f;
+
+	//REAL-TIME VARIABLES
+
 	public bool HasBeenPlayed = false;
+
+	//ORGANISATION VARIABLES
+
+	[TextArea(4, 10)]
+	public string Annotation;
 
 	public bool IsRecorded;
 
-	public bool IsIntegrated;
+    public bool IsIntegrated;
 
-	[Input] public Dialogue_XNod PreviousDialogue;
+	//NODES
+
+    [Input] public Dialogue_XNod PreviousDialogue;
 
 	[Output] public Dialogue_XNod NextDialogue;
 
 
-
+	//FUNCTIONS
 
 	protected override void Init() {
 		base.Init();

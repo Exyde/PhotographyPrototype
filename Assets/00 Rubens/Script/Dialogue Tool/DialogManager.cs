@@ -1,24 +1,29 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class DialogManager : MonoBehaviour
 {
-    //VERY IMPORTANT
-
-    DialogueToolGraph_XNod _dg;
+    //VERY IMPORTANT VARIABLES
 
     public static DialogManager DM;
+    
+    DialogueToolGraph_XNod _dg;
 
-    //IMPORTANT
+    public Action<Dialogue_XNod> OnDialogueStartRunning;
 
-    bool IsADialogRuning;
+    public Action OnDialogueFinishRunning;
 
-    //USEFUL
+    //IMPORTANT VARIABLES
+
+    bool _isADialogRuning;
+
+    //USEFUL VARIABLES
 
     List<Dialogue_XNod> _bufferList = new List<Dialogue_XNod>();
 
-    //CAN BE USED
+    //CAN BE USED VARIABLES
 
     IEnumerator _coroutine;
 
@@ -46,16 +51,29 @@ public class DialogManager : MonoBehaviour
 
         _bufferList.Add(dialogue);
 
-        _coroutine = IE_CleanBuffer(dialogue);
+        _coroutine = IE_CleanerBuffer(dialogue);
 
         StartCoroutine(_coroutine);
 
         tryToPrepareRunDialogue();
     }
-    
+
+    public void SendDialogue(Dialogue_XNod dialogue)
+    {
+        _bufferList.Add(dialogue);
+
+        _coroutine = IE_CleanerBuffer(dialogue);
+
+        StartCoroutine(_coroutine);
+
+        tryToPrepareRunDialogue();
+    }
+
+    //PRIVATES FUNCTIONS
+
     private void tryToPrepareRunDialogue()
     {
-        if (IsADialogRuning == true)
+        if (_isADialogRuning == true)
         {
             return;
         }
@@ -69,15 +87,58 @@ public class DialogManager : MonoBehaviour
 
         _bufferList.Remove(dialogueToRun);
 
-        //Faire le Run Dialogue mtnt (pour mettre le dialogue encours à true et pas jouer le dialogue suivant qui a une priorité plus haute)
+        _coroutine = runDialogue(dialogueToRun);
+        StartCoroutine(_coroutine);
 
-        //Verifier si il y a un dialogue suivant 
-        
-        //Get le dialogue suivant
+        if (!dialogueToRun.GetOutputPort("NextDialog").IsConnected)
+        {
+            return;
+        }
 
-        //SendDialog du dialogue suivant.
+        Dialogue_XNod nextDialog = dialogueToRun.GetOutputPort("NextDialogue").Connection.node as Dialogue_XNod;
+
+        SendDialogue(nextDialog);
+    }
+
+    private IEnumerator runDialogue(Dialogue_XNod dialogueToRun)
+    {
+            _isADialogRuning = true;
+
+        yield return new WaitForSeconds(dialogueToRun.preDialogueTime);
+
+            dialogueToRun.HasBeenPlayed = true;
+
+            OnDialogueStartRunning.Invoke(dialogueToRun);
+            
+            if (dialogueToRun.AudioClipDialogue = null )
+            {
+                yield return new WaitForSeconds(dialogueToRun.defaultTime);
+            }
+            else
+            {
+                yield return new WaitForSeconds(dialogueToRun.AudioClipDialogue.length);
+            }
+
+
+        OnDialogueFinishRunning.Invoke();
+
+        yield return new WaitForSeconds(dialogueToRun.postDialogueTime);
+
+            _isADialogRuning = false;
+
+            tryToPrepareRunDialogue();
 
     }
+
+    private IEnumerator IE_CleanerBuffer(Dialogue_XNod dialog)
+    {
+        yield return new WaitForSeconds(dialog.BufferTime);
+
+        _bufferList.Remove(dialog);
+    }
+
+
+    //PRIVATES TOOL FUNCTIONS
 
     private Dialogue_XNod GetHighestPriorityDialogInList(List<Dialogue_XNod> listDialog)
     {
@@ -100,11 +161,6 @@ public class DialogManager : MonoBehaviour
         return dialogueToSend;
     }
 
-    private IEnumerator IE_CleanBuffer(Dialogue_XNod dialog)
-    {
-        yield return new WaitForSeconds(dialog.BufferTime);
-
-        _bufferList.Remove(dialog);
-    }
+    
 
 }

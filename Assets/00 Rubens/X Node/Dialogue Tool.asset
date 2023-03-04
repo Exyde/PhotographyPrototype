@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 000002
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 184, y: -296}
+  position: {x: 8, y: -360}
   ports:
     keys:
     - PreviousDialogue
@@ -44,12 +44,15 @@ MonoBehaviour:
       _typeConstraint: 0
       _dynamic: 0
   Tag: 2
-  Dialogue: "Oh oh oh mais qui voil\xE0! Et oui, le deuxi\xE8me dialogue !"
+  Dialogue: "Ba comment \xE7a vas vous !"
   Priority: 7
   AudioClipDialogue: {fileID: 0}
-  Annotation: 
   BufferTime: 1
+  preDialogueTime: 0.1
+  postDialogueTime: 0.36
+  defaultTime: 5
   HasBeenPlayed: 0
+  Annotation: 
   IsRecorded: 0
   IsIntegrated: 0
   PreviousDialogue: {fileID: 0}
@@ -67,7 +70,7 @@ MonoBehaviour:
   m_Name: 000003
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -280, y: 232}
+  position: {x: -408, y: 120}
   ports:
     keys:
     - PreviousDialogue
@@ -95,10 +98,13 @@ MonoBehaviour:
   Dialogue: 
   Priority: 1
   AudioClipDialogue: {fileID: 0}
+  BufferTime: 1
+  preDialogueTime: 0.1
+  postDialogueTime: 0.36
+  defaultTime: 5
+  HasBeenPlayed: 0
   Annotation: "Ce dialogue est un spoiler \n(personne ne doit savoir que c'est un
     dialogue independant)"
-  BufferTime: 1
-  HasBeenPlayed: 0
   IsRecorded: 1
   IsIntegrated: 1
   PreviousDialogue: {fileID: 0}
@@ -116,7 +122,7 @@ MonoBehaviour:
   m_Name: 000002
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 776, y: -168}
+  position: {x: 552, y: -328}
   ports:
     keys:
     - PreviousDialogue
@@ -147,9 +153,12 @@ MonoBehaviour:
   Dialogue: 
   Priority: 1
   AudioClipDialogue: {fileID: 0}
-  Annotation: 
   BufferTime: 1
+  preDialogueTime: 0.1
+  postDialogueTime: 0.36
+  defaultTime: 5
   HasBeenPlayed: 0
+  Annotation: 
   IsRecorded: 0
   IsIntegrated: 0
   PreviousDialogue: {fileID: 0}
@@ -184,7 +193,7 @@ MonoBehaviour:
   m_Name: 000001
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -280, y: -296}
+  position: {x: -456, y: -520}
   ports:
     keys:
     - PreviousDialogue
@@ -212,13 +221,16 @@ MonoBehaviour:
       _typeConstraint: 0
       _dynamic: 0
   Tag: 1
-  Dialogue: Salut ! C'est moi, le premier dialogue !
-  Priority: 6
+  Dialogue: "Ah vous v'l\xE0 !"
+  Priority: 5
   AudioClipDialogue: {fileID: 0}
-  Annotation: 
   BufferTime: 20
+  preDialogueTime: 0.1
+  postDialogueTime: 0.36
+  defaultTime: 5
   HasBeenPlayed: 0
-  IsRecorded: 0
-  IsIntegrated: 1
+  Annotation: 
+  IsRecorded: 1
+  IsIntegrated: 0
   PreviousDialogue: {fileID: 0}
   NextDialogue: {fileID: 0}

@@ -16,8 +16,6 @@ public class Editor_Dialogue_XNod : NodeEditor
     bool _showAnnotation;
     bool _showRealTimeInformation;
 
-    Color _backgroundColor;
-
     public override void OnBodyGUI()
     {
         if (_curentObject == null)
@@ -69,7 +67,6 @@ public class Editor_Dialogue_XNod : NodeEditor
 
             EditorGUILayout.Space(5);
 
-            //EditorGUILayout.LabelField("Priority :");   , new GUIContent("")
             NodeEditorGUILayout.PropertyField(serializedObject.FindProperty("Priority"));
 
             EditorGUILayout.Space(5);
