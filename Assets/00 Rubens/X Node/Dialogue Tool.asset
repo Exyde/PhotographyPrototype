@@ -1,5 +1,159 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-7377871456713848402
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d812f4a61dc9adc409d8784f82bd521b, type: 3}
+  m_Name: 000002
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 184, y: -296}
+  ports:
+    keys:
+    - PreviousDialogue
+    - NextDialogue
+    values:
+    - _fieldName: PreviousDialogue
+      _node: {fileID: -7377871456713848402}
+      _typeQualifiedName: Dialogue_XNod, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: NextDialogue
+        node: {fileID: 8691336275535683768}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: NextDialogue
+      _node: {fileID: -7377871456713848402}
+      _typeQualifiedName: Dialogue_XNod, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: PreviousDialogue
+        node: {fileID: -4248311563398331666}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  Tag: 2
+  Dialogue: "Oh oh oh mais qui voil\xE0! Et oui, le deuxi\xE8me dialogue !"
+  Priority: 7
+  AudioClipDialogue: {fileID: 0}
+  Annotation: 
+  BufferTime: 1
+  HasBeenPlayed: 0
+  IsRecorded: 0
+  IsIntegrated: 0
+  PreviousDialogue: {fileID: 0}
+  NextDialogue: {fileID: 0}
+--- !u!114 &-4525663124255065211
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d812f4a61dc9adc409d8784f82bd521b, type: 3}
+  m_Name: 000003
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -280, y: 232}
+  ports:
+    keys:
+    - PreviousDialogue
+    - NextDialogue
+    values:
+    - _fieldName: PreviousDialogue
+      _node: {fileID: -4525663124255065211}
+      _typeQualifiedName: Dialogue_XNod, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: NextDialogue
+      _node: {fileID: -4525663124255065211}
+      _typeQualifiedName: Dialogue_XNod, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  Tag: 3
+  Dialogue: 
+  Priority: 1
+  AudioClipDialogue: {fileID: 0}
+  Annotation: "Ce dialogue est un spoiler \n(personne ne doit savoir que c'est un
+    dialogue independant)"
+  BufferTime: 1
+  HasBeenPlayed: 0
+  IsRecorded: 1
+  IsIntegrated: 1
+  PreviousDialogue: {fileID: 0}
+  NextDialogue: {fileID: 0}
+--- !u!114 &-4248311563398331666
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d812f4a61dc9adc409d8784f82bd521b, type: 3}
+  m_Name: 000002
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 776, y: -168}
+  ports:
+    keys:
+    - PreviousDialogue
+    - NextDialogue
+    values:
+    - _fieldName: PreviousDialogue
+      _node: {fileID: -4248311563398331666}
+      _typeQualifiedName: Dialogue_XNod, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: NextDialogue
+        node: {fileID: -7377871456713848402}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: NextDialogue
+      _node: {fileID: -4248311563398331666}
+      _typeQualifiedName: Dialogue_XNod, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  Tag: 2
+  Dialogue: 
+  Priority: 1
+  AudioClipDialogue: {fileID: 0}
+  Annotation: 
+  BufferTime: 1
+  HasBeenPlayed: 0
+  IsRecorded: 0
+  IsIntegrated: 0
+  PreviousDialogue: {fileID: 0}
+  NextDialogue: {fileID: 0}
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12,4 +166,59 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15a1d13cc6e154746a0f5e3f4037796f, type: 3}
   m_Name: Dialogue Tool
   m_EditorClassIdentifier: 
-  nodes: []
+  nodes:
+  - {fileID: 8691336275535683768}
+  - {fileID: -7377871456713848402}
+  - {fileID: -4525663124255065211}
+  - {fileID: -4248311563398331666}
+--- !u!114 &8691336275535683768
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d812f4a61dc9adc409d8784f82bd521b, type: 3}
+  m_Name: 000001
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -280, y: -296}
+  ports:
+    keys:
+    - PreviousDialogue
+    - NextDialogue
+    values:
+    - _fieldName: PreviousDialogue
+      _node: {fileID: 8691336275535683768}
+      _typeQualifiedName: Dialogue_XNod, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: NextDialogue
+      _node: {fileID: 8691336275535683768}
+      _typeQualifiedName: Dialogue_XNod, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: PreviousDialogue
+        node: {fileID: -7377871456713848402}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  Tag: 1
+  Dialogue: Salut ! C'est moi, le premier dialogue !
+  Priority: 6
+  AudioClipDialogue: {fileID: 0}
+  Annotation: 
+  BufferTime: 20
+  HasBeenPlayed: 0
+  IsRecorded: 0
+  IsIntegrated: 1
+  PreviousDialogue: {fileID: 0}
+  NextDialogue: {fileID: 0}
