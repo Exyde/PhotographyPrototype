@@ -22,11 +22,11 @@ public class Dialogue_XNod : Node {
 
 	public float BufferTime = 1f;
 
-	public float preDialogueTime = 0.1f;
+	public float PreDialogueTime = 0.1f;
 
-	public float postDialogueTime = 0.36f;
+	public float PostDialogueTime = 0.36f;
 
-	public float defaultTime = 5f;
+	public float DefaultTime = 5f;
 
 	//REAL-TIME VARIABLES
 
@@ -69,6 +69,8 @@ public class Dialogue_XNod : Node {
     {
 		(graph as DialogueToolGraph_XNod).OnDestructionOfDialogueNode(Tag);
 	}
+
+	
 
 
 }

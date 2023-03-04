@@ -56,4 +56,16 @@ public class DialogueToolGraph_XNod : NodeGraph {
     {
         return dictionaryTagToDialogueNode[tag];
     }
+
+    public void InitAllNodes()
+    {
+        if(dictionaryTagToDialogueNode.Count == 0)
+        {
+            foreach (Node curentNode in nodes)
+            {
+                dictionaryTagToDialogueNode.Add((curentNode as Dialogue_XNod).Tag, curentNode as Dialogue_XNod);
+            }
+        }
+        
+    }
 }

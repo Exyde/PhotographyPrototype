@@ -3,17 +3,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DialogManager : MonoBehaviour
+public class DialogueManager : MonoBehaviour
 {
     //VERY IMPORTANT VARIABLES
 
-    public static DialogManager DM;
+    public static DialogueManager DM;
     
-    DialogueToolGraph_XNod _dg;
+    public DialogueToolGraph_XNod _dg;
 
-    public Action<Dialogue_XNod> OnDialogueStartRunning;
+    public static Action<Dialogue_XNod> OnDialogueStartRunning;
 
-    public Action OnDialogueFinishRunning;
+    public static Action OnDialogueFinishRunning;
 
     //IMPORTANT VARIABLES
 
@@ -41,6 +41,9 @@ public class DialogManager : MonoBehaviour
         {
             Destroy(this);
         }
+
+        _dg.InitAllNodes();
+
     }
 
     //PUBLIC FUNCTIONS
@@ -90,7 +93,7 @@ public class DialogManager : MonoBehaviour
         _coroutine = runDialogue(dialogueToRun);
         StartCoroutine(_coroutine);
 
-        if (!dialogueToRun.GetOutputPort("NextDialog").IsConnected)
+        if (!dialogueToRun.GetOutputPort("NextDialogue").IsConnected)
         {
             return;
         }
@@ -104,25 +107,25 @@ public class DialogManager : MonoBehaviour
     {
             _isADialogRuning = true;
 
-        yield return new WaitForSeconds(dialogueToRun.preDialogueTime);
+        yield return new WaitForSeconds(dialogueToRun.PreDialogueTime);
 
             dialogueToRun.HasBeenPlayed = true;
 
-            OnDialogueStartRunning.Invoke(dialogueToRun);
+            OnDialogueStartRunning?.Invoke(dialogueToRun);
             
-            if (dialogueToRun.AudioClipDialogue = null )
+            if (dialogueToRun.AudioClipDialogue == null )
             {
-                yield return new WaitForSeconds(dialogueToRun.defaultTime);
+                yield return new WaitForSeconds(dialogueToRun.DefaultTime);
             }
             else
             {
                 yield return new WaitForSeconds(dialogueToRun.AudioClipDialogue.length);
             }
 
+        
+        OnDialogueFinishRunning?.Invoke();
 
-        OnDialogueFinishRunning.Invoke();
-
-        yield return new WaitForSeconds(dialogueToRun.postDialogueTime);
+        yield return new WaitForSeconds(dialogueToRun.PostDialogueTime);
 
             _isADialogRuning = false;
 
