@@ -48,24 +48,34 @@ public class DialogueManager : MonoBehaviour
 
     //PUBLIC FUNCTIONS
 
-    public void SendDialogue(int tag)
+    public void SendDialogue(int tag, bool verificationIfAlreadyRun = true)
     {
         Dialogue_XNod dialogue = _dg.GetDialogueWithTag(tag);
 
+        if (verificationIfAlreadyRun && dialogue.HasBeenRun)
+        {
+            return;
+        }
+
         _bufferList.Add(dialogue);
 
-        _coroutine = IE_CleanerBuffer(dialogue);
+        _coroutine = IE_cleanerBuffer(dialogue);
 
         StartCoroutine(_coroutine);
 
         tryToPrepareRunDialogue();
     }
 
-    public void SendDialogue(Dialogue_XNod dialogue)
+    public void SendDialogue(Dialogue_XNod dialogue, bool verificationIfAlreadyRun = true)
     {
+        if (verificationIfAlreadyRun && dialogue.HasBeenRun)
+        {
+            return;
+        }
+
         _bufferList.Add(dialogue);
 
-        _coroutine = IE_CleanerBuffer(dialogue);
+        _coroutine = IE_cleanerBuffer(dialogue);
 
         StartCoroutine(_coroutine);
 
@@ -76,54 +86,41 @@ public class DialogueManager : MonoBehaviour
 
     private void tryToPrepareRunDialogue()
     {
-        if (_isADialogRuning == true)
-        {
-            return;
-        }
-
-        if (_bufferList.Count == 0)
+        if (_isADialogRuning == true || _bufferList.Count == 0)
         {
             return;
         }
 
         Dialogue_XNod dialogueToRun = GetHighestPriorityDialogInList(_bufferList);
 
-        _bufferList.Remove(dialogueToRun);
+        while (_bufferList.Remove(dialogueToRun));
 
-        _coroutine = runDialogue(dialogueToRun);
+        _coroutine = IE_runDialogue(dialogueToRun);
         StartCoroutine(_coroutine);
 
-        if (!dialogueToRun.GetOutputPort("NextDialogue").IsConnected)
+        if (!dialogueToRun.HaveNextDialogue())
         {
             return;
         }
 
-        Dialogue_XNod nextDialog = dialogueToRun.GetOutputPort("NextDialogue").Connection.node as Dialogue_XNod;
+        Dialogue_XNod nextDialog = dialogueToRun.GetNextDialogue();
 
-        SendDialogue(nextDialog);
+        SendDialogue(nextDialog, false);
     }
 
-    private IEnumerator runDialogue(Dialogue_XNod dialogueToRun)
+    private IEnumerator IE_runDialogue(Dialogue_XNod dialogueToRun)
     {
             _isADialogRuning = true;
 
         yield return new WaitForSeconds(dialogueToRun.PreDialogueTime);
 
-            dialogueToRun.HasBeenPlayed = true;
+            dialogueToRun.HasBeenRun = true;
 
             OnDialogueStartRunning?.Invoke(dialogueToRun);
             
-            if (dialogueToRun.AudioClipDialogue == null )
-            {
-                yield return new WaitForSeconds(dialogueToRun.DefaultTime);
-            }
-            else
-            {
-                yield return new WaitForSeconds(dialogueToRun.AudioClipDialogue.length);
-            }
-
+        yield return new WaitForSeconds(dialogueToRun.GetDialogueTime() );
         
-        OnDialogueFinishRunning?.Invoke();
+            OnDialogueFinishRunning?.Invoke();
 
         yield return new WaitForSeconds(dialogueToRun.PostDialogueTime);
 
@@ -133,9 +130,9 @@ public class DialogueManager : MonoBehaviour
 
     }
 
-    private IEnumerator IE_CleanerBuffer(Dialogue_XNod dialog)
+    private IEnumerator IE_cleanerBuffer(Dialogue_XNod dialog)
     {
-        yield return new WaitForSeconds(dialog.BufferTime);
+        yield return new WaitForSeconds( dialog.GetBufferTime() );
 
         _bufferList.Remove(dialog);
     }
@@ -145,13 +142,18 @@ public class DialogueManager : MonoBehaviour
 
     private Dialogue_XNod GetHighestPriorityDialogInList(List<Dialogue_XNod> listDialog)
     {
+        if (_bufferList.Count == 0)
+        {
+            return null;
+        }
+
         Dialogue_XNod dialogueToSend = null;
             
-        int highestPriority = -1;
+        int highestPriority = 0;
 
         foreach(Dialogue_XNod dialogueTested in listDialog)
         {
-            int testedPriority = dialogueTested.Priority;
+            int testedPriority = dialogueTested.GetPriority();
 
             if (testedPriority >= highestPriority)
             {

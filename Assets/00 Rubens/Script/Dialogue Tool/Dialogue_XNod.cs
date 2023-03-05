@@ -13,24 +13,26 @@ public class Dialogue_XNod : Node {
 	[TextArea(3, 10)] 
 	public string Dialogue;
 
-	[Range(1, 9)] 
-	public int Priority = 1;
+	public enum Priority {Maximum, High, Medium, Low, Minimum };
+
+	[SerializeField] private Priority _curentPriority = Priority.Medium;
 
 	public AudioClip AudioClipDialogue;
 
 	//SECONDARY VARIABLES
 
-	public float BufferTime = 1f;
+	[Range(.5f, 45f)]
+	[SerializeField] public float _bufferTime = .5f;
 
 	public float PreDialogueTime = 0.1f;
 
 	public float PostDialogueTime = 0.36f;
 
-	public float DefaultTime = 5f;
+	private static float _defaultTime = 5f;
 
 	//REAL-TIME VARIABLES
 
-	public bool HasBeenPlayed = false;
+	public bool HasBeenRun = false;
 
 	//ORGANISATION VARIABLES
 
@@ -43,14 +45,14 @@ public class Dialogue_XNod : Node {
 
 	//NODES
 
-    [Input] public Dialogue_XNod PreviousDialogue;
+    [Input] [SerializeField] private Dialogue_XNod PreviousDialogue;
 
-	[Output] public Dialogue_XNod NextDialogue;
-
+	[Output] [SerializeField] private Dialogue_XNod NextDialogue;
 
 	//FUNCTIONS
 
-	protected override void Init() {
+	protected override void Init() 
+	{
 		base.Init();
 
 		if (Tag == 0)
@@ -64,13 +66,101 @@ public class Dialogue_XNod : Node {
 		return this;
 	}
 
-
-		private void OnDestroy()
+	private void OnDestroy()
     {
 		(graph as DialogueToolGraph_XNod).OnDestructionOfDialogueNode(Tag);
 	}
 
-	
+	public bool HaveNextDialogue()
+    {
+		return GetOutputPort("NextDialogue").IsConnected;
+	}
+
+	public bool HavePreviousDialogue()
+    {
+		return !(GetInputValue<Dialogue_XNod>("PreviousDialogue", this.PreviousDialogue) == null);
+
+	}
+
+	public Dialogue_XNod GetNextDialogue()
+    {
+        if (!HaveNextDialogue())
+        {
+			return null;
+        }
+
+		return GetOutputPort("NextDialogue").Connection.node as Dialogue_XNod;
+	}
+
+	public Dialogue_XNod GetPreviousDialogue()
+    {
+		return GetInputValue<Dialogue_XNod>("PreviousDialogue", this.PreviousDialogue);
+    }
+
+	public int GetPriority()
+    {
+		int priorityToReturn = 0;
+
+        switch (_curentPriority)
+        {
+            case Priority.Maximum:
+				priorityToReturn += 9;
+                break;
+
+            case Priority.High:
+				priorityToReturn += 7;
+				break;
+
+            case Priority.Medium:
+				priorityToReturn += 5;
+				break;
+
+            case Priority.Low:
+				priorityToReturn += 3;
+				break;
+
+            case Priority.Minimum:
+				priorityToReturn += 1;
+				break;
+
+            default:
+                break;
+        }
+
+		if ( HavePreviousDialogue() )
+        {
+			priorityToReturn += 1;
+		}
+
+        return priorityToReturn;
+
+    }
+
+	public float GetDialogueTime()
+    {
+		if (AudioClipDialogue == null)
+		{
+			return _defaultTime;
+		}
+		else
+		{
+			return AudioClipDialogue.length;
+		}
+	}
+
+	public float GetBufferTime()
+    {
+		if (HavePreviousDialogue() )
+        {
+			Dialogue_XNod previousDialog = GetPreviousDialogue();
+
+			return (previousDialog.PreDialogueTime + previousDialog.GetDialogueTime() + previousDialog.PostDialogueTime + 1) ;
+		}
+        else
+        {
+			return _bufferTime;
+		}
+	}
 
 
 }

@@ -14,20 +14,22 @@ public class Rubens_DebugManager : MonoBehaviour
         DialogueManager.OnDialogueStartRunning -= SendMessageDebug;
     }
 
-    private IEnumerator Start()
-    {
-        DialogueManager.DM.SendDialogue(0000001);
-
-        yield return new WaitForSeconds(15);
-
-        DialogueManager.DM.SendDialogue(0000003);
-
-    }
-
     private void SendMessageDebug(Dialogue_XNod dialogue)
     {
         Debug.Log(dialogue.Dialogue);
     }
+
+
+    private IEnumerator Start()
+    {
+        DialogueManager.DM.SendDialogue(1);
+
+        yield return new WaitForSeconds(12);
+
+        DialogueManager.DM.SendDialogue(3);
+    }
+
+    
 
     
 }

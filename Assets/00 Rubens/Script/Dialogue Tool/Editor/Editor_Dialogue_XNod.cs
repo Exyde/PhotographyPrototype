@@ -67,7 +67,7 @@ public class Editor_Dialogue_XNod : NodeEditor
 
             EditorGUILayout.Space(5);
 
-            NodeEditorGUILayout.PropertyField(serializedObject.FindProperty("Priority"));
+            NodeEditorGUILayout.PropertyField(serializedObject.FindProperty("_curentPriority"), new GUIContent("Priority"));
 
             EditorGUILayout.Space(5);
 
@@ -89,7 +89,12 @@ public class Editor_Dialogue_XNod : NodeEditor
         {
             EditorGUILayout.BeginVertical(EditorStyles.helpBox);
 
-            NodeEditorGUILayout.PropertyField(serializedObject.FindProperty("BufferTime"));
+            if (!_curentObject.HavePreviousDialogue() )
+            {
+                NodeEditorGUILayout.PropertyField(serializedObject.FindProperty("_bufferTime"));
+
+                EditorGUILayout.Space(5);
+            }
 
             EditorGUILayout.EndVertical();
         }
@@ -129,7 +134,7 @@ public class Editor_Dialogue_XNod : NodeEditor
         {
             EditorGUILayout.BeginVertical(EditorStyles.helpBox);
 
-            EditorGUILayout.LabelField("Has been played : " + _curentObject.HasBeenPlayed.ToString());
+            EditorGUILayout.LabelField("Has been played : " + _curentObject.HasBeenRun.ToString());
 
             EditorGUILayout.EndVertical();
         }

@@ -66,6 +66,16 @@ public class DialogueToolGraph_XNod : NodeGraph {
                 dictionaryTagToDialogueNode.Add((curentNode as Dialogue_XNod).Tag, curentNode as Dialogue_XNod);
             }
         }
-        
+
+        ResetHasBeenRunOfAllDialogues();
+        //ligne à supprimer ou en tout cas à deplacer plus tard pour inclure la sauvegarde, car en l'état est appelé à chaque fois qu'on play
+    }
+
+    public void ResetHasBeenRunOfAllDialogues()
+    {
+        foreach (Node curentNode in nodes)
+        {
+            (curentNode as Dialogue_XNod).HasBeenRun = false;
+        }
     }
 }
