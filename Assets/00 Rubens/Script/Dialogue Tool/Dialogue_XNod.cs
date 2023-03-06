@@ -22,7 +22,7 @@ public class Dialogue_XNod : Node {
 	//SECONDARY VARIABLES
 
 	[Range(.5f, 45f)]
-	[SerializeField] public float _bufferTime = .5f;
+	[SerializeField] private float _bufferTime = .5f;
 
 	public float PreDialogueTime = 0.1f;
 

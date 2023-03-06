@@ -6,15 +6,15 @@ public class Rubens_DebugManager : MonoBehaviour
 {
     private void OnEnable()
     {
-        DialogueManager.OnDialogueStartRunning += SendMessageDebug;
+        DialogueManager.OnDialogueStartRunning += OnDialogueStartRuning_DebugManager;
     }
 
     private void OnDisable()
     {
-        DialogueManager.OnDialogueStartRunning -= SendMessageDebug;
+        DialogueManager.OnDialogueStartRunning -= OnDialogueStartRuning_DebugManager;
     }
 
-    private void SendMessageDebug(Dialogue_XNod dialogue)
+    private void OnDialogueStartRuning_DebugManager(Dialogue_XNod dialogue)
     {
         Debug.Log(dialogue.Dialogue);
     }
@@ -26,7 +26,7 @@ public class Rubens_DebugManager : MonoBehaviour
 
         yield return new WaitForSeconds(12);
 
-        DialogueManager.DM.SendDialogue(3);
+        DialogueManager.DM.SendDialogue(4);
     }
 
     

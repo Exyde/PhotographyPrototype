@@ -8,9 +8,9 @@ using System.Linq;
 [CreateAssetMenu(fileName = "Dialogue Tool", menuName = "Our Tools/Dialogue Tool", order =  1)]
 public class DialogueToolGraph_XNod : NodeGraph {
 
-    int lastTagAtrributed;
+    [SerializeField] int lastTagAtrributed;
 
-    List<int> tagsDeleted;
+    [SerializeField] List<int> tagsDeleted;
 
     Dictionary<int, Dialogue_XNod> dictionaryTagToDialogueNode = new Dictionary<int, Dialogue_XNod>();
 
@@ -40,7 +40,7 @@ public class DialogueToolGraph_XNod : NodeGraph {
             tagsDeleted.RemoveAt(0);
         }
 
-        dictionaryTagToDialogueNode.Add(tagToAttribute, dialogue);
+        //dictionaryTagToDialogueNode.Add(tagToAttribute, dialogue);
 
         return tagToAttribute;
     }
@@ -59,12 +59,11 @@ public class DialogueToolGraph_XNod : NodeGraph {
 
     public void InitAllNodes()
     {
-        if(dictionaryTagToDialogueNode.Count == 0)
+        dictionaryTagToDialogueNode.Clear();
+
+        foreach (Node curentNode in nodes)
         {
-            foreach (Node curentNode in nodes)
-            {
-                dictionaryTagToDialogueNode.Add((curentNode as Dialogue_XNod).Tag, curentNode as Dialogue_XNod);
-            }
+            dictionaryTagToDialogueNode.Add((curentNode as Dialogue_XNod).Tag, curentNode as Dialogue_XNod);
         }
 
         ResetHasBeenRunOfAllDialogues();

@@ -13,7 +13,7 @@ public class DialogueManager : MonoBehaviour
 
     public static Action<Dialogue_XNod> OnDialogueStartRunning;
 
-    public static Action OnDialogueFinishRunning;
+    public static Action<Dialogue_XNod> OnDialogueFinishRunning;
 
     //IMPORTANT VARIABLES
 
@@ -120,7 +120,7 @@ public class DialogueManager : MonoBehaviour
             
         yield return new WaitForSeconds(dialogueToRun.GetDialogueTime() );
         
-            OnDialogueFinishRunning?.Invoke();
+            OnDialogueFinishRunning?.Invoke(dialogueToRun);
 
         yield return new WaitForSeconds(dialogueToRun.PostDialogueTime);
 
