@@ -90,7 +90,7 @@ public class Polaroid : MonoBehaviour
 
             if(_pictureTakensCount < _maxPicturesSlots){
                 int slotIndex = GetAvailableSlotIndex();
-                //Debug.Log("Slot index : " + slotIndex);
+                Logger.Log("Slot index : " + slotIndex);
 
                 if (slotIndex >= 0){ //If a slot is available
                     _currentXnodPicturedObjects[slotIndex] = picturable.GetObject_XNod();
@@ -189,7 +189,7 @@ public class Polaroid : MonoBehaviour
     }
 
     void ResetPicturesArrayAndList(){
-        // Debug.Log("Reseting Arrays");
+        Logger.LogError("Reseting Arrays");
         _xNodSelectedPicturablesObjets.Clear();
         _currentXnodPicturedObjects = new Object_XNod[_maxPicturesSlots];
         _picturesTextures = new Texture2D[_maxPicturesSlots];

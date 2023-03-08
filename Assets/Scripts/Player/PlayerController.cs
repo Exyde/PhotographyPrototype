@@ -101,7 +101,7 @@ public class PlayerController : MonoBehaviour
     }
 
     void HandleBlackboardInteraction(){
-        Debug.Log("Blackboard stuffs !");
+        Logger.Log("Blackboard stuffs !");
         //@TODO : Disable Rendering while in Blacboard => Toggle ? 
     }
     #endregion
