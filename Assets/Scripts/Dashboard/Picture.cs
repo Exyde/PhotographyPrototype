@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Blackboard/Picture", fileName = "New Picture")]
+[CreateAssetMenu(menuName = "Dashboard/Picture", fileName = "New Picture")]
 public class Picture : DashboardItem
 {
     public IEnumerator CreateTextureAndSprite(){
