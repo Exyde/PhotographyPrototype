@@ -6,7 +6,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     enum CameraState{
-        FPS, Blackboard
+        FPS, Dashboard
     }
 
     [SerializeField] KeyCode _cameraToggleKeyCode = KeyCode.T;
@@ -16,7 +16,7 @@ public class PlayerController : MonoBehaviour
     [Header("Camera Stuffs")]
     [SerializeField] CameraState _camState = CameraState.FPS;
     public Camera _mainCamera;
-    public Transform _blackboardCameraHolder;
+    public Transform _dashboardCameraHolder;
     public Transform _fpsCameraHolder;
     public Vector3 _fpsCameraPosition;
 
@@ -30,7 +30,7 @@ public class PlayerController : MonoBehaviour
     public float _lookSpeed = 2.0f;
     public float _lookXLimit = 45.0f;
 
-    [Header("Blackboard View Settings")] //@TODO : AddBlackboard Interaction
+    [Header("Dashboard View Settings")] //@TODO : Add Dashboard Interaction System
     [SerializeField] float _cursorSpeed = 0f;
 
     //Private Fields
@@ -58,7 +58,7 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetKeyDown(_cameraToggleKeyCode)) ToggleCamera();
         if ( _camState == CameraState.FPS) HandleMovement();
-        else if (_camState == CameraState.Blackboard) HandleBlackboardInteraction();
+        else if (_camState == CameraState.Dashboard) HandleDashboardInteraction();
     }
     #endregion
 
@@ -100,16 +100,16 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    void HandleBlackboardInteraction(){
-        Logger.Log("Blackboard stuffs !");
+    void HandleDashboardInteraction(){
+        Logger.Log("Dashboard stuffs !");
         //@TODO : Disable Rendering while in Blacboard => Toggle ? 
     }
     #endregion
 
     #region Camera Switch and Lerping
     void ToggleCamera(){
-        if(_camState == CameraState.FPS) SetBlackboardCamera(false);
-        else if (_camState == CameraState.Blackboard) SetFPSCamera(true);
+        if(_camState == CameraState.FPS) SetDashboardCamera(false);
+        else if (_camState == CameraState.Dashboard) SetFPSCamera(true);
     }
 
     //@TODO : Must Become a Coroutine ?
@@ -123,10 +123,10 @@ public class PlayerController : MonoBehaviour
             _mainCamera.transform.position = targetPos;
     }
     void SetFPSCamera(bool lerp) => SetCamera(CameraState.FPS, _fpsCameraHolder, _fpsCameraHolder.position, lerp, 2f);
-    void SetBlackboardCamera(bool lerp){
+    void SetDashboardCamera(bool lerp){
 
-        SetCamera(CameraState.Blackboard, _blackboardCameraHolder, _blackboardCameraHolder.position, lerp);
-        _mainCamera.transform.LookAt(_blackboardCameraHolder.parent.transform);
+        SetCamera(CameraState.Dashboard, _dashboardCameraHolder, _dashboardCameraHolder.position, lerp);
+        _mainCamera.transform.LookAt(_dashboardCameraHolder.parent.transform);
     }
 
     IEnumerator LerpCameraPosition(Vector3 to, float t){

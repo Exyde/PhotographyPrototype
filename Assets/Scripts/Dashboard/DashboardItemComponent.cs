@@ -1,10 +1,10 @@
 using UnityEngine;
 
 [RequireComponent(typeof(SpriteRenderer))]
-public class BlackboardItemComponent : MonoBehaviour
+public class DashboardItemComponent : MonoBehaviour
 {
     [SerializeField] string _name;
-    [SerializeField] BlackboardItem  _item;
+    [SerializeField] DashboardItem  _item;
     SpriteRenderer _renderer;
     
     [Header("Debug")]
@@ -28,7 +28,7 @@ public class BlackboardItemComponent : MonoBehaviour
     private void Update() {
         if (Input.GetKeyDown(_debugPictureKeycode)){
             
-            if (_item.GetItemType() != BlackboardItem.ItemType.Picture) return;
+            if (_item.GetItemType() != DashboardItem.ItemType.Picture) return;
             //@TODO : ça pue ça ?
             Picture p = _item as Picture;
             StartCoroutine(p.CreateTextureAndSprite());

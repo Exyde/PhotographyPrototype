@@ -1,0 +1,92 @@
+
+GameManager
+    
+BlackboardManager => Les events et les blackboards => Methodes GetValue SetValue GetName CreateEntry (Tools Inspector)
+CabineObjectManager => BlackboardManager => Datas [[ Les objets Cabines ]]
+
+SequenceManager [[ Time ]] // GameMods
+    TensionManage
+    PoeticManger
+    SuspenduManager
+
+DialogueManger (DialogueScheduler)
+    EventDialogueManager
+MeteoManager
+NoiseManager
+
+
+EffectManagers (Visual Feedbacks)  => BlackboardManager => Datas => Jour, 3eme cycle => Oui => Joue ça Non => Joue Default
+AudioManager (Song & SFX)
+
+
+EffectManagers{
+
+    OnPictureTaken()
+    {
+        Datas _datas (DatasManagers);
+        if (CheckBool(datas.AUnNoeudPapillon)) => PlayFx();
+    }
+}
+
+Action OnPictureTaken(Object focusedObject){
+
+}
+
+DialogueSelector{
+    Listen => OnPictureTaken (Object object);
+
+    Ok, OnPictureTaken(){
+        => object.tag => ad
+    }
+
+    OnCabineEnter(){
+
+    }
+
+    
+}
+
+/// Tout ce qui se déclanche => Tout ce qui seclanche
+
+Context{
+
+}
+Conditions{
+    Condition 1;
+    Condition 1;
+    Condition 1;
+    Condition 1;
+}
+
+Condition{
+    string name;
+    string key;
+    int valueToCheck;
+    enum Mode { <, <=, ==, >, >=, !=}
+}
+
+OnTriggerEnterGameEvent() => 1 , 2 , 3, 4
+    Actions 
+OnTriggerWaitEvent()
+OnTriggerQuitEvent()
+
+OnCollideGameEvent()
+OnLookGameEvent()
+OnPictureGameEvent();
+// List d'actions Trigger =>
+// OnTrigger(Action, Callback, Dialogue)
+//  DispatchEvent("EventName", "Context", Conditions) --> Tout le monde (tout les managers register ce truc ou pas) --
+    
+    Event DispatchEvent("OnPictureTaken", "InCabine_Day06", Object.Conditions);
+//  Invoke?.Event() --> Ses propres Events --> Editor
+
+class GameEvent(){
+    virtual DispatchEvent("ee");
+
+    Action action;
+}
+
+[RequireComponent(Collider)]
+class OnTriggerGameEvent : GameEvent(){
+    OnCollider
+}

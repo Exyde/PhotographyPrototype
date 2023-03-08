@@ -1,6 +1,6 @@
 #if UNITY_EDITOR
 using UnityEngine;
-public static class Logger{
+public static class Logger{ //@Todo : Finish inplementing this logger
 
     public enum DebugMode { Off, All, ErrorsOnly, ErrorAndWarning, Dialogue}
     public static DebugMode _debugMode = DebugMode.All;
@@ -31,5 +31,8 @@ public static class Logger{
     public static void LogDialogue(){
         
     }
+
+    public static bool IsLoggerEnabled() => _debugMode != DebugMode.Off;
 }
 #endif
+

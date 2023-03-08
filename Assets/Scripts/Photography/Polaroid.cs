@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 using TMPro;
+using System;
 
 enum State{
     Photography, SlotSelection
@@ -14,7 +15,7 @@ public class Polaroid : MonoBehaviour
     #region Fields
     [Header ("References")] //@TODO : Replace thoses by Static Instance or Singletons ?
     public ObjectManager _objetManager;
-    public Blackboard _blackboard;
+    public Dashboard _dashboard;
     [Space(5)]
 
     [Header("UI References")] //@TODO : Replace with Event Broadcast & Observer Pattern Within the HUD ?
@@ -58,8 +59,8 @@ public class Polaroid : MonoBehaviour
     [SerializeField] ParticleSystem _PS_Flash;
 
     [Header ("Events")]
-    [HideInInspector] public UnityEvent _OnCabineEnter;
-    [HideInInspector] public UnityEvent _OnCabineExit;
+    public Action _OnCabineEnter;
+    public Action _OnCabineExit;
     #endregion
 
     #region UnityCallbacks
@@ -67,8 +68,8 @@ public class Polaroid : MonoBehaviour
         ResetPicturesArrayAndList();
         _UIImagesHolder.SetActive(false);
 
-        _OnCabineExit.AddListener(ResetPolaroid);
-        _OnCabineExit.AddListener(CallManagerUpdateList);
+        _OnCabineExit += ResetPolaroid;
+        _OnCabineExit += CallManagerUpdateList;
     }
 
     void Update()
@@ -101,7 +102,9 @@ public class Polaroid : MonoBehaviour
 
                     _pictureTakenSlots[slotIndex] = true;
                     _pictureTakensCount++;
-                    //_PS_Flash.Play();
+
+
+                    //_PS_Flash.Play() @EffectManager
                 }
             }
             else {
@@ -177,8 +180,8 @@ public class Polaroid : MonoBehaviour
 
         for (int i =0; i < _maxPicturesSlots; i++){
             if (_UIImagePictureSlots[i].sprite != null){
-                _blackboard.CreatePictureOnBoard(_UIImagePictureSlots[i].sprite);
-                SaveSystem.SaveTexToPng(_picturesTextures[i], _picturesTextures[i].name, Random.Range(0, 2000)); //@TODO : Temp, remove this elsewhere
+                _dashboard.CreatePictureOnBoard(_UIImagePictureSlots[i].sprite);
+                SaveSystem.SaveTexToPng(_picturesTextures[i], _picturesTextures[i].name, UnityEngine.Random.Range(0, 2000)); //@TODO : Temp, remove this elsewhere
                 _UIImagePictureSlots[i].sprite = null;
             }
         }

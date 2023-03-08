@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class BlackboardItem : ScriptableObject
+public class DashboardItem : ScriptableObject
 {
     //@TODO : Item type ? Note, text, picture, drawing... ?
     public enum ItemType {
