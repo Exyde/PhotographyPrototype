@@ -2,7 +2,7 @@
 using UnityEngine;
 public static class Logger{ //@Todo : Finish inplementing this logger
 
-    public enum DebugMode { Off, All, ErrorsOnly, ErrorAndWarning, Dialogue}
+    public enum DebugMode { Off, All, ErrorsOnly, ErrorAndWarning, Dialogue, Info}
     public static DebugMode _debugMode = DebugMode.All;
     public static void SetDebugMode(DebugMode mode) => _debugMode = mode; 
     public static void Log (string message){
@@ -30,6 +30,10 @@ public static class Logger{ //@Todo : Finish inplementing this logger
 
     public static void LogDialogue(){
         
+    }
+
+    public static void LogInfo(){
+
     }
 
     public static bool IsLoggerEnabled() => _debugMode != DebugMode.Off;

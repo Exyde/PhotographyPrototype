@@ -30,8 +30,8 @@ public class PlayerController : MonoBehaviour
     public float _lookSpeed = 2.0f;
     public float _lookXLimit = 45.0f;
 
-    [Header("Dashboard View Settings")] //@TODO : Add Dashboard Interaction System
-    [SerializeField] float _cursorSpeed = 0f;
+    //[Header("Dashboard View Settings")] //@TODO : Add Dashboard Interaction System
+    //[SerializeField] float _cursorSpeed = 0f;
 
     //Private Fields
     CharacterController _characterController;

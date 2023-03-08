@@ -26,7 +26,6 @@ public class Polaroid : MonoBehaviour
 
     [Header ("Preview & Readonly")]
     [SerializeField] State _state = State.Photography;
-    [SerializeField] bool _inCabine;
     ///<summary>
     /// XNod Objects currently saved in pictures slots.
     /// </summary>
@@ -155,14 +154,12 @@ public class Polaroid : MonoBehaviour
     #region Event Triggers
     private void OnTriggerEnter(Collider other) {
         if (other.gameObject.tag == "Cabine"){
-            _inCabine = true;
             _OnCabineEnter?.Invoke();
         }
     }
 
     private void OnTriggerExit(Collider other) {
         if (other.gameObject.tag == "Cabine"){
-            _inCabine = false;
             _OnCabineExit?.Invoke();
         } 
     }
@@ -192,7 +189,7 @@ public class Polaroid : MonoBehaviour
     }
 
     void ResetPicturesArrayAndList(){
-        Logger.LogError("Reseting Arrays");
+        Logger.Log("Reseting Arrays");
         _xNodSelectedPicturablesObjets.Clear();
         _currentXnodPicturedObjects = new Object_XNod[_maxPicturesSlots];
         _picturesTextures = new Texture2D[_maxPicturesSlots];

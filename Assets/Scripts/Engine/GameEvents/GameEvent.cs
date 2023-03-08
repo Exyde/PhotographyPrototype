@@ -11,15 +11,21 @@ namespace Core.GameEvents{
 
         [Header("Event Parameters")]
         [SerializeField] string _eventName;
-        [SerializeField] string _eventContext;
+        [SerializeField] string _eventSender;
 
         [Header("On Event Objects Actions")]
         [SerializeField] UnityEvent<string, string> _events;
 
-        [SerializeField] List<GEvent> _gvents;
+        [SerializeField] List<ScriptableEvents> _scriptableEvents;
+
+
+        private void Awake() {
+            _eventName = this.GetType().Name;
+            _eventSender = this.gameObject.name;
+        }
         internal void DispatchEvent(){
-            _actions?.Invoke(_eventName, _eventContext);
-            _events?.Invoke(_eventName, _eventContext);
+            _actions?.Invoke(_eventName, _eventSender);
+            _events?.Invoke(_eventName, _eventSender);
         }
 
         bool IsEventValid(List<FactCondition> _facts){
@@ -32,15 +38,16 @@ namespace Core.GameEvents{
 
 
     [System.Serializable]
-    public struct GEvent{
+    public struct ScriptableEvents{
 
         [SerializeField] UnityEvent _event;
         [SerializeField] List<FactCondition> _conditions;
     }
 
-    public class EventContext{
+    public struct EventContext{ //Maybe ?
         string _eventName;
-        string _contextName;
+        string _eventSender;
+        string _contextName; //Define this ?
     }
 
     [System.Serializable]

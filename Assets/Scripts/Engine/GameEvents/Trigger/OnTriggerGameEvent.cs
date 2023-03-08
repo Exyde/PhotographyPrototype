@@ -5,7 +5,7 @@ using UnityEngine.Events;
 
 namespace Core.GameEvents{
     [RequireComponent(typeof(BoxCollider))]
-    public class OnTriggerGameEvent : GameEvent { //@TODO : Splits in 3 Distinct classes Enter, StayTimer, Exit
+    public abstract class OnTriggerGameEvent : GameEvent {
 
         protected enum TriggerDetectionMode {Layer, Tag};
         protected enum TriggerMode {Enter, Stay, Exit};
@@ -14,7 +14,6 @@ namespace Core.GameEvents{
 
         [Header("Settings")]
         [SerializeField] protected TriggerDetectionMode _triggerDetectionMode = TriggerDetectionMode.Layer;
-        [SerializeField] protected TriggerMode _triggerMode = TriggerMode.Enter;
         [SerializeField] protected LayerMask _triggerLayer;
         [SerializeField] protected string _triggerTag;
  
@@ -24,29 +23,6 @@ namespace Core.GameEvents{
                 coll = gameObject.AddComponent<BoxCollider>();
             }
             coll.isTrigger = true;
-        }
-
-
-        private void OnTriggerStay(Collider other){
-            if (_triggerMode != TriggerMode.Stay) return;
-            if (_triggerDetectionMode == TriggerDetectionMode.Layer && other.gameObject.layer == _triggerLayer){
-                base.DispatchEvent();
-            }
-
-            if (_triggerDetectionMode == TriggerDetectionMode.Tag && other.gameObject.tag == _triggerTag){
-                base.DispatchEvent();
-            }
-        }
-
-        private void OnTriggerExit(Collider other){
-            if (_triggerMode != TriggerMode.Exit) return;
-            if (_triggerDetectionMode == TriggerDetectionMode.Layer && other.gameObject.layer == _triggerLayer){
-                base.DispatchEvent();
-            }
-
-            if (_triggerDetectionMode == TriggerDetectionMode.Tag && other.gameObject.tag == _triggerTag){
-                base.DispatchEvent();
-            }
         }
     }
 }
