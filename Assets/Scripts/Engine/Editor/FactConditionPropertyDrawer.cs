@@ -26,11 +26,10 @@ public class FactConditionPropertyDrawer : PropertyDrawer{
         EditorGUI.indentLevel = 0;
 
         // Calculate rects
-        int offset = 50;
-        var blackboardRect = new Rect(position.x - offset, position.y, position.width * 0.39f, position.height);
-        var factRect = new Rect(position.x - offset + position.width * 0.4f , position.y, position.width * 0.39f, position.height);
-        var compRect = new Rect(position.x - offset + position.width * 0.8f, position.y, position.width * 0.19f, position.height);
-        var valueRect = new Rect(position.x - offset + position.width * 1.9f, position.y, position.width * 0.09f, position.height);
+        var blackboardRect = new Rect(position.x, position.y, position.width * 0.39f, position.height);
+        var factRect = new Rect(position.x + position.width * 0.4f , position.y, position.width * 0.39f, position.height);
+        var compRect = new Rect(position.x + position.width * 0.8f, position.y, position.width * 0.09f, position.height);
+        var valueRect = new Rect(position.x  + position.width * 0.9f, position.y, position.width * 0.09f, position.height);
  
 
         // Draw fields - pass GUIContent.none to each so they are drawn without labels

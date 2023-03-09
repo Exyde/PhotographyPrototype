@@ -9,7 +9,7 @@ namespace Core.GameEvents{
         
         private Action<string, string> _actions;
 
-        [Header("Event Parameters")]
+        [Header("Event Parameters - Rien a rentrer ici ._. - juste debug !")]
         [SerializeField] string _eventName;
         [SerializeField] string _eventSender;
 
@@ -22,6 +22,7 @@ namespace Core.GameEvents{
         }
         internal virtual void DispatchEvent(){
             _actions?.Invoke(_eventName, _eventSender);
+            Logger.LogInfo("Event Dispatched : " + _eventName + " | Event Sender : " + _eventSender);
             foreach(ScriptableEvents e in _scriptableEvents){
                 e.GetEvent()?.Invoke();
             }
@@ -34,7 +35,6 @@ namespace Core.GameEvents{
             return true;
         }
     }
-
 
     [System.Serializable]
     public struct ScriptableEvents{
