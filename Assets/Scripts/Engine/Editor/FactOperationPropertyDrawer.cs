@@ -25,16 +25,26 @@ public class FactOperationPropertyDrawer : PropertyDrawer{
         var indent = EditorGUI.indentLevel;
         EditorGUI.indentLevel = 0;
 
-        //Rect rectFoldout = new Rect(position.min.x, position.min.y, position.size.x, EditorGUIUtility.singleLineHeight);
-        //property.isExpanded = EditorGUI.Foldout(rectFoldout, property.isExpanded, label);
+        float yOffset = position.height * 0.4f;
+        var displayBlackboardRect = new Rect(position.x, position.y, position.width * 0.39f, position.height * 0.4f);
+        var displayFactRect = new Rect(position.x + position.width * 0.4f , position.y, position.width * 0.39f, position.height * 0.4f);
+        var displayOperationRect = new Rect(position.x + position.width * 0.8f, position.y, position.width * 0.12f, position.height * 0.4f);
+        var displayValueRect = new Rect(position.x  + position.width * 0.93f, position.y, position.width * 0.06f, position.height * 0.4f);
+        
+        var blackboardRect = new Rect(position.x, position.y + yOffset, position.width * 0.39f, position.height * 0.5f);
+        var factRect = new Rect(position.x + position.width * 0.4f , position.y + yOffset, position.width * 0.39f, position.height * 0.5f);
+        var operationRect = new Rect(position.x + position.width * 0.8f, position.y + yOffset, position.width * 0.12f, position.height * 0.5f);
+        var valueRect = new Rect(position.x  + position.width * 0.93f, position.y + yOffset, position.width * 0.06f, position.height * 0.5f);
+ 
 
+        //Draws Label
+        EditorGUI.LabelField(displayBlackboardRect, "Blackboard Name" );
+        EditorGUI.LabelField(displayFactRect, "Fact Name"); 
+        EditorGUI.LabelField(displayOperationRect, "Operation");
+        EditorGUI.LabelField(displayValueRect, "Value" );
         // Calculate rects
-        var blackboardRect = new Rect(position.x, position.y, position.width * 0.39f, position.height);
-        var factRect = new Rect(position.x + position.width * 0.4f , position.y, position.width * 0.39f, position.height);
-        var operationRect = new Rect(position.x + position.width * 0.8f, position.y, position.width * 0.09f, position.height);
-        var valueRect = new Rect(position.x + position.width * 0.9f, position.y, position.width * 0.09f, position.height);
 
-            // Draw fields - pass GUIContent.none to each so they are drawn without labels
+        // Draw fields - pass GUIContent.none to each so they are drawn without labels
         EditorGUI.PropertyField(blackboardRect, _blackboardName , GUIContent.none);
         EditorGUI.PropertyField(factRect, _factName, GUIContent.none);
         EditorGUI.PropertyField(operationRect, _operation, GUIContent.none);
@@ -48,7 +58,7 @@ public class FactOperationPropertyDrawer : PropertyDrawer{
 
     public override float GetPropertyHeight(SerializedProperty property, GUIContent label)
     {
-        float totalLines = 1f;
+        float totalLines = 2f;
 
         return totalLines * EditorGUIUtility.singleLineHeight + EditorGUIUtility.standardVerticalSpacing *(totalLines - 1);
     }
