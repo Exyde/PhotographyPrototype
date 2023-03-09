@@ -38,7 +38,7 @@ namespace Core.GameEvents{
 
     [System.Serializable]
     public struct ScriptableEvents{
-
+        [SerializeField] string _eventName;
         [SerializeField] UnityEvent _event;
         [SerializeField] List<FactCondition> _conditions;
 
