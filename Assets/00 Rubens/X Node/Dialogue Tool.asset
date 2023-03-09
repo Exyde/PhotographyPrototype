@@ -48,6 +48,7 @@ MonoBehaviour:
   PreDialogueTime: 0.1
   PostDialogueTime: 0.36
   HasBeenRun: 0
+  OperationsAfterRun: []
   Annotation: 
   IsRecorded: 0
   IsIntegrated: 0
@@ -101,6 +102,7 @@ MonoBehaviour:
   PreDialogueTime: 0.1
   PostDialogueTime: 0.36
   HasBeenRun: 1
+  OperationsAfterRun: []
   Annotation: 
   IsRecorded: 0
   IsIntegrated: 0
@@ -151,6 +153,7 @@ MonoBehaviour:
   PreDialogueTime: 0.1
   PostDialogueTime: 0.36
   HasBeenRun: 1
+  OperationsAfterRun: []
   Annotation: 
   IsRecorded: 0
   IsIntegrated: 0
@@ -228,6 +231,7 @@ MonoBehaviour:
   PreDialogueTime: 0.1
   PostDialogueTime: 0.36
   HasBeenRun: 0
+  OperationsAfterRun: []
   Annotation: 
   IsRecorded: 0
   IsIntegrated: 0
@@ -284,6 +288,7 @@ MonoBehaviour:
   PreDialogueTime: 0.1
   PostDialogueTime: 0.36
   HasBeenRun: 1
+  OperationsAfterRun: []
   Annotation: 
   IsRecorded: 0
   IsIntegrated: 0
@@ -340,6 +345,7 @@ MonoBehaviour:
   PreDialogueTime: 0.1
   PostDialogueTime: 0.36
   HasBeenRun: 0
+  OperationsAfterRun: []
   Annotation: 
   IsRecorded: 0
   IsIntegrated: 0

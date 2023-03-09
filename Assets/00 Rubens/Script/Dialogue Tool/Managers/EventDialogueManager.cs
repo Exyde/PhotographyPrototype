@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using UnityEngine.Events;
+using Core.GameEvents;
+
 
 public class EventDialogueManager : MonoBehaviour
 {
@@ -35,6 +37,11 @@ public class EventDialogueManager : MonoBehaviour
 
     private void OnDialogueFinishRuning_EventDialogueManager(Dialogue_XNod dialogue)
     {
+        foreach(FactOperation fo in dialogue.OperationsAfterRun)
+        {
+            BlackboardManager.BBM?.SetFactValue(fo);
+        }
+        
         foreach (TagToEvent curentTagToEvent in ActionAtFinishOfDialogue)
         {
             if (dialogue.Tag == curentTagToEvent.tag)

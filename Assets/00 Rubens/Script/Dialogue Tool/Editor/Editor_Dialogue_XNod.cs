@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEditor;
 using XNode;
 using XNodeEditor;
+using Core.GameEvents;
 
 [CustomNodeEditor(typeof(Dialogue_XNod))]
 public class Editor_Dialogue_XNod : NodeEditor
@@ -13,6 +14,8 @@ public class Editor_Dialogue_XNod : NodeEditor
 
     bool _showImportantInformations = true;
     bool _showDetails;
+    bool _showBlackboardInformations;
+
     bool _showAnnotation;
     bool _showRealTimeInformation;
 
@@ -96,12 +99,34 @@ public class Editor_Dialogue_XNod : NodeEditor
                 EditorGUILayout.Space(5);
             }
 
+            NodeEditorGUILayout.PropertyField(serializedObject.FindProperty("PreDialogueTime"));
+
+            EditorGUILayout.Space(5);
+
+            NodeEditorGUILayout.PropertyField(serializedObject.FindProperty("PostDialogueTime"));
+
             EditorGUILayout.EndVertical();
         }
 
         EditorGUILayout.EndFoldoutHeaderGroup();
 
         EditorGUILayout.Space(5);
+
+        _showBlackboardInformations = EditorGUILayout.BeginFoldoutHeaderGroup(_showBlackboardInformations, "Show blackboard operation");
+
+        if (_showBlackboardInformations)
+        {
+            EditorGUILayout.BeginVertical(EditorStyles.helpBox);
+
+            //NodeEditorGUILayout.PropertyField(serializedObject.FindProperty("OperationsAfterRun"));
+
+            EditorGUILayout.EndVertical();
+        }
+
+        EditorGUILayout.EndFoldoutHeaderGroup();
+
+        EditorGUILayout.Space(5);
+
 
         _showAnnotation = EditorGUILayout.BeginFoldoutHeaderGroup(_showAnnotation, "Show annotations");
 
