@@ -9,17 +9,15 @@ namespace Core.GameEvents{
 
     [System.Serializable]
     public class FactCondition{
-            public string _blackboardName = "Blackboard Name";
-            [Space(5)]
-            public string _factName = "Fact Name";
-            public Comparaison _comparaison;
-            public int _value = 0;
+        [SerializeField] public string _blackboardName = "Blackboard Name";
+        [SerializeField] public string _factName = "Fact Name";
+        [SerializeField] public Comparaison _comparaison;
+        [SerializeField] public int _value = 0;
     }
 
     [System.Serializable]
     public class FactOperation{
         [SerializeField] public string _blackboardName;
-        [Space(5)]
         [SerializeField] public string _factName;
         [SerializeField] public Operation _operation;
         [SerializeField] public int _value;
