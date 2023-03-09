@@ -7,7 +7,7 @@ public class BlackboardManager : MonoBehaviour
 {
     public static BlackboardManager BBM;
 
-    List<Blackboard_XNode> Datas;
+    [SerializeField] List<Blackboard_XNode> Datas;
 
     Dictionary<string, BlackBoard> DictionaryToBlackBoard = new();
 

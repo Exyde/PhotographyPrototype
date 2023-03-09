@@ -19,8 +19,8 @@ public class ObjectManager : MonoBehaviour
     {
         _graph.ResetGraph();
         //_xNodeObjectsAvailable = _graph.ListObjectsDisponibles;
-        //Je t'enleve cette ligne je vois pas trop à quoi elle sert de base
-        //Je te remplace par celle là au cas où t'as besoin de mettre quelque chose dans ta  list au debut, ça fait plus ou moins la meme chose :
+        //Je t'enleve cette ligne je vois pas trop ï¿½ quoi elle sert de base
+        //Je te remplace par celle lï¿½ au cas oï¿½ t'as besoin de mettre quelque chose dans ta  list au debut, ï¿½a fait plus ou moins la meme chose :
         _xNodeObjectsAvailable = _graph.GetListOfItemsDisponibleForSpawn(1000, Object_XNod.City.Military);
     }
 

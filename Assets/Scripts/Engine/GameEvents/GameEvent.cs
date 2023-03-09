@@ -4,10 +4,9 @@ using System.Collections.Generic;
 using UnityEngine.Events;
 
 namespace Core.GameEvents{
-
     public abstract class GameEvent : MonoBehaviour {
         
-        //Core Game Action
+        //Core Game Action - Static, and registered by ALL the managers ?
         public static Action<string, string> _onGameEvent;
 
         [Header("Event Parameters - Rien a rentrer ici ._. - juste debug !")]
@@ -32,8 +31,7 @@ namespace Core.GameEvents{
 
         bool IsEventValid(List<FactCondition> _facts){
             foreach(FactCondition f in _facts){
-                //if (!CheckFact()) return false; @TODO : Fact checking in BlackboardManager
-                BlackboardManager.BBM.CompareFactValueTo(f);
+                BlackboardManager.BBM.CompareFactValueTo(f); //@TEST 
             }
             return true;
         }

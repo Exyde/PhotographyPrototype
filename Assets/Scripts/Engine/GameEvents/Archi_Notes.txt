@@ -14,10 +14,9 @@ DialogueManger (DialogueScheduler)
 MeteoManager
 NoiseManager
 
-
-EffectManagers (Visual Feedbacks)  => BlackboardManager => Datas => Jour, 3eme cycle => Oui => Joue ça Non => Joue Default
+UIManager
+EffectManagers (Visual Feedbacks)
 AudioManager (Song & SFX)
-
 
 EffectManagers{
 
@@ -46,47 +45,7 @@ DialogueSelector{
     
 }
 
-/// Tout ce qui se déclanche => Tout ce qui seclanche
-
-Context{
-
-}
-Conditions{
-    Condition 1;
-    Condition 1;
-    Condition 1;
-    Condition 1;
-}
-
-Condition{
-    string name;
-    string key;
-    int valueToCheck;
-    enum Mode { <, <=, ==, >, >=, !=}
-}
-
-OnTriggerEnterGameEvent() => 1 , 2 , 3, 4
-    Actions 
-OnTriggerWaitEvent()
-OnTriggerQuitEvent()
 
 OnCollideGameEvent()
 OnLookGameEvent()
 OnPictureGameEvent();
-// List d'actions Trigger =>
-// OnTrigger(Action, Callback, Dialogue)
-//  DispatchEvent("EventName", "Context", Conditions) --> Tout le monde (tout les managers register ce truc ou pas) --
-    
-    Event DispatchEvent("OnPictureTaken", "InCabine_Day06", Object.Conditions);
-//  Invoke?.Event() --> Ses propres Events --> Editor
-
-class GameEvent(){
-    virtual DispatchEvent("ee");
-
-    Action action;
-}
-
-[RequireComponent(Collider)]
-class OnTriggerGameEvent : GameEvent(){
-    OnCollider
-}

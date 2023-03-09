@@ -891,7 +891,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _condition:
-    _blackboardName: 
+    _blackboardName: BlackboardName
     _factName: 
     _comparaison: 0
     _value: 0
