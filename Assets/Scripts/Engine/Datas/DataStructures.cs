@@ -9,19 +9,19 @@ namespace Core.GameEvents{
 
     [System.Serializable]
     public struct FactCondition{
-            [SerializeField] string _blackboardName;
+            [SerializeField] public string _blackboardName;
             [Space(5)]
-            [SerializeField] string _factName;
-            [SerializeField] Comparaison _comparaison;
-            [SerializeField] int _value;
+            [SerializeField] public string _factName;
+            [SerializeField] public Comparaison _comparaison;
+            [SerializeField] public int _value;
         }
 
     public struct FactOperation{
-        [SerializeField] string _blackboardName;
+        [SerializeField] public string _blackboardName;
         [Space(5)]
-        [SerializeField] string _factName;
-        [SerializeField] Operation _operation;
-        [SerializeField] int _value;
+        [SerializeField] public string _factName;
+        [SerializeField] public Operation _operation;
+        [SerializeField] public int _value;
     }
 
     

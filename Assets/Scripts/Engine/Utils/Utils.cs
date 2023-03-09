@@ -4,9 +4,11 @@ using UnityEngine;
 
 public static class Utils
 {
+
 }
 
 
+//String extensions methods to help display string in a particuliar style easily.
 public static class StringExtension {
     public static string Bold(this string str) => "<b>" + str + "</b>";
     public static string Color(this string str,string clr) => string.Format("<color={0}>{1}</color>",clr, str);

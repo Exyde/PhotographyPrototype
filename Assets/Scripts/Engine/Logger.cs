@@ -6,6 +6,8 @@ public static class Logger{ //@Todo : Finish inplementing this logger
     public static DebugMode _debugMode = DebugMode.All;
     public static void SetDebugMode(DebugMode mode) => _debugMode = mode; 
 
+
+    //Colors
     private static readonly string _infoColor = "cyan";
 
     public static void Log (object message){
