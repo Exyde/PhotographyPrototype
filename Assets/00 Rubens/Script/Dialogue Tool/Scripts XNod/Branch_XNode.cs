@@ -23,6 +23,20 @@ public class Branch_XNode : Node {
 		
 	}
 
+	public Dialogue_XNod GetNextDialogue()
+    {
+		foreach(FactCondition fc in FactsCondition)
+        {
+			if (!BlackboardManager.BBM.CompareFactValueTo(fc))
+            {
+				return GetOutputPort("NextDialogueIfFalse").Connection.node as Dialogue_XNod;
+			}
+        }
+
+		return GetOutputPort("NextDialogueIfTrue").Connection.node as Dialogue_XNod;
+
+	}
+
 	// Return the correct value of an output port when requested
 	public override object GetValue(NodePort port) {
 		return null; // Replace this

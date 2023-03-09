@@ -97,7 +97,17 @@ public class Dialogue_XNod : Node {
 			return null;
         }
 
-		return GetOutputPort("NextDialogue").Connection.node as Dialogue_XNod;
+		Node nextNode = GetOutputPort("NextDialogue").Connection.node;
+
+		if(nextNode.GetType() == typeof(Dialogue_XNod))
+        {
+			return nextNode as Dialogue_XNod;
+        }
+        else
+        {
+			return (nextNode as Branch_XNode).GetNextDialogue();
+        }
+
 	}
 
 	public Dialogue_XNod GetPreviousDialogue()

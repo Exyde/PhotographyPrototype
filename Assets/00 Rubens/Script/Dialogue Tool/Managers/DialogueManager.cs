@@ -138,6 +138,8 @@ public class DialogueManager : MonoBehaviour
     }
 
 
+
+
     //PRIVATES TOOL FUNCTIONS
 
     private Dialogue_XNod GetHighestPriorityDialogInList(List<Dialogue_XNod> listDialog)
