@@ -67,7 +67,7 @@ MonoBehaviour:
   m_Name: 000001
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -504, y: -104}
+  position: {x: -680, y: -408}
   ports:
     keys:
     - PreviousDialogue
@@ -95,7 +95,7 @@ MonoBehaviour:
       _typeConstraint: 0
       _dynamic: 0
   Tag: 1
-  Dialogue: Premier dialogue
+  Dialogue: "Ah t'es l\xE0 connard !"
   _curentPriority: 2
   AudioClipDialogue: {fileID: 0}
   _bufferTime: 0.5
@@ -108,6 +108,65 @@ MonoBehaviour:
   IsIntegrated: 0
   PreviousDialogue: {fileID: 0}
   NextDialogue: {fileID: 0}
+--- !u!114 &-1308962173125365491
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 684de05b9eb7f644f91ca8f5f0cf5b55, type: 3}
+  m_Name: Branch_X
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 1864, y: 168}
+  ports:
+    keys:
+    - PreviousDialogue
+    - NextDialogueIfTrue
+    - NextDialogueIfFalse
+    values:
+    - _fieldName: PreviousDialogue
+      _node: {fileID: -1308962173125365491}
+      _typeQualifiedName: Dialogue_XNod, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: NextDialogueIfTrue
+      _node: {fileID: -1308962173125365491}
+      _typeQualifiedName: Dialogue_XNod, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: NextDialogueIfFalse
+      _node: {fileID: -1308962173125365491}
+      _typeQualifiedName: Dialogue_XNod, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  FactsCondition:
+  - _blackboardName: zz
+    _factName: 
+    _comparaison: 0
+    _value: 0
+  - _blackboardName: 
+    _factName: 
+    _comparaison: 0
+    _value: 0
+  PreviousDialogue: {fileID: 0}
+  NextDialogueIfTrue: {fileID: 0}
+  NextDialogueIfFalse: {fileID: 0}
 --- !u!114 &-395290998611744404
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -178,6 +237,7 @@ MonoBehaviour:
   - {fileID: -8030353846012619041}
   - {fileID: -395290998611744404}
   - {fileID: 6163461968177994018}
+  - {fileID: -1308962173125365491}
   lastTagAtrributed: 7
   tagsDeleted: 07000000
 --- !u!114 &2464591476613001367
@@ -250,7 +310,7 @@ MonoBehaviour:
   m_Name: 000002
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -72, y: -88}
+  position: {x: -88, y: -40}
   ports:
     keys:
     - PreviousDialogue

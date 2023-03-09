@@ -105,6 +105,8 @@ public class Editor_Dialogue_XNod : NodeEditor
 
             NodeEditorGUILayout.PropertyField(serializedObject.FindProperty("PostDialogueTime"));
 
+
+
             EditorGUILayout.EndVertical();
         }
 
@@ -112,18 +114,7 @@ public class Editor_Dialogue_XNod : NodeEditor
 
         EditorGUILayout.Space(5);
 
-        _showBlackboardInformations = EditorGUILayout.BeginFoldoutHeaderGroup(_showBlackboardInformations, "Show blackboard operation");
-
-        if (_showBlackboardInformations)
-        {
-            EditorGUILayout.BeginVertical(EditorStyles.helpBox);
-
-            //NodeEditorGUILayout.PropertyField(serializedObject.FindProperty("OperationsAfterRun"));
-
-            EditorGUILayout.EndVertical();
-        }
-
-        EditorGUILayout.EndFoldoutHeaderGroup();
+        NodeEditorGUILayout.PropertyField(serializedObject.FindProperty("OperationsAfterRun"),new GUIContent("Show blackboard opperations"), true);
 
         EditorGUILayout.Space(5);
 
