@@ -24,10 +24,10 @@ MonoBehaviour:
     Facts:
     - name: IsRain
       FactName: IsRain
-      FactValue: 0
+      FactValue: 1
     - name: IsSun
       FactName: IsSun
-      FactValue: 1
+      FactValue: 0
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0

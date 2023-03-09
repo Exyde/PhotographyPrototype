@@ -4916,7 +4916,7 @@ GameObject:
   - component: {fileID: 182418118337499020}
   m_Layer: 0
   m_Name: PF_Player_Fps
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4952,12 +4952,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 741fb5c0c3f8c8241b2616c840a3387a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _cameraToggleKeyCode: 116
   _camState: 0
   _mainCamera: {fileID: 6969860713825500318}
-  _isFps: 1
-  _fpsCameraPosition: {x: 0, y: 0.5, z: 0.3}
-  _blackboardCameraHolder: {fileID: 0}
+  _dashboardCameraHolder: {fileID: 0}
   _fpsCameraHolder: {fileID: 3553652086242992560}
+  _fpsCameraPosition: {x: 0, y: 0.5, z: 0.3}
   _moveSpeed: 10
   _walkingSpeed: 7.5
   _runningSpeed: 11.5
@@ -4993,19 +4993,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _objetManager: {fileID: 0}
-  _blackboard: {fileID: 0}
+  _dashboard: {fileID: 0}
+  _UIImagesHolder: {fileID: 0}
   _UIImagePictureSlots:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   _pictureOverrideTxt: {fileID: 0}
   _state: 0
-  _inCabine: 0
   _currentXnodPicturedObjects: []
   _xNodSelectedPicturablesObjets: []
   _pictureTakenSlots: 
   _pictureTakensCount: 0
   _pictures: []
+  _picturesTextures: []
   _maxPicturesSlots: 3
   _automaticPictureTakenAfterSlotSelection: 1
   _photographyMaxDistance: 16.15
@@ -5013,12 +5014,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   _PS_Flash: {fileID: 30590210096864998}
-  _OnCabineEnter:
-    m_PersistentCalls:
-      m_Calls: []
-  _OnCabineExit:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!143 &182418118337499020
 CharacterController:
   m_ObjectHideFlags: 0

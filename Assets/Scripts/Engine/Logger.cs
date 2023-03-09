@@ -1,5 +1,6 @@
 #if UNITY_EDITOR
 using UnityEngine;
+using Core.GameEvents;
 public static class Logger{ //@Todo : Finish inplementing this logger
 
     public enum DebugMode { Off, All, ErrorsOnly, ErrorAndWarning, Dialogue, Info}
@@ -9,6 +10,8 @@ public static class Logger{ //@Todo : Finish inplementing this logger
 
     //Colors
     private static readonly string _infoColor = "cyan";
+    private static readonly string _eventColor = "purple";
+
 
     public static void Log (object message){
         switch (_debugMode)     
@@ -39,6 +42,12 @@ public static class Logger{ //@Todo : Finish inplementing this logger
 
     public static void LogInfo(object message){
         Debug.Log(message.ToString().Color(_infoColor));
+    }
+
+    public static void LogEvent(EventName eventName, string eventSender, string managerName){
+
+        string message = $"[{managerName}] : Handling {eventName} sent by {eventSender}...";
+        Debug.Log(message.ToString().Color(_eventColor));
     }
 
     public static bool IsLoggerEnabled() => _debugMode != DebugMode.Off;

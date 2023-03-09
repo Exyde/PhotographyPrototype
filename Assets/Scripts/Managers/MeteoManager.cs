@@ -5,27 +5,14 @@ using Core.GameEvents;
 
 public class MeteoManager : MonoBehaviour, IGameEventManager {
 
-    private void OnGameEvent_MeteoManager(string eventName, string eventSender){
+    private void OnGameEvent_MeteoManager(EventName eventName, string senderName){
 
-        HandleCollisionEvents(eventName, eventSender);
-        HandleRaycastEvents(eventName, eventSender);
-        HandleTriggerEvents(eventName, eventSender);
+        Logger.LogEvent(eventName, senderName, this.GetType().Name);
 
-        if (eventName == "OnTriggerEnterEvent"){
-            RequestRain();
-        }
-
-        else if (eventName == "OnTriggerExitEvent"){
-            Logger.LogInfo("Setting Sun !");
-        }
-
-        else if (eventSender == "Cube_OnTriggerExit"){
-            Logger.LogInfo("Get ready for the storm");
-        }
-
-        else{
-            Logger.LogInfo("Not handled event :3");
-        }
+        HandleCollisionEvents(eventName, senderName);
+        HandleRaycastEvents(eventName, senderName);
+        HandleTriggerEvents(eventName, senderName);
+        HandleSpecialCases(eventName, senderName);
     }
 
     private void OnEnable() {
@@ -37,22 +24,31 @@ public class MeteoManager : MonoBehaviour, IGameEventManager {
     }
 
     public void RequestRain(){
-        Logger.LogInfo("Set rain");
+        Logger.LogInfo("Set rain"); //@Todo Add Log Event Action
     }
 
-    public void HandleTriggerEvents(string eventName, string senderName)
-    {
-        return;
-        throw new System.NotImplementedException();
+    public void HandleTriggerEvents(EventName eventName, string senderName)
+    {        
+        if (eventName == EventName.TRIGGER_ENTER){
+            RequestRain();
+        }
+        else if (eventName ==  EventName.TRIGGER_EXIT){
+            Logger.LogInfo("Setting Sun !");
+        }
     }
 
-    public void HandleCollisionEvents(string eventName, string senderName)
+    public void HandleCollisionEvents(EventName eventName, string senderName)
     {
-        throw new System.NotImplementedException();
+
     }
 
-    public void HandleRaycastEvents(string eventName, string senderName)
+    public void HandleRaycastEvents(EventName eventName, string senderName)
     {
-        throw new System.NotImplementedException();
+    }
+
+    public void HandleSpecialCases(EventName eventName, string senderName){
+        if (senderName == "Cube_OnTriggerExit"){
+            Logger.LogInfo("Get ready for the storm");
+        }
     }
 }
