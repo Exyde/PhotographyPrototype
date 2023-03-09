@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Core.GameEvents;
 
 public class DataManager : MonoBehaviour
 {
@@ -10,9 +11,7 @@ public class DataManager : MonoBehaviour
 
     Dictionary<string, BlackBoard> DictionaryToBlackBoard = new();
 
-    public enum Comparaison { Equal, Different, Superior, SuperiorOrEqual, Inferior, InferiorOrEqual };
 
-    public enum Operation {SetTo, Add, Substract }
 
     void Awake()
     {
@@ -42,7 +41,7 @@ public class DataManager : MonoBehaviour
 
         if(!DictionaryToBlackBoard.TryGetValue(blackboardName, out blackboard))
         {
-            Debug.Log("Le blackboard '" + blackboardName + "' n'existe pas mais a été réclamé.");
+            Debug.Log("Le blackboard '" + blackboardName + "' n'existe pas mais a ï¿½tï¿½ rï¿½clamï¿½.");
             return null;
         }
 
@@ -50,7 +49,7 @@ public class DataManager : MonoBehaviour
 
         if(!blackboard.DictionaryToFact.TryGetValue(factName, out fact))
         {
-            Debug.Log("Le fact '" + blackboardName + "' n'existe pas dans le blackboard '" + blackboardName + "' mais a été réclamé.");
+            Debug.Log("Le fact '" + blackboardName + "' n'existe pas dans le blackboard '" + blackboardName + "' mais a ï¿½tï¿½ rï¿½clamï¿½.");
             return null;
         }
 
