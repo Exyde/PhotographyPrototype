@@ -44,8 +44,6 @@ public class EventDialogueManager : MonoBehaviour
         }
     }
 
-
-
     [System.Serializable]
     class TagToEvent : ISerializationCallbackReceiver
     {

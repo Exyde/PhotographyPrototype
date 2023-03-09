@@ -40,8 +40,6 @@ public class DialogueToolGraph_XNod : NodeGraph {
             tagsDeleted.RemoveAt(0);
         }
 
-        //dictionaryTagToDialogueNode.Add(tagToAttribute, dialogue);
-
         return tagToAttribute;
     }
 

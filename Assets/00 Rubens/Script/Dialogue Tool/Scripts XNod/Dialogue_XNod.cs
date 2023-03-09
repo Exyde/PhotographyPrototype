@@ -5,6 +5,8 @@ using XNode;
 
 [NodeWidth(400)]
 [NodeTint("#282828")]
+
+[CreateNodeMenu("Dialogue Tool/Dialogue Node")]
 public class Dialogue_XNod : Node {
 
 	//IMPORTANT VARIABLES
