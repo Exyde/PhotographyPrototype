@@ -7,7 +7,7 @@ public class DataManager : MonoBehaviour
 {
     public static DataManager DM;
 
-    Data_XNode Datas;
+    List<Blackboard_XNode> Datas;
 
     Dictionary<string, BlackBoard> DictionaryToBlackBoard = new();
 
@@ -25,13 +25,17 @@ public class DataManager : MonoBehaviour
         {
             Destroy(this);
         }
-
-        foreach (BlackBoard curentBlackboard in Datas.ListBlackboard)
+        foreach(Blackboard_XNode curentNode in Datas)
         {
-            DictionaryToBlackBoard.Add(curentBlackboard.BlackboardName, curentBlackboard);
+            foreach (BlackBoard curentBlackboard in curentNode.ListBlackboard)
+            {
+                DictionaryToBlackBoard.Add(curentBlackboard.BlackboardName, curentBlackboard);
 
-            curentBlackboard.OnStart();
+                curentBlackboard.OnStart();
+            }
         }
+
+            
 
     }
 
@@ -61,25 +65,7 @@ public class DataManager : MonoBehaviour
         return GetFact(blackboardName, factName).FactValue;
     }
 
-    public void SetFactValue(string blackboardName, string factName, Operation operation, int value)
-    {
-        Fact fact = GetFact(blackboardName, factName);
-
-        switch (operation)
-        {
-            case Operation.SetTo:
-                fact.FactValue = value;
-                break;
-
-            case Operation.Add:
-                fact.FactValue += value;
-                break;
-
-            case Operation.Substract:
-                fact.FactValue -= value;
-                break;
-        }
-    }
+    
 
     public void SetFactValue(Fact fact, Operation operation, int value)
     {
@@ -99,36 +85,18 @@ public class DataManager : MonoBehaviour
         }
     }
 
-    public bool CompareFactValueTo(string blackboardName, string factName, Comparaison comparaison, int value)
+    public void SetFactValue(string blackboardName, string factName, Operation operation, int value)
     {
-        int factValue = GetFactValue(blackboardName, factName);
+        Fact fact = GetFact(blackboardName, factName);
 
-        switch (comparaison)
-        {
-            case Comparaison.Equal:
-                return factValue == value;
-
-            case Comparaison.Different:
-                return factValue != value;
-
-            case Comparaison.Superior:
-                return factValue > value;
-
-            case Comparaison.SuperiorOrEqual:
-                return factValue >= value;
-
-            case Comparaison.Inferior:
-                return factValue < value;
-
-            case Comparaison.InferiorOrEqual:
-                return factValue <= value;
-
-            default:
-                return false;
-        }
-
-        
+        SetFactValue(fact, operation, value);
     }
+
+    public void SetFactValue(FactOperation factOperation)
+    {
+        SetFactValue(factOperation._blackboardName, factOperation._factName, factOperation._operation, factOperation._value);
+    }
+
 
     public bool CompareFactValueTo(Fact fact, Comparaison comparaison, int value)
     {
@@ -158,7 +126,18 @@ public class DataManager : MonoBehaviour
                 return false;
         }
 
+    }
 
+    public bool CompareFactValueTo(string blackboardName, string factName, Comparaison comparaison, int value)
+    {
+        Fact fact = GetFact(blackboardName, factName);
+
+        return CompareFactValueTo(fact, comparaison, value);
+    }
+
+    public bool CompareFactValueTo(FactCondition factCondition)
+    {
+        return CompareFactValueTo(factCondition._blackboardName, factCondition._factName, factCondition._comparaison, factCondition._value);
     }
 
 
