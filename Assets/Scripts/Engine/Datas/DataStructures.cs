@@ -9,12 +9,12 @@ namespace Core.GameEvents{
 
     [System.Serializable]
     public class FactCondition{
-            public string _blackboardName;
+            public string _blackboardName = "Blackboard Name";
             [Space(5)]
-            public string _factName;
+            public string _factName = "Fact Name";
             public Comparaison _comparaison;
-            public int _value;
-        }
+            public int _value = 0;
+    }
 
     [System.Serializable]
     public class FactOperation{
@@ -28,8 +28,6 @@ namespace Core.GameEvents{
     
     public enum Operation {SetTo, Add, Substract };
     public enum Comparaison { Equal, Different, Superior, SuperiorOrEqual, Inferior, InferiorOrEqual };
-
-
 
     [System.Serializable]
     public class BlackBoard : ISerializationCallbackReceiver
