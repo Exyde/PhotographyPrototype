@@ -6,9 +6,9 @@ public static class Logger{ //@Todo : Finish inplementing this logger
     public static DebugMode _debugMode = DebugMode.All;
     public static void SetDebugMode(DebugMode mode) => _debugMode = mode; 
 
-    private static readonly Color _infoColor = Color.green;
+    private static readonly string _infoColor = "cyan";
 
-    public static void Log (string message){
+    public static void Log (object message){
         switch (_debugMode)     
         {
             case DebugMode.Off:
@@ -21,12 +21,12 @@ public static class Logger{ //@Todo : Finish inplementing this logger
         }
     }
 
-    public static void LogError(string message){
+    public static void LogError(object message){
         if (_debugMode == DebugMode.Off) return;
             Debug.LogError(message);
     }
 
-    public static void LogWarning(string message){
+    public static void LogWarning(object message){
         if (_debugMode == DebugMode.Off || _debugMode == DebugMode.ErrorsOnly) return;
             Debug.LogWarning(message);
     }
@@ -35,8 +35,8 @@ public static class Logger{ //@Todo : Finish inplementing this logger
         
     }
 
-    public static void LogInfo(){
-
+    public static void LogInfo(object message){
+        Debug.Log(message.ToString().Color(_infoColor));
     }
 
     public static bool IsLoggerEnabled() => _debugMode != DebugMode.Off;

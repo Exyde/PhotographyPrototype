@@ -90,7 +90,7 @@ public class Polaroid : MonoBehaviour
 
             if(_pictureTakensCount < _maxPicturesSlots){
                 int slotIndex = GetAvailableSlotIndex();
-                Logger.Log("Slot index : " + slotIndex);
+                Logger.LogInfo("Slot index : " + slotIndex);
 
                 if (slotIndex >= 0){ //If a slot is available
                     _currentXnodPicturedObjects[slotIndex] = picturable.GetObject_XNod();
