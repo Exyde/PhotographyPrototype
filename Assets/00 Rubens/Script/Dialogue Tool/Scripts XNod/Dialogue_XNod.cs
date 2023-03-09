@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using XNode;
+using Core.GameEvents;
 
 [NodeWidth(400)]
 [NodeTint("#282828")]
@@ -35,6 +36,10 @@ public class Dialogue_XNod : Node {
 	//REAL-TIME VARIABLES
 
 	public bool HasBeenRun = false;
+
+	//BLACKBOARD
+
+	public List<FactOperation> OperationsAfterRun = new();
 
 	//ORGANISATION VARIABLES
 
@@ -88,6 +93,7 @@ public class Dialogue_XNod : Node {
     {
         if (!HaveNextDialogue())
         {
+			Debug.Log("You ask for a Next dialogue but there is no one. Ask 'HaveNextDialogue' before call GetNextDialogue");
 			return null;
         }
 

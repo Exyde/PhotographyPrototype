@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using Core.GameEvents;
 
-public class DataManager : MonoBehaviour
+public class BlackboardManager : MonoBehaviour
 {
-    public static DataManager DM;
+    public static BlackboardManager BBM;
 
     List<Blackboard_XNode> Datas;
 
@@ -15,9 +15,9 @@ public class DataManager : MonoBehaviour
 
     void Awake()
     {
-        if (DM == null)
+        if (BBM == null)
         {
-            DM = this;
+            BBM = this;
 
             DontDestroyOnLoad(this.gameObject);
         }
@@ -25,6 +25,7 @@ public class DataManager : MonoBehaviour
         {
             Destroy(this);
         }
+
         foreach(Blackboard_XNode curentNode in Datas)
         {
             foreach (BlackBoard curentBlackboard in curentNode.ListBlackboard)
@@ -60,12 +61,12 @@ public class DataManager : MonoBehaviour
         return fact;
     }
 
+
     public int GetFactValue(string blackboardName, string factName)
     {
         return GetFact(blackboardName, factName).FactValue;
     }
 
-    
 
     public void SetFactValue(Fact fact, Operation operation, int value)
     {
