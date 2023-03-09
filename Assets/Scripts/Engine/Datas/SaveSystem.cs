@@ -44,4 +44,5 @@ public static class SaveSystem
         Directory.CreateDirectory(Constants.DIR_SAVE_PATH);
         Directory.CreateDirectory(Constants.DIR_PICTURES_SAVE_PATH);
     }
+
 }

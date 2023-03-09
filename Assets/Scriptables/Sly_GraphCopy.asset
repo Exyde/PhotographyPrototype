@@ -65,10 +65,11 @@ MonoBehaviour:
   MyUnderBloc: {fileID: 0}
   NameOfTheObject: "Une Boule \xE0 neige du Sahara"
   ValueForBloc: 3
-  PictureTaken: 1
   ActiveABloc: 0
+  PictureTaken: 1
   DisponibleIfParticularCondition: 0
   HaveAUnderBloc: 0
+  FromCity: 3
   PrefabObjectToSpawn: {fileID: 3134168667198322749, guid: 49657721269b1fc3cb806992bf6cd061, type: 3}
   PictureDebugTexture: {fileID: 2800000, guid: b3f9d6998c4cf4044b2c686e65dcd180, type: 3}
 --- !u!114 &-5354627152681470523
@@ -133,7 +134,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 309bb0624c7cb7343ae5792c57a26fbb, type: 3}
-  m_Name: Qui est le machiniste ? / ( 5 / 5 )
+  m_Name: Qui est le machiniste ? / ( 3 / 5 )
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
   position: {x: 1016, y: -184}
@@ -184,7 +185,7 @@ MonoBehaviour:
       _dynamic: 0
   Question: Qui est le machiniste ?
   NecessaryResolution: 5
-  ActualResolution: 5
+  ActualResolution: 3
   TrueForActivate: 1
   Myself: {fileID: 0}
   WillActivateWhenResolution: 0
@@ -253,10 +254,11 @@ MonoBehaviour:
   MyUnderBloc: {fileID: 0}
   NameOfTheObject: Statue de Petit
   ValueForBloc: 3
-  PictureTaken: 1
   ActiveABloc: 0
+  PictureTaken: 1
   DisponibleIfParticularCondition: 0
   HaveAUnderBloc: 0
+  FromCity: 3
   PrefabObjectToSpawn: {fileID: 3134168667198322749, guid: 49657721269b1fc3cb806992bf6cd061, type: 3}
   PictureDebugTexture: {fileID: 2800000, guid: b3f9d6998c4cf4044b2c686e65dcd180, type: 3}
 --- !u!114 &-2240352099877011316
@@ -314,7 +316,7 @@ MonoBehaviour:
       _dynamic: 0
   Question: sssss
   NecessaryResolution: 20
-  ActualResolution: 5
+  ActualResolution: 0
   TrueForActivate: 0
   Myself: {fileID: 0}
   WillActivateWhenResolution: 0
@@ -383,10 +385,11 @@ MonoBehaviour:
   MyUnderBloc: {fileID: 0}
   NameOfTheObject: Objet de Palier 2
   ValueForBloc: 2
-  PictureTaken: 1
   ActiveABloc: 0
+  PictureTaken: 0
   DisponibleIfParticularCondition: 0
   HaveAUnderBloc: 0
+  FromCity: 3
   PrefabObjectToSpawn: {fileID: 3134168667198322749, guid: 49657721269b1fc3cb806992bf6cd061, type: 3}
   PictureDebugTexture: {fileID: 2800000, guid: b3f9d6998c4cf4044b2c686e65dcd180, type: 3}
 --- !u!114 &11400000
@@ -417,7 +420,6 @@ MonoBehaviour:
   - {fileID: 8703900324349714643}
   - {fileID: -843366514640405745}
   - {fileID: -5354627152681470523}
-  ListObjectsDisponibles: []
 --- !u!114 &976835887981512359
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -554,10 +556,11 @@ MonoBehaviour:
   MyUnderBloc: {fileID: 0}
   NameOfTheObject: Autre objet de Pallier 2
   ValueForBloc: 3
-  PictureTaken: 1
   ActiveABloc: 0
+  PictureTaken: 1
   DisponibleIfParticularCondition: 0
   HaveAUnderBloc: 0
+  FromCity: 3
   PrefabObjectToSpawn: {fileID: 3134168667198322749, guid: 49657721269b1fc3cb806992bf6cd061, type: 3}
   PictureDebugTexture: {fileID: 2800000, guid: b3f9d6998c4cf4044b2c686e65dcd180, type: 3}
 --- !u!114 &4860584244364962389
@@ -648,10 +651,11 @@ MonoBehaviour:
   MyUnderBloc: {fileID: 0}
   NameOfTheObject: "Tasse de Caf\xE9 "
   ValueForBloc: 5
-  PictureTaken: 1
   ActiveABloc: 0
+  PictureTaken: 1
   DisponibleIfParticularCondition: 0
   HaveAUnderBloc: 1
+  FromCity: 3
   PrefabObjectToSpawn: {fileID: 3134168667198322749, guid: 49657721269b1fc3cb806992bf6cd061, type: 3}
   PictureDebugTexture: {fileID: 2800000, guid: b3f9d6998c4cf4044b2c686e65dcd180, type: 3}
 --- !u!114 &8738126090109506005
@@ -719,10 +723,11 @@ MonoBehaviour:
   MyUnderBloc: {fileID: 0}
   NameOfTheObject: Objet de Pallier 3
   ValueForBloc: 5
-  PictureTaken: 1
   ActiveABloc: 0
+  PictureTaken: 0
   DisponibleIfParticularCondition: 0
   HaveAUnderBloc: 0
+  FromCity: 3
   PrefabObjectToSpawn: {fileID: 3134168667198322749, guid: 49657721269b1fc3cb806992bf6cd061, type: 3}
   PictureDebugTexture: {fileID: 2800000, guid: b3f9d6998c4cf4044b2c686e65dcd180, type: 3}
 --- !u!114 &8839235430469026456
@@ -793,10 +798,11 @@ MonoBehaviour:
   MyUnderBloc: {fileID: 0}
   NameOfTheObject: Carte Postale
   ValueForBloc: 1
-  PictureTaken: 1
   ActiveABloc: 0
+  PictureTaken: 1
   DisponibleIfParticularCondition: 0
   HaveAUnderBloc: 1
+  FromCity: 3
   PrefabObjectToSpawn: {fileID: 3134168667198322749, guid: 49657721269b1fc3cb806992bf6cd061, type: 3}
   PictureDebugTexture: {fileID: 2800000, guid: b3f9d6998c4cf4044b2c686e65dcd180, type: 3}
 --- !u!114 &9131805213518582990

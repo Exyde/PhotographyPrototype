@@ -3,21 +3,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Blackboard : MonoBehaviour
+
+public class Dashboard : MonoBehaviour
 {
-    public static Blackboard _instance;
+    public static Dashboard _instance;
     [SerializeField] GameObject _picturePrefab;
     [SerializeField] float _pictureSpawnRange;
     [SerializeField] float _pictureZOffset = 0.5f;
 
     [Header("List")]
-    [SerializeField] List<BlackboardItemComponent> _blackboardObjects;
-    [SerializeField] List<BlackboardItem> _blackboaboardObjectsDatas;
+    [SerializeField] List<DashboardItemComponent> _dashboardObjects;
+    [SerializeField] List<DashboardItem> _blackboaboardObjectsDatas;
 
     private void Awake() {
         _instance = this;
-        _blackboardObjects = new List<BlackboardItemComponent>();
-        _blackboaboardObjectsDatas = new List<BlackboardItem>();
+        _dashboardObjects = new List<DashboardItemComponent>();
+        _blackboaboardObjectsDatas = new List<DashboardItem>();
     }
 
     public void CreatePictureOnBoard(Sprite sprite) //@TODO : Other implementation
