@@ -9,7 +9,6 @@ namespace Core.GameEvents{
 
         protected enum TriggerDetectionMode {Layer, Tag};
         protected enum TriggerMode {Enter, Stay, Exit};
-
         private Collider coll;
 
         [Header("Settings")]

@@ -14,18 +14,19 @@ namespace Core.GameEvents{
         [SerializeField] string _eventSender;
 
         [Header("On Event Objects Actions")]
-        [SerializeField] UnityEvent<string, string> _events;
+        //[SerializeField] UnityEvent<string, string> _events;
 
         [SerializeField] List<ScriptableEvents> _scriptableEvents;
-
 
         private void Awake() {
             _eventName = this.GetType().Name;
             _eventSender = this.gameObject.name;
         }
-        internal void DispatchEvent(){
+        internal virtual void DispatchEvent(){
             _actions?.Invoke(_eventName, _eventSender);
-            _events?.Invoke(_eventName, _eventSender);
+            foreach(ScriptableEvents e in _scriptableEvents){
+                e.GetEvent()?.Invoke();
+            }
         }
 
         bool IsEventValid(List<FactCondition> _facts){
@@ -42,25 +43,14 @@ namespace Core.GameEvents{
 
         [SerializeField] UnityEvent _event;
         [SerializeField] List<FactCondition> _conditions;
+
+        public UnityEvent GetEvent() => _event;
     }
 
     public struct EventContext{ //Maybe ?
         string _eventName;
         string _eventSender;
         string _contextName; //Define this ?
-    }
-
-    [System.Serializable]
-    public struct FactCondition{
-        [SerializeField] string _blackboardName;
-        [Space(5)]
-        [SerializeField] string _factName;
-        [SerializeField] Comparaison _comparaison;
-        [SerializeField] int _value;
-    }
-
-    public enum Comparaison{
-        Equal, Different, Superior, SuperiorOrEqual, Inferior, InferiorOrEqual
     }
 }
 
