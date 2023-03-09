@@ -13,9 +13,7 @@ namespace Core.GameEvents{
         [SerializeField] string _eventName;
         [SerializeField] string _eventSender;
 
-        [Header("On Event Objects Actions")]
-        //[SerializeField] UnityEvent<string, string> _events;
-
+        [Header("Scriptable Events for Designers <3")]
         [SerializeField] List<ScriptableEvents> _scriptableEvents;
 
         private void Awake() {
