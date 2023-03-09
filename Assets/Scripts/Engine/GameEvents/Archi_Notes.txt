@@ -1,8 +1,8 @@
 
 GameManager
     
-BlackboardManager => Les events et les blackboards => Methodes GetValue SetValue GetName CreateEntry (Tools Inspector)
-CabineObjectManager => BlackboardManager => Datas [[ Les objets Cabines ]]
+BlackboardManager
+CabineObjectManager [[ Les objets Cabines ]]
 
 SequenceManager [[ Time ]] // GameMods
     TensionManage
@@ -17,35 +17,3 @@ NoiseManager
 UIManager
 EffectManagers (Visual Feedbacks)
 AudioManager (Song & SFX)
-
-EffectManagers{
-
-    OnPictureTaken()
-    {
-        Datas _datas (DatasManagers);
-        if (CheckBool(datas.AUnNoeudPapillon)) => PlayFx();
-    }
-}
-
-Action OnPictureTaken(Object focusedObject){
-
-}
-
-DialogueSelector{
-    Listen => OnPictureTaken (Object object);
-
-    Ok, OnPictureTaken(){
-        => object.tag => ad
-    }
-
-    OnCabineEnter(){
-
-    }
-
-    
-}
-
-
-OnCollideGameEvent()
-OnLookGameEvent()
-OnPictureGameEvent();

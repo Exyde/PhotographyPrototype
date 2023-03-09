@@ -8,6 +8,14 @@ namespace Core.GameEvents{
     }
 
     [System.Serializable]
+    public enum EventName{
+        TRIGGER_ENTER, TRIGGER_STAY, TRIGGER_EXIT,
+        COLLISION_ENTER, COLLISION_STAY,COLLISION_EXIT,
+        RAYCAST_LOOK, RAYCAST_INTERACT, RAYCAST_PICTURE,
+        ON_NEXT_SEQUENCE, ON_GAME_PAUSE  
+    };
+
+    [System.Serializable]
     public class FactCondition{
         [SerializeField] public string _blackboardName = "Blackboard Name";
         [SerializeField] public string _factName = "Fact Name";

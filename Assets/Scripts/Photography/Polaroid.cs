@@ -65,7 +65,7 @@ public class Polaroid : MonoBehaviour
     #region UnityCallbacks
     void Start(){
         ResetPicturesArrayAndList();
-        _UIImagesHolder.SetActive(false);
+        if (_UIImagesHolder) _UIImagesHolder.SetActive(false); //@TODO : REMOVE THIS é_è
 
         _OnCabineExit += ResetPolaroid;
         _OnCabineExit += CallManagerUpdateList;
@@ -189,7 +189,7 @@ public class Polaroid : MonoBehaviour
     }
 
     void ResetPicturesArrayAndList(){
-        Logger.Log("Reseting Arrays");
+        //Logger.Log("Reseting Arrays");
         _xNodSelectedPicturablesObjets.Clear();
         _currentXnodPicturedObjects = new Object_XNod[_maxPicturesSlots];
         _picturesTextures = new Texture2D[_maxPicturesSlots];
@@ -200,7 +200,7 @@ public class Polaroid : MonoBehaviour
             _pictureTakenSlots[i] = false;
         }
         _pictureTakensCount = 0;
-        // Debug.Log("Finish Reseting Arrays");
+        // Logger.Log("Finish Reseting Arrays");
     }
 
     #endregion

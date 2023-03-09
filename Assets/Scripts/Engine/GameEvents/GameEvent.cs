@@ -10,7 +10,7 @@ namespace Core.GameEvents{
         public static Action<string, string> _onGameEvent;
 
         [Header("Event Parameters - Rien a rentrer ici ._. - juste debug !")]
-        [SerializeField] string _eventName;
+        [SerializeField] EventName _eventName;
         [SerializeField] string _eventSender;
 
         [Header("Scriptable Events for Designers <3")]
@@ -25,13 +25,26 @@ namespace Core.GameEvents{
             _onGameEvent?.Invoke(_eventName, _eventSender);
 
             foreach(ScriptableEvents e in _scriptableEvents){
-                if (IsEventValid(e.GetFacts())) e.GetEvent()?.Invoke();
+                if (IsEventValid(e.GetFactsConditions())){
+                    Logger.LogInfo("Valid Fact => Triggering Event : " + _eventName);
+
+                    e.GetEvent()?.Invoke();
+
+                    //@TODO-RUBENS : Update with BBM taking a FactList
+                    foreach (FactOperation operation in e.GetFactsOperations()){
+                        BlackboardManager.BBM.SetFactValue(operation);
+                    }
+                }
             }
         }
 
         bool IsEventValid(List<FactCondition> _facts){
-            foreach(FactCondition f in _facts){
-                BlackboardManager.BBM.CompareFactValueTo(f); //@TEST 
+            foreach(FactCondition factCondition in _facts){
+                bool test = BlackboardManager.BBM.CompareFactValueTo(factCondition);
+                if (test == false){
+                    Logger.LogInfo("Failed at fact XXX - To Implement Better");
+                    return false;
+                }
             }
             return true;
         }
@@ -41,15 +54,19 @@ namespace Core.GameEvents{
     public struct ScriptableEvents{
         [SerializeField] string _eventName;
         [SerializeField] UnityEvent _event;
-        [SerializeField] List<FactCondition> _conditions;
+        [SerializeField] List<FactOperation> _factOperations;
+        [SerializeField] List<FactCondition> _factConditions;
+
 
         public UnityEvent GetEvent() => _event;
-        public List<FactCondition> GetFacts() => _conditions;
+        public List<FactCondition> GetFactsConditions() => _factConditions;
+        public List<FactOperation> GetFactsOperations() => _factOperations;
+
 
     }
 
     public struct EventContext{ //Maybe ?
-        string _eventName;
+        EventName _eventName;
         string _eventSender;
         string _contextName; //Define this ?
     }
