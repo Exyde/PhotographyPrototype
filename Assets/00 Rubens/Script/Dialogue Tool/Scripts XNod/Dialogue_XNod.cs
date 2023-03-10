@@ -82,7 +82,7 @@ public class Dialogue_XNod : Node {
     {
 		return GetOutputPort("NextDialogue").IsConnected;
 	}
-
+	
 	public bool HavePreviousDialogue()
     {
 		return !(GetInputValue<Dialogue_XNod>("PreviousDialogue", this.PreviousDialogue) == null);
@@ -109,11 +109,6 @@ public class Dialogue_XNod : Node {
         }
 
 	}
-
-	public Dialogue_XNod GetPreviousDialogue()
-    {
-		return GetInputValue<Dialogue_XNod>("PreviousDialogue", this.PreviousDialogue);
-    }
 
 	public int GetPriority()
     {
@@ -168,6 +163,8 @@ public class Dialogue_XNod : Node {
 
 	public float GetBufferTime()
     {
+		return _bufferTime;
+		/*
 		if (HavePreviousDialogue() )
         {
 			Dialogue_XNod previousDialog = GetPreviousDialogue();
@@ -178,6 +175,7 @@ public class Dialogue_XNod : Node {
         {
 			return _bufferTime;
 		}
+		*/
 	}
 
 

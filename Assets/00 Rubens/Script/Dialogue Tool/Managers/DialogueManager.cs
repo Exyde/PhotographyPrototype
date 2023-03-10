@@ -48,7 +48,17 @@ public class DialogueManager : MonoBehaviour
 
     //PUBLIC FUNCTIONS
 
-    public void SendDialogue(int tag, bool verificationIfAlreadyRun = true)
+    public void SendDialogue(int tag)
+    {
+        SendDialogue(tag, true);
+    }
+
+    public void SendDialogue(Dialogue_XNod dialogue)
+    {
+        SendDialogue(dialogue, true);
+    }
+
+    public void SendDialogue(int tag, bool verificationIfAlreadyRun)
     {
         Dialogue_XNod dialogue = _dg.GetDialogueWithTag(tag);
 
@@ -66,7 +76,7 @@ public class DialogueManager : MonoBehaviour
         tryToPrepareRunDialogue();
     }
 
-    public void SendDialogue(Dialogue_XNod dialogue, bool verificationIfAlreadyRun = true)
+    public void SendDialogue(Dialogue_XNod dialogue, bool verificationIfAlreadyRun)
     {
         if (verificationIfAlreadyRun && dialogue.HasBeenRun)
         {
@@ -102,10 +112,18 @@ public class DialogueManager : MonoBehaviour
         {
             return;
         }
-
+        /*
         Dialogue_XNod nextDialog = dialogueToRun.GetNextDialogue();
 
-        SendDialogue(nextDialog, false);
+        SendDialogue(nextDialog, false);*/
+    }
+
+    private void tryToPrepareRunDialogue(Dialogue_XNod dialogueToCheckWith)
+    {
+        _bufferList.Add(dialogueToCheckWith);
+        tryToPrepareRunDialogue();
+        _bufferList.Remove(dialogueToCheckWith);
+
     }
 
     private IEnumerator IE_runDialogue(Dialogue_XNod dialogueToRun)
@@ -126,7 +144,14 @@ public class DialogueManager : MonoBehaviour
 
             _isADialogRuning = false;
 
+        if (dialogueToRun.HaveNextDialogue())
+        {
+            tryToPrepareRunDialogue(dialogueToRun.GetNextDialogue() );
+        }
+        else
+        {
             tryToPrepareRunDialogue();
+        }
 
     }
 

@@ -61,7 +61,10 @@ public class DialogueToolGraph_XNod : NodeGraph {
 
         foreach (Node curentNode in nodes)
         {
-            dictionaryTagToDialogueNode.Add((curentNode as Dialogue_XNod).Tag, curentNode as Dialogue_XNod);
+            if(curentNode.GetType() == typeof(Dialogue_XNod))
+            {
+                dictionaryTagToDialogueNode.Add((curentNode as Dialogue_XNod).Tag, curentNode as Dialogue_XNod);
+            }
         }
 
         ResetHasBeenRunOfAllDialogues();
@@ -72,7 +75,10 @@ public class DialogueToolGraph_XNod : NodeGraph {
     {
         foreach (Node curentNode in nodes)
         {
-            (curentNode as Dialogue_XNod).HasBeenRun = false;
+            if (curentNode.GetType() == typeof(Dialogue_XNod))
+            {
+                (curentNode as Dialogue_XNod).HasBeenRun = false;
+            }
         }
     }
 }

@@ -113,6 +113,37 @@ MonoBehaviour:
   IsIntegrated: 1
   PreviousDialogue: {fileID: 0}
   NextDialogue: {fileID: 0}
+--- !u!114 &-4239376795028520531
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c69ef8798959ac54db69251f710f9c45, type: 3}
+  m_Name: Blackboard_X
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -1463.6477, y: -797.47974}
+  ports:
+    keys: []
+    values: []
+  User: 
+  ListBlackboard:
+  - name: Blackboard Protagoniste
+    BlackboardName: Protagoniste
+    Facts:
+    - name: NbInsulte
+      FactName: NbInsulte
+      FactValue: 2
+  - name: Blackboard ExempleRubens
+    BlackboardName: ExempleRubens
+    Facts:
+    - name: Exemple1
+      FactName: Exemple1
+      FactValue: 0
 --- !u!114 &-1308962173125365491
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -170,8 +201,8 @@ MonoBehaviour:
       _typeConstraint: 0
       _dynamic: 0
   FactsCondition:
-  - _blackboardName: Meteo
-    _factName: IsPluie
+  - _blackboardName: ExempleRubens
+    _factName: Exemple1
     _comparaison: 0
     _value: 1
   PreviousDialogue: {fileID: 0}
@@ -221,7 +252,7 @@ MonoBehaviour:
   _bufferTime: 10.4
   PreDialogueTime: 0.1
   PostDialogueTime: 0.36
-  HasBeenRun: 1
+  HasBeenRun: 0
   OperationsAfterRun: []
   Annotation: 
   IsRecorded: 0
@@ -246,6 +277,7 @@ MonoBehaviour:
   - {fileID: -1308962173125365491}
   - {fileID: -5290480800417140258}
   - {fileID: 4927601873950843251}
+  - {fileID: -4239376795028520531}
   lastTagAtrributed: 7
   tagsDeleted: 040000000600000007000000
 --- !u!114 &4927601873950843251

@@ -25,7 +25,5 @@ public class Rubens_DebugManager : MonoBehaviour
         DialogueManager.DM.SendDialogue(1);
 
         yield return new WaitForSeconds(10);
-
-        DialogueManager.DM.SendDialogue(5);
     }
 }
