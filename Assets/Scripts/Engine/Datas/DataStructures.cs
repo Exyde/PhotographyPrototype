@@ -60,6 +60,8 @@ namespace Core.GameEvents{
         {
             foreach (Fact curentFact in Facts)
             {
+                curentFact.ResetValue();
+
                 DictionaryToFact.Add(curentFact.FactName, curentFact);
             }
         }
@@ -73,7 +75,14 @@ namespace Core.GameEvents{
 
         public string FactName;
 
-        public int FactValue;
+        public int CurrentFactValue;
+
+        public int DefaultFactValue;
+
+        public void ResetValue()
+        {
+            CurrentFactValue = DefaultFactValue;
+        }
 
         public void OnBeforeSerialize()
         {

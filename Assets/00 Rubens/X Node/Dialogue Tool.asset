@@ -137,13 +137,15 @@ MonoBehaviour:
     Facts:
     - name: NbInsulte
       FactName: NbInsulte
-      FactValue: 2
+      CurrentFactValue: 0
+      DefaultFactValue: 0
   - name: Blackboard ExempleRubens
     BlackboardName: ExempleRubens
     Facts:
     - name: Exemple1
       FactName: Exemple1
-      FactValue: 0
+      CurrentFactValue: 0
+      DefaultFactValue: 0
 --- !u!114 &-1308962173125365491
 MonoBehaviour:
   m_ObjectHideFlags: 0
