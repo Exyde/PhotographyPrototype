@@ -64,7 +64,7 @@ public class BlackboardManager : MonoBehaviour
 
     public int GetFactValue(string blackboardName, string factName)
     {
-        return GetFact(blackboardName, factName).FactValue;
+        return GetFact(blackboardName, factName).CurrentFactValue;
     }
 
 
@@ -73,15 +73,15 @@ public class BlackboardManager : MonoBehaviour
         switch (operation)
         {
             case Operation.SetTo:
-                fact.FactValue = value;
+                fact.CurrentFactValue = value;
                 break;
 
             case Operation.Add:
-                fact.FactValue += value;
+                fact.CurrentFactValue += value;
                 break;
 
             case Operation.Substract:
-                fact.FactValue -= value;
+                fact.CurrentFactValue -= value;
                 break;
         }
     }
@@ -101,7 +101,7 @@ public class BlackboardManager : MonoBehaviour
 
     public bool CompareFactValueTo(Fact fact, Comparaison comparaison, int value)
     {
-        int factValue = fact.FactValue;
+        int factValue = fact.CurrentFactValue;
 
         switch (comparaison)
         {

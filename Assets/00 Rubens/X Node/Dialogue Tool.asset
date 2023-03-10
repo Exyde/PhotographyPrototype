@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 000002
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 184, y: -1016}
+  position: {x: 200, y: -1064}
   ports:
     keys:
     - PreviousDialogue
@@ -137,13 +137,15 @@ MonoBehaviour:
     Facts:
     - name: NbInsulte
       FactName: NbInsulte
-      FactValue: 2
+      CurrentFactValue: 1
+      DefaultFactValue: 0
   - name: Blackboard ExempleRubens
     BlackboardName: ExempleRubens
     Facts:
     - name: Exemple1
       FactName: Exemple1
-      FactValue: 0
+      CurrentFactValue: 0
+      DefaultFactValue: 0
 --- !u!114 &-1308962173125365491
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -293,7 +295,7 @@ MonoBehaviour:
   m_Name: 000003
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 184, y: -632}
+  position: {x: 200, y: -616}
   ports:
     keys:
     - PreviousDialogue
@@ -327,7 +329,7 @@ MonoBehaviour:
   _bufferTime: 0.5
   PreDialogueTime: 0.1
   PostDialogueTime: 0.36
-  HasBeenRun: 0
+  HasBeenRun: 1
   OperationsAfterRun: []
   Annotation: 
   IsRecorded: 1
