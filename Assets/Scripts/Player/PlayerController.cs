@@ -39,11 +39,15 @@ public class PlayerController : MonoBehaviour
     Rigidbody _rb;
     float _rotationX = 0;
 
-    public bool _canMove = true;
-    public bool _canLook = true;
     public bool _useLegacyCamera = false;
+    public bool _canMove = true;
+    public bool _canMoveCamera = true;
 
     #endregion
+   
+    public void TogglePlayerMovement(bool state) => _canMove = state;
+    public void TogglePlayerCameraMovement(bool state) => _canMoveCamera = state;
+
    
     #region Unity Callbacks
     void Start()
@@ -58,24 +62,32 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         if (Input.GetKeyDown(_cameraToggleKeyCode)) ToggleCamera();
-        if ( _camState == CameraState.FPS) HandleMovement();
-        else if (_camState == CameraState.Dashboard) HandleDashboardInteraction();
+
+        if ( _camState == CameraState.FPS){
+            HandleMovement();
+            HandleCameraMovement();
+        } 
+        else if (_camState == CameraState.Dashboard){
+            HandleDashboardInteraction();
+        } 
     }
     #endregion
 
     #region Methods & Handlers
     void HandleMovement(){
 
+        if (!_canMove) return;
+
         Vector3 forward = transform.TransformDirection(Vector3.forward);
         Vector3 right = transform.TransformDirection(Vector3.right);
 
         bool isRunning = Input.GetKey(KeyCode.LeftShift);
-        float curSpeedX = _canMove ? (isRunning ? _runningSpeed : _walkingSpeed) * Input.GetAxis("Vertical") : 0;
-        float curSpeedY = _canMove ? (isRunning ? _runningSpeed : _walkingSpeed) * Input.GetAxis("Horizontal") : 0;
+        float curSpeedX = (isRunning ? _runningSpeed : _walkingSpeed) * Input.GetAxis("Vertical");
+        float curSpeedY = (isRunning ? _runningSpeed : _walkingSpeed) * Input.GetAxis("Horizontal");
         float movementDirectionY = _moveDirection.y;
         _moveDirection = (forward * curSpeedX) + (right * curSpeedY);
 
-        if (Input.GetButton("Jump") && _canMove)
+        if (Input.GetButton("Jump"))
         {
             _moveDirection.y = _jumpSpeed;
         }
@@ -90,20 +102,21 @@ public class PlayerController : MonoBehaviour
         }
 
         _characterController.Move(_moveDirection * Time.deltaTime);
+    }
 
-        if (_canLook)
-        {
-            _rotationX += -Input.GetAxis("Mouse Y") * _lookSpeed;
-            _rotationX = Mathf.Clamp(_rotationX, -_lookXLimit, _lookXLimit);
+    void HandleCameraMovement(){
+        if (!_canMoveCamera) return;
+        _rotationX += -Input.GetAxis("Mouse Y") * _lookSpeed;
+        _rotationX = Mathf.Clamp(_rotationX, -_lookXLimit, _lookXLimit);
 
-            if (_useLegacyCamera) _mainCamera.transform.localRotation = Quaternion.Euler(_rotationX, 0, 0);
-            transform.rotation *= Quaternion.Euler(0, Input.GetAxis("Mouse X") * _lookSpeed, 0);
-        }
+        if (_useLegacyCamera) _mainCamera.transform.localRotation = Quaternion.Euler(_rotationX, 0, 0);
+        transform.rotation *= Quaternion.Euler(0, Input.GetAxis("Mouse X") * _lookSpeed, 0);
     }
 
     void HandleDashboardInteraction(){
-        Logger.Log("Dashboard stuffs !");
-        //@TODO : Disable Rendering while in Blacboard => Toggle ? 
+        //Logger.Log("Dashboard stuffs !");
+        //@TODO : Disable Player Rendering while in Blacboard => Toggle ? 
+        // => Use a dashboard controller
     }
     #endregion
 
@@ -125,7 +138,6 @@ public class PlayerController : MonoBehaviour
     }
     void SetFPSCamera(bool lerp) => SetCamera(CameraState.FPS, _fpsCameraHolder, _fpsCameraHolder.position, lerp, 2f);
 
-    public void TogglePlayerMovement(bool state) => _canMove = state;
     void SetDashboardCamera(bool lerp){
 
         SetCamera(CameraState.Dashboard, _dashboardCameraHolder, _dashboardCameraHolder.position, lerp);
