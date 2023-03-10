@@ -123,6 +123,8 @@ public class PlayerController : MonoBehaviour
             _mainCamera.transform.position = targetPos;
     }
     void SetFPSCamera(bool lerp) => SetCamera(CameraState.FPS, _fpsCameraHolder, _fpsCameraHolder.position, lerp, 2f);
+
+    public void TogglePlayerMovement(bool state) => _canMove = state;
     void SetDashboardCamera(bool lerp){
 
         SetCamera(CameraState.Dashboard, _dashboardCameraHolder, _dashboardCameraHolder.position, lerp);
