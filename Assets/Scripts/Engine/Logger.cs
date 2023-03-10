@@ -46,6 +46,7 @@ public static class Logger{ //@Todo : Finish inplementing this logger
 
     public static void LogEvent(EventName eventName, string eventSender, string managerName){
 
+        return; //@TODO : fix this
         string message = $"[{managerName}] : Handling {eventName} sent by {eventSender}...";
         Debug.Log(message.ToString().Color(_eventColor));
     }
