@@ -40,6 +40,7 @@ public class PlayerController : MonoBehaviour
     float _rotationX = 0;
 
     public bool _canMove = true;
+    public bool _canLook = true;
     public bool _useLegacyCamera = false;
 
     #endregion
@@ -90,7 +91,7 @@ public class PlayerController : MonoBehaviour
 
         _characterController.Move(_moveDirection * Time.deltaTime);
 
-        if (_canMove)
+        if (_canLook)
         {
             _rotationX += -Input.GetAxis("Mouse Y") * _lookSpeed;
             _rotationX = Mathf.Clamp(_rotationX, -_lookXLimit, _lookXLimit);
