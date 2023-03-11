@@ -6,6 +6,8 @@ using Core.GameEvents;
 
 [NodeWidth(400)]
 [NodeTint("#0C4B4A")]
+[CreateNodeMenu("Dialogue Tool/Branch Node")]
+
 public class Branch_XNode : Node {
 
 	// Use this for initialization

@@ -25,13 +25,15 @@ public class Dialogue_XNod : Node {
 	//SECONDARY VARIABLES
 
 	[Range(.5f, 45f)]
-	[SerializeField] private float _bufferTime = .5f;
+	[SerializeField] private float _bufferTime = 5f;
+
+	public bool CanInterupt;
 
 	public float PreDialogueTime = 0.1f;
 
 	public float PostDialogueTime = 0.36f;
 
-	private static float _defaultTime = 5f;
+	public float DefaultTime = 5f;
 
 	//REAL-TIME VARIABLES
 
@@ -153,7 +155,7 @@ public class Dialogue_XNod : Node {
     {
 		if (AudioClipDialogue == null)
 		{
-			return _defaultTime;
+			return DefaultTime;
 		}
 		else
 		{

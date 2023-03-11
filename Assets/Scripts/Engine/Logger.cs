@@ -4,6 +4,8 @@ using Core.GameEvents;
 
 public static class Logger{ //@Todo : Finish inplementing this logger
 
+    
+
     //Todo : Checkthis : https://docs.unity3d.com/ScriptReference/EditorGUILayout.EnumFlagsField.html
 
     public enum DebugMode { Off, All, ErrorsOnly, ErrorAndWarning, Dialogue, Info}
@@ -26,7 +28,7 @@ public static class Logger{ //@Todo : Finish inplementing this logger
             Debug.LogWarning(message);
     }
 
-    public static void LogDialogue() => return;
+    //public static void LogDialogue() => return;
 
     public static void LogInfo(object message) => Debug.Log(message.ToString().Color(_infoColor));
 
@@ -38,6 +40,8 @@ public static class Logger{ //@Todo : Finish inplementing this logger
     }
 
     public static bool IsLoggerEnabled() => _debugMode != DebugMode.Off;
+
+    
 }
 #endif
 

@@ -15,9 +15,12 @@ public class DialogueManager : MonoBehaviour
 
     public static Action<Dialogue_XNod> OnDialogueFinishRunning;
 
+    public static Action<Dialogue_XNod> OnDialogueFinishRunningEarly;
+
+
     //IMPORTANT VARIABLES
 
-    bool _isADialogRuning;
+    Dialogue_XNod _dialogRuning;
 
     //USEFUL VARIABLES
 
@@ -26,6 +29,7 @@ public class DialogueManager : MonoBehaviour
     //CAN BE USED VARIABLES
 
     IEnumerator _coroutine;
+    IEnumerator _curentRunDialogue;
 
     //INIT FUNCTIONS
 
@@ -53,6 +57,11 @@ public class DialogueManager : MonoBehaviour
         SendDialogue(tag, true);
     }
 
+    public void SendDialogueForced(int tag)
+    {
+        SendDialogue(tag, false);
+    }
+
     public void SendDialogue(Dialogue_XNod dialogue)
     {
         SendDialogue(dialogue, true);
@@ -62,24 +71,21 @@ public class DialogueManager : MonoBehaviour
     {
         Dialogue_XNod dialogue = _dg.GetDialogueWithTag(tag);
 
-        if (verificationIfAlreadyRun && dialogue.HasBeenRun)
-        {
-            return;
-        }
-
-        _bufferList.Add(dialogue);
-
-        _coroutine = IE_cleanerBuffer(dialogue);
-
-        StartCoroutine(_coroutine);
-
-        tryToPrepareRunDialogue();
+        SendDialogue(dialogue, verificationIfAlreadyRun);
     }
 
     public void SendDialogue(Dialogue_XNod dialogue, bool verificationIfAlreadyRun)
     {
         if (verificationIfAlreadyRun && dialogue.HasBeenRun)
         {
+            return;
+        }
+
+        if(_dialogRuning !=  null && 
+            dialogue.CanInterupt && 
+            dialogue.GetPriority() > _dialogRuning.GetPriority())
+        {
+            RunDialogueWithInteruption(dialogue);
             return;
         }
 
@@ -96,7 +102,7 @@ public class DialogueManager : MonoBehaviour
 
     private void tryToPrepareRunDialogue()
     {
-        if (_isADialogRuning == true || _bufferList.Count == 0)
+        if (_dialogRuning != null || _bufferList.Count == 0)
         {
             return;
         }
@@ -105,17 +111,8 @@ public class DialogueManager : MonoBehaviour
 
         while (_bufferList.Remove(dialogueToRun));
 
-        _coroutine = IE_runDialogue(dialogueToRun);
-        StartCoroutine(_coroutine);
-
-        if (!dialogueToRun.HaveNextDialogue())
-        {
-            return;
-        }
-        /*
-        Dialogue_XNod nextDialog = dialogueToRun.GetNextDialogue();
-
-        SendDialogue(nextDialog, false);*/
+        _curentRunDialogue = IE_runDialogue(dialogueToRun);
+        StartCoroutine(_curentRunDialogue);
     }
 
     private void tryToPrepareRunDialogue(Dialogue_XNod dialogueToCheckWith)
@@ -126,23 +123,32 @@ public class DialogueManager : MonoBehaviour
 
     }
 
+    private void RunDialogueWithInteruption(Dialogue_XNod dialogueToRun)
+    {
+        OnDialogueFinishRunningEarly?.Invoke(_dialogRuning);
+        StopCoroutine(_curentRunDialogue);
+
+        _curentRunDialogue = IE_runDialogue(dialogueToRun);
+        StartCoroutine(_curentRunDialogue);
+    }
+
     private IEnumerator IE_runDialogue(Dialogue_XNod dialogueToRun)
     {
-            _isADialogRuning = true;
+            _dialogRuning = dialogueToRun;
 
         yield return new WaitForSeconds(dialogueToRun.PreDialogueTime);
-
-            dialogueToRun.HasBeenRun = true;
 
             OnDialogueStartRunning?.Invoke(dialogueToRun);
             
         yield return new WaitForSeconds(dialogueToRun.GetDialogueTime() );
-        
+
+            dialogueToRun.HasBeenRun = true;
+                
             OnDialogueFinishRunning?.Invoke(dialogueToRun);
 
         yield return new WaitForSeconds(dialogueToRun.PostDialogueTime);
 
-            _isADialogRuning = false;
+            _dialogRuning = null;
 
         if (dialogueToRun.HaveNextDialogue())
         {

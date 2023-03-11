@@ -92,18 +92,23 @@ public class Editor_Dialogue_XNod : NodeEditor
         {
             EditorGUILayout.BeginVertical(EditorStyles.helpBox);
 
-            if (!_curentObject.HavePreviousDialogue() )
-            {
-                NodeEditorGUILayout.PropertyField(serializedObject.FindProperty("_bufferTime"));
+            NodeEditorGUILayout.PropertyField(serializedObject.FindProperty("_bufferTime"));
 
-                EditorGUILayout.Space(5);
-            }
+            EditorGUILayout.Space(5);
+
+            NodeEditorGUILayout.PropertyField(serializedObject.FindProperty("CanInterupt"));
+
+            EditorGUILayout.Space(5);
 
             NodeEditorGUILayout.PropertyField(serializedObject.FindProperty("PreDialogueTime"));
 
             EditorGUILayout.Space(5);
 
             NodeEditorGUILayout.PropertyField(serializedObject.FindProperty("PostDialogueTime"));
+
+            EditorGUILayout.Space(5);
+
+            NodeEditorGUILayout.PropertyField(serializedObject.FindProperty("DefaultTime"));
 
 
 
