@@ -53,7 +53,6 @@ public class Object_XNod : Node {
 		}
 	}
 
-
 	public void TakePicture()
     {
         if (PictureTaken)
