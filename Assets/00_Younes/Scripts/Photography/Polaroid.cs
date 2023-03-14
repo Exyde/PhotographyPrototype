@@ -60,6 +60,10 @@ public class Polaroid : MonoBehaviour
     [Header ("Events")]
     public Action _OnCabineEnter;
     public Action _OnCabineExit;
+
+    public static Action<Object_XNod> OnPictureTaken; //Picture, Texture, GameObject => 
+    public static Action<Object_XNod> OnSlotSelection; //Picture, Texture, GameObject => 
+
     #endregion
 
     #region UnityCallbacks
@@ -102,6 +106,7 @@ public class Polaroid : MonoBehaviour
                     _pictureTakenSlots[slotIndex] = true;
                     _pictureTakensCount++;
 
+                    OnPictureTaken?.Invoke(picturable.GetObject_XNod());
 
                     //_PS_Flash.Play() @EffectManager
                 }

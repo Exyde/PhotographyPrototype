@@ -9,6 +9,8 @@ public class PicturableObject : MonoBehaviour
     [Header("Debug Preview - View Only")]
     [SerializeField] Object_XNod _xNodeObject;
     [SerializeField] Sprite _currentSprite;
+    [SerializeField] Sprite _UISprite;
+
     [SerializeField] Color _color;
 
     [Header("References")]
