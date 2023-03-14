@@ -103,9 +103,12 @@ public class Polaroid : MonoBehaviour
 
             if (slotIndex >= 0){ //If a slot is available
 
-                StartCoroutine(CreatePictureScriptable(slotIndex));
                 _currentXnodPicturedObjects[slotIndex] = picturable.GetObject_XNod();
+
+                StartCoroutine(CreatePictureScriptable(slotIndex));
+
                 _pictureTakenSlots[slotIndex] = true;
+                
                 OnPictureTaken?.Invoke(picturable.GetObject_XNod());
 
                 _pictureTakensCount++;
@@ -230,7 +233,6 @@ public class Polaroid : MonoBehaviour
         Picture picture = ScriptableObject.CreateInstance<Picture>(); // @TODO : Save and Load this in database ?
 
         picture.name = _currentXnodPicturedObjects[index].name;
-
         StartCoroutine(picture.CreateTextureAndSprite());
         _pictures[index] = picture;
 

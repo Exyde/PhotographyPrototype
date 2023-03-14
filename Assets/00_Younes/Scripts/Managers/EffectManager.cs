@@ -3,6 +3,7 @@ using Core.GameEvents;
 
 public class EffectManager : MonoBehaviour, IGameEventManager
 {
+    [SerializeField] ParticleSystem PS_OnPictureFlash;
     private void OnEnable() {
         Polaroid.OnPictureTaken += OnPictureTaken_EffectManager;
     }
@@ -12,7 +13,7 @@ public class EffectManager : MonoBehaviour, IGameEventManager
     }
 
     private void OnPictureTaken_EffectManager(Object_XNod obj){
-        Debug.Log("Flash fx for" + obj.NameOfTheObject);
+        PS_OnPictureFlash?.Play();
     }
 
     public void HandleTriggerEvents(EventName eventName, string senderName)
