@@ -5,7 +5,7 @@ using System;
 
 public static class SaveSystem
 {
-    public static void SaveTexToPng(Texture2D tex, string objectName, int index){
+    public static void SaveTexToPng(Texture2D tex, string objectName){
 
         //@DESIGN : Use Identified Object name ? X Node Name ?
 
@@ -17,7 +17,7 @@ public static class SaveSystem
             Directory.CreateDirectory(dirPath);
         }
 
-        File.WriteAllBytes(dirPath + objectName + "_" + index + ".png", bytes);
+        File.WriteAllBytes(dirPath + objectName + "_" + ".png", bytes);
 
 #if UNITY_EDITOR
             AssetDatabase.Refresh();

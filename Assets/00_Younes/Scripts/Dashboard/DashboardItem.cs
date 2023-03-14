@@ -12,10 +12,14 @@ public class DashboardItem : ScriptableObject
 
     [SerializeField] protected Texture2D _texture;
     [SerializeField] protected Sprite _sprite;
+    [SerializeField] protected Sprite _UISprite;
+
     [SerializeField] protected int _pictureOffsetX = 0;
     [SerializeField] protected int _pictureOffsetY = 0;
 
     public Texture2D GetTexture () => _texture;
     public Sprite GetSprite () => _sprite;
+    public Sprite GetUISprite () => _UISprite;
+
 
 }

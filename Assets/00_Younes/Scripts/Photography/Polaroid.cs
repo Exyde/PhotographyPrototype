@@ -51,6 +51,7 @@ public class Polaroid : MonoBehaviour
     [Space(10)]
 
     [Header("Photography Mecanic Settings")]
+    [SerializeField] bool _photographyEnabled = true;
     [SerializeField][Tooltip("Nombre max de photos sur soi")] int _maxPicturesSlots = 3;
     [SerializeField][Tooltip("Prise de photo automatique après avoir détruit une photo ?")] bool _automaticPictureTakenAfterSlotSelection = false;
     [SerializeField][Tooltip("Distance maximale de photographie")][Range(1, 20)] float _photographyMaxDistance = 10f;
@@ -71,12 +72,14 @@ public class Polaroid : MonoBehaviour
         ResetPicturesArrayAndList();
         if (_UIImagesHolder) _UIImagesHolder.SetActive(false); //@TODO : REMOVE THIS é_è
 
-        _OnCabineExit += ResetPolaroid;
-        _OnCabineExit += CallManagerUpdateList;
+        _OnCabineExit += ResetPolaroid; //This aswell
+        _OnCabineExit += CallManagerUpdateList; //and this
     }
 
     void Update()
     {
+        if (!_photographyEnabled) return;
+
         if(_state == State.Photography){
             if((Input.GetKeyDown(KeyCode.P) || Input.GetMouseButtonDown(0))){
                 TakePicture();
@@ -87,35 +90,46 @@ public class Polaroid : MonoBehaviour
     }
     #endregion
     #region Picture Methods
+
+    public void TogglePhotographyMechanic(bool state) => _photographyEnabled = state; //@DESIGN : Make it static ?
     public void TakePicture(){
-        RaycastHit hit;
-        if (Physics.Raycast(transform.position, transform.forward, out hit, _photographyMaxDistance, _picturableLayer)){
-            PicturableObject picturable = hit.collider.gameObject.GetComponent<PicturableObject>();
 
-            if(_pictureTakensCount < _maxPicturesSlots){
-                int slotIndex = GetAvailableSlotIndex();
-                Logger.LogInfo("Slot index : " + slotIndex);
+        PicturableObject picturable = GetPicturableObject();
+        if (picturable == null) return;
 
-                if (slotIndex >= 0){ //If a slot is available
-                    _currentXnodPicturedObjects[slotIndex] = picturable.GetObject_XNod();
-                    StartCoroutine(CreatePictureScriptable(slotIndex));
+        if(CanTakePicture()){
+            int slotIndex = GetAvailableSlotIndex();
+            Logger.LogInfo("Slot index : " + slotIndex);
 
-                    // _picturesTextures[slotIndex] = picturable.GetPictureTexture();
-                   //_UIImagePictureSlots[slotIndex].sprite = picturable.GetPictureAsSprite();
+            if (slotIndex >= 0){ //If a slot is available
 
-                    _pictureTakenSlots[slotIndex] = true;
-                    _pictureTakensCount++;
+                _currentXnodPicturedObjects[slotIndex] = picturable.GetObject_XNod();
 
-                    OnPictureTaken?.Invoke(picturable.GetObject_XNod());
+                StartCoroutine(CreatePictureScriptable(slotIndex));
 
-                    //_PS_Flash.Play() @EffectManager
-                }
-            }
-            else {
-                _state = State.SlotSelection;
+                _pictureTakenSlots[slotIndex] = true;
+                
+                OnPictureTaken?.Invoke(picturable.GetObject_XNod());
+
+                _pictureTakensCount++;
             }
         }
+        else {
+            _state = State.SlotSelection;
+        }
     }
+
+    PicturableObject GetPicturableObject(){
+        RaycastHit hit;
+        PicturableObject picturable = null;
+        if (Physics.Raycast(transform.position, transform.forward, out hit, _photographyMaxDistance, _picturableLayer)){
+            picturable = hit.collider.gameObject.GetComponent<PicturableObject>();
+        }
+
+        return picturable;
+    }
+
+    bool CanTakePicture() => _pictureTakensCount < _maxPicturesSlots;
 
     private void HandlePictureSlotSelection(){
         _UIImagesHolder.SetActive(true);
@@ -183,7 +197,7 @@ public class Polaroid : MonoBehaviour
         for (int i =0; i < _maxPicturesSlots; i++){
             if (_UIImagePictureSlots[i].sprite != null){
                 _dashboard.CreatePictureOnBoard(_UIImagePictureSlots[i].sprite);
-                SaveSystem.SaveTexToPng(_picturesTextures[i], _picturesTextures[i].name, UnityEngine.Random.Range(0, 2000)); //@TODO : Temp, remove this elsewhere
+                SaveSystem.SaveTexToPng(_picturesTextures[i], _picturesTextures[i].name); //@TODO : Temp, remove this elsewhere
                 _UIImagePictureSlots[i].sprite = null;
             }
         }
@@ -216,11 +230,9 @@ public class Polaroid : MonoBehaviour
     }
 
     IEnumerator CreatePictureScriptable(int index){
-        //Picture picture = ScriptableObject.CreateInstance("Picture") as Picture; // @TODO : Save and Load this in database ?
         Picture picture = ScriptableObject.CreateInstance<Picture>(); // @TODO : Save and Load this in database ?
 
         picture.name = _currentXnodPicturedObjects[index].name;
-
         StartCoroutine(picture.CreateTextureAndSprite());
         _pictures[index] = picture;
 

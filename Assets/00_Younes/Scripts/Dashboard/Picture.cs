@@ -23,7 +23,7 @@ public class Picture : DashboardItem
     }
 
     public void SavePictureTexture(){
-        SaveSystem.SaveTexToPng(_texture, name, Random.Range(0, 256)); //@TODO : Remove this index
+        SaveSystem.SaveTexToPng(_texture, name);
     }
 }
 

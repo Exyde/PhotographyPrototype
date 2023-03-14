@@ -66,11 +66,12 @@ MonoBehaviour:
   NameOfTheObject: "Une Boule \xE0 neige du Sahara"
   ValueForBloc: 3
   ActiveABloc: 0
-  PictureTaken: 0
+  PictureTaken: 1
   DisponibleIfParticularCondition: 0
   HaveAUnderBloc: 0
   FromCity: 3
   PrefabObjectToSpawn: {fileID: 3134168667198322749, guid: 49657721269b1fc3cb806992bf6cd061, type: 3}
+  _picture: {fileID: 0}
   PictureDebugTexture: {fileID: 2800000, guid: b3f9d6998c4cf4044b2c686e65dcd180, type: 3}
 --- !u!114 &-5354627152681470523
 MonoBehaviour:
@@ -122,7 +123,7 @@ MonoBehaviour:
   MySelf: {fileID: 0}
   Question: 'Qu''est ce que cette Tasse et cette Carte Postale ? '
   PictureToTakeForAddValue: 2
-  PictureTakenInUnderbloc: 1
+  PictureTakenInUnderbloc: 2
   ValueForBloc: 6
 --- !u!114 &-4442200725438504682
 MonoBehaviour:
@@ -185,7 +186,7 @@ MonoBehaviour:
       _dynamic: 0
   Question: Qui est le machiniste ?
   NecessaryResolution: 5
-  ActualResolution: 0
+  ActualResolution: 5
   TrueForActivate: 1
   Myself: {fileID: 0}
   WillActivateWhenResolution: 0
@@ -260,6 +261,7 @@ MonoBehaviour:
   HaveAUnderBloc: 0
   FromCity: 3
   PrefabObjectToSpawn: {fileID: 3134168667198322749, guid: 49657721269b1fc3cb806992bf6cd061, type: 3}
+  _picture: {fileID: 0}
   PictureDebugTexture: {fileID: 2800000, guid: b3f9d6998c4cf4044b2c686e65dcd180, type: 3}
 --- !u!114 &-2240352099877011316
 MonoBehaviour:
@@ -386,11 +388,12 @@ MonoBehaviour:
   NameOfTheObject: Objet de Palier 2
   ValueForBloc: 2
   ActiveABloc: 0
-  PictureTaken: 0
+  PictureTaken: 1
   DisponibleIfParticularCondition: 0
   HaveAUnderBloc: 0
   FromCity: 3
   PrefabObjectToSpawn: {fileID: 3134168667198322749, guid: 49657721269b1fc3cb806992bf6cd061, type: 3}
+  _picture: {fileID: 0}
   PictureDebugTexture: {fileID: 2800000, guid: b3f9d6998c4cf4044b2c686e65dcd180, type: 3}
 --- !u!114 &11400000
 MonoBehaviour:
@@ -557,11 +560,12 @@ MonoBehaviour:
   NameOfTheObject: Autre objet de Pallier 2
   ValueForBloc: 3
   ActiveABloc: 0
-  PictureTaken: 0
+  PictureTaken: 1
   DisponibleIfParticularCondition: 0
   HaveAUnderBloc: 0
   FromCity: 3
   PrefabObjectToSpawn: {fileID: 3134168667198322749, guid: 49657721269b1fc3cb806992bf6cd061, type: 3}
+  _picture: {fileID: 0}
   PictureDebugTexture: {fileID: 2800000, guid: b3f9d6998c4cf4044b2c686e65dcd180, type: 3}
 --- !u!114 &4860584244364962389
 MonoBehaviour:
@@ -657,6 +661,7 @@ MonoBehaviour:
   HaveAUnderBloc: 1
   FromCity: 3
   PrefabObjectToSpawn: {fileID: 3134168667198322749, guid: 49657721269b1fc3cb806992bf6cd061, type: 3}
+  _picture: {fileID: 0}
   PictureDebugTexture: {fileID: 2800000, guid: b3f9d6998c4cf4044b2c686e65dcd180, type: 3}
 --- !u!114 &8738126090109506005
 MonoBehaviour:
@@ -729,6 +734,7 @@ MonoBehaviour:
   HaveAUnderBloc: 0
   FromCity: 3
   PrefabObjectToSpawn: {fileID: 3134168667198322749, guid: 49657721269b1fc3cb806992bf6cd061, type: 3}
+  _picture: {fileID: 0}
   PictureDebugTexture: {fileID: 2800000, guid: b3f9d6998c4cf4044b2c686e65dcd180, type: 3}
 --- !u!114 &8839235430469026456
 MonoBehaviour:
@@ -799,11 +805,12 @@ MonoBehaviour:
   NameOfTheObject: Carte Postale
   ValueForBloc: 1
   ActiveABloc: 0
-  PictureTaken: 0
+  PictureTaken: 1
   DisponibleIfParticularCondition: 0
   HaveAUnderBloc: 1
   FromCity: 3
   PrefabObjectToSpawn: {fileID: 3134168667198322749, guid: 49657721269b1fc3cb806992bf6cd061, type: 3}
+  _picture: {fileID: 0}
   PictureDebugTexture: {fileID: 2800000, guid: b3f9d6998c4cf4044b2c686e65dcd180, type: 3}
 --- !u!114 &9131805213518582990
 MonoBehaviour:
@@ -815,7 +822,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 309bb0624c7cb7343ae5792c57a26fbb, type: 3}
-  m_Name: Que fait la machine ?  / ( 8 / 5 )
+  m_Name: Que fait la machine ?  / ( 18 / 5 )
   m_EditorClassIdentifier: 
   graph: {fileID: 0}
   position: {x: -1224, y: -424}
@@ -875,7 +882,7 @@ MonoBehaviour:
       _dynamic: 0
   Question: 'Que fait la machine ? '
   NecessaryResolution: 5
-  ActualResolution: 8
+  ActualResolution: 18
   TrueForActivate: 0
   Myself: {fileID: 0}
   WillActivateWhenResolution: 0
