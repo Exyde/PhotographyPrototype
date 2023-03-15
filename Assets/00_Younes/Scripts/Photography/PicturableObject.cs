@@ -30,14 +30,11 @@ public class PicturableObject : MonoBehaviour
     }
 
     public Texture2D GetPictureTexture () => _xNodeObject.PictureDebugTexture;    
-    public Sprite GetPictureAsSprite(){
+    public Sprite GetPictureSprite () => _currentSprite;
+    public void CreatePictureSprite(){
         Texture2D tex = GetPictureTexture();
         Rect rect = new Rect(0, 0, tex.width, tex.height);
-        Sprite sprite = Sprite.Create(tex, rect, new Vector2(0.5f, 0.5f), 100.0f);
-        _currentSprite = sprite;
-
-        //return sprite;
-        return _currentSprite;
+        _currentSprite = Sprite.Create(tex, rect, new Vector2(0.5f, 0.5f), 100.0f);
     }
 
 }

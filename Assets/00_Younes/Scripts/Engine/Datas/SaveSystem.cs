@@ -5,6 +5,10 @@ using System;
 
 public static class SaveSystem
 {
+    public static bool _isEnabled = true;
+
+    public static bool IsEnabled() => _isEnabled;
+
     public static void SaveTexToPng(Texture2D tex, string objectName){
 
         //@DESIGN : Use Identified Object name ? X Node Name ?

@@ -2,8 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//@TODO :
+// - Refactor with GameInputs
+
 [RequireComponent(typeof(CharacterController))]
-public class PlayerController : MonoBehaviour
+public class PlayerController : MonoBehaviour 
 {
     enum CameraState{
         FPS, Dashboard
@@ -61,7 +64,7 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(_cameraToggleKeyCode)) ToggleCamera();
+        if (Input.GetKeyDown(GameInputs.CameraModeToggleKeyCode)) ToggleCamera();
 
         if ( _camState == CameraState.FPS){
             HandleMovement();
