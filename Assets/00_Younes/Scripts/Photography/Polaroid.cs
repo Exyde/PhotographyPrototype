@@ -1,36 +1,28 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
-using UnityEngine.UI;
-using TMPro;
 using System;
 
-enum State{
-    Photography
-}
-
-public class Polaroid : MonoBehaviour
-{
+    //Design
     //Might be a static instance ?
     //Pas prnedre en photo un objet déjà pris ?
 
+    //Todo :
+    // Remove Cabine Enter & Exit
+    // Remove Object Manger ref => Event
+    // Save the picture asset when created for later Game ? [Out of scope]
+   
+enum State{ Photography }
+
+public class Polaroid : MonoBehaviour
+{
     #region Fields
     [Header ("References")] //@TODO : Replace thoses by Static Instance or Singletons ?
     public ObjectManager _objetManager;
-    [Space(5)]
-
     [Header ("Preview & Readonly")]
     [SerializeField] State _state = State.Photography;
-    ///<summary>
-    /// XNod Objects currently saved in pictures slots.
-    /// </summary>
     [SerializeField] Object_XNod[] _currentXnodPicturedObjects;
 
     [Space (5)]
-    ///<summary>
-    /// Currently Available Slots. (false is empty, true is taken). @TODO : "Inventory Class"? 
-    /// </summary>
     [SerializeField] public static int _pictureTakensCount = 0;
     [SerializeField] Picture[] _pictures;
     [SerializeField] bool[] _pictureTakenSlots;
@@ -42,7 +34,6 @@ public class Polaroid : MonoBehaviour
     [SerializeField][Tooltip("Nombre max de photos sur soi")] int _maxPicturesSlots = 3;
     [SerializeField][Tooltip("Distance maximale de photographie")][Range(1, 20)] float _photographyMaxDistance = 10f;
     [SerializeField] LayerMask _picturableLayer;
-    [SerializeField] ParticleSystem _PS_Flash;
 
     [Header ("Events")]
     public static Action _OnCabineEnter;
@@ -73,13 +64,13 @@ public class Polaroid : MonoBehaviour
     {
         if (!_photographyEnabled) return;
 
-        if(_state == State.Photography){
-            if((Input.GetKeyDown(GameInputs.PhotographyKeyCode) || Input.GetMouseButtonDown(GameInputs.PhotographyMouseButton))){
-                TakePicture();
-            } 
-            else if (Input.GetKeyDown(GameInputs.PhotographyResetKeyCode)){
-                ResetPolaroid();
-            }
+        if(_state != State.Photography) return;
+
+        if((Input.GetKeyDown(GameInputs.PhotographyKeyCode) || Input.GetMouseButtonDown(GameInputs.PhotographyMouseButton))){
+            TakePicture();
+        } 
+        else if (Input.GetKeyDown(GameInputs.PhotographyResetKeyCode)){
+            ResetPolaroid();
         }
     }
 
@@ -151,8 +142,7 @@ public class Polaroid : MonoBehaviour
     void CallManagerUpdateList(){
         _objetManager.UpdateObjectAndSpawnObjectInCabine(_objetManager._objectsInCabineCount);
     }
-    #endregion
-    #region Resets
+
     void NotifyXNodeAndSaveAndCreaturePicture(){
         
         DisplayPicturesOnDashboard();
@@ -163,6 +153,8 @@ public class Polaroid : MonoBehaviour
     void DisplayPicturesOnDashboard(){ 
         Dashboard._instance.CreatePictures(_pictures);
     }
+    #endregion
+    #region Resets
 
     void ResetPolaroid(){
         _currentXnodPicturedObjects = new Object_XNod[_maxPicturesSlots];
@@ -176,13 +168,7 @@ public class Polaroid : MonoBehaviour
 
         OnPolaroidReset?.Invoke();
     }
-
     #endregion
-
-    void OnDrawGizmos(){
-        Gizmos.color = Color.blue;
-        Gizmos.DrawLine(transform.position, transform.position + transform.forward * _photographyMaxDistance);
-    }
 
     IEnumerator CreatePictureScriptable(int index){
         Picture picture = ScriptableObject.CreateInstance<Picture>(); // @TODO : Save and Load this in database ?
@@ -193,5 +179,12 @@ public class Polaroid : MonoBehaviour
 
         yield return new WaitForEndOfFrame();
     }
+
+    #region Gizmos
+    void OnDrawGizmos(){
+        Gizmos.color = Color.blue;
+        Gizmos.DrawLine(transform.position, transform.position + transform.forward * _photographyMaxDistance);
+    }
+    #endregion
 }
 

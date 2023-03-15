@@ -12,8 +12,6 @@ public class PlayerController : MonoBehaviour
         FPS, Dashboard
     }
 
-    [SerializeField] KeyCode _cameraToggleKeyCode = KeyCode.T;
-
     #region Fields
     // Public Fields
     [Header("Camera Stuffs")]
@@ -125,7 +123,7 @@ public class PlayerController : MonoBehaviour
 
     #region Camera Switch and Lerping
     void ToggleCamera(){
-        if(_camState == CameraState.FPS) SetDashboardCamera(false);
+        if(_camState == CameraState.FPS && _fpsCameraHolder != null) SetDashboardCamera(false);
         else if (_camState == CameraState.Dashboard) SetFPSCamera(true);
     }
 

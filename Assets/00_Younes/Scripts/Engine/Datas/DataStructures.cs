@@ -3,9 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 namespace Core.GameEvents{
-    public static class DataStructures{
-
-    }
 
     [System.Serializable]
     public enum EventName{

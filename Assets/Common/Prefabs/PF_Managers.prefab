@@ -169,6 +169,37 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PS_OnPictureFlash: {fileID: 756537057392304007, guid: 250f1866264dc4e4c9e531aaaee6f1a1, type: 3}
+--- !u!1 &4655354871080028739
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8237000199736687533}
+  m_Layer: 0
+  m_Name: FadeManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8237000199736687533
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4655354871080028739}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1008.6345, y: 616.2531, z: 4.5352426}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 9080149719216254721}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &9080149719216254734
 GameObject:
   m_ObjectHideFlags: 0
@@ -207,6 +238,7 @@ Transform:
   - {fileID: 152676213}
   - {fileID: 1980162310}
   - {fileID: 859556494}
+  - {fileID: 8237000199736687533}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -395,7 +427,7 @@ MonoBehaviour:
   - Name: OnPictureTaken
     Clip: {fileID: 8300000, guid: 35f78310c9e59244b8283b80cfd6736e, type: 3}
     Source: {fileID: 0}
-    Volume: 1
+    Volume: 0.2
     Pitch: 1
     Loop: 0
 --- !u!1 &9080149720629417258
