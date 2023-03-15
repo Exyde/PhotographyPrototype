@@ -41,7 +41,7 @@ public class Polaroid : MonoBehaviour
     /// Currently Available Slots. (false is empty, true is taken). @TODO : "Inventory Class"? 
     /// </summary>
     [SerializeField] bool[] _pictureTakenSlots;
-    [SerializeField] int _pictureTakensCount = 0;
+    [SerializeField] public static int _pictureTakensCount = 0;
     ///<summary>
     /// Texture reference to the XNod Picture.
     /// </summary>
@@ -59,8 +59,8 @@ public class Polaroid : MonoBehaviour
     [SerializeField] ParticleSystem _PS_Flash;
 
     [Header ("Events")]
-    public Action _OnCabineEnter;
-    public Action _OnCabineExit;
+    public static Action _OnCabineEnter;
+    public static Action _OnCabineExit;
 
     public static Action<Object_XNod> OnPictureTaken; //Picture, Texture, GameObject => 
     public static Action<Object_XNod> OnSlotSelection; //Picture, Texture, GameObject => 
@@ -109,9 +109,10 @@ public class Polaroid : MonoBehaviour
 
                 _pictureTakenSlots[slotIndex] = true;
                 
+                _pictureTakensCount++;
+
                 OnPictureTaken?.Invoke(picturable.GetObject_XNod());
 
-                _pictureTakensCount++;
             }
         }
         else {

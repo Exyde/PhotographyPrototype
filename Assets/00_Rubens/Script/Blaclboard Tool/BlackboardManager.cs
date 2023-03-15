@@ -19,7 +19,7 @@ public class BlackboardManager : MonoBehaviour
         {
             BBM = this;
 
-            DontDestroyOnLoad(this.gameObject);
+            //DontDestroyOnLoad(this.gameObject);
         }
         else
         {

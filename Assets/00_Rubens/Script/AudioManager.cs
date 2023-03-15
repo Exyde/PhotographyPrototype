@@ -16,6 +16,8 @@ public class AudioManager : MonoBehaviour
     {
         DialogueManager.OnDialogueStartRunning += PlayAudioDialogue;
         DialogueManager.OnDialogueFinishRunningEarly += InteruptAudioDialogue;
+
+        Polaroid.OnPictureTaken += OnPictureTaken_AudioManager;
     }
 
     private void OnDisable()
@@ -23,6 +25,7 @@ public class AudioManager : MonoBehaviour
         DialogueManager.OnDialogueStartRunning -= PlayAudioDialogue;
         DialogueManager.OnDialogueFinishRunningEarly -= InteruptAudioDialogue;
 
+        Polaroid.OnPictureTaken -= OnPictureTaken_AudioManager;
     }
 
     private void Awake()
@@ -54,6 +57,11 @@ public class AudioManager : MonoBehaviour
         s.Source.Play();
     }
 
+    public void OnPictureTaken_AudioManager(Object_XNod ox)
+    {
+        Play("OnPictureTaken");
+    }
+
     private void PlayAudioDialogue(Dialogue_XNod dialogue)
     {
         if (dialogue.AudioClipDialogue != null)
@@ -76,13 +84,14 @@ public class Sound
 
     public AudioClip Clip;
 
+    [HideInInspector]
     public AudioSource Source;
 
     [Range(0f,1f)]
-    public float Volume;
+    public float Volume = 1;
 
     [Range(0.1f, 3f)]
-    public float Pitch;
+    public float Pitch = 1;
 
     public bool Loop;
 }
