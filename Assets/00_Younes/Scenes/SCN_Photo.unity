@@ -1848,11 +1848,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bc5875adae810cd44a93517fb52fcf8c, type: 3}
---- !u!198 &1189974027 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 30590210096864998, guid: 080da32e44fcb264bba5b4be0dd5230d, type: 3}
-  m_PrefabInstance: {fileID: 1326340906}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1237847330
 GameObject:
   m_ObjectHideFlags: 0
@@ -2861,7 +2856,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54373f7d072347a4aa8b456399fcbec7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PS_OnPictureFlash: {fileID: 1189974027}
+  PS_OnPictureFlash: {fileID: 756537057392304007, guid: 250f1866264dc4e4c9e531aaaee6f1a1, type: 3}
 --- !u!1 &1998623723
 GameObject:
   m_ObjectHideFlags: 0
