@@ -25,20 +25,7 @@ public class DashboardItemComponent : MonoBehaviour
         _sprite = _item.GetSprite();
     }
 
-    private void Update() {
-        if (Input.GetKeyDown(_debugPictureKeycode)){
-            
-            if (_item.GetItemType() != DashboardItem.ItemType.Picture) return;
-            //@TODO : ça pue ça ?
-            Picture p = _item as Picture;
-            StartCoroutine(p.CreateTextureAndSprite());
-
-            _renderer.sprite = _item.GetSprite();
-            _tex = _item.GetTexture();
-            _sprite = _item.GetSprite();
-        }
-    }
-
     //@TODO : Drag n Drop
+    //@TODO : LineRendering between Items + Color => GraphTree ?
 
 }

@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using XNode;
 using TMPro;
 
 public class PicturableObject : MonoBehaviour
@@ -29,8 +26,10 @@ public class PicturableObject : MonoBehaviour
         _text_Name.text = _xNodeObject.NameOfTheObject;
     }
 
+    //Use this later for non Picture Dashboard Component
     public Texture2D GetPictureTexture () => _xNodeObject.PictureDebugTexture;    
     public Sprite GetPictureSprite () => _currentSprite;
+    public Sprite GetUISprite () => _UISprite;
     public void CreatePictureSprite(){
         Texture2D tex = GetPictureTexture();
         Rect rect = new Rect(0, 0, tex.width, tex.height);

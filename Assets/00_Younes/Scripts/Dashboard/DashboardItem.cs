@@ -4,7 +4,7 @@ public class DashboardItem : ScriptableObject
 {
     //@TODO : Item type ? Note, text, picture, drawing... ?
     public enum ItemType {
-        Note, Text, Picture, Drawing, QR //Only picture are generated !!
+        Note, Text, Picture, Drawing, QR, Photo //Only picture are generated !!
     } 
 
     [SerializeField] ItemType _itemType = ItemType.Picture;
