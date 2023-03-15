@@ -14,4 +14,9 @@ public static class StringExtension {
     public static string Color(this string str,string clr) => string.Format("<color={0}>{1}</color>",clr, str);
     public static string Italic(this string str) => "<i>" + str + "</i>";
     public static string Size(this string str, int size) => string.Format("<size={0}>{1}</size>",size,str);
+
+    public static string RemoveIllegalCharactersFromRubensDesignerMagicTool(this string str){
+        return string.Join("_", str.Split(System.IO.Path.GetInvalidFileNameChars()));
+    }
+    
 }

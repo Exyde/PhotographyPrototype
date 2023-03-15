@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
+//@Rubens : J'ai enleve les accents qui me spammait derreurs 
 public class HUDManager : MonoBehaviour
 {
     public TextMeshProUGUI Subtitle;
     public TextMeshProUGUI CurentTouchAvailable;
     public TextMeshProUGUI CountPicturesLeft;
 
-    bool TruePoeticFalseTension = true; //A supprimer quand on aura un gamemanager qui nous dit à quel moment du jeu on est
+    bool TruePoeticFalseTension = true; //A supprimer quand on aura un gamemanager qui nous dit ï¿½ quel moment du jeu on est
 
     private void Start()
     {
@@ -23,6 +24,7 @@ public class HUDManager : MonoBehaviour
         DialogueManager.OnDialogueFinishRunning += StopDisplaySubtitle;
 
         Polaroid.OnPictureTaken += OnPictureTaken_HUDManager;
+        Polaroid.OnPolaroidReset += ActualiseHUD;
 
         Polaroid._OnCabineEnter += DisplayTensionHUD;
         Polaroid._OnCabineExit += DisplayPoeticHUD;
@@ -35,6 +37,7 @@ public class HUDManager : MonoBehaviour
         DialogueManager.OnDialogueFinishRunning -= StopDisplaySubtitle;
 
         Polaroid.OnPictureTaken -= OnPictureTaken_HUDManager;
+        Polaroid.OnPolaroidReset -= ActualiseHUD;
 
         Polaroid._OnCabineEnter -= DisplayTensionHUD;
         Polaroid._OnCabineExit -= DisplayPoeticHUD;
@@ -76,7 +79,7 @@ public class HUDManager : MonoBehaviour
 
     void ActualiseTouchAvailableHUD()
     {
-        CurentTouchAvailable.text = "Appuyez sur ZQSD pour se déplacer.\n";
+        CurentTouchAvailable.text = "Appuyez sur ZQSD pour se deplacer.\n";
 
         if (!TruePoeticFalseTension)
         {
@@ -84,7 +87,7 @@ public class HUDManager : MonoBehaviour
 
             if (Polaroid._pictureTakensCount > 0)
             {
-                CurentTouchAvailable.text += "Appuie sur R pour réamorcer la pellicule.\n";
+                CurentTouchAvailable.text += "Appuie sur R pour reamorcer la pellicule.\n";
             }
 
         }
@@ -100,7 +103,7 @@ public class HUDManager : MonoBehaviour
 
         int PhotoLeft = Mathf.Abs( Polaroid._pictureTakensCount - 3);
 
-        CountPicturesLeft.text = "Nombre de photos réstantes : " + PhotoLeft;
+        CountPicturesLeft.text = "Nombre de photos restantes : " + PhotoLeft;
 
         if(PhotoLeft == 0)
         {

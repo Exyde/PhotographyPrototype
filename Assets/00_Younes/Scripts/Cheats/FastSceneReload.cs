@@ -7,10 +7,10 @@ namespace ExydeToolbox{
 
     public class FastSceneReload : MonoBehaviour{
 
-        [SerializeField] KeyCode _reloadKey = KeyCode.R;
+        [SerializeField] KeyCode _reloadKey = KeyCode.N;
 
         void Update(){
-           if (Input.GetKeyDown (_reloadKey)) Reload();
+           if (Input.GetKeyDown (KeyCode.N)) Reload();
         }
 
         void Reload(){

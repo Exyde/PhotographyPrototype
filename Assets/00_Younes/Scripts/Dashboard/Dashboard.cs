@@ -35,4 +35,13 @@ public class Dashboard : MonoBehaviour
         picture.GetComponentInChildren<SpriteRenderer>().sprite = sprite;
     }
 
+    public void  CreatePictures(Picture[] pictures){
+        foreach (Picture pict in pictures){
+            if (pict != null){
+                CreatePictureOnBoard(pict.GetSprite());
+                pict.SavePictureTexture(); //Move this again ? XD
+            }
+        }
+    }
+
 }

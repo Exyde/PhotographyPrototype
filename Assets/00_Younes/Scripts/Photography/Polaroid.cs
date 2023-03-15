@@ -13,11 +13,11 @@ enum State{
 public class Polaroid : MonoBehaviour
 {
     //Might be a static instance ?
+    //Pas prnedre en photo un objet déjà pris ?
 
     #region Fields
     [Header ("References")] //@TODO : Replace thoses by Static Instance or Singletons ?
     public ObjectManager _objetManager;
-    public Dashboard _dashboard;
     [Space(5)]
 
     [Header ("Preview & Readonly")]
@@ -26,23 +26,14 @@ public class Polaroid : MonoBehaviour
     /// XNod Objects currently saved in pictures slots.
     /// </summary>
     [SerializeField] Object_XNod[] _currentXnodPicturedObjects;
-   
-    ///<summary>
-    /// XNod Objects selected for tag update in the XNod Graph.
-    /// </summary>
-    [SerializeField] List<Object_XNod> _xNodSelectedPicturablesObjets = new List<Object_XNod>();
 
     [Space (5)]
     ///<summary>
     /// Currently Available Slots. (false is empty, true is taken). @TODO : "Inventory Class"? 
     /// </summary>
-    [SerializeField] bool[] _pictureTakenSlots;
     [SerializeField] public static int _pictureTakensCount = 0;
-    ///<summary>
-    /// Texture reference to the XNod Picture.
-    /// </summary>
     [SerializeField] Picture[] _pictures;
-    [SerializeField] Texture2D[] _picturesTextures; //@TODO : Will be generated and/or moved in the Picture Class itself. Will be a reference to the picture class
+    [SerializeField] bool[] _pictureTakenSlots;
  
     [Space(10)]
 
@@ -57,24 +48,24 @@ public class Polaroid : MonoBehaviour
     public static Action _OnCabineEnter;
     public static Action _OnCabineExit;
 
-    public static Action<Object_XNod> OnPictureTaken; //Picture, Texture, GameObject => 
-    public static Action<Object_XNod> OnSlotSelection; //Picture, Texture, GameObject => 
+    public static Action<Object_XNod> OnPictureTaken;
+    public static Action OnPolaroidReset;
 
     #endregion
 
     #region UnityCallbacks
     void Start(){
-        ResetPicturesArrayAndList();
+        ResetPolaroid();
     }
 
     //@TODO : Put this on Cabine Class
     private void OnEnable() {
-        _OnCabineExit += ResetPolaroid;
+        _OnCabineExit += NotifyXNodeAndSaveAndCreaturePicture;
         _OnCabineExit += CallManagerUpdateList;
     }
 
     private void OnDisable() {
-        _OnCabineExit -= ResetPolaroid;
+        _OnCabineExit -= NotifyXNodeAndSaveAndCreaturePicture;
         _OnCabineExit -= CallManagerUpdateList;            
     }
 
@@ -87,7 +78,7 @@ public class Polaroid : MonoBehaviour
                 TakePicture();
             } 
             else if (Input.GetKeyDown(GameInputs.PhotographyResetKeyCode)){
-                ResetPictureTaken();
+                ResetPolaroid();
             }
         }
     }
@@ -162,34 +153,19 @@ public class Polaroid : MonoBehaviour
     }
     #endregion
     #region Resets
-    void ResetPolaroid(){
-        Debug.Log("Reset Polaroid.");
-        for (int i = 0; i < _currentXnodPicturedObjects.Length; i++){
-            _xNodSelectedPicturablesObjets.Add(_currentXnodPicturedObjects[i]);
-        }
-
-#if false //@TODO : FIX THIS AND EXTRACT
-        for (int i =0; i < _maxPicturesSlots; i++){ // Need to check for a sprite ? In the Picture ?
-            if (true){ //ULTRA TEMP
-                //Todo: CreatePicture On Board
-                Dashboard._instance.CreatePictureOnBoard(Sprite.Create(_picturesTextures[i], new Rect(0, 0, 256, 256), Vector2.zero, 32f));
-
-                if (SaveSystem.IsEnabled())
-                    SaveSystem.SaveTexToPng(_picturesTextures[i], _picturesTextures[i].name); //@TODO : Temp, remove this elsewhere
-            }
-        }
-#endif
+    void NotifyXNodeAndSaveAndCreaturePicture(){
         
-        _objetManager.UpdatePicturedXNodeObjets(_xNodSelectedPicturablesObjets);
-
-        ResetPicturesArrayAndList();
+        DisplayPicturesOnDashboard();
+        _objetManager.UpdatePicturedXNodeObjets(_currentXnodPicturedObjects);
+        ResetPolaroid();
     }
 
-    void ResetPicturesArrayAndList(){
-        //Logger.Log("Reseting Arrays");
-        _xNodSelectedPicturablesObjets.Clear();
+    void DisplayPicturesOnDashboard(){ 
+        Dashboard._instance.CreatePictures(_pictures);
+    }
+
+    void ResetPolaroid(){
         _currentXnodPicturedObjects = new Object_XNod[_maxPicturesSlots];
-        _picturesTextures = new Texture2D[_maxPicturesSlots];
         _pictures = new Picture[_maxPicturesSlots];
 
         _pictureTakenSlots = new bool[_maxPicturesSlots];
@@ -197,7 +173,8 @@ public class Polaroid : MonoBehaviour
             _pictureTakenSlots[i] = false;
         }
         _pictureTakensCount = 0;
-        // Logger.Log("Finish Reseting Arrays");
+
+        OnPolaroidReset?.Invoke();
     }
 
     #endregion
@@ -215,9 +192,6 @@ public class Polaroid : MonoBehaviour
         _pictures[index] = picture;
 
         yield return new WaitForEndOfFrame();
-
-        _picturesTextures[index] = picture.GetTexture();
-
     }
 }
 

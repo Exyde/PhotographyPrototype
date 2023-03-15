@@ -50,8 +50,8 @@ public class ObjectManager : MonoBehaviour
         }
     }
 
-    public void UpdatePicturedXNodeObjets(List<Object_XNod> picturedObjects){
-        if (picturedObjects.Count <= 0) return;
+    public void UpdatePicturedXNodeObjets(Object_XNod[] picturedObjects){
+        if (picturedObjects.Length <= 0) return;
 
         foreach(Object_XNod o in picturedObjects){
             if (o != null)

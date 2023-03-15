@@ -11,8 +11,6 @@ public static class SaveSystem
 
     public static void SaveTexToPng(Texture2D tex, string objectName){
 
-        //@DESIGN : Use Identified Object name ? X Node Name ?
-
         byte[] bytes = tex.EncodeToPNG();
 
         var dirPath = Constants.DIR_PICTURES_SAVE_PATH; //using constant name hard coded so that designer don't break it up
@@ -20,8 +18,10 @@ public static class SaveSystem
         if (!Directory.Exists(dirPath)){
             Directory.CreateDirectory(dirPath);
         }
+        
+        int randomTag = UnityEngine.Random.Range(0, 999);
 
-        File.WriteAllBytes(dirPath + objectName + "_" + ".png", bytes);
+        File.WriteAllBytes(dirPath + "_" + objectName.RemoveIllegalCharactersFromRubensDesignerMagicTool() + "_" + randomTag  + ".png", bytes);
 
 #if UNITY_EDITOR
             AssetDatabase.Refresh();
