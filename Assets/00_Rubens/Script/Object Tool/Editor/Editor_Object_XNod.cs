@@ -15,6 +15,7 @@ public class Editor_Object_XNod : NodeEditor
     bool _showVariablesInformations = true;
     bool _showImportantInformations = true;
     bool _showYounesShit = true;
+    bool _showDialogueRelativeInformaations;
     bool _showButtons = true;
 
 
@@ -49,8 +50,6 @@ public class Editor_Object_XNod : NodeEditor
 
             EditorGUILayout.Space(5);
 
-            //NodeEditorGUILayout.PropertyField(serializedObject.FindProperty("DisponibleIfParticularCondition"), new GUIContent("Débloqué si condition particulière ?"));
-            
             EditorGUILayout.BeginHorizontal();
             GUILayout.Label("Débloqué si condition particulière ?");
             NodeEditorGUILayout.PropertyField(serializedObject.FindProperty("DisponibleIfParticularCondition"), new GUIContent(""));
@@ -72,6 +71,9 @@ public class Editor_Object_XNod : NodeEditor
         EditorGUILayout.EndFoldoutHeaderGroup();
 
         EditorGUILayout.Space(5);
+
+
+
 
         _showYounesShit = EditorGUILayout.BeginFoldoutHeaderGroup(_showYounesShit, "Afficher les trucs de Younes là");
 
@@ -99,6 +101,29 @@ public class Editor_Object_XNod : NodeEditor
         EditorGUILayout.EndFoldoutHeaderGroup();
 
         EditorGUILayout.Space(5);
+
+        _showDialogueRelativeInformaations = EditorGUILayout.BeginFoldoutHeaderGroup(_showDialogueRelativeInformaations, "Afficher les informations relatives aux dialogues");
+
+        if (_showDialogueRelativeInformaations)
+        {
+            EditorGUILayout.BeginVertical(EditorStyles.helpBox);
+
+            EditorGUILayout.BeginHorizontal();
+            GUILayout.Label("Dialogue à Photographie");
+            NodeEditorGUILayout.PropertyField(serializedObject.FindProperty("DialogueAtPicture"), new GUIContent(""));
+            EditorGUILayout.EndHorizontal();
+
+            EditorGUILayout.Space(5);
+
+            EditorGUILayout.BeginHorizontal();
+            GUILayout.Label("Dialogue à Dashboard");
+            NodeEditorGUILayout.PropertyField(serializedObject.FindProperty("DialogueAtLookDashboard"), new GUIContent(""));
+            EditorGUILayout.EndHorizontal();
+
+            EditorGUILayout.EndVertical();
+        }
+
+        EditorGUILayout.EndFoldoutHeaderGroup();
 
         _showVariablesInformations = EditorGUILayout.BeginFoldoutHeaderGroup(_showVariablesInformations, "Afficher les informations variables");
 

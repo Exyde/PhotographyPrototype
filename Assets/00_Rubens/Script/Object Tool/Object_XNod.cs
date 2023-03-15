@@ -23,11 +23,19 @@ public class Object_XNod : Node {
 
 	[Output] public bool ActiveABloc;
 
+
+
 	public bool PictureTaken;
 
 	public bool DisponibleIfParticularCondition;
 
     public bool HaveAUnderBloc;
+
+
+	public int DialogueAtPicture;
+
+	public int DialogueAtLookDashboard;
+
 
 	public enum City { Military, Terraforming, Nomads, DontMatter}
 

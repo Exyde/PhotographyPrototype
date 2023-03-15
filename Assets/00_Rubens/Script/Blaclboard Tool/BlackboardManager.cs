@@ -98,6 +98,14 @@ public class BlackboardManager : MonoBehaviour
         SetFactValue(factOperation._blackboardName, factOperation._factName, factOperation._operation, factOperation._value);
     }
 
+    public void SetFactValue(List<FactOperation> factsOperation)
+    {
+        foreach(FactOperation fo in factsOperation)
+        {
+            SetFactValue(fo._blackboardName, fo._factName, fo._operation, fo._value);
+        }
+    }
+
 
     public bool CompareFactValueTo(Fact fact, Comparaison comparaison, int value)
     {
@@ -141,6 +149,17 @@ public class BlackboardManager : MonoBehaviour
         return CompareFactValueTo(factCondition._blackboardName, factCondition._factName, factCondition._comparaison, factCondition._value);
     }
 
+    public bool CompareFactValueTo(List<FactCondition> factsCondition)
+    {
+        foreach(FactCondition fc in factsCondition)
+        {
+            if(!CompareFactValueTo(fc._blackboardName, fc._factName, fc._comparaison, fc._value))
+            {
+                return false;
+            }
+        }
 
+        return true;
+    }
 
 }

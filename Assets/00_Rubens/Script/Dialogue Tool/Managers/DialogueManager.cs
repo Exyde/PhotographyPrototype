@@ -67,7 +67,7 @@ public class DialogueManager : MonoBehaviour
         SendDialogue(dialogue, true);
     }
 
-    public void SendDialogue(int tag, bool verificationIfAlreadyRun)
+    private void SendDialogue(int tag, bool verificationIfAlreadyRun)
     {
         Dialogue_XNod dialogue = _dg.GetDialogueWithTag(tag);
 

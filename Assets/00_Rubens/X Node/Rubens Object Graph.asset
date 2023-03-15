@@ -69,8 +69,11 @@ MonoBehaviour:
   PictureTaken: 0
   DisponibleIfParticularCondition: 0
   HaveAUnderBloc: 0
+  DialogueAtPicture: 0
+  DialogueAtLookDashboard: 0
   FromCity: 3
   PrefabObjectToSpawn: {fileID: 0}
+  _picture: {fileID: 0}
   PictureDebugTexture: {fileID: 0}
 --- !u!114 &-5354627152681470523
 MonoBehaviour:
@@ -258,8 +261,11 @@ MonoBehaviour:
   PictureTaken: 1
   DisponibleIfParticularCondition: 0
   HaveAUnderBloc: 0
+  DialogueAtPicture: 0
+  DialogueAtLookDashboard: 0
   FromCity: 2
   PrefabObjectToSpawn: {fileID: 0}
+  _picture: {fileID: 0}
   PictureDebugTexture: {fileID: 0}
 --- !u!114 &-2240352099877011316
 MonoBehaviour:
@@ -389,8 +395,11 @@ MonoBehaviour:
   PictureTaken: 1
   DisponibleIfParticularCondition: 0
   HaveAUnderBloc: 0
+  DialogueAtPicture: 0
+  DialogueAtLookDashboard: 0
   FromCity: 3
   PrefabObjectToSpawn: {fileID: 0}
+  _picture: {fileID: 0}
   PictureDebugTexture: {fileID: 0}
 --- !u!114 &11400000
 MonoBehaviour:
@@ -420,9 +429,6 @@ MonoBehaviour:
   - {fileID: 8703900324349714643}
   - {fileID: -843366514640405745}
   - {fileID: -5354627152681470523}
-  ListObjectsDisponibles:
-  - {fileID: -4033170502625259137}
-  - {fileID: -8102688259813258779}
 --- !u!114 &976835887981512359
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -563,8 +569,11 @@ MonoBehaviour:
   PictureTaken: 1
   DisponibleIfParticularCondition: 0
   HaveAUnderBloc: 0
+  DialogueAtPicture: 0
+  DialogueAtLookDashboard: 0
   FromCity: 3
   PrefabObjectToSpawn: {fileID: 0}
+  _picture: {fileID: 0}
   PictureDebugTexture: {fileID: 0}
 --- !u!114 &4860584244364962389
 MonoBehaviour:
@@ -599,7 +608,7 @@ MonoBehaviour:
   m_Name: "Tasse de Caf\xE9  / + 5"
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -680, y: -296}
+  position: {x: -536, y: -312}
   ports:
     keys:
     - BlocOfNarration
@@ -658,8 +667,11 @@ MonoBehaviour:
   PictureTaken: 1
   DisponibleIfParticularCondition: 0
   HaveAUnderBloc: 1
+  DialogueAtPicture: 0
+  DialogueAtLookDashboard: 0
   FromCity: 3
   PrefabObjectToSpawn: {fileID: 0}
+  _picture: {fileID: 0}
   PictureDebugTexture: {fileID: 0}
 --- !u!114 &8738126090109506005
 MonoBehaviour:
@@ -730,8 +742,11 @@ MonoBehaviour:
   PictureTaken: 0
   DisponibleIfParticularCondition: 0
   HaveAUnderBloc: 0
+  DialogueAtPicture: 0
+  DialogueAtLookDashboard: 0
   FromCity: 3
   PrefabObjectToSpawn: {fileID: 0}
+  _picture: {fileID: 0}
   PictureDebugTexture: {fileID: 0}
 --- !u!114 &8839235430469026456
 MonoBehaviour:
@@ -805,8 +820,11 @@ MonoBehaviour:
   PictureTaken: 1
   DisponibleIfParticularCondition: 0
   HaveAUnderBloc: 1
+  DialogueAtPicture: 0
+  DialogueAtLookDashboard: 0
   FromCity: 3
   PrefabObjectToSpawn: {fileID: 0}
+  _picture: {fileID: 0}
   PictureDebugTexture: {fileID: 0}
 --- !u!114 &9131805213518582990
 MonoBehaviour:
