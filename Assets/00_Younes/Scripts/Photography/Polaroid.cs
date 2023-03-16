@@ -145,7 +145,6 @@ public class Polaroid : MonoBehaviour
     }
 
     void NotifyXNodeAndSaveAndCreaturePicture(){
-        
         DisplayPicturesOnDashboard();
         _objetManager.UpdatePicturedXNodeObjets(_currentXnodPicturedObjects);
         ResetPolaroid();
