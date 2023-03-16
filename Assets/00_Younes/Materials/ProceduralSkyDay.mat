@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: ProceduralSkybox
+  m_Name: ProceduralSkyDay
   m_Shader: {fileID: -6465566751694194690, guid: 56c0c4620cd091c45b898c400c6a690c, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
@@ -40,10 +40,12 @@ Material:
     m_Floats:
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _Star_Density: 120
+    - _Star_Density: 0
+    - _SunSize: 0.6
+    - _Sun_Mask_Size: 0
     m_Colors:
-    - _HorizonColor: {r: 0.0144624505, g: 0.07561098, b: 0.23584908, a: 1}
-    - _SkyColor: {r: 0.39364624, g: 0.009789959, b: 0.41509432, a: 1}
+    - _HorizonColor: {r: 0.09625311, g: 0.7042033, b: 0.9716981, a: 1}
+    - _SkyColor: {r: 0.6301175, g: 0.75471693, b: 0.754717, a: 1}
   m_BuildTextureStacks: []
 --- !u!114 &5810522361938999087
 MonoBehaviour:

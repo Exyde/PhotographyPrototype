@@ -137,7 +137,7 @@ Material:
     - _SrcBlend: 1
     - _Surface: 0
     - _Surface_Water_Scrolling_Speed: 0.004
-    - _Water_Depth: 8.53
+    - _Water_Depth: 5.6
     - _Water_Texture_Scale: 16
     - _Wave_Amplitude: 0.025
     - _Wavelength: 1
@@ -147,10 +147,10 @@ Material:
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _Depth_Color: {r: 0.19215015, g: 0.23838755, b: 0.32075465, a: 0.9137255}
+    - _Depth_Color: {r: 0.37251353, g: 0.0068084607, b: 0.4811321, a: 0.9137255}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _Foam_Color: {r: 4, g: 4, b: 4, a: 0.64705884}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
-    - _Surface_Color: {r: 0.3171947, g: 0.6693066, b: 0.6792453, a: 0.77254903}
+    - _Surface_Color: {r: 0.7169812, g: 0.7169812, b: 0.7169812, a: 1}
     - _Water_Tint: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
