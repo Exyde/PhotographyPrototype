@@ -40,37 +40,37 @@ public class Editor_UnderBloc_XNode : NodeEditor
 
             EditorGUILayout.EndVertical();
 
-            EditorGUILayout.BeginHorizontal();
-
-            EditorGUILayout.BeginVertical(EditorStyles.helpBox);
-
-            EditorGUILayout.LabelField("Input", EditorStyles.whiteLargeLabel);
-
-            NodeEditorGUILayout.PropertyField(serializedObject.FindProperty("BlocOfNarration"), new GUIContent("Bloc de Narration"));
-
-            EditorGUILayout.EndVertical();
-
-            EditorGUILayout.BeginVertical(EditorStyles.helpBox);
-
-            EditorGUILayout.LabelField("Output", EditorStyles.whiteLargeLabel);
-
-            NodeEditorGUILayout.PropertyField(serializedObject.FindProperty("MySelf"), new GUIContent("Elements à relier"));
-
-            EditorGUILayout.EndVertical();
-
-            EditorGUILayout.EndHorizontal();
-
-
-
-
-
-
-            if (serializedObject.ApplyModifiedProperties())
-            {
-                _curent_object.name = _curent_object.Question + " / + "+ _curent_object.ValueForBloc + "  / ( " + _curent_object.PictureTakenInUnderbloc + " / " + _curent_object.PictureToTakeForAddValue + " )";
-            }
-
         }
+
+        EditorGUILayout.EndFoldoutHeaderGroup();
+
+        EditorGUILayout.BeginHorizontal();
+
+        EditorGUILayout.BeginVertical(EditorStyles.helpBox);
+
+        EditorGUILayout.LabelField("Input", EditorStyles.whiteLargeLabel);
+
+        NodeEditorGUILayout.PropertyField(serializedObject.FindProperty("BlocOfNarration"), new GUIContent("Bloc de Narration"));
+
+        EditorGUILayout.EndVertical();
+
+        EditorGUILayout.BeginVertical(EditorStyles.helpBox);
+
+        EditorGUILayout.LabelField("Output", EditorStyles.whiteLargeLabel);
+
+        NodeEditorGUILayout.PropertyField(serializedObject.FindProperty("MySelf"), new GUIContent("Elements à relier"));
+
+        EditorGUILayout.EndVertical();
+
+        EditorGUILayout.EndHorizontal();
+
+        
+
+        if (serializedObject.ApplyModifiedProperties())
+        {
+            _curent_object.name = _curent_object.Question + " / + " + _curent_object.ValueForBloc + "  / ( " + _curent_object.PictureTakenInUnderbloc + " / " + _curent_object.PictureToTakeForAddValue + " )";
+        }
+
     }
 }
 

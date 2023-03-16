@@ -17,7 +17,9 @@ public class Object_XNod : Node {
 
 	[Input] public UnderBloc_XNode MyUnderBloc; //Activé si HaveAUnderBlocIsTrue;
 
-	[TextArea] public string NameOfTheObject;
+	[TextArea(2, 4)] public string NameOfTheObject;
+
+	[TextArea(4,6)] public string DescriptionOfTheObject;
 
 	[Range(0,5)] public int ValueForBloc = 1;
 

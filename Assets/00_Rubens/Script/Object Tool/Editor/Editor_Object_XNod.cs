@@ -12,11 +12,11 @@ public class Editor_Object_XNod : NodeEditor
 {
     private Object_XNod _curent_object;
 
-    bool _showVariablesInformations = true;
+    bool _showVariablesInformations = false;
     bool _showImportantInformations = true;
-    bool _showYounesShit = true;
-    bool _showDialogueRelativeInformaations;
-    bool _showButtons = true;
+    bool _showYounesShit = false;
+    bool _showDialogueRelativeInformaations = false;
+    bool _showButtons = false;
 
 
 
@@ -36,6 +36,10 @@ public class Editor_Object_XNod : NodeEditor
             EditorGUILayout.BeginVertical(EditorStyles.helpBox);
 
             NodeEditorGUILayout.PropertyField(serializedObject.FindProperty("NameOfTheObject"), new GUIContent("Nom de l'objet"));
+
+            EditorGUILayout.Space(5);
+
+            NodeEditorGUILayout.PropertyField(serializedObject.FindProperty("DescriptionOfTheObject"), new GUIContent("Description de l'objet"));
 
             EditorGUILayout.Space(5);
 
