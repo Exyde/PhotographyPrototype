@@ -6,11 +6,11 @@ public class SetSunlightPosition : MonoBehaviour
 {
     void Start()
     {
-        Shader.SetGlobalVector(“_SunDirection”, transform.forward);
+        Shader.SetGlobalVector("_SunDirection", transform.forward);
     }
 
     void Update()
     {
-        Shader.SetGlobalVector(“_SunDirection”, transform.forward);
+        Shader.SetGlobalVector("_SunDirection", transform.forward);
     }
 }
