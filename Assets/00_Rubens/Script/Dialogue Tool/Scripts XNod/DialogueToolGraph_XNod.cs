@@ -52,7 +52,15 @@ public class DialogueToolGraph_XNod : NodeGraph {
 
     public Dialogue_XNod GetDialogueWithTag(int tag)
     {
-        return dictionaryTagToDialogueNode[tag];
+        Dialogue_XNod dialogue;
+
+        if (!dictionaryTagToDialogueNode.TryGetValue(tag, out dialogue))
+        {
+            Logger.LogInfo("Le dialogue '" + tag + "' n'existe pas mais a �t� r�clam�.");
+            return null;
+        }
+
+        return dialogue;
     }
 
     public void InitAllNodes()

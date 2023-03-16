@@ -2301,6 +2301,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 152676212, guid: 1c1bfa96f62d6f14490a9823be4cb6bc, type: 3}
+      propertyPath: _graph
+      value: 
+      objectReference: {fileID: 11400000, guid: 4811e94752c079c4197d57f792ee0519, type: 2}
+    - target: {fileID: 152676212, guid: 1c1bfa96f62d6f14490a9823be4cb6bc, type: 3}
       propertyPath: _cabineSpawnPoints
       value: 
       objectReference: {fileID: 1699510562}
@@ -2356,6 +2360,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PF_Managers
       objectReference: {fileID: 0}
+    - target: {fileID: 9080149719593262474, guid: 1c1bfa96f62d6f14490a9823be4cb6bc, type: 3}
+      propertyPath: _dg
+      value: 
+      objectReference: {fileID: 11400000, guid: ac38e67fe6aa8f9458ca082adbc26f9a, type: 2}
     - target: {fileID: 9080149720268880799, guid: 1c1bfa96f62d6f14490a9823be4cb6bc, type: 3}
       propertyPath: Sounds.Array.data[0].Volume
       value: 0.2

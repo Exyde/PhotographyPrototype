@@ -67,7 +67,16 @@ public class Editor_Object_XNod : NodeEditor
             NodeEditorGUILayout.PropertyField(serializedObject.FindProperty("HaveAUnderBloc"), new GUIContent(""));
             EditorGUILayout.EndHorizontal();
 
+            EditorGUILayout.Space(5);
+
+            EditorGUILayout.BeginHorizontal();
+            GUILayout.Label("Est un objet statique :");
+            NodeEditorGUILayout.PropertyField(serializedObject.FindProperty("IsStaticObject"), new GUIContent(""));
+            EditorGUILayout.EndHorizontal();
+
             EditorGUILayout.EndVertical();
+
+            
 
         }
         

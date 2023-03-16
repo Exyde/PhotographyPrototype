@@ -1355,12 +1355,12 @@ MonoBehaviour:
             m_BoolArgument: 0
           m_CallState: 2
     _factOperations:
-    - _blackboardName: Dialogue
+    - _blackboardName: Vomi
       _factName: SortirDeLaCabine
-      _operation: 0
+      _operation: 1
       _value: 1
     _factConditions:
-    - _blackboardName: Dialogue
+    - _blackboardName: VOmi
       _factName: FinPremierePartie
       _comparaison: 0
       _value: 1

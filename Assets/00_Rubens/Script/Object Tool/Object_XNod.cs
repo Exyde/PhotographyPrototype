@@ -25,6 +25,8 @@ public class Object_XNod : Node {
 
 	[Output] public bool ActiveABloc;
 
+	public bool IsStaticObject;
+
 
 
 	public bool PictureTaken;

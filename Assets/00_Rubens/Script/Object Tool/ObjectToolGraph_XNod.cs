@@ -15,7 +15,7 @@ public class ObjectToolGraph_XNod : NodeGraph {
 
         foreach (Object_XNod curentObject in listObject)
         {
-            if (curentObject.IsDisponible())
+            if (curentObject.IsDisponible() && !curentObject.IsStaticObject)
             {
                 listObjectsDisponibles.Add(curentObject);
             }
@@ -26,13 +26,21 @@ public class ObjectToolGraph_XNod : NodeGraph {
 
     List<Object_XNod> getListOfObjectFilteredByCity(List<Object_XNod> listObject, Object_XNod.City city)
     {
+        List<Object_XNod> ObjectToDelete = new();
+
         foreach(Object_XNod curentObject in listObject)
         {
             if(curentObject.FromCity != Object_XNod.City.DontMatter && curentObject.FromCity != city)
             {
-                listObject.Remove(curentObject);
+                ObjectToDelete.Add(curentObject);
             }
         }
+
+        foreach(Object_XNod curentObject in ObjectToDelete)
+        {
+            listObject.Remove(curentObject);
+        }
+
         return listObject;
     }
 

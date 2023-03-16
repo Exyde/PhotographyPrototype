@@ -46,7 +46,7 @@ public class DialogueManager : MonoBehaviour
             Destroy(this);
         }
 
-        _dg.InitAllNodes();
+        _dg?.InitAllNodes();
 
     }
 
@@ -69,7 +69,18 @@ public class DialogueManager : MonoBehaviour
 
     private void SendDialogue(int tag, bool verificationIfAlreadyRun)
     {
+        if(tag == 0)
+        {
+            return;
+        }
+
         Dialogue_XNod dialogue = _dg.GetDialogueWithTag(tag);
+
+        if(dialogue == null)
+        {
+            Logger.LogInfo("Le Dialogue qui a été lancé n'existe pas. Tag :" + tag);
+            return;
+        }
 
         SendDialogue(dialogue, verificationIfAlreadyRun);
     }
