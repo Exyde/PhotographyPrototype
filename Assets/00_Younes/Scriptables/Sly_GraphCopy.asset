@@ -64,6 +64,7 @@ MonoBehaviour:
   ParticularConditionForActivate: 0
   MyUnderBloc: {fileID: 0}
   NameOfTheObject: "Une Boule \xE0 neige du Sahara"
+  DescriptionOfTheObject: 
   ValueForBloc: 3
   ActiveABloc: 0
   PictureTaken: 0
@@ -125,7 +126,7 @@ MonoBehaviour:
   MySelf: {fileID: 0}
   Question: 'Qu''est ce que cette Tasse et cette Carte Postale ? '
   PictureToTakeForAddValue: 2
-  PictureTakenInUnderbloc: 1
+  PictureTakenInUnderbloc: 0
   ValueForBloc: 6
 --- !u!114 &-4442200725438504682
 MonoBehaviour:
@@ -256,6 +257,7 @@ MonoBehaviour:
   ParticularConditionForActivate: 0
   MyUnderBloc: {fileID: 0}
   NameOfTheObject: Statue de Petit
+  DescriptionOfTheObject: 
   ValueForBloc: 3
   ActiveABloc: 0
   PictureTaken: 0
@@ -390,6 +392,7 @@ MonoBehaviour:
   ParticularConditionForActivate: 0
   MyUnderBloc: {fileID: 0}
   NameOfTheObject: Objet de Palier 2
+  DescriptionOfTheObject: 
   ValueForBloc: 2
   ActiveABloc: 0
   PictureTaken: 0
@@ -564,6 +567,7 @@ MonoBehaviour:
   ParticularConditionForActivate: 0
   MyUnderBloc: {fileID: 0}
   NameOfTheObject: Autre objet de Pallier 2
+  DescriptionOfTheObject: 
   ValueForBloc: 3
   ActiveABloc: 0
   PictureTaken: 0
@@ -662,6 +666,7 @@ MonoBehaviour:
   ParticularConditionForActivate: 0
   MyUnderBloc: {fileID: 0}
   NameOfTheObject: "Tasse de Caf\xE9 "
+  DescriptionOfTheObject: 
   ValueForBloc: 5
   ActiveABloc: 0
   PictureTaken: 0
@@ -737,6 +742,7 @@ MonoBehaviour:
   ParticularConditionForActivate: 0
   MyUnderBloc: {fileID: 0}
   NameOfTheObject: Objet de Pallier 3
+  DescriptionOfTheObject: 
   ValueForBloc: 5
   ActiveABloc: 0
   PictureTaken: 0
@@ -815,9 +821,10 @@ MonoBehaviour:
   ParticularConditionForActivate: 0
   MyUnderBloc: {fileID: 0}
   NameOfTheObject: Carte Postale
+  DescriptionOfTheObject: 
   ValueForBloc: 1
   ActiveABloc: 0
-  PictureTaken: 1
+  PictureTaken: 0
   DisponibleIfParticularCondition: 0
   HaveAUnderBloc: 1
   DialogueAtPicture: 0
@@ -836,7 +843,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 309bb0624c7cb7343ae5792c57a26fbb, type: 3}
-  m_Name: Que fait la machine ?  / ( 1 / 5 )
+  m_Name: Que fait la machine ?  / ( 7 / 5 )
   m_EditorClassIdentifier: 
   graph: {fileID: 0}
   position: {x: -1224, y: -424}
@@ -896,7 +903,7 @@ MonoBehaviour:
       _dynamic: 0
   Question: 'Que fait la machine ? '
   NecessaryResolution: 5
-  ActualResolution: 1
+  ActualResolution: 0
   TrueForActivate: 0
   Myself: {fileID: 0}
   WillActivateWhenResolution: 0
