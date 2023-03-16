@@ -1,4 +1,4 @@
-using UnityEngine; //@TODO : Add Stay timing behavior here
+using UnityEngine;
 
 namespace Core.GameEvents{
     public class OnTriggerStayEvent : OnTriggerGameEvent{
