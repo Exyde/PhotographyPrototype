@@ -39,7 +39,7 @@ public class Dashboard : MonoBehaviour
         foreach (Picture pict in pictures){
             if (pict != null){
                 CreatePictureOnBoard(pict.GetSprite());
-                pict.SavePictureTexture(); //Move this again ? XD
+                //pict.SavePictureTexture(); //Move this again ? XD
             }
         }
     }

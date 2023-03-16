@@ -9,6 +9,7 @@ using System;
     //Todo :
     // Remove Cabine Enter & Exit
     // Remove Object Manger ref => Event
+    
     // Save the picture asset when created for later Game ? [Out of scope]
    
 enum State{ Photography }

@@ -17,6 +17,7 @@ public class ObjectManager : MonoBehaviour
     #endregion
     void Start()
     {
+        _xNodeObjectsAvailable = new List<Object_XNod>();
         _graph.ResetGraph();
         //_xNodeObjectsAvailable = _graph.ListObjectsDisponibles;
         //Je t'enleve cette ligne je vois pas trop � quoi elle sert de base

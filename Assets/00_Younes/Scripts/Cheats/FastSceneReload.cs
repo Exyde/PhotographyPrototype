@@ -10,7 +10,7 @@ namespace ExydeToolbox{
         [SerializeField] KeyCode _reloadKey = KeyCode.N;
 
         void Update(){
-           if (Input.GetKeyDown (KeyCode.N)) Reload();
+           if (Input.GetKeyDown (_reloadKey)) Reload();
         }
 
         void Reload(){
