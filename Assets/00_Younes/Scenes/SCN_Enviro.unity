@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.20918733, g: 0.08594198, b: 0.4316048, a: 1}
+  m_IndirectSpecularColor: {r: 0.20329943, g: 0.081918016, b: 0.42825422, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -364,6 +364,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PF_Main Camera
       objectReference: {fileID: 0}
+    - target: {fileID: 2727375951718472135, guid: bc5875adae810cd44a93517fb52fcf8c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bc5875adae810cd44a93517fb52fcf8c, type: 3}
 --- !u!1 &416832632
@@ -628,14 +632,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 746592090}
-  m_LocalRotation: {x: 0.84701514, y: -0.12440984, z: 0.22695698, w: 0.4643039}
+  m_LocalRotation: {x: 0.8300659, y: -0.20953074, z: 0.2728014, w: 0.4389384}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 202753576}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 122.54, y: -30, z: 0}
+  m_LocalEulerAnglesHint: {x: 122.54001, y: -30, z: 11.621994}
 --- !u!114 &746592094
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -943,14 +947,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1467552204}
-  m_LocalRotation: {x: -0, y: 0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.2027, y: -0.005999999, z: -0.9355009}
+  m_LocalRotation: {x: -0, y: 0.41482857, z: -0, w: 0.9098996}
+  m_LocalPosition: {x: 0.2027, y: -0.005999999, z: -1.0542}
   m_LocalScale: {x: 0.045631, y: 0.0998315, z: 0.085852005}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 543450653488111768}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 49.017, z: 0}
 --- !u!114 &1467552209
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1493,7 +1497,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!199 &2106811832
 ParticleSystemRenderer:
   serializedVersion: 6

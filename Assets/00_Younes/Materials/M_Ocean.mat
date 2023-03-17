@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: M_StylizedWater
+  m_Name: M_Ocean
   m_Shader: {fileID: -6465566751694194690, guid: 91fba10d3c8711a4690b778a43f154bb, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
@@ -139,7 +139,7 @@ Material:
     - _Surface_Water_Scrolling_Speed: 0.004
     - _Water_Depth: 5.6
     - _Water_Texture_Scale: 16
-    - _Wave_Amplitude: 0.025
+    - _Wave_Amplitude: 0.01
     - _Wavelength: 1
     - _Wavespeed: 0.2
     - _WorkflowMode: 1
