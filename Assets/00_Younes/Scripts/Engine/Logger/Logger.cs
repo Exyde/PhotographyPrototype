@@ -2,9 +2,7 @@
 using UnityEngine;
 using Core.GameEvents;
 
-public static class Logger{ //@Todo : Finish inplementing this logger
-
-    //Todo : Checkthis : https://docs.unity3d.com/ScriptReference/EditorGUILayout.EnumFlagsField.html
+public static class Logger{
 
     [System.Flags]
     public enum LoggerMode { 

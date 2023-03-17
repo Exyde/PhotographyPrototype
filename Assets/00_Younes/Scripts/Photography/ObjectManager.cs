@@ -30,19 +30,40 @@ public class ObjectManager : MonoBehaviour
         SpawnObjects();
     }
 
+    //Clean the cabines object spawned before (can be done better) and spawn object if they are available.
     void SpawnObjects(){
         ClearTransform();
 
         if (_xNodeObjectsAvailable == null || _xNodeObjectsAvailable.Count <= 0) return;
-        int index = 0;
 
-        foreach (Object_XNod item in _xNodeObjectsAvailable){ //@TODO : Add Cabine Spawns Points From Level Design
-            Vector3 pos = _cabineSpawnPoints.GetChild(index).transform.position;
-            GameObject picturable = Instantiate(item.PrefabObjectToSpawn, pos, Quaternion.identity);
-            picturable.GetComponent<PicturableObject>().Initialize(item);
-            picturable.transform.parent = this.transform;
-            index++;
+        Vector3[] spawnPositions = GetItemSpawnPositions(_objectsInCabineCount);
+
+        for (int i = 0; i < _xNodeObjectsAvailable.Count; i++){
+            Vector3 pos = spawnPositions[i];
+            GameObject cabObject = Instantiate(_xNodeObjectsAvailable[i].PrefabObjectToSpawn, pos, Quaternion.identity);
+            cabObject.GetComponent<PicturableObject>().Initialize(_xNodeObjectsAvailable[i]);
+            cabObject.transform.parent = this.transform;
         }
+    }
+
+    //Take the number of item to spawn and feedback an array of Vector3 Positions.
+    //It copy the holder list and get random pos from it. Can be cleaner and faster.
+    Vector3[] GetItemSpawnPositions(int itemCount){
+
+        List<Transform> spawnTransform = new List<Transform>(_cabineSpawnPoints.childCount);
+        for (int i = 0; i < _cabineSpawnPoints.childCount; i++){
+            spawnTransform.Add(_cabineSpawnPoints.GetChild(i));
+        }
+
+        Vector3[] spawnPos = new Vector3[itemCount];
+
+        for (int i =0; i < spawnPos.Length; i++){
+            int index = UnityEngine.Random.Range(0, spawnTransform.Count - 1);
+            spawnPos[i] = _cabineSpawnPoints.GetChild(index).transform.position;
+            spawnTransform.RemoveAt(index);
+        }
+
+        return spawnPos;
     }
 
     private void ClearTransform(){

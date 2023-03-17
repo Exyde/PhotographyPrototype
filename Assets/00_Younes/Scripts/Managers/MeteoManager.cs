@@ -40,7 +40,7 @@ public class MeteoManager : MonoBehaviour, IGameEventManager {
     }
 
     public void RequestRain(){
-        Logger.LogInfo("Set rain"); //@Todo Add Log Event Action
+        Logger.LogInfo("Set rain");
     }
 
     public void HandleTriggerEvents(EventName eventName, string senderName)
