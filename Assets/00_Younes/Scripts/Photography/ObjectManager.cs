@@ -31,9 +31,9 @@ public class ObjectManager : MonoBehaviour
     }
 
     void SpawnObjects(){
-        if (_xNodeObjectsAvailable.Count <= 0) return;
-
         ClearTransform();
+
+        if (_xNodeObjectsAvailable == null || _xNodeObjectsAvailable.Count <= 0) return;
         int index = 0;
 
         foreach (Object_XNod item in _xNodeObjectsAvailable){ //@TODO : Add Cabine Spawns Points From Level Design
