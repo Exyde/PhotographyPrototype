@@ -225,7 +225,7 @@ MonoBehaviour:
   ValueForBloc: 1
   ActiveABloc: 0
   IsStaticObject: 0
-  PictureTaken: 0
+  PictureTaken: 1
   DisponibleIfParticularCondition: 0
   HaveAUnderBloc: 0
   DialogueAtPicture: 0
@@ -302,7 +302,7 @@ MonoBehaviour:
   ValueForBloc: 1
   ActiveABloc: 0
   IsStaticObject: 0
-  PictureTaken: 0
+  PictureTaken: 1
   DisponibleIfParticularCondition: 0
   HaveAUnderBloc: 0
   DialogueAtPicture: 0
@@ -321,7 +321,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 686e27212ea95f749b1e36a8565aa8dd, type: 3}
-  m_Name: Qui sont ses interlocuteurs du Marchand ? / + 3  / ( 2 / 3 )
+  m_Name: Qui sont ses interlocuteurs du Marchand ? / + 3  / ( 0 / 3 )
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
   position: {x: -968, y: 1640}
@@ -364,7 +364,7 @@ MonoBehaviour:
   MySelf: {fileID: 0}
   Question: Qui sont ses interlocuteurs du Marchand ?
   PictureToTakeForAddValue: 3
-  PictureTakenInUnderbloc: 1
+  PictureTakenInUnderbloc: 3
   ValueForBloc: 3
 --- !u!114 &-5050229002421137596
 MonoBehaviour:
@@ -434,7 +434,7 @@ MonoBehaviour:
   ValueForBloc: 1
   ActiveABloc: 0
   IsStaticObject: 0
-  PictureTaken: 0
+  PictureTaken: 1
   DisponibleIfParticularCondition: 0
   HaveAUnderBloc: 0
   DialogueAtPicture: 0
@@ -511,7 +511,7 @@ MonoBehaviour:
   ValueForBloc: 1
   ActiveABloc: 0
   IsStaticObject: 0
-  PictureTaken: 0
+  PictureTaken: 1
   DisponibleIfParticularCondition: 0
   HaveAUnderBloc: 0
   DialogueAtPicture: 0
@@ -613,7 +613,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 74ccbac823f815f479355e63d07977c6, type: 3}
-  m_Name: "Vieux m\xE9daillon avec photo. / + 0"
+  m_Name: "Vieux m\xE9daillon avec photo. / + 1"
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
   position: {x: 24, y: 824}
@@ -672,7 +672,7 @@ MonoBehaviour:
   NameOfTheObject: "Vieux m\xE9daillon avec photo."
   DescriptionOfTheObject: "Un m\xE9daillon un peu vieilli avec la photo d\u2019une
     femme tenant un b\xE9b\xE9 et un pr\xE9nom (celui de la femme)."
-  ValueForBloc: 0
+  ValueForBloc: 1
   ActiveABloc: 0
   IsStaticObject: 0
   PictureTaken: 1
@@ -745,7 +745,7 @@ MonoBehaviour:
       _dynamic: 0
   Question: Qui sont les habitants du deserts ?
   NecessaryResolution: 5
-  ActualResolution: 0
+  ActualResolution: 3
   TrueForActivate: 0
   Myself: {fileID: 0}
   WillActivateWhenResolution: 0
@@ -817,7 +817,7 @@ MonoBehaviour:
   ValueForBloc: 1
   ActiveABloc: 0
   IsStaticObject: 0
-  PictureTaken: 0
+  PictureTaken: 1
   DisponibleIfParticularCondition: 0
   HaveAUnderBloc: 0
   DialogueAtPicture: 0
@@ -1137,7 +1137,7 @@ MonoBehaviour:
   ValueForBloc: 0
   ActiveABloc: 0
   IsStaticObject: 0
-  PictureTaken: 0
+  PictureTaken: 1
   DisponibleIfParticularCondition: 0
   HaveAUnderBloc: 1
   DialogueAtPicture: 0
@@ -1156,7 +1156,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 74ccbac823f815f479355e63d07977c6, type: 3}
-  m_Name: "Carte de l\u2019\xEEle avec deux croix. / + 0"
+  m_Name: "Carte de l\u2019\xEEle avec deux croix. / + 1"
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
   position: {x: 696, y: 1448}
@@ -1216,10 +1216,10 @@ MonoBehaviour:
   DescriptionOfTheObject: "Carte de l\u2019\xEEle avec deux croix sur l\u2019emplacement
     des deux villes et deux fl\xE8ches en pointill\xE9s indiquant la boucle d\u2019une
     ville vers l\u2019autre."
-  ValueForBloc: 0
+  ValueForBloc: 1
   ActiveABloc: 0
   IsStaticObject: 0
-  PictureTaken: 0
+  PictureTaken: 1
   DisponibleIfParticularCondition: 0
   HaveAUnderBloc: 1
   DialogueAtPicture: 0
@@ -1342,7 +1342,7 @@ MonoBehaviour:
   ValueForBloc: 1
   ActiveABloc: 0
   IsStaticObject: 0
-  PictureTaken: 0
+  PictureTaken: 1
   DisponibleIfParticularCondition: 0
   HaveAUnderBloc: 0
   DialogueAtPicture: 0
@@ -1361,7 +1361,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 74ccbac823f815f479355e63d07977c6, type: 3}
-  m_Name: Avis de disparition vieux de 35 ans / + 0
+  m_Name: Avis de disparition vieux de 35 ans / + 1
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
   position: {x: 488, y: 824}
@@ -1421,10 +1421,10 @@ MonoBehaviour:
   DescriptionOfTheObject: "Un avis de disparition vieux (de 35 ans) avec le pr\xE9nom
     d\u2019une femme (et le m\xEAme nom que le scientifique ?), li\xE9 \xE0 une r\xE9cente
     catastrophe naturelle de l\u2019\xE9poque."
-  ValueForBloc: 0
+  ValueForBloc: 1
   ActiveABloc: 0
   IsStaticObject: 0
-  PictureTaken: 0
+  PictureTaken: 1
   DisponibleIfParticularCondition: 0
   HaveAUnderBloc: 1
   DialogueAtPicture: 0
@@ -1520,8 +1520,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 686e27212ea95f749b1e36a8565aa8dd, type: 3}
-  m_Name: "Que s'est il pass\xE9 sur l'\xCEle avec l'arriv\xE9e des milliardaires
-    \xE9trangers. / + 3  / ( 0 / 3 )"
+  m_Name: "Que s'est des milliardaires \xE9trangers. / + 3  / ( 3 / 3 )"
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
   position: {x: -952, y: 280}
@@ -1562,10 +1561,9 @@ MonoBehaviour:
       _dynamic: 0
   BlocOfNarration: {fileID: 0}
   MySelf: {fileID: 0}
-  Question: "Que s'est il pass\xE9 sur l'\xCEle avec l'arriv\xE9e des milliardaires
-    \xE9trangers."
+  Question: "Que s'est des milliardaires \xE9trangers."
   PictureToTakeForAddValue: 3
-  PictureTakenInUnderbloc: 1
+  PictureTakenInUnderbloc: 3
   ValueForBloc: 3
 --- !u!114 &2105502932733360985
 MonoBehaviour:
@@ -1748,7 +1746,7 @@ MonoBehaviour:
   ValueForBloc: 1
   ActiveABloc: 0
   IsStaticObject: 0
-  PictureTaken: 0
+  PictureTaken: 1
   DisponibleIfParticularCondition: 0
   HaveAUnderBloc: 0
   DialogueAtPicture: 0
@@ -1846,7 +1844,7 @@ MonoBehaviour:
   ValueForBloc: 1
   ActiveABloc: 0
   IsStaticObject: 0
-  PictureTaken: 0
+  PictureTaken: 1
   DisponibleIfParticularCondition: 0
   HaveAUnderBloc: 0
   DialogueAtPicture: 0
@@ -1923,7 +1921,7 @@ MonoBehaviour:
   ValueForBloc: 1
   ActiveABloc: 0
   IsStaticObject: 0
-  PictureTaken: 0
+  PictureTaken: 1
   DisponibleIfParticularCondition: 0
   HaveAUnderBloc: 0
   DialogueAtPicture: 0
@@ -2007,7 +2005,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 309bb0624c7cb7343ae5792c57a26fbb, type: 3}
-  m_Name: "Question \xE0 d\xE9finir / ( 1 / 5 )"
+  m_Name: "Question \xE0 d\xE9finir / ( 3 / 5 )"
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
   position: {x: 1530.5287, y: 3265.4878}
@@ -2058,7 +2056,7 @@ MonoBehaviour:
       _dynamic: 0
   Question: "Question \xE0 d\xE9finir"
   NecessaryResolution: 5
-  ActualResolution: 0
+  ActualResolution: 3
   TrueForActivate: 0
   Myself: {fileID: 0}
   WillActivateWhenResolution: 0
@@ -2112,7 +2110,7 @@ MonoBehaviour:
   MySelf: {fileID: 0}
   Question: Qui est le marchand ?
   PictureToTakeForAddValue: 2
-  PictureTakenInUnderbloc: 1
+  PictureTakenInUnderbloc: 2
   ValueForBloc: 3
 --- !u!114 &8703900324349714643
 MonoBehaviour:
@@ -2124,7 +2122,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 74ccbac823f815f479355e63d07977c6, type: 3}
-  m_Name: "Boule \xE0 souvenir avec une ville moderne sculpt\xE9e. / + 1"
+  m_Name: "Boule \xE0 souvenir avec une ville moderne sculpt\xE9e. / + 0"
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
   position: {x: 248, y: 1448}
@@ -2184,10 +2182,10 @@ MonoBehaviour:
   DescriptionOfTheObject: "Boule \xE0 souvenir avec une ville moderne sculpt\xE9e.\r\n\u201DSoon
     at nomDeLaVille2\u201D \r\nOn voit les investisseurs devant la ville (dans la
     boule)."
-  ValueForBloc: 1
+  ValueForBloc: 0
   ActiveABloc: 0
   IsStaticObject: 0
-  PictureTaken: 0
+  PictureTaken: 1
   DisponibleIfParticularCondition: 0
   HaveAUnderBloc: 1
   DialogueAtPicture: 0
@@ -2206,7 +2204,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 74ccbac823f815f479355e63d07977c6, type: 3}
-  m_Name: "Affiche \xE9lectorale du Maire / + 1"
+  m_Name: "Affiche \xE9lectorale du Maire / + 0"
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
   position: {x: -248, y: 1448}
@@ -2265,7 +2263,7 @@ MonoBehaviour:
   NameOfTheObject: "Affiche \xE9lectorale du Maire"
   DescriptionOfTheObject: "Affiche \xE9lectorale du Maire avec promesse de campagne
     contre mont\xE9e des eaux."
-  ValueForBloc: 1
+  ValueForBloc: 0
   ActiveABloc: 0
   IsStaticObject: 0
   PictureTaken: 1
@@ -2351,7 +2349,7 @@ MonoBehaviour:
   ValueForBloc: 1
   ActiveABloc: 0
   IsStaticObject: 0
-  PictureTaken: 0
+  PictureTaken: 1
   DisponibleIfParticularCondition: 0
   HaveAUnderBloc: 1
   DialogueAtPicture: 0
@@ -2370,7 +2368,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 309bb0624c7cb7343ae5792c57a26fbb, type: 3}
-  m_Name: Que fait la machine ?  / ( 3 / 18 )
+  m_Name: Que fait la machine ?  / ( 17 / 15 )
   m_EditorClassIdentifier: 
   graph: {fileID: 0}
   position: {x: -952, y: -392}
@@ -2468,8 +2466,8 @@ MonoBehaviour:
       _typeConstraint: 0
       _dynamic: 0
   Question: 'Que fait la machine ? '
-  NecessaryResolution: 18
-  ActualResolution: 3
+  NecessaryResolution: 15
+  ActualResolution: 17
   TrueForActivate: 0
   Myself: {fileID: 0}
   WillActivateWhenResolution: 0

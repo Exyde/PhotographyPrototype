@@ -1520,8 +1520,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 686e27212ea95f749b1e36a8565aa8dd, type: 3}
-  m_Name: "Que s'est il pass\xE9 sur l'\xCEle avec l'arriv\xE9e des milliardaires
-    \xE9trangers. / + 3  / ( 0 / 3 )"
+  m_Name: "Qu'on fait les milliardaires \xE9trangers. / + 3  / ( 2 / 3 )"
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
   position: {x: -888, y: 392}
@@ -1562,8 +1561,7 @@ MonoBehaviour:
       _dynamic: 0
   BlocOfNarration: {fileID: 0}
   MySelf: {fileID: 0}
-  Question: "Que s'est il pass\xE9 sur l'\xCEle avec l'arriv\xE9e des milliardaires
-    \xE9trangers."
+  Question: "Qu'on fait les milliardaires \xE9trangers."
   PictureToTakeForAddValue: 3
   PictureTakenInUnderbloc: 2
   ValueForBloc: 3
@@ -2075,7 +2073,7 @@ MonoBehaviour:
   m_Name: Qui est le marchand ? / + 3  / ( 0 / 2 )
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -984, y: 1064}
+  position: {x: -888, y: 1128}
   ports:
     keys:
     - BlocOfNarration
@@ -2124,7 +2122,7 @@ MonoBehaviour:
   m_Name: "Boule \xE0 souvenir avec une ville moderne sculpt\xE9e. / + 1"
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 248, y: 1448}
+  position: {x: 264, y: 1496}
   ports:
     keys:
     - BlocOfNarration
@@ -2206,7 +2204,7 @@ MonoBehaviour:
   m_Name: "Affiche \xE9lectorale du Maire / + 1"
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -248, y: 1448}
+  position: {x: -184, y: 1416}
   ports:
     keys:
     - BlocOfNarration
