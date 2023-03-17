@@ -59,7 +59,7 @@ public class ObjectManager : MonoBehaviour
 
         for (int i =0; i < spawnPos.Length; i++){
             int index = UnityEngine.Random.Range(0, spawnTransform.Count - 1);
-            spawnPos[i] = _cabineSpawnPoints.GetChild(index).transform.position;
+            spawnPos[i] = spawnTransform[index].position;
             spawnTransform.RemoveAt(index);
         }
 
