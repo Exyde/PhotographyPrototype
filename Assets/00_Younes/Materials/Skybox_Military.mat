@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: ProceduralSkybox
+  m_Name: Skybox_Military
   m_Shader: {fileID: -6465566751694194690, guid: 56c0c4620cd091c45b898c400c6a690c, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
@@ -44,16 +44,16 @@ Material:
     m_Floats:
     - _Cloud_Edge: 0.597
     - _Cloud_Height: 0.054
-    - _Cloud_Speed: 0.09
+    - _Cloud_Speed: 0.142
     - _Fog_Height: 0
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _Star_Density: 100
+    - _Star_Density: 350
     - _SunSize: 0.264
     - _Sun_Mask_Size: 0.24
     m_Colors:
     - _Cloud_Color: {r: 1, g: 1, b: 1, a: 0}
-    - _HorizonColor: {r: 0.08699717, g: 0.09973655, b: 0.16037738, a: 1}
+    - _HorizonColor: {r: 0, g: 0.23584908, b: 0.12264967, a: 1}
     - _SkyColor: {r: 0.6401299, g: 0.990566, b: 0.9546358, a: 1}
     - _Sun_Color: {r: 6.053552, g: 0.3627084, b: 0, a: 1}
   m_BuildTextureStacks: []

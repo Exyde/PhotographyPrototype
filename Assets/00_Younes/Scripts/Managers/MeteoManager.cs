@@ -5,6 +5,9 @@ using Core.GameEvents;
 
 public class MeteoManager : MonoBehaviour, IGameEventManager {
 
+    public Material _militarySkybox;
+    public Material _terraformingSkybox;
+
     private void OnGameEvent_MeteoManager(EventName eventName, string senderName){
 
         Logger.LogEvent(eventName, senderName, this.GetType().Name);
@@ -15,12 +18,25 @@ public class MeteoManager : MonoBehaviour, IGameEventManager {
         HandleSpecialCases(eventName, senderName);
     }
 
+    private void OnEndOfDay_MeteoManager(){
+
+        if (StoryManager.LastCityVisited == Object_XNod.City.Military){
+            RenderSettings.skybox = _militarySkybox;
+        } 
+        else if(StoryManager.LastCityVisited == Object_XNod.City.Terraforming){
+            RenderSettings.skybox = _terraformingSkybox;
+        }
+    }
+
     private void OnEnable() {
         GameEvent._onGameEvent += OnGameEvent_MeteoManager;
+        StoryManager.EndOfDay += OnEndOfDay_MeteoManager;
+
     }
 
     private void OnDisable() {
         GameEvent._onGameEvent += OnGameEvent_MeteoManager;  
+        StoryManager.EndOfDay -= OnEndOfDay_MeteoManager;
     }
 
     public void RequestRain(){

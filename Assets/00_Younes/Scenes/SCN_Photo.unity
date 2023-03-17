@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 2100000, guid: 7ba367ec23440149eb7ea9146b85974a, type: 2}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 6fe6f5dbdbcb5c340a28b99b81169dc8, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.34218428, g: 0.45289913, b: 0.44202268, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -549,6 +549,8 @@ GameObject:
   - component: {fileID: 367621998}
   - component: {fileID: 367621999}
   - component: {fileID: 367622000}
+  - component: {fileID: 367622001}
+  - component: {fileID: 367622002}
   m_Layer: 0
   m_Name: 'PF_Cabine '
   m_TagString: Cabine
@@ -615,6 +617,82 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f19fdbc8a38c51742bd4f26e9af63573, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &367622001
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 367621996}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7184aa1d87f97c41931394569531ed3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _eventName: 0
+  _eventSender: 
+  _scriptableEvents:
+  - _eventName: 
+    _event:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 367622000}
+          m_TargetAssemblyTypeName: Cabine, Assembly-CSharp
+          m_MethodName: InvokeOnCabineEnter
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    _factOperations: []
+    _factConditions: []
+  _triggerDetectionMode: 0
+  _triggerLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  _triggerTag: 
+--- !u!114 &367622002
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 367621996}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d451b6b4f4a8334da8e3ddc8a7355ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _eventName: 0
+  _eventSender: 
+  _scriptableEvents:
+  - _eventName: 
+    _event:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 367622000}
+          m_TargetAssemblyTypeName: Cabine, Assembly-CSharp
+          m_MethodName: InvokeOnCabineExit
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    _factOperations: []
+    _factConditions: []
+  _triggerDetectionMode: 0
+  _triggerLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  _triggerTag: 
 --- !u!1 &383283068
 GameObject:
   m_ObjectHideFlags: 0
@@ -1334,6 +1412,25 @@ MonoBehaviour:
   _pictureZOffset: -0.51
   _dashboardObjects: []
   _blackboaboardObjectsDatas: []
+--- !u!1 &985909077 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 225097500, guid: 1c1bfa96f62d6f14490a9823be4cb6bc, type: 3}
+  m_PrefabInstance: {fileID: 4848564992992255653}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &985909079
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 985909077}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50e15e72a2fc4944fab11eef4b4a432b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _militarySkybox: {fileID: 2100000, guid: 6fe6f5dbdbcb5c340a28b99b81169dc8, type: 2}
+  _terraformingSkybox: {fileID: 2100000, guid: 685d28c460cb2794d89aa439e0f3af33, type: 2}
 --- !u!1 &1277766708
 GameObject:
   m_ObjectHideFlags: 0
@@ -2310,6 +2407,30 @@ PrefabInstance:
       objectReference: {fileID: 1699510562}
     - target: {fileID: 859556495, guid: 1c1bfa96f62d6f14490a9823be4cb6bc, type: 3}
       propertyPath: _sequenceMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6723211546997363406, guid: 1c1bfa96f62d6f14490a9823be4cb6bc, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6723211546997363406, guid: 1c1bfa96f62d6f14490a9823be4cb6bc, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6723211546997363406, guid: 1c1bfa96f62d6f14490a9823be4cb6bc, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8237000199736687533, guid: 1c1bfa96f62d6f14490a9823be4cb6bc, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8237000199736687533, guid: 1c1bfa96f62d6f14490a9823be4cb6bc, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8237000199736687533, guid: 1c1bfa96f62d6f14490a9823be4cb6bc, type: 3}
+      propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9080149719216254721, guid: 1c1bfa96f62d6f14490a9823be4cb6bc, type: 3}

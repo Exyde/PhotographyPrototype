@@ -7,9 +7,8 @@ using System;
     //Pas prnedre en photo un objet déjà pris ?
 
     //Todo :
-    // Remove Cabine Enter & Exit
     // Remove Object Manger ref => Event
-    
+
     // Save the picture asset when created for later Game ? [Out of scope]
    
 enum State{ Photography }
@@ -37,8 +36,6 @@ public class Polaroid : MonoBehaviour
     [SerializeField] LayerMask _picturableLayer;
 
     [Header ("Events")]
-    public static Action _OnCabineEnter;
-    public static Action _OnCabineExit;
 
     public static Action<Object_XNod> OnPictureTaken;
     public static Action OnPolaroidReset;
@@ -52,13 +49,23 @@ public class Polaroid : MonoBehaviour
 
     //@TODO : Put this on Cabine Class
     private void OnEnable() {
-        _OnCabineExit += NotifyXNodeAndSaveAndCreaturePicture;
-        _OnCabineExit += CallManagerUpdateList;
+        StoryManager.EndOfDay += UpdateXNodObjectPictureTakenTag;
+        StoryManager.EndOfDay += CallObjectManagerUpdateListAndSpawnObject;
+
+
+        //New day
+        // StoryManager.EndOfDay +=
+        StoryManager.EndOfDay += DisplayPicturesOnDashboard;
+        StoryManager.EndOfDay += ResetPolaroid;
     }
 
     private void OnDisable() {
-        _OnCabineExit -= NotifyXNodeAndSaveAndCreaturePicture;
-        _OnCabineExit -= CallManagerUpdateList;            
+        StoryManager.EndOfDay -= UpdateXNodObjectPictureTakenTag;
+        StoryManager.EndOfDay -= CallObjectManagerUpdateListAndSpawnObject; 
+
+        //New Day
+        StoryManager.EndOfDay -= DisplayPicturesOnDashboard;
+        StoryManager.EndOfDay -= ResetPolaroid;
     }
 
     void Update()
@@ -125,35 +132,17 @@ public class Polaroid : MonoBehaviour
     }
     
     #endregion
-    #region Event Triggers
-    private void OnTriggerEnter(Collider other) {
-        Logger.LogInfo("Trigger enter with " + other.gameObject.name);
-        if (other.gameObject.tag == "Cabine"){
-            _OnCabineEnter?.Invoke();
-        }
-    }
-
-    private void OnTriggerExit(Collider other) {
-        Logger.LogInfo("Trigger exit with " + other.gameObject.name);
-        if (other.gameObject.tag == "Cabine"){
-            _OnCabineExit?.Invoke();
-        } 
-    }
-    
-    void CallManagerUpdateList(){
-        _objetManager.UpdateObjectAndSpawnObjectInCabine(_objetManager._objectsInCabineCount);
-    }
-
-    void NotifyXNodeAndSaveAndCreaturePicture(){
-        DisplayPicturesOnDashboard();
+    void UpdateXNodObjectPictureTakenTag(){
         _objetManager.UpdatePicturedXNodeObjets(_currentXnodPicturedObjects);
-        ResetPolaroid();
+    }
+
+    void CallObjectManagerUpdateListAndSpawnObject(){
+        _objetManager.UpdateObjectAndSpawnObjectInCabine(_objetManager._objectsInCabineCount);
     }
 
     void DisplayPicturesOnDashboard(){ 
         Dashboard._instance.CreatePictures(_pictures);
     }
-    #endregion
     #region Resets
 
     void ResetPolaroid(){

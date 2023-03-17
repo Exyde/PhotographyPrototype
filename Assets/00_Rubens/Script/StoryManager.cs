@@ -11,11 +11,11 @@ public class StoryManager : MonoBehaviour
 
     private void OnEnable()
     {
-        EndOfDay += GoToNextCity;
+        //EndOfDay += GoToNextCity;
     }
     private void OnDisable()
     {
-        EndOfDay -= GoToNextCity;
+        //EndOfDay -= GoToNextCity;
     }
 
     void GoToNextCity()
@@ -31,7 +31,9 @@ public class StoryManager : MonoBehaviour
             LastCityVisited = Object_XNod.City.Military;
         }
 
-        Debug.Log(LastCityVisited);
+        Logger.LogInfo("Actual city :" + LastCityVisited);
+
+        EndOfDay?.Invoke();
 
     }
 
@@ -45,7 +47,8 @@ public class StoryManager : MonoBehaviour
 
     public void FinishCurentDay()
     {
-        Debug.Log("Curent Day finished");
-        EndOfDay?.Invoke();
+        Logger.LogInfo("Curent Day finished");
+        GoToNextCity(); //J'ai mis ça dans cet ordre pour que ça update d'abord les états interne du Story Mangager (genre la ville), vu que d'autre scripts doivent y acceder 
+        //une fois que l'event est dispatch
     }
 }

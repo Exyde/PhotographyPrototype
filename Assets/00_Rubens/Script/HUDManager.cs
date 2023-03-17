@@ -26,8 +26,8 @@ public class HUDManager : MonoBehaviour
         Polaroid.OnPictureTaken += OnPictureTaken_HUDManager;
         Polaroid.OnPolaroidReset += ActualiseHUD;
 
-        Polaroid._OnCabineEnter += DisplayTensionHUD;
-        Polaroid._OnCabineExit += DisplayPoeticHUD;
+        Cabine._OnCabineEnter += DisplayTensionHUD;
+        Cabine._OnCabineExit += DisplayPoeticHUD;
     }
 
     private void OnDisable()
@@ -39,8 +39,8 @@ public class HUDManager : MonoBehaviour
         Polaroid.OnPictureTaken -= OnPictureTaken_HUDManager;
         Polaroid.OnPolaroidReset -= ActualiseHUD;
 
-        Polaroid._OnCabineEnter -= DisplayTensionHUD;
-        Polaroid._OnCabineExit -= DisplayPoeticHUD;
+        Cabine._OnCabineEnter -= DisplayTensionHUD;
+        Cabine._OnCabineExit -= DisplayPoeticHUD;
     }
 
     void DisplaySubtitle(Dialogue_XNod dialogue)
