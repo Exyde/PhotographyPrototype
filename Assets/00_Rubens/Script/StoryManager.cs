@@ -11,11 +11,9 @@ public class StoryManager : MonoBehaviour
 
     private void OnEnable()
     {
-        //EndOfDay += GoToNextCity;
     }
     private void OnDisable()
     {
-        //EndOfDay -= GoToNextCity;
     }
 
     void GoToNextCity()

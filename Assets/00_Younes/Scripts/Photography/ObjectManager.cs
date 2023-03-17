@@ -23,6 +23,7 @@ public class ObjectManager : MonoBehaviour
         //Je t'enleve cette ligne je vois pas trop � quoi elle sert de base
         //Je te remplace par celle l� au cas o� t'as besoin de mettre quelque chose dans ta  list au debut, �a fait plus ou moins la meme chose :
         _xNodeObjectsAvailable = _graph.GetListOfItemsDisponibleForSpawn(1000, StoryManager.LastCityVisited);
+        SpawnObjects();
     }
 
     public void UpdateObjectAndSpawnObjectInCabine(int objectCount){
@@ -38,7 +39,7 @@ public class ObjectManager : MonoBehaviour
 
         Vector3[] spawnPositions = GetItemSpawnPositions(_objectsInCabineCount);
 
-        for (int i = 0; i < _xNodeObjectsAvailable.Count; i++){
+        for (int i = 0; i < _objectsInCabineCount; i++){
             Vector3 pos = spawnPositions[i];
             GameObject cabObject = Instantiate(_xNodeObjectsAvailable[i].PrefabObjectToSpawn, pos, Quaternion.identity);
             cabObject.GetComponent<PicturableObject>().Initialize(_xNodeObjectsAvailable[i]);
@@ -73,7 +74,7 @@ public class ObjectManager : MonoBehaviour
     }
 
     public void UpdatePicturedXNodeObjets(Object_XNod[] picturedObjects){
-        if (picturedObjects.Length <= 0) return;
+        if (picturedObjects == null || picturedObjects.Length <= 0) return;
 
         foreach(Object_XNod o in picturedObjects){
             if (o != null)

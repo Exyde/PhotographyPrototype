@@ -49,8 +49,8 @@ Material:
     - _QueueControl: 0
     - _QueueOffset: 0
     - _Star_Density: 350
-    - _SunSize: 0.264
-    - _Sun_Mask_Size: 0.24
+    - _SunSize: 0.5
+    - _Sun_Mask_Size: 0.455
     m_Colors:
     - _Cloud_Color: {r: 1, g: 1, b: 1, a: 0}
     - _HorizonColor: {r: 0, g: 0.23584908, b: 0.12264967, a: 1}

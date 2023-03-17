@@ -51,10 +51,6 @@ public class Polaroid : MonoBehaviour
     private void OnEnable() {
         StoryManager.EndOfDay += UpdateXNodObjectPictureTakenTag;
         StoryManager.EndOfDay += CallObjectManagerUpdateListAndSpawnObject;
-
-
-        //New day
-        // StoryManager.EndOfDay +=
         StoryManager.EndOfDay += DisplayPicturesOnDashboard;
         StoryManager.EndOfDay += ResetPolaroid;
     }
@@ -62,8 +58,6 @@ public class Polaroid : MonoBehaviour
     private void OnDisable() {
         StoryManager.EndOfDay -= UpdateXNodObjectPictureTakenTag;
         StoryManager.EndOfDay -= CallObjectManagerUpdateListAndSpawnObject; 
-
-        //New Day
         StoryManager.EndOfDay -= DisplayPicturesOnDashboard;
         StoryManager.EndOfDay -= ResetPolaroid;
     }
@@ -133,6 +127,7 @@ public class Polaroid : MonoBehaviour
     
     #endregion
     void UpdateXNodObjectPictureTakenTag(){
+        if (_currentXnodPicturedObjects == null) return;
         _objetManager.UpdatePicturedXNodeObjets(_currentXnodPicturedObjects);
     }
 

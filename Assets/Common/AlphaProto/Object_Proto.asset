@@ -70,7 +70,7 @@ MonoBehaviour:
   ValueForBloc: 1
   ActiveABloc: 0
   IsStaticObject: 0
-  PictureTaken: 1
+  PictureTaken: 0
   DisponibleIfParticularCondition: 0
   HaveAUnderBloc: 0
   DialogueAtPicture: 0
@@ -594,7 +594,7 @@ MonoBehaviour:
   ValueForBloc: 1
   ActiveABloc: 0
   IsStaticObject: 0
-  PictureTaken: 1
+  PictureTaken: 0
   DisponibleIfParticularCondition: 0
   HaveAUnderBloc: 0
   DialogueAtPicture: 0
@@ -694,7 +694,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 309bb0624c7cb7343ae5792c57a26fbb, type: 3}
-  m_Name: Qui sont les habitants du deserts ? / ( 0 / 5 )
+  m_Name: Qui sont les habitants du deserts ? / ( 1 / 5 )
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
   position: {x: 1672, y: -2760}
@@ -1055,7 +1055,7 @@ MonoBehaviour:
   ValueForBloc: 0
   ActiveABloc: 0
   IsStaticObject: 0
-  PictureTaken: 1
+  PictureTaken: 0
   DisponibleIfParticularCondition: 0
   HaveAUnderBloc: 1
   DialogueAtPicture: 0
@@ -2085,7 +2085,10 @@ MonoBehaviour:
       _node: {fileID: 8036857851122842817}
       _typeQualifiedName: NarrativeBloc_XNode, Assembly-CSharp, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
-      connections: []
+      connections:
+      - fieldName: Myself
+        node: {fileID: 9131805213518582990}
+        reroutePoints: []
       _direction: 0
       _connectionType: 0
       _typeConstraint: 0
@@ -2348,7 +2351,7 @@ MonoBehaviour:
   ValueForBloc: 1
   ActiveABloc: 0
   IsStaticObject: 0
-  PictureTaken: 0
+  PictureTaken: 1
   DisponibleIfParticularCondition: 0
   HaveAUnderBloc: 1
   DialogueAtPicture: 0
@@ -2367,7 +2370,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 309bb0624c7cb7343ae5792c57a26fbb, type: 3}
-  m_Name: Que fait la machine ?  / ( 3 / 18 )
+  m_Name: Que fait la machine ?  / ( 2 / 15 )
   m_EditorClassIdentifier: 
   graph: {fileID: 0}
   position: {x: -952, y: -392}
@@ -2433,6 +2436,9 @@ MonoBehaviour:
       - fieldName: BlocOfNarration
         node: {fileID: -3552330521759134229}
         reroutePoints: []
+      - fieldName: BlocOfNarration
+        node: {fileID: 8036857851122842817}
+        reroutePoints: []
       _direction: 1
       _connectionType: 0
       _typeConstraint: 0
@@ -2462,8 +2468,8 @@ MonoBehaviour:
       _typeConstraint: 0
       _dynamic: 0
   Question: 'Que fait la machine ? '
-  NecessaryResolution: 18
-  ActualResolution: 3
+  NecessaryResolution: 15
+  ActualResolution: 2
   TrueForActivate: 0
   Myself: {fileID: 0}
   WillActivateWhenResolution: 0
