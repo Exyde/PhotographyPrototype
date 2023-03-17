@@ -9,4 +9,6 @@ public static class GameInputs
     public static KeyCode PhotographyResetKeyCode = KeyCode.R;
     public static KeyCode CameraModeToggleKeyCode = KeyCode.T;
 
+    public static KeyCode FakeRestartDay = KeyCode.Backspace;
+
 }

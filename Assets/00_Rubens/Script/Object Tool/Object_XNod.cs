@@ -76,10 +76,10 @@ public class Object_XNod : Node {
         if (HaveAUnderBloc)
         {
 			GetInputValue<UnderBloc_XNode>("MyUnderBloc").AddPictureToMyValue();
-
 		}
 
 		PictureTaken = true;
+
 		GetInputValue<NarrativeBloc_XNode>("BlocOfNarration", this.BlocOfNarration).AddResolution(ValueForBloc);
 
 	}

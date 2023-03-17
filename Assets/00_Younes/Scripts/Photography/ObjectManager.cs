@@ -22,11 +22,11 @@ public class ObjectManager : MonoBehaviour
         //_xNodeObjectsAvailable = _graph.ListObjectsDisponibles;
         //Je t'enleve cette ligne je vois pas trop � quoi elle sert de base
         //Je te remplace par celle l� au cas o� t'as besoin de mettre quelque chose dans ta  list au debut, �a fait plus ou moins la meme chose :
-        _xNodeObjectsAvailable = _graph.GetListOfItemsDisponibleForSpawn(1000, Object_XNod.City.Military);
+        _xNodeObjectsAvailable = _graph.GetListOfItemsDisponibleForSpawn(1000, StoryManager.LastCityVisited);
     }
 
     public void UpdateObjectAndSpawnObjectInCabine(int objectCount){
-        _xNodeObjectsAvailable = _graph.GetListOfItemsDisponibleForSpawn(objectCount, Object_XNod.City.Military);
+        _xNodeObjectsAvailable = _graph.GetListOfItemsDisponibleForSpawn(objectCount, StoryManager.LastCityVisited);
         SpawnObjects();
     }
 

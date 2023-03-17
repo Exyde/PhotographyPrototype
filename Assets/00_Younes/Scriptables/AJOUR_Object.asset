@@ -1524,7 +1524,7 @@ MonoBehaviour:
     \xE9trangers. / + 3  / ( 0 / 3 )"
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -888, y: 392}
+  position: {x: -952, y: 280}
   ports:
     keys:
     - BlocOfNarration
