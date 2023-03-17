@@ -5,9 +5,9 @@ using System;
 
 public class StoryManager : MonoBehaviour
 {
-    public static Object_XNod.City LastCityVisited;
+    public static Object_XNod.City LastCityVisited = Object_XNod.City.Military;
 
-    public Action EndOfDay;
+    public static Action EndOfDay;
 
     private void OnEnable()
     {
@@ -26,10 +26,12 @@ public class StoryManager : MonoBehaviour
             LastCityVisited = Object_XNod.City.Terraforming;
         }
 
-        if (LastCityVisited == Object_XNod.City.Terraforming)
+        else if (LastCityVisited == Object_XNod.City.Terraforming)
         {
             LastCityVisited = Object_XNod.City.Military;
         }
+
+        Debug.Log(LastCityVisited);
 
     }
 

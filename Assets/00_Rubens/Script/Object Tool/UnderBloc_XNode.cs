@@ -35,6 +35,7 @@ public class UnderBloc_XNode : Node {
 		if(PictureTakenInUnderbloc == PictureToTakeForAddValue)
         {
 			GetInputValue<NarrativeBloc_XNode>("BlocOfNarration").AddResolution(ValueForBloc);
+			//Renvoie une Null Ref si un des UnderBloc n'est pas rellié à son Narrative Bloc
 		}
 	}
 	public void ResetUnderBloc()
