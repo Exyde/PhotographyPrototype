@@ -16,15 +16,8 @@ public class EnvironmentLightManager : MonoBehaviour
     [SerializeField]
     private Transform _orbitSunAndMoon;
 
-    /// <summary>
-    /// R�f�rence de la lumi�re du soleil
-    /// </summary>
     [SerializeField]
     private Light _sunLight;
-
-    /// <summary>
-    /// R�f�rence de la lumi�re de la lune
-    /// </summary>
     [SerializeField]
     private Light _moonLight;
 

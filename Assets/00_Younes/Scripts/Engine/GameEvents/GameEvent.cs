@@ -37,6 +37,8 @@ namespace Core.GameEvents{
                     e.GetEvent()?.Invoke();
 
                     //@TODO-RUBENS : Update with BBM taking a FactList
+                    //BlackboardManager.BBM.SetFactValue(e.GetFactsOperations()); => @TEST this line
+                    
                     foreach (FactOperation operation in e.GetFactsOperations()){
                         BlackboardManager.BBM.SetFactValue(operation);
                     }
