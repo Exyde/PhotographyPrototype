@@ -58,6 +58,17 @@ public class PlayerController : MonoBehaviour
 
         Cursor.lockState = CursorLockMode.Locked;//@TODO : ToggleCursorMethod ?
         Cursor.visible = false;
+
+        if(CameraManager.CM == null)
+        {
+            Debug.LogWarning("Attention le Camera Manager n'est pas dans la scene");
+            return;
+        }
+
+        CameraManager.CM.PC = this;
+        CameraManager.CM.CameraPlayer = _mainCamera;
+
+
     }
 
     void Update()
@@ -72,6 +83,8 @@ public class PlayerController : MonoBehaviour
             HandleDashboardInteraction();
         } 
     }
+
+
     #endregion
 
     #region Methods & Handlers
@@ -153,5 +166,6 @@ public class PlayerController : MonoBehaviour
             yield return null;
         }
     }
+
     #endregion
 }

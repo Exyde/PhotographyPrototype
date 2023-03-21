@@ -28,7 +28,6 @@ public class Object_XNod : Node {
 	public bool IsStaticObject;
 
 
-
 	public bool PictureTaken;
 
 	public bool DisponibleIfParticularCondition;
@@ -48,7 +47,9 @@ public class Object_XNod : Node {
     //YOUNES SHIT LÀ LE CON DE SES MORTS
 
     public GameObject PrefabObjectToSpawn;
-	public Picture _picture;
+
+	public DashboardItem _picture;
+
     public Texture2D PictureDebugTexture;
 
 	//FONCTIONS
