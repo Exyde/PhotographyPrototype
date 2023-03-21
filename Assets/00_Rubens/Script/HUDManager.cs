@@ -115,6 +115,11 @@ public class HUDManager : MonoBehaviour
         }
     }
 
+    public void SetActiveHUD(bool b)
+    {
+        Subtitle.transform.parent.parent.gameObject.SetActive(b);
+    }
+
 
 
 }
