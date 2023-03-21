@@ -1,37 +1,20 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-
-//@TODO :
-// - Refactor with GameInputs
 
 [RequireComponent(typeof(CharacterController))]
 public class PlayerController : MonoBehaviour 
 {
-    enum CameraState{
-        FPS, Dashboard
-    }
-
     #region Fields
     // Public Fields
     [Header("Camera Stuffs")]
-    [SerializeField] CameraState _camState = CameraState.FPS;
     public Camera _mainCamera;
-    public Transform _dashboardCameraHolder;
-    public Transform _fpsCameraHolder;
-    public Vector3 _fpsCameraPosition;
 
     [Header("FPS Settings")]
-
-    public float _moveSpeed = 10f;
     public float _walkingSpeed = 7.5f;
     public float _runningSpeed = 11.5f;
     public float _jumpSpeed = 8.0f;
     public float _gravity = 20.0f;
     public float _lookSpeed = 2.0f;
     public float _lookXLimit = 45.0f;
-
-    //[SerializeField] float _cursorSpeed = 0f;
 
     //Private Fields
     CharacterController _characterController;
@@ -48,47 +31,34 @@ public class PlayerController : MonoBehaviour
     public void TogglePlayerMovement(bool state) => _canMove = state;
     public void TogglePlayerCameraMovement(bool state) => _canMoveCamera = state;
 
-   
     #region Unity Callbacks
     void Start()
     {
         _characterController = GetComponent<CharacterController>();
         _rb = GetComponent<Rigidbody>();
 
-        Cursor.lockState = CursorLockMode.Locked;//@TODO : ToggleCursorMethod ?
+        Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
 
         if(CameraManager.CM == null)
         {
-            Debug.LogWarning("Attention le Camera Manager n'est pas dans la scene");
+            Debug.LogWarning("Attention le Camera Manager n'est pas dans la scene !!!!");
             return;
         }
 
         CameraManager.CM.PC = this;
         CameraManager.CM.CameraPlayer = _mainCamera;
-
-
     }
 
     void Update()
     {
-        if (Input.GetKeyDown(GameInputs.CameraModeToggleKeyCode)) ToggleCamera();
-
-        if ( _camState == CameraState.FPS){
-            HandleMovement();
-            HandleCameraMovement();
-        } 
-        else if (_camState == CameraState.Dashboard){
-            HandleDashboardInteraction();
-        } 
+        HandleMovement();
+        HandleCameraMovement();
     }
-
-
     #endregion
 
     #region Methods & Handlers
     void HandleMovement(){
-
         if (!_canMove) return;
 
         Vector3 forward = transform.TransformDirection(Vector3.forward);
@@ -125,44 +95,5 @@ public class PlayerController : MonoBehaviour
         if (_useLegacyCamera) _mainCamera.transform.localRotation = Quaternion.Euler(_rotationX, 0, 0);
         transform.rotation *= Quaternion.Euler(0, Input.GetAxis("Mouse X") * _lookSpeed, 0);
     }
-
-    void HandleDashboardInteraction(){
-        //Logger.Log("Dashboard stuffs !");
-        // => Use a dashboard controller
-    }
-    #endregion
-
-    #region Camera Switch and Lerping
-    void ToggleCamera(){
-        if(_camState == CameraState.FPS && _fpsCameraHolder != null) SetDashboardCamera(false);
-        else if (_camState == CameraState.Dashboard) SetFPSCamera(true);
-    }
-
-    void SetCamera(CameraState state, Transform parent, Vector3 targetPos = default(Vector3), bool lerpPosition = false, float transitionDuration = 1f){
-        _camState = state;
-        _mainCamera.transform.parent = parent;
-
-        if (lerpPosition)
-            StartCoroutine(LerpCameraPosition(targetPos, transitionDuration));
-        else
-            _mainCamera.transform.position = targetPos;
-    }
-    void SetFPSCamera(bool lerp) => SetCamera(CameraState.FPS, _fpsCameraHolder, _fpsCameraHolder.position, lerp, 2f);
-
-    void SetDashboardCamera(bool lerp){
-
-        SetCamera(CameraState.Dashboard, _dashboardCameraHolder, _dashboardCameraHolder.position, lerp);
-        _mainCamera.transform.LookAt(_dashboardCameraHolder.parent.transform);
-    }
-
-    IEnumerator LerpCameraPosition(Vector3 to, float t){
-        float tt = 0;
-        while (Vector3.Distance(_mainCamera.transform.position, to) > .2f){
-            _mainCamera.transform.position = Vector3.Lerp(_mainCamera.transform.position, to, tt/t);
-            tt += Time.deltaTime;
-            yield return null;
-        }
-    }
-
     #endregion
 }

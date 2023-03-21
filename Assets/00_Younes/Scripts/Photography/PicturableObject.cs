@@ -13,7 +13,7 @@ public class PicturableObject : MonoBehaviour
     [SerializeField] TMP_Text _text_Name;
 
     [Header("Materials")]
-    [SerializeField] Material _picturableMaterial;
+    [SerializeField] Material _defaultPicturableMaterial;
     [SerializeField] Material _picturedMaterial;
     [SerializeField] Material _sabotageMaterial;
     [SerializeField] Color _color;
@@ -27,7 +27,8 @@ public class PicturableObject : MonoBehaviour
         _color = new Color(Random.Range(0f,1f), Random.Range(0f,1f), Random.Range(0f,1f), 1f);
 
         _renderer = GetComponent<MeshRenderer>();
-        _renderer.material.SetColor("_Object_Color", _color); 
+        SetNonPicturedMaterial();
+        //_renderer.material.SetColor("_Object_Color", _color); 
         _text_Name.text = _xNodeObject.NameOfTheObject;
     }
 
@@ -41,4 +42,7 @@ public class PicturableObject : MonoBehaviour
         _currentSprite = Sprite.Create(tex, rect, new Vector2(0.5f, 0.5f), 100.0f);
     }
 
+    public void SetNonPicturedMaterial() => _renderer.material = _defaultPicturableMaterial;
+    public void SetPicturedMaterial() => _renderer.material = _picturedMaterial;
+    public void SetSabotageMaterial() => _renderer.material = _sabotageMaterial;
 }

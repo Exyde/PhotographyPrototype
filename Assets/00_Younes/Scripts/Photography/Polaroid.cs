@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using System;
 
@@ -16,13 +17,11 @@ public class Polaroid : MonoBehaviour
 {
     #region Fields
     [Header ("References")]
-    public ObjectManager _objetManager;
-
-    [SerializeField] Transform _cameraEyesLevel;
+    [SerializeField] Camera _cam;
 
     [Header ("Preview & Readonly")]
     [SerializeField] Object_XNod[] _currentXnodPicturedObjects;
-
+    [SerializeField] List<PicturableObject> _picturableObjects;
     [Space (5)]
     [SerializeField] public static int _pictureTakensCount = 0;
     [SerializeField] Picture[] _pictures;
@@ -48,6 +47,7 @@ public class Polaroid : MonoBehaviour
 
     #region UnityCallbacks
     void Start(){
+        _cam = Camera.main;
         ResetPolaroid();
     }
 
@@ -101,6 +101,9 @@ public class Polaroid : MonoBehaviour
                 return;
             }
 
+            _picturableObjects.Add(picturable);
+            picturable.SetPicturedMaterial();
+
             _currentXnodPicturedObjects[slotIndex] = objXNode;
 
             StartCoroutine(CreatePictureScriptable(slotIndex));
@@ -118,7 +121,7 @@ public class Polaroid : MonoBehaviour
         PicturableObject picturable = null;
 
 
-        if (Physics.Raycast(_cameraEyesLevel.position, _cameraEyesLevel.forward, out hit, _photographyMaxDistance, _picturableLayer)){
+        if (Physics.Raycast(_cam.transform.position, _cam.transform.forward, out hit, _photographyMaxDistance, _picturableLayer)){
             picturable = hit.collider.gameObject.GetComponent<PicturableObject>();
         }
 
@@ -147,11 +150,11 @@ public class Polaroid : MonoBehaviour
     #endregion
     void UpdateXNodObjectPictureTakenTag(){
         if (_currentXnodPicturedObjects == null) return;
-        _objetManager.UpdatePicturedXNodeObjets(_currentXnodPicturedObjects);
+        ObjectManager._instance.UpdatePicturedXNodeObjets(_currentXnodPicturedObjects);
     }
 
     void CallObjectManagerUpdateListAndSpawnObject(){
-        _objetManager.UpdateObjectAndSpawnObjectInCabine(_objetManager._objectsInCabineCount);
+        ObjectManager._instance.UpdateObjectAndSpawnObjectInCabine(ObjectManager._instance._objectsInCabineCount);
     }
     
     void SetDashboardPicturesForNextDay(){
@@ -160,6 +163,13 @@ public class Polaroid : MonoBehaviour
     #region Resets
 
     void ResetPolaroid(){
+
+        foreach(PicturableObject picturable in _picturableObjects){
+            picturable.SetNonPicturedMaterial();
+        }
+
+        _picturableObjects.Clear();
+
         _currentXnodPicturedObjects = new Object_XNod[_maxPicturesSlots];
         _pictures = new Picture[_maxPicturesSlots];
 
@@ -188,7 +198,8 @@ public class Polaroid : MonoBehaviour
     #region Gizmos
     void OnDrawGizmos(){
         Gizmos.color = Color.blue;
-        Gizmos.DrawLine(_cameraEyesLevel.position, _cameraEyesLevel.position + _cameraEyesLevel.forward * _photographyMaxDistance);
+        if (!_cam) return;
+        Gizmos.DrawLine(_cam.transform.position, _cam.transform.position + _cam.transform.forward * _photographyMaxDistance);
     }
     #endregion
 }

@@ -6,6 +6,8 @@ using XNode;
 
 public class ObjectManager : MonoBehaviour
 {
+    public static ObjectManager _instance;
+
     #region Fields
     [Header ("XNod - Reference & Debug")]
     [SerializeField] ObjectToolGraph_XNod _graph;
@@ -15,6 +17,15 @@ public class ObjectManager : MonoBehaviour
     public Transform _cabineSpawnPoints;
     public int _objectsInCabineCount;
     #endregion
+
+    private void Awake() {
+        if (_instance == null){
+            _instance = this;
+        }
+        else{
+            Destroy(this);
+        }
+    }
     void Start()
     {
         _xNodeObjectsAvailable = new List<Object_XNod>();
@@ -39,7 +50,7 @@ public class ObjectManager : MonoBehaviour
 
         Vector3[] spawnPositions = GetItemSpawnPositions(_objectsInCabineCount);
 
-        for (int i = 0; i < _objectsInCabineCount; i++){
+        for (int i = 0; i < _objectsInCabineCount; i++){//@TODO : TOI UN JOUR JVAIS TE FIXER TAZEJAZEHAZP
             Vector3 pos = spawnPositions[i];
             GameObject cabObject = Instantiate(_xNodeObjectsAvailable[i].PrefabObjectToSpawn, pos, Quaternion.identity);
             cabObject.GetComponent<PicturableObject>().Initialize(_xNodeObjectsAvailable[i]);

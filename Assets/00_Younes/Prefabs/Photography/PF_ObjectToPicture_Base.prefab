@@ -229,10 +229,10 @@ MonoBehaviour:
   _currentSprite: {fileID: 0}
   _UISprite: {fileID: 0}
   _text_Name: {fileID: 1085592657937201080}
-  _picturableMaterial: {fileID: 2100000, guid: 5b62d352d553c1943a5668b30698576e, type: 2}
+  _defaultPicturableMaterial: {fileID: 2100000, guid: 5b62d352d553c1943a5668b30698576e, type: 2}
   _picturedMaterial: {fileID: 2100000, guid: 4ad83a9a8e275d14097fa69396477060, type: 2}
   _sabotageMaterial: {fileID: 2100000, guid: ec3e4005bddeea244943a6e6e3b3b6f1, type: 2}
-  _color: {r: 1, g: 0.07291321, b: 0, a: 1}
+  _color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &8194749343219474109
 GameObject:
   m_ObjectHideFlags: 0
