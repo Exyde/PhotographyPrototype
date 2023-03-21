@@ -46,7 +46,7 @@ namespace Core.GameEvents{
             }
         }
 
-        //@TODO : Ca pue d'avoir le BBM link en hard ici
+        //@DESIGN : Ca pue d'avoir le BBM link en hard ici
         bool IsEventValid(List<FactCondition> _facts){
             foreach(FactCondition factCondition in _facts){
                 bool test = BlackboardManager.BBM.CompareFactValueTo(factCondition);

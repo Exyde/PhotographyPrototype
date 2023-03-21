@@ -31,7 +31,6 @@ public class PlayerController : MonoBehaviour
     public float _lookSpeed = 2.0f;
     public float _lookXLimit = 45.0f;
 
-    //[Header("Dashboard View Settings")] //@TODO : Add Dashboard Interaction System
     //[SerializeField] float _cursorSpeed = 0f;
 
     //Private Fields
@@ -129,7 +128,6 @@ public class PlayerController : MonoBehaviour
 
     void HandleDashboardInteraction(){
         //Logger.Log("Dashboard stuffs !");
-        //@TODO : Disable Player Rendering while in Blacboard => Toggle ? 
         // => Use a dashboard controller
     }
     #endregion
@@ -140,7 +138,6 @@ public class PlayerController : MonoBehaviour
         else if (_camState == CameraState.Dashboard) SetFPSCamera(true);
     }
 
-    //@TODO : Must Become a Coroutine ?
     void SetCamera(CameraState state, Transform parent, Vector3 targetPos = default(Vector3), bool lerpPosition = false, float transitionDuration = 1f){
         _camState = state;
         _mainCamera.transform.parent = parent;

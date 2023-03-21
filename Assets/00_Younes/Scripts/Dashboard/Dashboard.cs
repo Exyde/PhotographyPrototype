@@ -21,7 +21,7 @@ public class Dashboard : MonoBehaviour
         _blackboaboardObjectsDatas = new List<DashboardItem>();
     }
 
-    public void CreatePictureOnBoard(Sprite sprite) //@TODO : Other implementation
+    public void CreatePictureOnBoard(Sprite sprite)
     {
         //Position it on the board? Where ?
         Vector3 pos = transform.position + UnityEngine.Random.insideUnitSphere * _pictureSpawnRange;

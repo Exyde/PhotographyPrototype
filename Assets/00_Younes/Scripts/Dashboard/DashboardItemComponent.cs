@@ -25,7 +25,6 @@ public class DashboardItemComponent : MonoBehaviour
         _sprite = _item.GetSprite();
     }
 
-    //@TODO : Drag n Drop
     //@TODO : LineRendering between Items + Color => GraphTree ?
 
 }
