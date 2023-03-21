@@ -47,18 +47,19 @@ public class Polaroid : MonoBehaviour
         ResetPolaroid();
     }
 
-    //@TODO : Put this on Cabine Class
     private void OnEnable() {
-        StoryManager.EndOfDay += UpdateXNodObjectPictureTakenTag;
+        Cabine._OnCabineExit += UpdateXNodObjectPictureTakenTag;
+        Cabine._OnCabineExit += SetDashboardPicturesForNextDay;
+       
         StoryManager.EndOfDay += CallObjectManagerUpdateListAndSpawnObject;
-        StoryManager.EndOfDay += DisplayPicturesOnDashboard;
         StoryManager.EndOfDay += ResetPolaroid;
     }
 
     private void OnDisable() {
-        StoryManager.EndOfDay -= UpdateXNodObjectPictureTakenTag;
+        Cabine._OnCabineExit -= UpdateXNodObjectPictureTakenTag;
+        Cabine._OnCabineExit -= SetDashboardPicturesForNextDay;
+
         StoryManager.EndOfDay -= CallObjectManagerUpdateListAndSpawnObject; 
-        StoryManager.EndOfDay -= DisplayPicturesOnDashboard;
         StoryManager.EndOfDay -= ResetPolaroid;
     }
 
@@ -134,9 +135,9 @@ public class Polaroid : MonoBehaviour
     void CallObjectManagerUpdateListAndSpawnObject(){
         _objetManager.UpdateObjectAndSpawnObjectInCabine(_objetManager._objectsInCabineCount);
     }
-
-    void DisplayPicturesOnDashboard(){ 
-        Dashboard._instance.CreatePictures(_pictures);
+    
+    void SetDashboardPicturesForNextDay(){
+        Dashboard_Rubens.DB.SetPictureForNextDay(_currentXnodPicturedObjects);
     }
     #region Resets
 

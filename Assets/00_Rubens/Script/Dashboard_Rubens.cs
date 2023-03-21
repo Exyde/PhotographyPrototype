@@ -41,7 +41,7 @@ public class Dashboard_Rubens : MonoBehaviour
         CameraManager.CM.EmplacementCameraDashboard = EmplacementCamera;
     }
 
-    public void SetPictureForNextDay(List<Object_XNod> ox)
+    public void SetPictureForNextDay(Object_XNod[] ox)
     {
 
     }
