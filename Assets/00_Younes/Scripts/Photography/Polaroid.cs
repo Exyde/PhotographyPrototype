@@ -11,7 +11,6 @@ using System;
 
     // Save the picture asset when created for later Game ? [Out of scope]
    
-enum State{ Photography }
 
 public class Polaroid : MonoBehaviour
 {
@@ -22,7 +21,6 @@ public class Polaroid : MonoBehaviour
     [SerializeField] Transform _cameraEyesLevel;
 
     [Header ("Preview & Readonly")]
-    [SerializeField] State _state = State.Photography;
     [SerializeField] Object_XNod[] _currentXnodPicturedObjects;
 
     [Space (5)]
@@ -41,6 +39,8 @@ public class Polaroid : MonoBehaviour
     [Header ("Events")]
 
     public static Action<Object_XNod> OnPictureTaken;
+    public static Action<Object_XNod> OnPictureAlreadyTaken;
+
     public static Action OnPolaroidReset;
 
 
@@ -71,8 +71,6 @@ public class Polaroid : MonoBehaviour
     {
         if (!_photographyEnabled) return;
 
-        if(_state != State.Photography) return;
-
         if((Input.GetKeyDown(GameInputs.PhotographyKeyCode) || Input.GetMouseButtonDown(GameInputs.PhotographyMouseButton))){
             TakePicture();
         } 
@@ -91,21 +89,28 @@ public class Polaroid : MonoBehaviour
 
         if(!CanTakePicture()) return;
 
-            int slotIndex = GetAvailableSlotIndex();
-            Logger.LogInfo("Slot index : " + slotIndex);
+        int slotIndex = GetAvailableSlotIndex();
+        Logger.LogInfo("Slot index : " + slotIndex);
 
-            if (slotIndex >= 0){ //If a slot is available
+        if (slotIndex >= 0){ //If a slot is available
 
-                _currentXnodPicturedObjects[slotIndex] = picturable.GetObject_XNod();
+            Object_XNod objXNode = picturable.GetObject_XNod();
 
-                StartCoroutine(CreatePictureScriptable(slotIndex));
-
-                _pictureTakenSlots[slotIndex] = true;
-                
-                _pictureTakensCount++;
-
-                OnPictureTaken?.Invoke(picturable.GetObject_XNod());
+            if (ObjectAlreadyPictured(objXNode)){
+                OnPictureAlreadyTaken?.Invoke(objXNode);
+                return;
             }
+
+            _currentXnodPicturedObjects[slotIndex] = objXNode;
+
+            StartCoroutine(CreatePictureScriptable(slotIndex));
+
+            _pictureTakenSlots[slotIndex] = true;
+            
+            _pictureTakensCount++;
+
+            OnPictureTaken?.Invoke(picturable.GetObject_XNod());
+        }
     }
 
     PicturableObject GetPicturableObject(){
@@ -126,6 +131,17 @@ public class Polaroid : MonoBehaviour
             if (_pictureTakenSlots[i] == false) return i;
         }
         return -1;
+    }
+
+    private bool ObjectAlreadyPictured(Object_XNod objXNode){
+
+        for(int i =0; i < _currentXnodPicturedObjects.Length; i ++){
+            if (_currentXnodPicturedObjects [i] == objXNode){
+                Debug.Log("Object already pictured : " + objXNode);
+                return true;
+            }
+        }
+        return false;
     }
 
     #endregion

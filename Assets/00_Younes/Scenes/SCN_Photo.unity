@@ -2692,6 +2692,14 @@ PrefabInstance:
       propertyPath: _sequenceMode
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1980162309, guid: 1c1bfa96f62d6f14490a9823be4cb6bc, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1980162311, guid: 1c1bfa96f62d6f14490a9823be4cb6bc, type: 3}
+      propertyPath: PH_PS_NegativeFeedback
+      value: 
+      objectReference: {fileID: 8788110448596776483, guid: 24e8b7d10660e9543949194a16e49e47, type: 3}
     - target: {fileID: 6723211546997363406, guid: 1c1bfa96f62d6f14490a9823be4cb6bc, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
