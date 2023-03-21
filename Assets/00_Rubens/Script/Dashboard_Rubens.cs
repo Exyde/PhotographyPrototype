@@ -47,7 +47,7 @@ public class Dashboard_Rubens : MonoBehaviour
             Destroy(this);
         }
 
-        offSetValueForpicture = transform.position.z - offSetValueForpictureToPut;
+        offSetValueForpicture = transform.position.z + offSetValueForpictureToPut;
     }
 
     private void Start()
