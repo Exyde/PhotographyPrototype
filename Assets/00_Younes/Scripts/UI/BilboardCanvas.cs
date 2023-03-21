@@ -13,6 +13,7 @@ public class BilboardCanvas : MonoBehaviour
 
     void Update()
     {
+        if (_cam == null) return;
         transform.rotation = _cam.transform.rotation;
     }
 }

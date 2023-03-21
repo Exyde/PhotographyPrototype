@@ -11,6 +11,8 @@ public class ElementDashboard : MonoBehaviour, IPointerDownHandler, IBeginDragHa
     
     public void Start()
     {
+        SR = GetComponent<SpriteRenderer>();
+
         if (ObjX != null && ObjX._picture != null)
         {
             SR.sprite = ObjX._picture.GetSprite();
