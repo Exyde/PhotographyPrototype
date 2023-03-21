@@ -155,7 +155,6 @@ public class Polaroid : MonoBehaviour
     }
     
     void SetDashboardPicturesForNextDay(){
-        return; //Remove this line when DB is prod ready
         Dashboard_Rubens.DB.SetPictureForNextDay(_currentXnodPicturedObjects);
     }
     #region Resets
@@ -179,9 +178,10 @@ public class Polaroid : MonoBehaviour
         Picture picture = ScriptableObject.CreateInstance<Picture>(); // @TODO : Save and Load this in database ?
 
         picture.name = _currentXnodPicturedObjects[index].name;
+        
         StartCoroutine(picture.CreateTextureAndSprite());
         _pictures[index] = picture;
-
+        _currentXnodPicturedObjects[index]._picture = picture;
         yield return new WaitForEndOfFrame();
     }
 
