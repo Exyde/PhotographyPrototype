@@ -83,7 +83,7 @@ MonoBehaviour:
   _camState: 0
   _mainCamera: {fileID: 6969860713825500318}
   _dashboardCameraHolder: {fileID: 0}
-  _fpsCameraHolder: {fileID: 3553652086242992560}
+  _fpsCameraHolder: {fileID: 4360570529395404428}
   _fpsCameraPosition: {x: 0, y: 0.5, z: 0.3}
   _moveSpeed: 10
   _walkingSpeed: 7.5
@@ -119,6 +119,7 @@ MonoBehaviour:
   _picturableLayer:
     serializedVersion: 2
     m_Bits: 64
+  _cameraEyesLevel: {fileID: 4360570529395404428}
 --- !u!143 &182418118337499020
 CharacterController:
   m_ObjectHideFlags: 0

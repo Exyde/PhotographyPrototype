@@ -18,6 +18,8 @@ public class Polaroid : MonoBehaviour
     #region Fields
     [Header ("References")] //@TODO : Replace thoses by Static Instance or Singletons ?
     public ObjectManager _objetManager;
+    [SerializeField] Transform _cameraEyesLevel;
+
     [Header ("Preview & Readonly")]
     [SerializeField] State _state = State.Photography;
     [SerializeField] Object_XNod[] _currentXnodPicturedObjects;
@@ -39,6 +41,7 @@ public class Polaroid : MonoBehaviour
 
     public static Action<Object_XNod> OnPictureTaken;
     public static Action OnPolaroidReset;
+
 
     #endregion
 
@@ -107,10 +110,13 @@ public class Polaroid : MonoBehaviour
     PicturableObject GetPicturableObject(){
         RaycastHit hit;
         PicturableObject picturable = null;
-        if (Physics.Raycast(transform.position, transform.forward, out hit, _photographyMaxDistance, _picturableLayer)){
+
+
+        if (Physics.Raycast(_cameraEyesLevel.position, _cameraEyesLevel.forward, out hit, _photographyMaxDistance, _picturableLayer)){
             picturable = hit.collider.gameObject.GetComponent<PicturableObject>();
         }
 
+        //Debug.Log("Picturable : " + picturable.name);
         return picturable;
     }
 
@@ -137,6 +143,7 @@ public class Polaroid : MonoBehaviour
     }
     
     void SetDashboardPicturesForNextDay(){
+        return; //Remove this line when DB is prod ready
         Dashboard_Rubens.DB.SetPictureForNextDay(_currentXnodPicturedObjects);
     }
     #region Resets
@@ -168,7 +175,7 @@ public class Polaroid : MonoBehaviour
     #region Gizmos
     void OnDrawGizmos(){
         Gizmos.color = Color.blue;
-        Gizmos.DrawLine(transform.position, transform.position + transform.forward * _photographyMaxDistance);
+        Gizmos.DrawLine(_cameraEyesLevel.position, _cameraEyesLevel.position + _cameraEyesLevel.forward * _photographyMaxDistance);
     }
     #endregion
 }
