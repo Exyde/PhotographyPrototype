@@ -6,11 +6,23 @@ using TMPro;
 //@Rubens : J'ai enleve les accents qui me spammait derreurs 
 public class HUDManager : MonoBehaviour
 {
+    public static HUDManager _instance;
     public TextMeshProUGUI Subtitle;
     public TextMeshProUGUI CurentTouchAvailable;
     public TextMeshProUGUI CountPicturesLeft;
 
     bool TruePoeticFalseTension = true; //A supprimer quand on aura un gamemanager qui nous dit � quel moment du jeu on est
+
+    private void Awake() {
+        if (_instance == null)
+        {
+            _instance = this;
+        }
+        else
+        {
+            Destroy(this);
+        }
+    }
 
     private void Start()
     {

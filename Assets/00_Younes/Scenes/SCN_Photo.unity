@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.3402051, g: 0.4628803, b: 0.44001406, a: 1}
+  m_IndirectSpecularColor: {r: 0.34046158, g: 0.46311182, b: 0.44025642, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1740,10 +1740,6 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3553652086242992561, guid: 080da32e44fcb264bba5b4be0dd5230d, type: 3}
-      propertyPath: _fpsCameraHolder
-      value: 
-      objectReference: {fileID: 1326340907}
-    - target: {fileID: 3553652086242992561, guid: 080da32e44fcb264bba5b4be0dd5230d, type: 3}
       propertyPath: _dashboardCameraHolder
       value: 
       objectReference: {fileID: 1502181248}
@@ -1753,11 +1749,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 080da32e44fcb264bba5b4be0dd5230d, type: 3}
---- !u!4 &1326340907 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4360570529395404428, guid: 080da32e44fcb264bba5b4be0dd5230d, type: 3}
-  m_PrefabInstance: {fileID: 1326340906}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1502181247
 GameObject:
   m_ObjectHideFlags: 0

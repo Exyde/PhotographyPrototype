@@ -128,7 +128,7 @@ GameObject:
   - component: {fileID: 3134168667198322748}
   - component: {fileID: 3134168667198322744}
   m_Layer: 6
-  m_Name: _PF_ObjectToPicture_Base
+  m_Name: PF_ObjectToPicture_Base
   m_TagString: Picturable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -228,8 +228,11 @@ MonoBehaviour:
   _xNodeObject: {fileID: 0}
   _currentSprite: {fileID: 0}
   _UISprite: {fileID: 0}
-  _color: {r: 1, g: 0.07291321, b: 0, a: 1}
   _text_Name: {fileID: 1085592657937201080}
+  _picturableMaterial: {fileID: 2100000, guid: 5b62d352d553c1943a5668b30698576e, type: 2}
+  _picturedMaterial: {fileID: 2100000, guid: 4ad83a9a8e275d14097fa69396477060, type: 2}
+  _sabotageMaterial: {fileID: 2100000, guid: ec3e4005bddeea244943a6e6e3b3b6f1, type: 2}
+  _color: {r: 1, g: 0.07291321, b: 0, a: 1}
 --- !u!1 &8194749343219474109
 GameObject:
   m_ObjectHideFlags: 0

@@ -6,7 +6,7 @@ using System;
     //Might be a static instance ?
     //Pas prnedre en photo un objet déjà pris ?
 
-    //Todo :
+    //@Todo :
     // Remove Object Manger ref => Event
 
     // Save the picture asset when created for later Game ? [Out of scope]
@@ -16,8 +16,9 @@ enum State{ Photography }
 public class Polaroid : MonoBehaviour
 {
     #region Fields
-    [Header ("References")] //@TODO : Replace thoses by Static Instance or Singletons ?
+    [Header ("References")]
     public ObjectManager _objetManager;
+
     [SerializeField] Transform _cameraEyesLevel;
 
     [Header ("Preview & Readonly")]
@@ -127,11 +128,6 @@ public class Polaroid : MonoBehaviour
         return -1;
     }
 
-    private void ResetPictureTaken()
-    {
-        throw new NotImplementedException();
-    }
-    
     #endregion
     void UpdateXNodObjectPictureTakenTag(){
         if (_currentXnodPicturedObjects == null) return;
@@ -163,6 +159,7 @@ public class Polaroid : MonoBehaviour
     #endregion
 
     IEnumerator CreatePictureScriptable(int index){
+
         Picture picture = ScriptableObject.CreateInstance<Picture>(); // @TODO : Save and Load this in database ?
 
         picture.name = _currentXnodPicturedObjects[index].name;

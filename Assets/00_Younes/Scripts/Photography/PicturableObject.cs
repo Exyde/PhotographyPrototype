@@ -8,10 +8,15 @@ public class PicturableObject : MonoBehaviour
     [SerializeField] Sprite _currentSprite;
     [SerializeField] Sprite _UISprite;
 
-    [SerializeField] Color _color;
 
     [Header("References")]
     [SerializeField] TMP_Text _text_Name;
+
+    [Header("Materials")]
+    [SerializeField] Material _picturableMaterial;
+    [SerializeField] Material _picturedMaterial;
+    [SerializeField] Material _sabotageMaterial;
+    [SerializeField] Color _color;
     MeshRenderer _renderer;
 
     public Object_XNod GetObject_XNod() => _xNodeObject;
