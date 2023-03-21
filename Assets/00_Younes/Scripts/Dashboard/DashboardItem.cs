@@ -3,7 +3,7 @@ using UnityEngine;
 public class DashboardItem : ScriptableObject
 {
     public enum ItemType {
-        Note, Text, Picture, Drawing, QR, Photo //Only picture are generated !!
+        Picture, OtherElement, NarrativeBloc, UnderBloc
     } 
 
     [SerializeField] ItemType _itemType = ItemType.Picture;
