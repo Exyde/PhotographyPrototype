@@ -1,5 +1,693 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-9188614817103831226
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d812f4a61dc9adc409d8784f82bd521b, type: 3}
+  m_Name: 000008
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 1960, y: 696}
+  ports:
+    keys:
+    - PreviousDialogue
+    - NextDialogue
+    values:
+    - _fieldName: PreviousDialogue
+      _node: {fileID: -9188614817103831226}
+      _typeQualifiedName: Dialogue_XNod, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: NextDialogue
+        node: {fileID: 2729632033079425229}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: NextDialogue
+      _node: {fileID: -9188614817103831226}
+      _typeQualifiedName: Dialogue_XNod, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  Tag: 8
+  Dialogue: "Juste \xE0 la droite de l'entr\xE9e il y a mon... euh pardon, son bureau.\nEt
+    \xE0 gauche y a des rangements, tu verras."
+  _curentPriority: 2
+  AudioClipDialogue: {fileID: 0}
+  _bufferTime: 5
+  CanInterupt: 0
+  PreDialogueTime: 0.1
+  PostDialogueTime: 0.36
+  DefaultTime: 5
+  HasBeenRun: 0
+  OperationsAfterRun:
+  - _blackboardName: Dialogues_A
+    _factName: TutoCabine
+    _operation: 1
+    _value: 1
+  Annotation: 
+  IsRecorded: 0
+  IsIntegrated: 0
+  PreviousDialogue: {fileID: 0}
+  NextDialogue: {fileID: 0}
+--- !u!114 &-8128420494439707597
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d812f4a61dc9adc409d8784f82bd521b, type: 3}
+  m_Name: 000011
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 648, y: 1672}
+  ports:
+    keys:
+    - PreviousDialogue
+    - NextDialogue
+    values:
+    - _fieldName: PreviousDialogue
+      _node: {fileID: -8128420494439707597}
+      _typeQualifiedName: Dialogue_XNod, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: NextDialogue
+      _node: {fileID: -8128420494439707597}
+      _typeQualifiedName: Dialogue_XNod, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  Tag: 11
+  Dialogue: 
+  _curentPriority: 2
+  AudioClipDialogue: {fileID: 0}
+  _bufferTime: 5
+  CanInterupt: 0
+  PreDialogueTime: 0.1
+  PostDialogueTime: 0.36
+  DefaultTime: 5
+  HasBeenRun: 0
+  OperationsAfterRun: []
+  Annotation: (texte alternatif au 000009)
+  IsRecorded: 0
+  IsIntegrated: 0
+  PreviousDialogue: {fileID: 0}
+  NextDialogue: {fileID: 0}
+--- !u!114 &-6321698806559132908
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d812f4a61dc9adc409d8784f82bd521b, type: 3}
+  m_Name: 000004
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -216, y: 696}
+  ports:
+    keys:
+    - PreviousDialogue
+    - NextDialogue
+    values:
+    - _fieldName: PreviousDialogue
+      _node: {fileID: -6321698806559132908}
+      _typeQualifiedName: Dialogue_XNod, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: NextDialogue
+      _node: {fileID: -6321698806559132908}
+      _typeQualifiedName: Dialogue_XNod, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: PreviousDialogue
+        node: {fileID: -3707137166054437264}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  Tag: 4
+  Dialogue: "\xC7a, c'est mon tableau de bord. C'est l\xE0 que je mets les infos
+    que j'ai rassembl\xE9es pour mon article."
+  _curentPriority: 2
+  AudioClipDialogue: {fileID: 0}
+  _bufferTime: 5
+  CanInterupt: 0
+  PreDialogueTime: 0.1
+  PostDialogueTime: 0.36
+  DefaultTime: 5
+  HasBeenRun: 0
+  OperationsAfterRun: []
+  Annotation: "Se lance en arrivant pour la premi\xE8re fois devant le tableau de
+    bord / en entrant dans la cabine si le tableau est face au joueur.\n(variable
+    TutoTableau +1 \xE0 la fin de ce bloc)\n(peut \xEAtre relanc\xE9 jusqu'\xE0 compl\xE9tion
+    de l'ensemble du bloc de tuto)"
+  IsRecorded: 0
+  IsIntegrated: 0
+  PreviousDialogue: {fileID: 0}
+  NextDialogue: {fileID: 0}
+--- !u!114 &-4900911417992214041
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d812f4a61dc9adc409d8784f82bd521b, type: 3}
+  m_Name: 000002
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 280, y: -168}
+  ports:
+    keys:
+    - PreviousDialogue
+    - NextDialogue
+    values:
+    - _fieldName: PreviousDialogue
+      _node: {fileID: -4900911417992214041}
+      _typeQualifiedName: Dialogue_XNod, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: NextDialogue
+        node: {fileID: 8571426108218459598}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: NextDialogue
+      _node: {fileID: -4900911417992214041}
+      _typeQualifiedName: Dialogue_XNod, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: PreviousDialogue
+        node: {fileID: -4562694298582350009}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  Tag: 2
+  Dialogue: "On va pouvoir commencer \xE0 bosser."
+  _curentPriority: 2
+  AudioClipDialogue: {fileID: 0}
+  _bufferTime: 5
+  CanInterupt: 0
+  PreDialogueTime: 0.1
+  PostDialogueTime: 0.36
+  DefaultTime: 5
+  HasBeenRun: 0
+  OperationsAfterRun: []
+  Annotation: 
+  IsRecorded: 0
+  IsIntegrated: 0
+  PreviousDialogue: {fileID: 0}
+  NextDialogue: {fileID: 0}
+--- !u!114 &-4812360655268346613
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d812f4a61dc9adc409d8784f82bd521b, type: 3}
+  m_Name: 000014
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 232, y: 2616}
+  ports:
+    keys:
+    - PreviousDialogue
+    - NextDialogue
+    values:
+    - _fieldName: PreviousDialogue
+      _node: {fileID: -4812360655268346613}
+      _typeQualifiedName: Dialogue_XNod, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: NextDialogue
+      _node: {fileID: -4812360655268346613}
+      _typeQualifiedName: Dialogue_XNod, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  Tag: 14
+  Dialogue: "Il se fait tard l\xE0, je vais finir par m'endormir.\nJ'aimerais fouiller
+    la cabine du scientifique avant d'aller me coucher."
+  _curentPriority: 2
+  AudioClipDialogue: {fileID: 0}
+  _bufferTime: 5
+  CanInterupt: 0
+  PreDialogueTime: 0.1
+  PostDialogueTime: 0.36
+  DefaultTime: 5
+  HasBeenRun: 0
+  OperationsAfterRun: []
+  Annotation: (texte alternatif au 000013)
+  IsRecorded: 0
+  IsIntegrated: 0
+  PreviousDialogue: {fileID: 0}
+  NextDialogue: {fileID: 0}
+--- !u!114 &-4743709082395706186
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d812f4a61dc9adc409d8784f82bd521b, type: 3}
+  m_Name: 000019
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 1336, y: 3496}
+  ports:
+    keys:
+    - PreviousDialogue
+    - NextDialogue
+    values:
+    - _fieldName: PreviousDialogue
+      _node: {fileID: -4743709082395706186}
+      _typeQualifiedName: Dialogue_XNod, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: NextDialogue
+      _node: {fileID: -4743709082395706186}
+      _typeQualifiedName: Dialogue_XNod, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  Tag: 19
+  Dialogue: "Roh...\nIl faut vraiment qu'on pense \xE0 prendre des objets en photo
+    avec Clic Gauche."
+  _curentPriority: 2
+  AudioClipDialogue: {fileID: 0}
+  _bufferTime: 5
+  CanInterupt: 0
+  PreDialogueTime: 0.1
+  PostDialogueTime: 0.36
+  DefaultTime: 5
+  HasBeenRun: 0
+  OperationsAfterRun:
+  - _blackboardName: Dialogues_A
+    _factName: Neuneu
+    _operation: 0
+    _value: 0
+  Annotation: "(texte alternatif au 000016)\nse lance en priorit\xE9 par rapport
+    aux autres dialogues possibles\nse lance seulement si la variable Neuneu >= 3"
+  IsRecorded: 0
+  IsIntegrated: 0
+  PreviousDialogue: {fileID: 0}
+  NextDialogue: {fileID: 0}
+--- !u!114 &-4562694298582350009
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d812f4a61dc9adc409d8784f82bd521b, type: 3}
+  m_Name: 000003
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 776, y: -168}
+  ports:
+    keys:
+    - PreviousDialogue
+    - NextDialogue
+    values:
+    - _fieldName: PreviousDialogue
+      _node: {fileID: -4562694298582350009}
+      _typeQualifiedName: Dialogue_XNod, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: NextDialogue
+        node: {fileID: -4900911417992214041}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: NextDialogue
+      _node: {fileID: -4562694298582350009}
+      _typeQualifiedName: Dialogue_XNod, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  Tag: 3
+  Dialogue: Allez, viens avec moi. Je veux te montrer un truc dans ma cabine. C'est
+    celle qui a un hublot.
+  _curentPriority: 2
+  AudioClipDialogue: {fileID: 0}
+  _bufferTime: 5
+  CanInterupt: 0
+  PreDialogueTime: 0.1
+  PostDialogueTime: 0.36
+  DefaultTime: 5
+  HasBeenRun: 0
+  OperationsAfterRun:
+  - _blackboardName: Dialogues_A
+    _factName: DebutJeu
+    _operation: 1
+    _value: 1
+  Annotation: 
+  IsRecorded: 0
+  IsIntegrated: 0
+  PreviousDialogue: {fileID: 0}
+  NextDialogue: {fileID: 0}
+--- !u!114 &-3707137166054437264
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d812f4a61dc9adc409d8784f82bd521b, type: 3}
+  m_Name: 000005
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 280, y: 696}
+  ports:
+    keys:
+    - PreviousDialogue
+    - NextDialogue
+    values:
+    - _fieldName: PreviousDialogue
+      _node: {fileID: -3707137166054437264}
+      _typeQualifiedName: Dialogue_XNod, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: NextDialogue
+        node: {fileID: -6321698806559132908}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: NextDialogue
+      _node: {fileID: -3707137166054437264}
+      _typeQualifiedName: Dialogue_XNod, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: PreviousDialogue
+        node: {fileID: 2432816157435982383}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  Tag: 5
+  Dialogue: "Pour le moment, y a plus de questions que de r\xE9ponses bien s\xFBr
+    !"
+  _curentPriority: 2
+  AudioClipDialogue: {fileID: 0}
+  _bufferTime: 5
+  CanInterupt: 0
+  PreDialogueTime: 0.1
+  PostDialogueTime: 0.36
+  DefaultTime: 5
+  HasBeenRun: 0
+  OperationsAfterRun: []
+  Annotation: 
+  IsRecorded: 0
+  IsIntegrated: 0
+  PreviousDialogue: {fileID: 0}
+  NextDialogue: {fileID: 0}
+--- !u!114 &-2376026741825523279
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d812f4a61dc9adc409d8784f82bd521b, type: 3}
+  m_Name: 000012
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 1080, y: 1672}
+  ports:
+    keys:
+    - PreviousDialogue
+    - NextDialogue
+    values:
+    - _fieldName: PreviousDialogue
+      _node: {fileID: -2376026741825523279}
+      _typeQualifiedName: Dialogue_XNod, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: NextDialogue
+      _node: {fileID: -2376026741825523279}
+      _typeQualifiedName: Dialogue_XNod, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  Tag: 12
+  Dialogue: 
+  _curentPriority: 2
+  AudioClipDialogue: {fileID: 0}
+  _bufferTime: 5
+  CanInterupt: 0
+  PreDialogueTime: 0.1
+  PostDialogueTime: 0.36
+  DefaultTime: 5
+  HasBeenRun: 0
+  OperationsAfterRun: []
+  Annotation: (texte alternatif au 000009)
+  IsRecorded: 0
+  IsIntegrated: 0
+  PreviousDialogue: {fileID: 0}
+  NextDialogue: {fileID: 0}
+--- !u!114 &-1559007806270736854
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d812f4a61dc9adc409d8784f82bd521b, type: 3}
+  m_Name: 000010
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 216, y: 1672}
+  ports:
+    keys:
+    - PreviousDialogue
+    - NextDialogue
+    values:
+    - _fieldName: PreviousDialogue
+      _node: {fileID: -1559007806270736854}
+      _typeQualifiedName: Dialogue_XNod, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: NextDialogue
+      _node: {fileID: -1559007806270736854}
+      _typeQualifiedName: Dialogue_XNod, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  Tag: 10
+  Dialogue: 
+  _curentPriority: 2
+  AudioClipDialogue: {fileID: 0}
+  _bufferTime: 5
+  CanInterupt: 0
+  PreDialogueTime: 0.1
+  PostDialogueTime: 0.36
+  DefaultTime: 5
+  HasBeenRun: 0
+  OperationsAfterRun: []
+  Annotation: (texte alternatif au 000009)
+  IsRecorded: 0
+  IsIntegrated: 0
+  PreviousDialogue: {fileID: 0}
+  NextDialogue: {fileID: 0}
+--- !u!114 &-1455347884109260672
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d812f4a61dc9adc409d8784f82bd521b, type: 3}
+  m_Name: 000009
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -216, y: 1672}
+  ports:
+    keys:
+    - PreviousDialogue
+    - NextDialogue
+    values:
+    - _fieldName: PreviousDialogue
+      _node: {fileID: -1455347884109260672}
+      _typeQualifiedName: Dialogue_XNod, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: NextDialogue
+      _node: {fileID: -1455347884109260672}
+      _typeQualifiedName: Dialogue_XNod, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  Tag: 9
+  Dialogue: "Ok, c'est parti, soyons prudents, il faut pas le r\xE9veiller."
+  _curentPriority: 2
+  AudioClipDialogue: {fileID: 0}
+  _bufferTime: 5
+  CanInterupt: 0
+  PreDialogueTime: 0.1
+  PostDialogueTime: 0.36
+  DefaultTime: 5
+  HasBeenRun: 0
+  OperationsAfterRun: []
+  Annotation: "se lance en entrant dans la cabine / \xE0 l'entr\xE9e de la cabine
+    du scientifique\n(dit en chuchotant)\n(\xEAtre s\xFBr que \xE7a s'active seulement
+    quand le joueur rentre dans la cabine et pas juste en se mettant devant la porte
+    par exemple)"
+  IsRecorded: 0
+  IsIntegrated: 0
+  PreviousDialogue: {fileID: 0}
+  NextDialogue: {fileID: 0}
+--- !u!114 &-225717772780788000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d812f4a61dc9adc409d8784f82bd521b, type: 3}
+  m_Name: 000013
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -200, y: 2616}
+  ports:
+    keys:
+    - PreviousDialogue
+    - NextDialogue
+    values:
+    - _fieldName: PreviousDialogue
+      _node: {fileID: -225717772780788000}
+      _typeQualifiedName: Dialogue_XNod, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: NextDialogue
+      _node: {fileID: -225717772780788000}
+      _typeQualifiedName: Dialogue_XNod, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  Tag: 13
+  Dialogue: 'Bon, est-ce que ce serait pas l''heure d''aller fouiller c''te cabine
+    ?
+
+    Je pense qu''il doit dormir maintenant.'
+  _curentPriority: 2
+  AudioClipDialogue: {fileID: 0}
+  _bufferTime: 5
+  CanInterupt: 0
+  PreDialogueTime: 0.1
+  PostDialogueTime: 0.36
+  DefaultTime: 5
+  HasBeenRun: 0
+  OperationsAfterRun: []
+  Annotation: "Se lance si le joueur a attendu trop longtemps sur le pont du bateau
+    dans le temps pr\xE9-po\xE9tique sans entrer dans la cabine du scientifique.\n(toutes
+    les 3 minutes ?)\nle texte peut \xEAtre rejou\xE9 en boucle tant que le joueur
+    ne va pas dans la cabine du scientifique"
+  IsRecorded: 0
+  IsIntegrated: 0
+  PreviousDialogue: {fileID: 0}
+  NextDialogue: {fileID: 0}
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15,12 +703,27 @@ MonoBehaviour:
   nodes:
   - {fileID: 2841136612804665393}
   - {fileID: 8571426108218459598}
-  - {fileID: 6632302056702439856}
-  - {fileID: 8982835798130484232}
-  - {fileID: 2222530509028265788}
-  lastTagAtrributed: 3
+  - {fileID: -4900911417992214041}
+  - {fileID: -4562694298582350009}
+  - {fileID: -6321698806559132908}
+  - {fileID: -3707137166054437264}
+  - {fileID: 2432816157435982383}
+  - {fileID: 2729632033079425229}
+  - {fileID: -9188614817103831226}
+  - {fileID: -1455347884109260672}
+  - {fileID: -1559007806270736854}
+  - {fileID: -8128420494439707597}
+  - {fileID: -2376026741825523279}
+  - {fileID: -225717772780788000}
+  - {fileID: -4812360655268346613}
+  - {fileID: 1193217719327904225}
+  - {fileID: 5669867170239349013}
+  - {fileID: 8421863862731843445}
+  - {fileID: 5127233226105351939}
+  - {fileID: -4743709082395706186}
+  lastTagAtrributed: 19
   tagsDeleted: 
---- !u!114 &2222530509028265788
+--- !u!114 &1193217719327904225
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -30,29 +733,26 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d812f4a61dc9adc409d8784f82bd521b, type: 3}
-  m_Name: 000003
+  m_Name: 000015
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 920, y: 200}
+  position: {x: 664, y: 2616}
   ports:
     keys:
     - PreviousDialogue
     - NextDialogue
     values:
     - _fieldName: PreviousDialogue
-      _node: {fileID: 2222530509028265788}
+      _node: {fileID: 1193217719327904225}
       _typeQualifiedName: Dialogue_XNod, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
-      connections:
-      - fieldName: NextDialogueIfFalse
-        node: {fileID: 6632302056702439856}
-        reroutePoints: []
+      connections: []
       _direction: 0
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 0
     - _fieldName: NextDialogue
-      _node: {fileID: 2222530509028265788}
+      _node: {fileID: 1193217719327904225}
       _typeQualifiedName: Dialogue_XNod, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
       connections: []
@@ -60,8 +760,8 @@ MonoBehaviour:
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 0
-  Tag: 3
-  Dialogue: "Je ne suis pas encore trop fatigu\xE9 en vrai de vrai."
+  Tag: 15
+  Dialogue: "*ba\xEElle*\nDemain faudra vraiment que j'me couche t\xF4t."
   _curentPriority: 2
   AudioClipDialogue: {fileID: 0}
   _bufferTime: 5
@@ -69,9 +769,130 @@ MonoBehaviour:
   PreDialogueTime: 0.1
   PostDialogueTime: 0.36
   DefaultTime: 5
-  HasBeenRun: 1
+  HasBeenRun: 0
   OperationsAfterRun: []
+  Annotation: (texte alternatif au 000013)
+  IsRecorded: 0
+  IsIntegrated: 0
+  PreviousDialogue: {fileID: 0}
+  NextDialogue: {fileID: 0}
+--- !u!114 &2432816157435982383
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d812f4a61dc9adc409d8784f82bd521b, type: 3}
+  m_Name: 000006
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 776, y: 696}
+  ports:
+    keys:
+    - PreviousDialogue
+    - NextDialogue
+    values:
+    - _fieldName: PreviousDialogue
+      _node: {fileID: 2432816157435982383}
+      _typeQualifiedName: Dialogue_XNod, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: NextDialogue
+        node: {fileID: -3707137166054437264}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: NextDialogue
+      _node: {fileID: 2432816157435982383}
+      _typeQualifiedName: Dialogue_XNod, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  Tag: 6
+  Dialogue: "Tu pourras t'en servir toi aussi, t'inqui\xE8tes."
+  _curentPriority: 2
+  AudioClipDialogue: {fileID: 0}
+  _bufferTime: 5
+  CanInterupt: 0
+  PreDialogueTime: 0.1
+  PostDialogueTime: 0.36
+  DefaultTime: 5
+  HasBeenRun: 0
+  OperationsAfterRun:
+  - _blackboardName: Dialogues_A
+    _factName: TutoTableau
+    _operation: 1
+    _value: 1
   Annotation: 
+  IsRecorded: 0
+  IsIntegrated: 0
+  PreviousDialogue: {fileID: 0}
+  NextDialogue: {fileID: 0}
+--- !u!114 &2729632033079425229
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d812f4a61dc9adc409d8784f82bd521b, type: 3}
+  m_Name: 000007
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 1448, y: 696}
+  ports:
+    keys:
+    - PreviousDialogue
+    - NextDialogue
+    values:
+    - _fieldName: PreviousDialogue
+      _node: {fileID: 2729632033079425229}
+      _typeQualifiedName: Dialogue_XNod, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: NextDialogue
+      _node: {fileID: 2729632033079425229}
+      _typeQualifiedName: Dialogue_XNod, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: PreviousDialogue
+        node: {fileID: -9188614817103831226}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  Tag: 7
+  Dialogue: "Bon j'te fais l'topo : \xE7a c'est la cabine du scientifique. Au fond
+    \xE0 droite c'est son lit, donc faut faire attention \xE0 pas le r\xE9veiller."
+  _curentPriority: 2
+  AudioClipDialogue: {fileID: 0}
+  _bufferTime: 5
+  CanInterupt: 0
+  PreDialogueTime: 0.1
+  PostDialogueTime: 0.36
+  DefaultTime: 5
+  HasBeenRun: 0
+  OperationsAfterRun: []
+  Annotation: "Se lance devant le plan de la cabine du scientifique. Ce plan est
+    coll\xE9 sur la porte de la cabine de pilotage, \xE0 l'int\xE9rieur, ce qui fait
+    que le joueur est more likely de tomber dessus en quittant la cabine de pilotage
+    pour aller vers la cabine du scientifique.\n(peut \xEAtre relanc\xE9 jusqu'\xE0
+    compl\xE9tion de l'ensemble du bloc de tuto)"
   IsRecorded: 0
   IsIntegrated: 0
   PreviousDialogue: {fileID: 0}
@@ -89,20 +910,32 @@ MonoBehaviour:
   m_Name: Blackboard_X
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -344, y: -504}
+  position: {x: -1128, y: -168}
   ports:
     keys: []
     values: []
-  User: Toi
+  User: Arthur
   ListBlackboard:
-  - name: Blackboard INSANE
-    BlackboardName: INSANE
+  - name: Blackboard Dialogues_A
+    BlackboardName: Dialogues_A
     Facts:
-    - name: Fatigue
-      FactName: Fatigue
-      CurrentFactValue: 14
+    - name: DebutJeu
+      FactName: DebutJeu
+      CurrentFactValue: 0
       DefaultFactValue: 0
---- !u!114 &6632302056702439856
+    - name: TutoTableau
+      FactName: TutoTableau
+      CurrentFactValue: 0
+      DefaultFactValue: 0
+    - name: TutoCabine
+      FactName: TutoCabine
+      CurrentFactValue: 0
+      DefaultFactValue: 0
+    - name: Neuneu
+      FactName: Neuneu
+      CurrentFactValue: 0
+      DefaultFactValue: 0
+--- !u!114 &5127233226105351939
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -111,61 +944,171 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 684de05b9eb7f644f91ca8f5f0cf5b55, type: 3}
-  m_Name: Branch_X
+  m_Script: {fileID: 11500000, guid: d812f4a61dc9adc409d8784f82bd521b, type: 3}
+  m_Name: 000018
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 336.29163, y: 10.384697}
+  position: {x: 664, y: 3496}
   ports:
     keys:
     - PreviousDialogue
-    - NextDialogueIfTrue
-    - NextDialogueIfFalse
+    - NextDialogue
     values:
     - _fieldName: PreviousDialogue
-      _node: {fileID: 6632302056702439856}
+      _node: {fileID: 5127233226105351939}
       _typeQualifiedName: Dialogue_XNod, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
-      connections:
-      - fieldName: NextDialogue
-        node: {fileID: 8571426108218459598}
-        reroutePoints: []
+      connections: []
       _direction: 0
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 0
-    - _fieldName: NextDialogueIfTrue
-      _node: {fileID: 6632302056702439856}
+    - _fieldName: NextDialogue
+      _node: {fileID: 5127233226105351939}
       _typeQualifiedName: Dialogue_XNod, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
-      connections:
-      - fieldName: PreviousDialogue
-        node: {fileID: 8982835798130484232}
-        reroutePoints: []
+      connections: []
       _direction: 1
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 0
-    - _fieldName: NextDialogueIfFalse
-      _node: {fileID: 6632302056702439856}
-      _typeQualifiedName: Dialogue_XNod, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
-      connections:
-      - fieldName: PreviousDialogue
-        node: {fileID: 2222530509028265788}
-        reroutePoints: []
-      _direction: 1
-      _connectionType: 0
-      _typeConstraint: 0
-      _dynamic: 0
-  FactsCondition:
-  - _blackboardName: INSANE
-    _factName: Fatigue
-    _comparaison: 3
-    _value: 10
+  Tag: 18
+  Dialogue: "Oh non, on a oubli\xE9 de prendre des photos dans la cabine !"
+  _curentPriority: 2
+  AudioClipDialogue: {fileID: 0}
+  _bufferTime: 5
+  CanInterupt: 0
+  PreDialogueTime: 0.1
+  PostDialogueTime: 0.36
+  DefaultTime: 5
+  HasBeenRun: 0
+  OperationsAfterRun:
+  - _blackboardName: Dialogues_A
+    _factName: Neuneu
+    _operation: 1
+    _value: 1
+  Annotation: (texte alternatif au 000016)
+  IsRecorded: 0
+  IsIntegrated: 0
   PreviousDialogue: {fileID: 0}
-  NextDialogueIfTrue: {fileID: 0}
-  NextDialogueIfFalse: {fileID: 0}
+  NextDialogue: {fileID: 0}
+--- !u!114 &5669867170239349013
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d812f4a61dc9adc409d8784f82bd521b, type: 3}
+  m_Name: 000016
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -200, y: 3496}
+  ports:
+    keys:
+    - PreviousDialogue
+    - NextDialogue
+    values:
+    - _fieldName: PreviousDialogue
+      _node: {fileID: 5669867170239349013}
+      _typeQualifiedName: Dialogue_XNod, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: NextDialogue
+      _node: {fileID: 5669867170239349013}
+      _typeQualifiedName: Dialogue_XNod, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  Tag: 16
+  Dialogue: "On aurait d\xFB prendre des photos quand m\xEAme... au moins pour illustrer
+    mon article."
+  _curentPriority: 2
+  AudioClipDialogue: {fileID: 0}
+  _bufferTime: 5
+  CanInterupt: 0
+  PreDialogueTime: 0.1
+  PostDialogueTime: 0.36
+  DefaultTime: 5
+  HasBeenRun: 0
+  OperationsAfterRun:
+  - _blackboardName: Dialogues_A
+    _factName: Neuneu
+    _operation: 1
+    _value: 1
+  Annotation: Se lance si le joueur sort / est sorti de force de la cabine du scientifique
+    sans avoir pris de photo.
+  IsRecorded: 0
+  IsIntegrated: 0
+  PreviousDialogue: {fileID: 0}
+  NextDialogue: {fileID: 0}
+--- !u!114 &8421863862731843445
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d812f4a61dc9adc409d8784f82bd521b, type: 3}
+  m_Name: 000017
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 232, y: 3496}
+  ports:
+    keys:
+    - PreviousDialogue
+    - NextDialogue
+    values:
+    - _fieldName: PreviousDialogue
+      _node: {fileID: 8421863862731843445}
+      _typeQualifiedName: Dialogue_XNod, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: NextDialogue
+      _node: {fileID: 8421863862731843445}
+      _typeQualifiedName: Dialogue_XNod, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  Tag: 17
+  Dialogue: "On n'a pas pris de photo, je vais avoir du mal \xE0 \xE9crire mon article
+    de t\xEAte..."
+  _curentPriority: 2
+  AudioClipDialogue: {fileID: 0}
+  _bufferTime: 5
+  CanInterupt: 0
+  PreDialogueTime: 0.1
+  PostDialogueTime: 0.36
+  DefaultTime: 5
+  HasBeenRun: 0
+  OperationsAfterRun:
+  - _blackboardName: Dialogues_A
+    _factName: Neuneu
+    _operation: 1
+    _value: 1
+  Annotation: (texte alternatif au 000016)
+  IsRecorded: 0
+  IsIntegrated: 0
+  PreviousDialogue: {fileID: 0}
+  NextDialogue: {fileID: 0}
 --- !u!114 &8571426108218459598
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -200,75 +1143,14 @@ MonoBehaviour:
         PublicKeyToken=null
       connections:
       - fieldName: PreviousDialogue
-        node: {fileID: 6632302056702439856}
+        node: {fileID: -4900911417992214041}
         reroutePoints: []
       _direction: 1
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 0
   Tag: 1
-  Dialogue: Fiouh lou lou, quel ennui.
-  _curentPriority: 2
-  AudioClipDialogue: {fileID: 0}
-  _bufferTime: 5
-  CanInterupt: 0
-  PreDialogueTime: 0.1
-  PostDialogueTime: 0.36
-  DefaultTime: 5
-  HasBeenRun: 1
-  OperationsAfterRun:
-  - _blackboardName: INSANE
-    _factName: Fatigue
-    _operation: 1
-    _value: 1
-  Annotation: 
-  IsRecorded: 0
-  IsIntegrated: 0
-  PreviousDialogue: {fileID: 0}
-  NextDialogue: {fileID: 0}
---- !u!114 &8982835798130484232
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d812f4a61dc9adc409d8784f82bd521b, type: 3}
-  m_Name: 000002
-  m_EditorClassIdentifier: 
-  graph: {fileID: 11400000}
-  position: {x: 904, y: -312}
-  ports:
-    keys:
-    - PreviousDialogue
-    - NextDialogue
-    values:
-    - _fieldName: PreviousDialogue
-      _node: {fileID: 8982835798130484232}
-      _typeQualifiedName: Dialogue_XNod, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
-      connections:
-      - fieldName: NextDialogueIfTrue
-        node: {fileID: 6632302056702439856}
-        reroutePoints: []
-      _direction: 0
-      _connectionType: 0
-      _typeConstraint: 0
-      _dynamic: 0
-    - _fieldName: NextDialogue
-      _node: {fileID: 8982835798130484232}
-      _typeQualifiedName: Dialogue_XNod, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
-      connections: []
-      _direction: 1
-      _connectionType: 0
-      _typeConstraint: 0
-      _dynamic: 0
-  Tag: 2
-  Dialogue: "Qu'est-ce que je suis fatigu\xE9 putain de merde fait chier casse les
-    couilles merde ces gens qui m'emmerdent putain de merde fait chier putaaaaaaain."
+  Dialogue: "Ah, enfin te voil\xE0 !"
   _curentPriority: 2
   AudioClipDialogue: {fileID: 0}
   _bufferTime: 5
@@ -278,7 +1160,8 @@ MonoBehaviour:
   DefaultTime: 5
   HasBeenRun: 1
   OperationsAfterRun: []
-  Annotation: 
+  Annotation: "Se lance au d\xE9but du jeu.\n(variable DebutJeu +1 \xE0 la fin de
+    ce bloc)"
   IsRecorded: 0
   IsIntegrated: 0
   PreviousDialogue: {fileID: 0}
