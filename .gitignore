@@ -63,3 +63,7 @@ Assets/Ludiq.meta
 Assets/Ludiq.Generated.meta
 
 *.pfx
+Logs/AssetImportWorker0.log
+Logs/shadercompiler-AssetImportWorker0.log
+UserSettings/EditorUserSettings.asset
+UserSettings/Layouts/default-2021.dwlt

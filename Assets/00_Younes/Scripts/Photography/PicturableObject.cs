@@ -21,6 +21,9 @@ public class PicturableObject : MonoBehaviour
 
     public Object_XNod GetObject_XNod() => _xNodeObject;
 
+    private void Awake() {
+        if (_xNodeObject != null) Initialize(_xNodeObject);
+    }
     public void Initialize(Object_XNod objectXNode){
         this._xNodeObject = objectXNode;
 

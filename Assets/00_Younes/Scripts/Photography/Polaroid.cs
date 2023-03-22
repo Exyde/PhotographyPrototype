@@ -158,7 +158,9 @@ public class Polaroid : MonoBehaviour
     }
     
     void SetDashboardPicturesForNextDay(){
-        Dashboard_Rubens.DB.SetPictureForNextDay(_currentXnodPicturedObjects);
+        if (Dashboard_Rubens.DB != null){
+            Dashboard_Rubens.DB.SetPictureForNextDay(_currentXnodPicturedObjects);
+        }
     }
     #region Resets
 
