@@ -67,4 +67,6 @@ public class MeteoManager : MonoBehaviour, IGameEventManager {
             Logger.LogInfo("Get ready for the storm");
         }
     }
+
+    //Skybox Lerp
 }

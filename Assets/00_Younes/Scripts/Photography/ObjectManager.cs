@@ -25,6 +25,11 @@ public class ObjectManager : MonoBehaviour
         else{
             Destroy(this);
         }
+
+        if (_cabineSpawnPoints == null){
+            Logger.LogInfo("No spawn points set. Disabling Object Manager !");
+            gameObject.SetActive(false);
+        }
     }
     void Start()
     {

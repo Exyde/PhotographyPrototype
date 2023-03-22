@@ -914,7 +914,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8659032588903690143, guid: 1c1bfa96f62d6f14490a9823be4cb6bc, type: 3}
       propertyPath: _defaultTransitionDuration
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 9080149719216254721, guid: 1c1bfa96f62d6f14490a9823be4cb6bc, type: 3}
       propertyPath: m_RootOrder
