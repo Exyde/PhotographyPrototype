@@ -333,6 +333,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _defaultTransitionDuration: 1
   _screenFader: {fileID: 4455116269186733601}
+  _normalColor: {r: 0, g: 0, b: 0, a: 0}
+  _blackColor: {r: 0, g: 0, b: 0, a: 1}
 --- !u!1 &6961162608577018665
 GameObject:
   m_ObjectHideFlags: 0
