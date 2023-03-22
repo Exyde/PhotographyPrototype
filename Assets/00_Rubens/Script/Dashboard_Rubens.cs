@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using System.Linq;
+using UnityEngine.EventSystems;
 
-public class Dashboard_Rubens : MonoBehaviour
+public class Dashboard_Rubens : MonoBehaviour, IScrollHandler
 {
     #region variables
 
@@ -29,6 +30,12 @@ public class Dashboard_Rubens : MonoBehaviour
     [SerializeField] Transform MaxBotElement;
     [SerializeField] Transform MaxRightElement;
     [SerializeField] Transform MaxLeftElement;
+
+    [SerializeField] Transform CameraLimitationTopRight;
+    [SerializeField] Transform CameraLimitationBotRight;
+    [SerializeField] Transform CameraLimitationTopLeft;
+    [SerializeField] Transform CameraLimitationBotLeft;
+    Vector3 CameraLimitationCenter;
 
     [SerializeField] Transform ParentOfElements;
 
@@ -60,6 +67,9 @@ public class Dashboard_Rubens : MonoBehaviour
 
         CameraManager.CM.CameraDashboard = CameraForDashboard;
         CameraManager.CM.EmplacementCameraDashboard = EmplacementCamera;
+
+        CameraLimitationCenter = CameraLimitationBotLeft.position + (1 / 2) *(-CameraLimitationBotLeft.position + CameraLimitationBotRight.position) + (1 / 2) * (-CameraLimitationBotLeft.position + CameraLimitationTopLeft.position);
+
     }
 
     private void OnEnable()
@@ -101,6 +111,53 @@ public class Dashboard_Rubens : MonoBehaviour
         }
 
         _objectToInstanciateOnDashboard.Clear();
+    }
+
+    public void OnScroll(PointerEventData eventData)
+    {
+        int SensOfZoom = (int)eventData.scrollDelta.y;
+
+        Vector3 DirectionOfZoom = Vector3.zero;
+
+        if (SensOfZoom < 0)
+        {
+            DirectionOfZoom = EmplacementCamera.position - CameraForDashboard.transform.position;
+        }
+        else 
+        {
+            DirectionOfZoom = eventData.pointerCurrentRaycast.worldPosition - CameraForDashboard.transform.position;
+        }
+
+        DirectionOfZoom = DirectionOfZoom.normalized;
+
+        Vector3 NextPosition = CameraForDashboard.transform.position + DirectionOfZoom * 0.1f;
+
+        Vector3 ClosestPointOnLineBaseSommet = GetClosestPointOnLine(-EmplacementCamera.position, CameraLimitationCenter, NextPosition);
+
+        if ((-CameraLimitationCenter + ClosestPointOnLineBaseSommet).magnitude >= (-CameraLimitationCenter + EmplacementCamera.position).magnitude)
+        {
+            CameraForDashboard.transform.position = EmplacementCamera.position;
+            return;
+        }
+
+        if ((-EmplacementCamera.position + ClosestPointOnLineBaseSommet).magnitude >= .9f * (-EmplacementCamera.position + CameraLimitationCenter).magnitude)
+        {
+            return;
+        }
+
+        CameraForDashboard.transform.position = NextPosition;
+
+    }
+
+    public Vector3 GetClosestPointOnLine(Vector3 A, Vector3 B, Vector3 C)
+    //Merci ChatGpt => "trouver le point sur une ligne AB le plus proche d'un point C dans un espace 3D"
+    {
+        Vector3 AB = B - A;
+        Vector3 AC = C - A;
+        float ab2 = Vector3.Dot(AB, AB);
+        float abac = Vector3.Dot(AB, AC);
+        float t = abac / ab2;
+        return A + AB * t;
     }
 
 }

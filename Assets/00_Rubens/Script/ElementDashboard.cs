@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class ElementDashboard : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IEndDragHandler, IDragHandler
+public class ElementDashboard : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IEndDragHandler, IDragHandler, IScrollHandler
 {
     public Object_XNod ObjX;
 
@@ -50,4 +50,8 @@ public class ElementDashboard : MonoBehaviour, IPointerDownHandler, IBeginDragHa
         
     }
 
+    public void OnScroll(PointerEventData eventData)
+    {
+        Debug.Log("Scrolling");
+    }
 }
