@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Skybox_Terraforming
+  m_Name: Skybox_Military 1
   m_Shader: {fileID: -6465566751694194690, guid: 56c0c4620cd091c45b898c400c6a690c, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
@@ -21,7 +21,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _Cloud_Texture:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 64d3c8d56ec07724295f5bccc3013e69, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Texture2DAsset_f3e60fcf799d41b89088b4f6c734e390_Out_0:
@@ -42,20 +42,20 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Cloud_Edge: 0.312
-    - _Cloud_Height: 0.041
-    - _Cloud_Speed: 0.269
+    - _Cloud_Edge: 0.938
+    - _Cloud_Height: 0.171
+    - _Cloud_Speed: 0.65
     - _Fog_Height: 0
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _Star_Density: 100
-    - _SunSize: 0.41
-    - _Sun_Mask_Size: 0.24
+    - _Star_Density: 400.14764
+    - _SunSize: 0.8
+    - _Sun_Mask_Size: 0.655
     m_Colors:
-    - _Cloud_Color: {r: 0, g: 0, b: 0, a: 0}
-    - _HorizonColor: {r: 0.1904477, g: 0, b: 0.26415092, a: 1}
-    - _SkyColor: {r: 0.8207547, g: 0.36779103, b: 0.51167357, a: 1}
-    - _Sun_Color: {r: 6.053552, g: 0.3627084, b: 0, a: 1}
+    - _Cloud_Color: {r: 0.37037206, g: 0.38679248, b: 0.38157555, a: 1}
+    - _HorizonColor: {r: 0.00012447133, g: 0.0001128926, b: 0.00012736602, a: 1}
+    - _SkyColor: {r: 0.99978, g: 0.9998958, b: 0.9998929, a: 1}
+    - _Sun_Color: {r: 1.7540778, g: 3.4116008, b: 2.9160914, a: 1}
   m_BuildTextureStacks: []
 --- !u!114 &5810522361938999087
 MonoBehaviour:
