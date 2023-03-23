@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 2100000, guid: 6fe6f5dbdbcb5c340a28b99b81169dc8, type: 2}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 685d28c460cb2794d89aa439e0f3af33, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.19994406, g: 0.20361888, b: 0.20244142, a: 1}
+  m_IndirectSpecularColor: {r: 0.10166131, g: 0.10276676, b: 0.15354867, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1030,6 +1030,7 @@ GameObject:
   - component: {fileID: 705507995}
   - component: {fileID: 705507994}
   - component: {fileID: 705507996}
+  - component: {fileID: 705507997}
   m_Layer: 0
   m_Name: Directional Light
   m_TagString: Untagged
@@ -1134,6 +1135,18 @@ MonoBehaviour:
   m_ShadowLayerMask: 1
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
+--- !u!114 &705507997
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 705507993}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38af348c17ec3a349bd22f57f7493542, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &721216747
 GameObject:
   m_ObjectHideFlags: 0
@@ -2001,7 +2014,7 @@ MonoBehaviour:
   priority: 0
   blendDistance: 0
   weight: 1
-  sharedProfile: {fileID: 11400000, guid: a464f9d66cec6004ba540be84be6fc50, type: 2}
+  sharedProfile: {fileID: 11400000, guid: c4d603ad4fbf1964e8ef380be3f3b6a3, type: 2}
 --- !u!4 &1835567720
 Transform:
   m_ObjectHideFlags: 0
@@ -2499,206 +2512,6 @@ PrefabInstance:
     - target: {fileID: 1980162309, guid: 1c1bfa96f62d6f14490a9823be4cb6bc, type: 3}
       propertyPath: m_IsActive
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4655354871080028739, guid: 1c1bfa96f62d6f14490a9823be4cb6bc, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4742980094714701280, guid: 1c1bfa96f62d6f14490a9823be4cb6bc, type: 3}
-      propertyPath: _skyboxLerper.matA
-      value: 
-      objectReference: {fileID: 2100000, guid: 6fe6f5dbdbcb5c340a28b99b81169dc8, type: 2}
-    - target: {fileID: 4742980094714701280, guid: 1c1bfa96f62d6f14490a9823be4cb6bc, type: 3}
-      propertyPath: _skyboxLerper.matB
-      value: 
-      objectReference: {fileID: 2100000, guid: 685d28c460cb2794d89aa439e0f3af33, type: 2}
-    - target: {fileID: 4742980094714701280, guid: 1c1bfa96f62d6f14490a9823be4cb6bc, type: 3}
-      propertyPath: _skyboxLerper._timeToLerp
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 4742980094714701280, guid: 1c1bfa96f62d6f14490a9823be4cb6bc, type: 3}
-      propertyPath: _skyboxLerper._skyboxSettingsA._sunSize
-      value: 0.48
-      objectReference: {fileID: 0}
-    - target: {fileID: 4742980094714701280, guid: 1c1bfa96f62d6f14490a9823be4cb6bc, type: 3}
-      propertyPath: _skyboxLerper._skyboxSettingsB._sunSize
-      value: 0.274
-      objectReference: {fileID: 0}
-    - target: {fileID: 4742980094714701280, guid: 1c1bfa96f62d6f14490a9823be4cb6bc, type: 3}
-      propertyPath: _skyboxLerper._skyboxSettingsA._cloudEdge
-      value: 0.6
-      objectReference: {fileID: 0}
-    - target: {fileID: 4742980094714701280, guid: 1c1bfa96f62d6f14490a9823be4cb6bc, type: 3}
-      propertyPath: _skyboxLerper._skyboxSettingsB._cloudEdge
-      value: 0.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 4742980094714701280, guid: 1c1bfa96f62d6f14490a9823be4cb6bc, type: 3}
-      propertyPath: _skyboxLerper._skyboxSettingsA._cloudSpeed
-      value: 0.6
-      objectReference: {fileID: 0}
-    - target: {fileID: 4742980094714701280, guid: 1c1bfa96f62d6f14490a9823be4cb6bc, type: 3}
-      propertyPath: _skyboxLerper._skyboxSettingsA._skyColor.a
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4742980094714701280, guid: 1c1bfa96f62d6f14490a9823be4cb6bc, type: 3}
-      propertyPath: _skyboxLerper._skyboxSettingsA._skyColor.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4742980094714701280, guid: 1c1bfa96f62d6f14490a9823be4cb6bc, type: 3}
-      propertyPath: _skyboxLerper._skyboxSettingsA._skyColor.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4742980094714701280, guid: 1c1bfa96f62d6f14490a9823be4cb6bc, type: 3}
-      propertyPath: _skyboxLerper._skyboxSettingsA._skyColor.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4742980094714701280, guid: 1c1bfa96f62d6f14490a9823be4cb6bc, type: 3}
-      propertyPath: _skyboxLerper._skyboxSettingsA._sunColor.a
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4742980094714701280, guid: 1c1bfa96f62d6f14490a9823be4cb6bc, type: 3}
-      propertyPath: _skyboxLerper._skyboxSettingsA._sunColor.b
-      value: 0.015686275
-      objectReference: {fileID: 0}
-    - target: {fileID: 4742980094714701280, guid: 1c1bfa96f62d6f14490a9823be4cb6bc, type: 3}
-      propertyPath: _skyboxLerper._skyboxSettingsA._sunColor.g
-      value: 2.8392158
-      objectReference: {fileID: 0}
-    - target: {fileID: 4742980094714701280, guid: 1c1bfa96f62d6f14490a9823be4cb6bc, type: 3}
-      propertyPath: _skyboxLerper._skyboxSettingsA._sunColor.r
-      value: 3.9843137
-      objectReference: {fileID: 0}
-    - target: {fileID: 4742980094714701280, guid: 1c1bfa96f62d6f14490a9823be4cb6bc, type: 3}
-      propertyPath: _skyboxLerper._skyboxSettingsB._cloudSpeed
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4742980094714701280, guid: 1c1bfa96f62d6f14490a9823be4cb6bc, type: 3}
-      propertyPath: _skyboxLerper._skyboxSettingsB._skyColor.a
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4742980094714701280, guid: 1c1bfa96f62d6f14490a9823be4cb6bc, type: 3}
-      propertyPath: _skyboxLerper._skyboxSettingsB._skyColor.b
-      value: 0.5647059
-      objectReference: {fileID: 0}
-    - target: {fileID: 4742980094714701280, guid: 1c1bfa96f62d6f14490a9823be4cb6bc, type: 3}
-      propertyPath: _skyboxLerper._skyboxSettingsB._skyColor.g
-      value: 0.5764706
-      objectReference: {fileID: 0}
-    - target: {fileID: 4742980094714701280, guid: 1c1bfa96f62d6f14490a9823be4cb6bc, type: 3}
-      propertyPath: _skyboxLerper._skyboxSettingsB._skyColor.r
-      value: 0.105882354
-      objectReference: {fileID: 0}
-    - target: {fileID: 4742980094714701280, guid: 1c1bfa96f62d6f14490a9823be4cb6bc, type: 3}
-      propertyPath: _skyboxLerper._skyboxSettingsB._sunColor.a
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4742980094714701280, guid: 1c1bfa96f62d6f14490a9823be4cb6bc, type: 3}
-      propertyPath: _skyboxLerper._skyboxSettingsB._sunColor.b
-      value: 3.9843137
-      objectReference: {fileID: 0}
-    - target: {fileID: 4742980094714701280, guid: 1c1bfa96f62d6f14490a9823be4cb6bc, type: 3}
-      propertyPath: _skyboxLerper._skyboxSettingsB._sunColor.g
-      value: 3.137255
-      objectReference: {fileID: 0}
-    - target: {fileID: 4742980094714701280, guid: 1c1bfa96f62d6f14490a9823be4cb6bc, type: 3}
-      propertyPath: _skyboxLerper._skyboxSettingsB._sunColor.r
-      value: 0.0627451
-      objectReference: {fileID: 0}
-    - target: {fileID: 4742980094714701280, guid: 1c1bfa96f62d6f14490a9823be4cb6bc, type: 3}
-      propertyPath: _skyboxLerper._skyboxSettingsA._cloudHeight
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4742980094714701280, guid: 1c1bfa96f62d6f14490a9823be4cb6bc, type: 3}
-      propertyPath: _skyboxLerper._skyboxSettingsA._sunMaskSize
-      value: 0.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 4742980094714701280, guid: 1c1bfa96f62d6f14490a9823be4cb6bc, type: 3}
-      propertyPath: _skyboxLerper._skyboxSettingsB._cloudHeight
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4742980094714701280, guid: 1c1bfa96f62d6f14490a9823be4cb6bc, type: 3}
-      propertyPath: _skyboxLerper._skyboxSettingsB._sunMaskSize
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4742980094714701280, guid: 1c1bfa96f62d6f14490a9823be4cb6bc, type: 3}
-      propertyPath: _skyboxLerper._skyboxSettingsA._cloudColor.a
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4742980094714701280, guid: 1c1bfa96f62d6f14490a9823be4cb6bc, type: 3}
-      propertyPath: _skyboxLerper._skyboxSettingsA._cloudColor.b
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4742980094714701280, guid: 1c1bfa96f62d6f14490a9823be4cb6bc, type: 3}
-      propertyPath: _skyboxLerper._skyboxSettingsA._cloudColor.g
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4742980094714701280, guid: 1c1bfa96f62d6f14490a9823be4cb6bc, type: 3}
-      propertyPath: _skyboxLerper._skyboxSettingsA._cloudColor.r
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4742980094714701280, guid: 1c1bfa96f62d6f14490a9823be4cb6bc, type: 3}
-      propertyPath: _skyboxLerper._skyboxSettingsA._cloudTexture
-      value: 
-      objectReference: {fileID: 2800000, guid: cc97913db2958754ab020cb0d293c8af, type: 3}
-    - target: {fileID: 4742980094714701280, guid: 1c1bfa96f62d6f14490a9823be4cb6bc, type: 3}
-      propertyPath: _skyboxLerper._skyboxSettingsA._starsDensity
-      value: 400
-      objectReference: {fileID: 0}
-    - target: {fileID: 4742980094714701280, guid: 1c1bfa96f62d6f14490a9823be4cb6bc, type: 3}
-      propertyPath: _skyboxLerper._skyboxSettingsB._cloudColor.a
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4742980094714701280, guid: 1c1bfa96f62d6f14490a9823be4cb6bc, type: 3}
-      propertyPath: _skyboxLerper._skyboxSettingsB._cloudColor.b
-      value: 0.47058824
-      objectReference: {fileID: 0}
-    - target: {fileID: 4742980094714701280, guid: 1c1bfa96f62d6f14490a9823be4cb6bc, type: 3}
-      propertyPath: _skyboxLerper._skyboxSettingsB._cloudColor.g
-      value: 0.24705882
-      objectReference: {fileID: 0}
-    - target: {fileID: 4742980094714701280, guid: 1c1bfa96f62d6f14490a9823be4cb6bc, type: 3}
-      propertyPath: _skyboxLerper._skyboxSettingsB._cloudColor.r
-      value: 0.45882353
-      objectReference: {fileID: 0}
-    - target: {fileID: 4742980094714701280, guid: 1c1bfa96f62d6f14490a9823be4cb6bc, type: 3}
-      propertyPath: _skyboxLerper._skyboxSettingsB._cloudTexture
-      value: 
-      objectReference: {fileID: 2800000, guid: 64d3c8d56ec07724295f5bccc3013e69, type: 3}
-    - target: {fileID: 4742980094714701280, guid: 1c1bfa96f62d6f14490a9823be4cb6bc, type: 3}
-      propertyPath: _skyboxLerper._skyboxSettingsB._starsDensity
-      value: 1000
-      objectReference: {fileID: 0}
-    - target: {fileID: 4742980094714701280, guid: 1c1bfa96f62d6f14490a9823be4cb6bc, type: 3}
-      propertyPath: _skyboxLerper._skyboxSettingsA._horizonColor.a
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4742980094714701280, guid: 1c1bfa96f62d6f14490a9823be4cb6bc, type: 3}
-      propertyPath: _skyboxLerper._skyboxSettingsA._horizonColor.b
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4742980094714701280, guid: 1c1bfa96f62d6f14490a9823be4cb6bc, type: 3}
-      propertyPath: _skyboxLerper._skyboxSettingsA._horizonColor.g
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4742980094714701280, guid: 1c1bfa96f62d6f14490a9823be4cb6bc, type: 3}
-      propertyPath: _skyboxLerper._skyboxSettingsA._horizonColor.r
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4742980094714701280, guid: 1c1bfa96f62d6f14490a9823be4cb6bc, type: 3}
-      propertyPath: _skyboxLerper._skyboxSettingsB._horizonColor.a
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4742980094714701280, guid: 1c1bfa96f62d6f14490a9823be4cb6bc, type: 3}
-      propertyPath: _skyboxLerper._skyboxSettingsB._horizonColor.b
-      value: 0.5176471
-      objectReference: {fileID: 0}
-    - target: {fileID: 4742980094714701280, guid: 1c1bfa96f62d6f14490a9823be4cb6bc, type: 3}
-      propertyPath: _skyboxLerper._skyboxSettingsB._horizonColor.g
-      value: 0.45882353
-      objectReference: {fileID: 0}
-    - target: {fileID: 4742980094714701280, guid: 1c1bfa96f62d6f14490a9823be4cb6bc, type: 3}
-      propertyPath: _skyboxLerper._skyboxSettingsB._horizonColor.r
-      value: 0.5058824
       objectReference: {fileID: 0}
     - target: {fileID: 9080149719216254721, guid: 1c1bfa96f62d6f14490a9823be4cb6bc, type: 3}
       propertyPath: m_RootOrder

@@ -94,6 +94,34 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _militarySkybox: {fileID: 2100000, guid: 6fe6f5dbdbcb5c340a28b99b81169dc8, type: 2}
   _terraformingSkybox: {fileID: 2100000, guid: 685d28c460cb2794d89aa439e0f3af33, type: 2}
+  _skyboxLerper:
+    _timeToLerp: 6
+    _skyboxSettingsA:
+      _skyColor: {r: 1, g: 1, b: 1, a: 1}
+      _horizonColor: {r: 0, g: 0, b: 0, a: 1}
+      _starsDensity: 400
+      _cloudTexture: {fileID: 2800000, guid: cc97913db2958754ab020cb0d293c8af, type: 3}
+      _cloudColor: {r: 0, g: 0, b: 0, a: 1}
+      _cloudSpeed: 0.6
+      _cloudHeight: 0.2
+      _cloudEdge: 0.6
+      _sunColor: {r: 3.9843137, g: 2.8392158, b: 0.015686275, a: 1}
+      _sunSize: 0.48
+      _sunMaskSize: 0.4
+    _skyboxSettingsB:
+      _skyColor: {r: 0.105882354, g: 0.5764706, b: 0.5647059, a: 1}
+      _horizonColor: {r: 0.5058824, g: 0.45882353, b: 0.5176471, a: 1}
+      _starsDensity: 1000
+      _cloudTexture: {fileID: 2800000, guid: 4e598ac1f5c698743a3e53027ca671d5, type: 3}
+      _cloudColor: {r: 0.45882353, g: 0.24705882, b: 0.47058824, a: 1}
+      _cloudSpeed: 0.5
+      _cloudHeight: 0.2
+      _cloudEdge: 0.4
+      _sunColor: {r: 0.0627451, g: 3.137255, b: 3.9843137, a: 1}
+      _sunSize: 0.274
+      _sunMaskSize: 0
+    matA: {fileID: 2100000, guid: 6fe6f5dbdbcb5c340a28b99b81169dc8, type: 2}
+    matB: {fileID: 2100000, guid: 685d28c460cb2794d89aa439e0f3af33, type: 2}
 --- !u!1 &859556493
 GameObject:
   m_ObjectHideFlags: 0
@@ -302,7 +330,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8237000199736687533
 Transform:
   m_ObjectHideFlags: 0
@@ -332,6 +360,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _defaultTransitionDuration: 1
+  _blackTimeDuration: 0.5
   _screenFader: {fileID: 4455116269186733601}
   _normalColor: {r: 0, g: 0, b: 0, a: 0}
   _blackColor: {r: 0, g: 0, b: 0, a: 1}
