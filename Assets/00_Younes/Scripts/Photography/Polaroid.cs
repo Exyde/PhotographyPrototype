@@ -187,6 +187,7 @@ public class Polaroid : MonoBehaviour
 
     IEnumerator CreatePictureScriptable(int index){
 
+        HUDManager._instance.SetActiveHUD(false);
         Picture picture = ScriptableObject.CreateInstance<Picture>(); // @TODO : Save and Load this in database ?
 
         picture.name = _currentXnodPicturedObjects[index].name;
@@ -195,6 +196,9 @@ public class Polaroid : MonoBehaviour
         _pictures[index] = picture;
         _currentXnodPicturedObjects[index]._dashboardItem = picture;
         yield return new WaitForEndOfFrame();
+
+        
+        HUDManager._instance.SetActiveHUD(true);
     }
 
     #region Gizmos

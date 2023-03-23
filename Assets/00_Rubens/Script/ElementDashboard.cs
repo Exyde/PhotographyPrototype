@@ -35,7 +35,7 @@ public class ElementDashboard : MonoBehaviour, IPointerDownHandler, IBeginDragHa
 
         //Nextposition += eventData.pointerCurrentRaycast.worldNormal *.1f;
 
-        Nextposition.z = Dashboard_Rubens.DB.offSetValueForpicture;
+        Nextposition.z = Dashboard_Rubens.DB.MaxTopElement.position.z;
 
         transform.position = Nextposition;
     }

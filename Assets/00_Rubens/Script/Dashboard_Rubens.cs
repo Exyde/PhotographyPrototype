@@ -29,7 +29,7 @@ public class Dashboard_Rubens : MonoBehaviour, IScrollHandler
 
     [SerializeField] GameObject prefabElement;
 
-    [SerializeField] Transform MaxTopElement;
+    [SerializeField] public Transform MaxTopElement;
     [SerializeField] Transform MaxBotElement;
     [SerializeField] Transform MaxRightElement;
     [SerializeField] Transform MaxLeftElement;
@@ -182,6 +182,8 @@ public class Dashboard_Rubens : MonoBehaviour, IScrollHandler
 
     public void OnScroll(PointerEventData eventData)
     {
+
+        Debug.Log("Scrolling");
         int SensOfZoom = (int)eventData.scrollDelta.y;
 
         Vector3 DirectionOfZoom = Vector3.zero;
