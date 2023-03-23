@@ -22,6 +22,8 @@ public class UnderBloc_XNode : DashB_XNode
 
 	[Range(3, 10)] public int ValueForBloc = 3;
 
+	bool hasBeenSendToDashboard;
+
 
 
 	// Return the correct value of an output port when requested
@@ -33,6 +35,13 @@ public class UnderBloc_XNode : DashB_XNode
 	{
 		PictureTakenInUnderbloc++;
 
+		if(!hasBeenSendToDashboard)
+        {
+			Dashboard_Rubens.DB.SetNewUnderBlocForNextDay(this);
+			hasBeenSendToDashboard = true;
+
+		}
+
 		if(PictureTakenInUnderbloc == PictureToTakeForAddValue)
         {
 			GetInputValue<NarrativeBloc_XNode>("BlocOfNarration").AddResolution(ValueForBloc);
@@ -42,6 +51,7 @@ public class UnderBloc_XNode : DashB_XNode
 	public void ResetUnderBloc()
 	{
 		PictureTakenInUnderbloc = 0;
+		hasBeenSendToDashboard = false;
 	}
 
 }

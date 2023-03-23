@@ -13,13 +13,13 @@ public class ElementDashboard : MonoBehaviour, IPointerDownHandler, IBeginDragHa
     {
         SR = GetComponent<SpriteRenderer>();
 
-        if (ObjX != null && ObjX._dashboardItem != null)
+        if (ObjX != null && ObjX._dashboardItem != null && ObjX._dashboardItem.GetSprite() != null)
         {
             SR.sprite = ObjX._dashboardItem.GetSprite();
         }
     }
 
-    public void Instanciate(Object_XNod ox)
+    public void Initialize(DashB_XNode ox)
     {
         ObjX = ox;
     }
@@ -52,6 +52,6 @@ public class ElementDashboard : MonoBehaviour, IPointerDownHandler, IBeginDragHa
 
     public void OnScroll(PointerEventData eventData)
     {
-        Debug.Log("Scrolling");
+        Dashboard_Rubens.DB.OnScroll(eventData);
     }
 }

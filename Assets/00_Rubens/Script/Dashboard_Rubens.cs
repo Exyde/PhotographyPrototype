@@ -22,7 +22,10 @@ public class Dashboard_Rubens : MonoBehaviour, IScrollHandler
 
     public static Dashboard_Rubens DB;
 
-    [SerializeField] List<Object_XNod> _objectToInstanciateOnDashboard;
+    List<Object_XNod> _photoElementToInstanciateOnDashboard = new();
+    List<NarrativeBloc_XNode> _NarrativeBlocToInstanciateOnDashboard = new();
+    List<UnderBloc_XNode> _UnderBlocToInstanciateOnDashboard = new();
+
 
     [SerializeField] GameObject prefabElement;
 
@@ -38,6 +41,8 @@ public class Dashboard_Rubens : MonoBehaviour, IScrollHandler
     Vector3 CameraLimitationCenter;
 
     [SerializeField] Transform ParentOfElements;
+
+    List<ElementDashboard> MyElements = new();
 
     #endregion
 
@@ -74,17 +79,31 @@ public class Dashboard_Rubens : MonoBehaviour, IScrollHandler
 
     private void OnEnable()
     {
-        StoryManager.EndOfDay += AddPictureOnDashboard;
+        StoryManager.EndOfDay += AddNewElementsOnDashboard;
     }
 
     private void OnDisable()
     {
-        StoryManager.EndOfDay -= AddPictureOnDashboard;
+        StoryManager.EndOfDay -= AddNewElementsOnDashboard;
     }
 
     public void SetPictureForNextDay(Object_XNod[] ox)
     {
-        _objectToInstanciateOnDashboard = ox.ToList();
+        List<Object_XNod> oxToListObject = ox.ToList();
+
+        oxToListObject.RemoveAll(k => k == null);
+
+        _photoElementToInstanciateOnDashboard = oxToListObject;
+    }
+
+    public void SetNewBlocForNextDay(NarrativeBloc_XNode nBx)
+    {
+        _NarrativeBlocToInstanciateOnDashboard.Add(nBx);
+    }
+
+    public void SetNewUnderBlocForNextDay(UnderBloc_XNode uBx)
+    {
+        _UnderBlocToInstanciateOnDashboard.Add(uBx);
     }
 
     public void ActivateDashboardMode()
@@ -103,17 +122,62 @@ public class Dashboard_Rubens : MonoBehaviour, IScrollHandler
     [ContextMenu("AddPictureOnDashBoard")]
     void AddPictureOnDashboard()
     {
-        foreach(Object_XNod curentObject in _objectToInstanciateOnDashboard)
+        foreach(Object_XNod curentObject in _photoElementToInstanciateOnDashboard)
         {
             float xDashboard = UnityEngine.Random.Range(MaxLeftElement.position.x, MaxRightElement.position.x);
             float yDashboard = UnityEngine.Random.Range(MaxTopElement.position.y, MaxBotElement.position.y);
 
-            Instantiate(prefabElement, new Vector3(xDashboard, yDashboard, MaxTopElement.position.z), MaxTopElement.rotation, ParentOfElements).
-                GetComponent<ElementDashboard>().
-                Instanciate(curentObject);
+            ElementDashboard NewDashElement = Instantiate(prefabElement, new Vector3(xDashboard, yDashboard, MaxTopElement.position.z), MaxTopElement.rotation, ParentOfElements).GetComponent<ElementDashboard>();
+                
+            NewDashElement.Initialize(curentObject);
+
+            MyElements.Add(NewDashElement);
         }
 
-        _objectToInstanciateOnDashboard.Clear();
+        _photoElementToInstanciateOnDashboard.Clear();
+    }
+
+    void AddNarrativeBlocOnDashboard()
+    {
+        foreach(NarrativeBloc_XNode curentObject in _NarrativeBlocToInstanciateOnDashboard)
+        {
+            float xDashboard = UnityEngine.Random.Range(MaxLeftElement.position.x, MaxRightElement.position.x);
+            float yDashboard = UnityEngine.Random.Range(MaxTopElement.position.y, MaxBotElement.position.y);
+
+            ElementDashboard NewDashElement = Instantiate(prefabElement, new Vector3(xDashboard, yDashboard, MaxTopElement.position.z), MaxTopElement.rotation, ParentOfElements).GetComponent<ElementDashboard>();
+
+            NewDashElement.Initialize(curentObject);
+
+            MyElements.Add(NewDashElement);
+        }
+
+        _NarrativeBlocToInstanciateOnDashboard.Clear();
+
+    }
+
+    void AddUnderBlocOnDashboard()
+    {
+        foreach (UnderBloc_XNode curentObject in _UnderBlocToInstanciateOnDashboard) 
+        { 
+            float xDashboard = UnityEngine.Random.Range(MaxLeftElement.position.x, MaxRightElement.position.x);
+            float yDashboard = UnityEngine.Random.Range(MaxTopElement.position.y, MaxBotElement.position.y);
+
+            ElementDashboard NewDashElement = Instantiate(prefabElement, new Vector3(xDashboard, yDashboard, MaxTopElement.position.z), MaxTopElement.rotation, ParentOfElements).GetComponent<ElementDashboard>();
+
+            NewDashElement.Initialize(curentObject);
+
+            MyElements.Add(NewDashElement);
+        }
+
+        _UnderBlocToInstanciateOnDashboard.Clear();
+
+    }
+
+    void AddNewElementsOnDashboard()
+    {
+        AddNarrativeBlocOnDashboard();
+        AddUnderBlocOnDashboard();
+        AddPictureOnDashboard();
     }
 
     public void OnScroll(PointerEventData eventData)

@@ -23,10 +23,9 @@ public class NarrativeBloc_XNode : DashB_XNode
 
 	[Output] public bool WillActivateWhenResolution;
 
+	bool hasBeenSendToDashboard;
 
 
-
-	
 	public override object GetValue(NodePort port) {
 
 		if (port.fieldName == "Myself")
@@ -46,11 +45,18 @@ public class NarrativeBloc_XNode : DashB_XNode
 	public void ResetNarrativeBloc()
 	{
 		ActualResolution = 0;
+		hasBeenSendToDashboard = false;
 	}
 
 	public void AddResolution(int ToAddAtResolution)
     {
 		ActualResolution += ToAddAtResolution;
+
+        if (!hasBeenSendToDashboard)
+        {
+			hasBeenSendToDashboard = true;
+			Dashboard_Rubens.DB.SetNewBlocForNextDay(this);
+        }
 
 		name = Question + " / ( " + ActualResolution + " / " + NecessaryResolution + " )";
 	}
