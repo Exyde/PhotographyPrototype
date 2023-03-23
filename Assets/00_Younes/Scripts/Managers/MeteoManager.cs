@@ -4,11 +4,7 @@ using UnityEngine;
 using Core.GameEvents;
 
 public class MeteoManager : MonoBehaviour, IGameEventManager {
-
-    public Material _militarySkybox;
-    public Material _terraformingSkybox;
     public SkyboxLerper _skyboxLerper;
-
     private void OnGameEvent_MeteoManager(EventName eventName, string senderName){
 
         Logger.LogEvent(eventName, senderName, this.GetType().Name);
@@ -22,17 +18,14 @@ public class MeteoManager : MonoBehaviour, IGameEventManager {
     private void OnEndOfDay_MeteoManager(){
 
         if (StoryManager.LastCityVisited == Object_XNod.City.Military){
-            RenderSettings.skybox = _militarySkybox;
         } 
         else if(StoryManager.LastCityVisited == Object_XNod.City.Terraforming){
-            RenderSettings.skybox = _terraformingSkybox;
         }
     }
 
     private void OnEnable() {
         GameEvent._onGameEvent += OnGameEvent_MeteoManager;
         StoryManager.EndOfDay += OnEndOfDay_MeteoManager;
-
     }
 
     private void OnDisable() {
@@ -72,24 +65,27 @@ public class MeteoManager : MonoBehaviour, IGameEventManager {
     //Skybox Lerp - Need SkyboxConfig ?
     [ContextMenu("Lerp Skybox A->B")]
     public void LerpSkyboxSettingsContextMenuAB(){
-        StartCoroutine(_skyboxLerper.LerpSkyboxSettings(_skyboxLerper._skyboxSettingsA, _skyboxLerper._skyboxSettingsB));
+        StartCoroutine(_skyboxLerper.LerpSkyboxSettings(_skyboxLerper._skyboxSettingsA, _skyboxLerper._skyboxSettingsB,  _skyboxLerper._timeToLerp));
     }
 
-        [ContextMenu("Lerp Skybox B->A")]
+    [ContextMenu("Lerp Skybox B->A")]
     public void LerpSkyboxSettingsContextMenuBA(){
-        StartCoroutine(_skyboxLerper.LerpSkyboxSettings(_skyboxLerper._skyboxSettingsB, _skyboxLerper._skyboxSettingsA));
+        StartCoroutine(_skyboxLerper.LerpSkyboxSettings(_skyboxLerper._skyboxSettingsB, _skyboxLerper._skyboxSettingsA, _skyboxLerper._timeToLerp));
+    }
+
+    [ContextMenu("Set Skybox Settings : A")]
+    public void SetSkyboxSettings(){
+        StartCoroutine(_skyboxLerper.LerpSkyboxSettings(_skyboxLerper._skyboxSettingsA, _skyboxLerper._skyboxSettingsA, 0.1f));
     }
 }
 
 [System.Serializable]
 public class SkyboxLerper{
-    [SerializeField][Range(.5f, 30)] float _timeToLerp;
+    [SerializeField][Range(.5f, 30)] public float _timeToLerp;
     [SerializeField] public SkyboxSettings _skyboxSettingsA;
     [SerializeField] public SkyboxSettings _skyboxSettingsB;
 
-    public Material matA, matB;
-
-    public IEnumerator LerpSkyboxSettings(SkyboxSettings A, SkyboxSettings B){
+    public IEnumerator LerpSkyboxSettings(SkyboxSettings A, SkyboxSettings B, float timeToLerp){
 
         float elapsedTime = 0;
 
@@ -97,9 +93,9 @@ public class SkyboxLerper{
         skybox.SetTexture("_Cloud_Texture", B._cloudTexture);
 
 
-        while (elapsedTime < _timeToLerp){
+        while (elapsedTime < timeToLerp){
             
-            float t = elapsedTime / _timeToLerp;
+            float t = elapsedTime / timeToLerp;
             //skybox.Lerp(matA, matB, t);
             
             //Sky
@@ -128,7 +124,7 @@ public class SkyboxLerper{
 }
 
 [System.Serializable]
-public struct SkyboxSettings{
+public class SkyboxSettings{
     [Header ("Sky")]
     [SerializeField] public Color _skyColor;
     [SerializeField] public Color _horizonColor;
