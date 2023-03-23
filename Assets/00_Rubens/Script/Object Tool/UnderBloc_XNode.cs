@@ -7,7 +7,8 @@ using XNode;
 [NodeTint("#7A6235")]
 
 [CreateNodeMenu("Object Tool/Under Bloc Node")]
-public class UnderBloc_XNode : Node {
+public class UnderBloc_XNode : DashB_XNode
+{
 
 	[Input] public NarrativeBloc_XNode BlocOfNarration;
 

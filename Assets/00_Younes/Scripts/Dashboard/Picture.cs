@@ -19,7 +19,7 @@ public class Picture : DashboardItem
     
     protected void CreateSprite(){
         Sprite sprite = Sprite.Create(_texture, new Rect(0, 0, _texture.width, _texture.height), new Vector2(0.5f, 0.5f), 100.0f);
-        _sprite = sprite;
+        _spriteBase = sprite;
     }
 
     public void SavePictureTexture(){

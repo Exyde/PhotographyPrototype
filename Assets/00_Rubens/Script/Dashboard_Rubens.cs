@@ -90,11 +90,14 @@ public class Dashboard_Rubens : MonoBehaviour, IScrollHandler
     public void ActivateDashboardMode()
     {
         CameraManager.CM.TransitionToDashBoard(_transitionCameraDuration);
+        HUDManager._instance.SetActivCrossAir(false);
     }
 
     public void DesactivateDashboardMode()
     {
         CameraManager.CM.TransitionToFPS(_transitionCameraDuration);
+        HUDManager._instance.SetActivCrossAir(true);
+
     }
 
     [ContextMenu("AddPictureOnDashBoard")]

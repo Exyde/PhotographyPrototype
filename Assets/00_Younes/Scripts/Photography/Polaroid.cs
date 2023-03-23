@@ -193,7 +193,7 @@ public class Polaroid : MonoBehaviour
         
         StartCoroutine(picture.CreateTextureAndSprite());
         _pictures[index] = picture;
-        _currentXnodPicturedObjects[index]._picture = picture;
+        _currentXnodPicturedObjects[index]._dashboardItem = picture;
         yield return new WaitForEndOfFrame();
     }
 

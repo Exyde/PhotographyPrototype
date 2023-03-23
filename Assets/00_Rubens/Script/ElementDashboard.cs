@@ -5,7 +5,7 @@ using UnityEngine.EventSystems;
 
 public class ElementDashboard : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IEndDragHandler, IDragHandler, IScrollHandler
 {
-    public Object_XNod ObjX;
+    public DashB_XNode ObjX;
 
     public SpriteRenderer SR;
     
@@ -13,9 +13,9 @@ public class ElementDashboard : MonoBehaviour, IPointerDownHandler, IBeginDragHa
     {
         SR = GetComponent<SpriteRenderer>();
 
-        if (ObjX != null && ObjX._picture != null)
+        if (ObjX != null && ObjX._dashboardItem != null)
         {
-            SR.sprite = ObjX._picture.GetSprite();
+            SR.sprite = ObjX._dashboardItem.GetSprite();
         }
     }
 

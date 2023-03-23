@@ -10,6 +10,8 @@ public class HUDManager : MonoBehaviour
     public TextMeshProUGUI Subtitle;
     public TextMeshProUGUI CurentTouchAvailable;
     public TextMeshProUGUI CountPicturesLeft;
+    public GameObject CrossAir;
+    public GameObject AllHUD;
 
     bool TruePoeticFalseTension = true; //A supprimer quand on aura un gamemanager qui nous dit � quel moment du jeu on est
 
@@ -129,7 +131,12 @@ public class HUDManager : MonoBehaviour
 
     public void SetActiveHUD(bool b)
     {
-        Subtitle.transform.parent.parent.gameObject.SetActive(b);
+        AllHUD.SetActive(b);
+    }
+
+    public void SetActivCrossAir(bool b)
+    {
+        CrossAir.SetActive(b);
     }
 
 

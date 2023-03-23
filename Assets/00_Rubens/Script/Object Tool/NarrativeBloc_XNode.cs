@@ -8,7 +8,8 @@ using XNode;
 [NodeTint("#433627")]
 
 [CreateNodeMenu("Object Tool/Narrative Bloc Node")]
-public class NarrativeBloc_XNode : Node {
+public class NarrativeBloc_XNode : DashB_XNode
+{
 
 	[TextArea] public string Question;
 

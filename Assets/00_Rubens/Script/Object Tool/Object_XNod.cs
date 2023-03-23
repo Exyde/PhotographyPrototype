@@ -9,7 +9,8 @@ using XNode;
 
 
 [CreateNodeMenu("Object Tool/Object Node")]
-public class Object_XNod : Node {
+public class Object_XNod : DashB_XNode
+{
 
 	[Input] public NarrativeBloc_XNode BlocOfNarration; 
 
@@ -48,7 +49,6 @@ public class Object_XNod : Node {
 
     public GameObject PrefabObjectToSpawn;
 
-	public DashboardItem _picture;
 
     public Texture2D PictureDebugTexture;
 
