@@ -80,12 +80,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 741fb5c0c3f8c8241b2616c840a3387a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _camState: 0
   _mainCamera: {fileID: 6969860713825500318}
-  _dashboardCameraHolder: {fileID: 0}
-  _fpsCameraHolder: {fileID: 4360570529395404428}
-  _fpsCameraPosition: {x: 0, y: 0.5, z: 0.3}
-  _moveSpeed: 10
   _walkingSpeed: 7.5
   _runningSpeed: 11.5
   _jumpSpeed: 8
@@ -107,9 +102,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b4c5929e45c8564185c4f2134e4eeb4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _objetManager: {fileID: 0}
-  _state: 0
+  _cam: {fileID: 0}
   _currentXnodPicturedObjects: []
+  _picturableObjects: []
   _pictures:
   - {fileID: 0}
   _pictureTakenSlots: 
@@ -119,7 +114,6 @@ MonoBehaviour:
   _picturableLayer:
     serializedVersion: 2
     m_Bits: 64
-  _cameraEyesLevel: {fileID: 4360570529395404428}
 --- !u!143 &182418118337499020
 CharacterController:
   m_ObjectHideFlags: 0
@@ -150,6 +144,7 @@ GameObject:
   - component: {fileID: 3553652087395044052}
   - component: {fileID: 3553652087395044055}
   - component: {fileID: 3553652087395044053}
+  - component: {fileID: 1013883172740606909}
   m_Layer: 0
   m_Name: Capsule
   m_TagString: Untagged
@@ -236,6 +231,18 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1013883172740606909
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3553652087395044057}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eaaab8df8a6bb2949a6c17f0fe029741, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &4999134805575312731
 PrefabInstance:
   m_ObjectHideFlags: 0

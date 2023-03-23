@@ -116,4 +116,6 @@ public class Object_XNod : DashB_XNode
         }
     }
 
+	public NarrativeBloc_XNode GetNarrativeBlocParent() =>  GetInputValue<NarrativeBloc_XNode>("BlocOfNarration");
+	public UnderBloc_XNode GetUnderBlocParent() =>  GetInputValue<UnderBloc_XNode>("MyUnderBloc");
 }

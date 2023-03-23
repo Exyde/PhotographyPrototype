@@ -54,4 +54,6 @@ public class UnderBloc_XNode : DashB_XNode
 		hasBeenSendToDashboard = false;
 	}
 
+	public NarrativeBloc_XNode GetNarrationBloc() => GetInputValue<NarrativeBloc_XNode>("BlocOfNarration");
+
 }

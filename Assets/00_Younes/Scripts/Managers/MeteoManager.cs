@@ -18,8 +18,10 @@ public class MeteoManager : MonoBehaviour, IGameEventManager {
     private void OnEndOfDay_MeteoManager(){
 
         if (StoryManager.LastCityVisited == Object_XNod.City.Military){
+            LerpSkyboxSettingsContextMenuAB();
         } 
         else if(StoryManager.LastCityVisited == Object_XNod.City.Terraforming){
+            LerpSkyboxSettingsContextMenuBA();
         }
     }
 

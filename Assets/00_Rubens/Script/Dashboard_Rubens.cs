@@ -42,7 +42,7 @@ public class Dashboard_Rubens : MonoBehaviour, IScrollHandler
 
     [SerializeField] Transform ParentOfElements;
 
-    List<ElementDashboard> MyElements = new();
+    public List<ElementDashboard> MyElements = new();
 
     #endregion
 
@@ -122,14 +122,17 @@ public class Dashboard_Rubens : MonoBehaviour, IScrollHandler
     [ContextMenu("AddPictureOnDashBoard")]
     void AddPictureOnDashboard()
     {
+        int index = 0;
+
         foreach(Object_XNod curentObject in _photoElementToInstanciateOnDashboard)
         {
             float xDashboard = UnityEngine.Random.Range(MaxLeftElement.position.x, MaxRightElement.position.x);
             float yDashboard = UnityEngine.Random.Range(MaxTopElement.position.y, MaxBotElement.position.y);
 
             ElementDashboard NewDashElement = Instantiate(prefabElement, new Vector3(xDashboard, yDashboard, MaxTopElement.position.z), MaxTopElement.rotation, ParentOfElements).GetComponent<ElementDashboard>();
-                
+            NewDashElement.name = ($"Dashboard Element {index} : " + curentObject.NameOfTheObject).RemoveIllegalCharactersFromRubensDesignerMagicTool();
             NewDashElement.Initialize(curentObject);
+            index++;
 
             MyElements.Add(NewDashElement);
         }
@@ -183,7 +186,6 @@ public class Dashboard_Rubens : MonoBehaviour, IScrollHandler
     public void OnScroll(PointerEventData eventData)
     {
 
-        Debug.Log("Scrolling");
         int SensOfZoom = (int)eventData.scrollDelta.y;
 
         Vector3 DirectionOfZoom = Vector3.zero;
@@ -206,12 +208,14 @@ public class Dashboard_Rubens : MonoBehaviour, IScrollHandler
         if ((-CameraLimitationCenter + ClosestPointOnLineBaseSommet).magnitude >= (-CameraLimitationCenter + EmplacementCamera.position).magnitude)
         {
             CameraForDashboard.transform.position = EmplacementCamera.position;
+
             return;
         }
 
         if ((-EmplacementCamera.position + ClosestPointOnLineBaseSommet).magnitude >= .9f * (-EmplacementCamera.position + CameraLimitationCenter).magnitude)
         {
-            return;
+            //@RUBENS : Temps fix pour zoom
+            //return;
         }
 
         CameraForDashboard.transform.position = NextPosition;

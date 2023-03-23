@@ -1,11 +1,11 @@
 using UnityEngine;
 
 [RequireComponent (typeof(MeshRenderer))]
-public class EnableMeshOnStart : MonoBehaviour
+public class DisableMeshRenderOnStart : MonoBehaviour
 {
     void Start()
     {
-        GetComponent<MeshRenderer>().enabled = true;
+        GetComponent<MeshRenderer>().enabled = false;
         Destroy(this);
     }
 }
