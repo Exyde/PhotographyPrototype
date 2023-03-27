@@ -92,8 +92,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50e15e72a2fc4944fab11eef4b4a432b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _militarySkybox: {fileID: 2100000, guid: 6fe6f5dbdbcb5c340a28b99b81169dc8, type: 2}
-  _terraformingSkybox: {fileID: 2100000, guid: 685d28c460cb2794d89aa439e0f3af33, type: 2}
   _skyboxLerper:
     _timeToLerp: 6
     _skyboxSettingsA:
@@ -120,8 +118,6 @@ MonoBehaviour:
       _sunColor: {r: 0.0627451, g: 3.137255, b: 3.9843137, a: 1}
       _sunSize: 0.274
       _sunMaskSize: 0
-    matA: {fileID: 2100000, guid: 6fe6f5dbdbcb5c340a28b99b81169dc8, type: 2}
-    matB: {fileID: 2100000, guid: 685d28c460cb2794d89aa439e0f3af33, type: 2}
 --- !u!1 &859556493
 GameObject:
   m_ObjectHideFlags: 0
@@ -213,6 +209,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PS_OnPictureFlash: {fileID: 756537057392304007, guid: 250f1866264dc4e4c9e531aaaee6f1a1, type: 3}
   PH_PS_NegativeFeedback: {fileID: 8788110448596776483, guid: 24e8b7d10660e9543949194a16e49e47, type: 3}
+  _outlines: {fileID: 2100000, guid: c6705d07394abb346ab6c11e7ae4d02c, type: 2}
+  _indorOutlineColor: {r: 1, g: 1, b: 1, a: 1}
+  _outdoorOutileColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1 &4439916172423566675
 GameObject:
   m_ObjectHideFlags: 0

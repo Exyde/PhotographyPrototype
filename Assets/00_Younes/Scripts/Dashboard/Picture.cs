@@ -5,7 +5,6 @@ using UnityEngine;
 public class Picture : DashboardItem
 {
 
-    public DashB_XNode _parent;
 
     public IEnumerator CreateTextureAndSprite(){
 
