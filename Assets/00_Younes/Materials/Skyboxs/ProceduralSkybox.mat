@@ -21,7 +21,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _Cloud_Texture:
-        m_Texture: {fileID: 2800000, guid: cc97913db2958754ab020cb0d293c8af, type: 3}
+        m_Texture: {fileID: 2800000, guid: 4e598ac1f5c698743a3e53027ca671d5, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Texture2DAsset_f3e60fcf799d41b89088b4f6c734e390_Out_0:
@@ -42,20 +42,20 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Cloud_Edge: 0.5992559
+    - _Cloud_Edge: 0.40059012
     - _Cloud_Height: 0.2
-    - _Cloud_Speed: 0.599628
+    - _Cloud_Speed: 0.50029504
     - _Fog_Height: 0
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _Star_Density: 402.23236
-    - _SunSize: 0.47923356
-    - _Sun_Mask_Size: 0.39851177
+    - _Star_Density: 998.2297
+    - _SunSize: 0.2746078
+    - _Sun_Mask_Size: 0.0011802197
     m_Colors:
-    - _Cloud_Color: {r: 0.0017070904, g: 0.0009192025, b: 0.0017508619, a: 1}
-    - _HorizonColor: {r: 0.0018821766, g: 0.0017070904, b: 0.0019259482, a: 1}
-    - _SkyColor: {r: 0.99667335, g: 0.99842423, b: 0.9983805, a: 1}
-    - _Sun_Color: {r: 3.9697232, g: 2.8403246, b: 0.030451877, a: 1}
+    - _Cloud_Color: {r: 0.45746976, g: 0.24632986, b: 0.46919975, a: 1}
+    - _HorizonColor: {r: 0.50438976, g: 0.45746976, b: 0.5161197, a: 1}
+    - _SkyColor: {r: 0.10852049, g: 0.5777203, b: 0.56599027, a: 1}
+    - _Sun_Color: {r: 0.07431588, g: 3.1363757, b: 3.972604, a: 1}
   m_BuildTextureStacks: []
 --- !u!114 &5810522361938999087
 MonoBehaviour:

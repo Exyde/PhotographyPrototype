@@ -40,7 +40,7 @@ public class DashboardRope : MonoBehaviour
     void DrawRope(){
 
         if(_firstDraw){
-            _lineRenderer.material = _hintMaterial  ? _hintMaterial : _questionMaterial;
+            _lineRenderer.material = _hintMat  ? _hintMaterial : _questionMaterial;
             _firstDraw = false;
         }
 
