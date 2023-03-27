@@ -6,7 +6,14 @@ using UnityEngine.EventSystems;
 public class ElementDashboard : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IEndDragHandler, IDragHandler, IScrollHandler
 {
     public DashB_XNode ObjX; //Self
+
+    [Header("Line Rendering")]
     public DashB_XNode _parent; //Line parent
+    public DashboardRope _rope;
+    [SerializeField] public Material _lineQuestionMaterial;
+    [SerializeField] public Material _lineHintMaterial;
+
+
     public Transform _parentTransform;
 
     public SpriteRenderer SR;
@@ -41,6 +48,7 @@ public class ElementDashboard : MonoBehaviour, IPointerDownHandler, IBeginDragHa
 
                     if (elt.ObjX == _parent)
                         _parentTransform = elt.transform;
+                        if (_rope != null) AttachRope(true);
                 }
 
             break;
@@ -51,9 +59,22 @@ public class ElementDashboard : MonoBehaviour, IPointerDownHandler, IBeginDragHa
 
                     if (elt.ObjX == _parent)
                         _parentTransform = elt.transform;
+                        if (_rope != null) AttachRope(false);
                 }
             break;
         }
+    }
+
+    private void AttachRope(bool hintMat){
+        if (_rope == null) return;
+
+        if (_parentTransform == null){
+            Debug.Log(" Parent is nuul ");
+        }
+
+        Debug.Log("Reachjing");
+        _rope.enabled = true;
+        _rope.SetTarget(_parentTransform, hintMat);
     }
 
     public void OnBeginDrag(PointerEventData eventData)

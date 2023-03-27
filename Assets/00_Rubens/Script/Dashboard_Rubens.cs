@@ -29,16 +29,20 @@ public class Dashboard_Rubens : MonoBehaviour, IScrollHandler
 
     [SerializeField] GameObject prefabElement;
 
+    [Header("Max Elements")]
     [SerializeField] public Transform MaxTopElement;
     [SerializeField] Transform MaxBotElement;
     [SerializeField] Transform MaxRightElement;
     [SerializeField] Transform MaxLeftElement;
 
+    [Header("Camera Limitations")]
     [SerializeField] Transform CameraLimitationTopRight;
     [SerializeField] Transform CameraLimitationBotRight;
     [SerializeField] Transform CameraLimitationTopLeft;
     [SerializeField] Transform CameraLimitationBotLeft;
     Vector3 CameraLimitationCenter;
+
+    [Space (10)]
 
     [SerializeField] Transform ParentOfElements;
 

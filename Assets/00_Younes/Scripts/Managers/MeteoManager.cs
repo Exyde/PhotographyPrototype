@@ -25,6 +25,10 @@ public class MeteoManager : MonoBehaviour, IGameEventManager {
         }
     }
 
+    private void Start() {
+        // LerpSkyboxAllNight(); //@TODO : Lerp Skybox during all night duration, start day event, etc
+    }
+
     private void OnEnable() {
         GameEvent._onGameEvent += OnGameEvent_MeteoManager;
         StoryManager.EndOfDay += OnEndOfDay_MeteoManager;
@@ -78,6 +82,10 @@ public class MeteoManager : MonoBehaviour, IGameEventManager {
     [ContextMenu("Set Skybox Settings : A")]
     public void SetSkyboxSettings(){
         StartCoroutine(_skyboxLerper.LerpSkyboxSettings(_skyboxLerper._skyboxSettingsA, _skyboxLerper._skyboxSettingsA, 0.1f));
+    }
+
+    private void LerpSkyboxAllNight(){
+        StartCoroutine(_skyboxLerper.LerpSkyboxSettings(_skyboxLerper._skyboxSettingsA, _skyboxLerper._skyboxSettingsA, Constants.NIGHT_DURATION));
     }
 }
 

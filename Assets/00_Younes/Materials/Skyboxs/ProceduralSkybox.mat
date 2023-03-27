@@ -42,20 +42,20 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Cloud_Edge: 0.5999935
+    - _Cloud_Edge: 0.5992559
     - _Cloud_Height: 0.2
-    - _Cloud_Speed: 0.59999675
+    - _Cloud_Speed: 0.599628
     - _Fog_Height: 0
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _Star_Density: 400.01956
-    - _SunSize: 0.47999328
-    - _Sun_Mask_Size: 0.39998695
+    - _Star_Density: 402.23236
+    - _SunSize: 0.47923356
+    - _Sun_Mask_Size: 0.39851177
     m_Colors:
-    - _Cloud_Color: {r: 0.000014959363, g: 0.000008055042, b: 0.000015342937, a: 1}
-    - _HorizonColor: {r: 0.000016493657, g: 0.000014959363, b: 0.000016877231, a: 1}
-    - _SkyColor: {r: 0.99997085, g: 0.9999862, b: 0.9999858, a: 1}
-    - _Sun_Color: {r: 3.984186, g: 2.8392255, b: 0.015815668, a: 1}
+    - _Cloud_Color: {r: 0.0017070904, g: 0.0009192025, b: 0.0017508619, a: 1}
+    - _HorizonColor: {r: 0.0018821766, g: 0.0017070904, b: 0.0019259482, a: 1}
+    - _SkyColor: {r: 0.99667335, g: 0.99842423, b: 0.9983805, a: 1}
+    - _Sun_Color: {r: 3.9697232, g: 2.8403246, b: 0.030451877, a: 1}
   m_BuildTextureStacks: []
 --- !u!114 &5810522361938999087
 MonoBehaviour:

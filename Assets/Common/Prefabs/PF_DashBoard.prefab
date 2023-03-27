@@ -175,7 +175,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ObjX: {fileID: 8703900324349714643, guid: 631d5d2d1c53cbd45869ea56da24260c, type: 2}
+  _parent: {fileID: 0}
+  _rope: {fileID: 0}
+  _parentTransform: {fileID: 0}
   SR: {fileID: 1314000748}
+  _item: {fileID: 0}
 --- !u!212 &1314000748
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -354,7 +358,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ObjX: {fileID: 0}
+  _parent: {fileID: 0}
+  _rope: {fileID: 0}
+  _parentTransform: {fileID: 0}
   SR: {fileID: 0}
+  _item: {fileID: 0}
 --- !u!212 &2310818484388381878
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -498,7 +506,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ObjX: {fileID: 0}
+  _parent: {fileID: 0}
+  _rope: {fileID: 0}
+  _parentTransform: {fileID: 0}
   SR: {fileID: 0}
+  _item: {fileID: 0}
 --- !u!212 &2310818484679938644
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -860,8 +872,9 @@ MonoBehaviour:
   EmplacementCamera: {fileID: 2310818484522726317}
   CameraForDashboard: {fileID: 2310818485035587066}
   _transitionCameraDuration: 0.3
-  _objectToInstanciateOnDashboard: []
   prefabElement: {fileID: 43471305924784652, guid: 9a946bad5c9650d45a4c485da96346ca, type: 3}
+  _lineQuestionMaterial: {fileID: 2100000, guid: e2b8008e5ac409d49b8b087ab94a79af, type: 2}
+  _lineHintMaterial: {fileID: 2100000, guid: b109b3fa509390f4a8b779e6a4ea318a, type: 2}
   MaxTopElement: {fileID: 2310818486000735748}
   MaxBotElement: {fileID: 2310818484679938642}
   MaxRightElement: {fileID: 2310818485913558685}
@@ -871,6 +884,7 @@ MonoBehaviour:
   CameraLimitationTopLeft: {fileID: 1243651007}
   CameraLimitationBotLeft: {fileID: 1250659521}
   ParentOfElements: {fileID: 2310818485375693991}
+  MyElements: []
 --- !u!1 &2310818485035587062
 GameObject:
   m_ObjectHideFlags: 0
@@ -1085,7 +1099,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ObjX: {fileID: 0}
+  _parent: {fileID: 0}
+  _rope: {fileID: 0}
+  _parentTransform: {fileID: 0}
   SR: {fileID: 0}
+  _item: {fileID: 0}
 --- !u!212 &2310818485913558687
 SpriteRenderer:
   m_ObjectHideFlags: 0
