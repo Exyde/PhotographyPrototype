@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 47b76b3dabbc16d4db2f357bead46de4, type: 3}
-  m_Name: Test UnderBloc
+  m_Name: UB3
   m_EditorClassIdentifier: 
   _itemType: 3
   _texture: {fileID: 0}
-  _spriteBase: {fileID: 21300000, guid: 5d7ef5c719f589140b96f24e3ba6b26b, type: 3}
+  _spriteBase: {fileID: 21300000, guid: 9ca78c44f09b5dc40905448e98cd9c3c, type: 3}
   _spriteComplete: {fileID: 0}
   _spriteOver: {fileID: 0}
   _pictureOffsetX: 0
