@@ -30,6 +30,7 @@ public class PicturableObject : MonoBehaviour
         _color = new Color(Random.Range(0f,1f), Random.Range(0f,1f), Random.Range(0f,1f), 1f);
 
         _renderer = GetComponent<MeshRenderer>();
+        //GetComponent<MeshFilter>().mesh = objectXNode.mesh;
         SetNonPicturedMaterial();
         //_renderer.material.SetColor("_Object_Color", _color); 
         _text_Name.text = _xNodeObject.NameOfTheObject;
