@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AtActionDialogueManager : MonoBehaviour
 {
-    public List<int> DialogueRandomOnEnterCabine;
+    public List<int> DialogueRandomOnEnterCabine = new();
 
     private void Start()
     {
@@ -45,7 +45,7 @@ public class AtActionDialogueManager : MonoBehaviour
 
     void SendDialogueAtExitCabine()
     {
-        DialogueManager.DM?.SendDialogue(DialogueRandomOnEnterCabine[Random.Range(0, DialogueRandomOnEnterCabine.Count) ]);
+        DialogueManager.DM?.SendDialogue(DialogueRandomOnEnterCabine[Random.Range(0, DialogueRandomOnEnterCabine.Count-1) ]);
     }
 
 }
