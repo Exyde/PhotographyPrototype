@@ -20,7 +20,7 @@ public class Picture : DashboardItem
     }
     
     protected void CreateSprite(){
-        Sprite sprite = Sprite.Create(_texture, new Rect(0, 0, _texture.width, _texture.height), new Vector2(0.5f, 0.5f), 100.0f);
+        Sprite sprite = Sprite.Create(_texture, new Rect(0, 0, _texture.width * Constants.PICTURE_SIZE_MULTIPLIER, _texture.height * Constants.PICTURE_SIZE_MULTIPLIER), new Vector2(0.5f, 0.5f), 100.0f);
         _spriteBase = sprite;
     }
 
