@@ -107,7 +107,7 @@ MonoBehaviour:
   PreDialogueTime: 0.1
   PostDialogueTime: 0.36
   DefaultTime: 5
-  HasBeenRun: 0
+  HasBeenRun: 1
   OperationsAfterRun: []
   Annotation: (texte alternatif au 000009)
   IsRecorded: 0
@@ -676,7 +676,7 @@ MonoBehaviour:
   PreDialogueTime: 0.1
   PostDialogueTime: 0.36
   DefaultTime: 5
-  HasBeenRun: 0
+  HasBeenRun: 1
   OperationsAfterRun: []
   Annotation: "se lance en entrant dans la cabine / \xE0 l'entr\xE9e de la cabine
     du scientifique\n(dit en chuchotant)\n(\xEAtre s\xFBr que \xE7a s'active seulement

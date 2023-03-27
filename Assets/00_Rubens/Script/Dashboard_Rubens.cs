@@ -5,7 +5,7 @@ using System;
 using System.Linq;
 using UnityEngine.EventSystems;
 
-public class Dashboard_Rubens : MonoBehaviour, IScrollHandler
+public class Dashboard_Rubens : MonoBehaviour, IScrollHandler, IPointerDownHandler, IBeginDragHandler, IEndDragHandler, IDragHandler
 {
     #region variables
 
@@ -56,7 +56,6 @@ public class Dashboard_Rubens : MonoBehaviour, IScrollHandler
         if (DB == null)
         {
             DB = this;
-            //DontDestroyOnLoad(this.gameObject);
 
         }
         else
@@ -81,8 +80,6 @@ public class Dashboard_Rubens : MonoBehaviour, IScrollHandler
         //CameraLimitationCenter = CameraLimitationBotLeft.position + (1 / 2) * (-CameraLimitationBotLeft.position + CameraLimitationBotRight.position) + (1 / 2) * (-CameraLimitationBotLeft.position + CameraLimitationTopLeft.position);
          
         CameraLimitationCenter = (CameraLimitationBotLeft.position + CameraLimitationTopRight.position) / 2 ;
-
-        Debug.Log("Les coordonnées de la limite de caméra centre sont" + CameraLimitationCenter);
 
     }
 
@@ -194,7 +191,6 @@ public class Dashboard_Rubens : MonoBehaviour, IScrollHandler
 
     public void OnScroll(PointerEventData eventData)
     {
-
         int SensOfZoom = (int)eventData.scrollDelta.y;
 
         Vector3 DirectionOfZoom = Vector3.zero;
@@ -216,7 +212,6 @@ public class Dashboard_Rubens : MonoBehaviour, IScrollHandler
 
         float MagnitudeMax = (-CameraLimitationCenter + EmplacementCamera.position).magnitude;
 
-
         if ((-CameraLimitationCenter + ClosestPointOnLineBaseSommet).magnitude >= MagnitudeMax)
         {
             CameraForDashboard.transform.position = EmplacementCamera.position;
@@ -233,6 +228,32 @@ public class Dashboard_Rubens : MonoBehaviour, IScrollHandler
         
     }
 
+    public void OnDrag(PointerEventData eventData)
+    {
+        CameraForDashboard.transform.position -= (Vector3)eventData.delta / 1500;
+        //Y a des chances que selon la taille de la fenetre ça vas pas à la meme vitesse mais on verra ça une prochaine fois
+    }
+
+    public void OnPointerDown(PointerEventData eventData)
+    {
+        
+    }
+
+    public void OnBeginDrag(PointerEventData eventData)
+    {
+        
+    }
+
+    public void OnEndDrag(PointerEventData eventData)
+    {
+        
+    }
+
+    
+
+
+
+
     public Vector3 GetClosestPointOnLine(Vector3 A, Vector3 B, Vector3 C)
     //Merci ChatGpt => "trouver le point sur une ligne AB le plus proche d'un point C dans un espace 3D"
     {
@@ -243,5 +264,4 @@ public class Dashboard_Rubens : MonoBehaviour, IScrollHandler
         float t = abac / ab2;
         return A + AB * t;
     }
-
 }
