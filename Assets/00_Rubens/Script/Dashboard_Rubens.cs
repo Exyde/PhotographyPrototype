@@ -40,6 +40,7 @@ public class Dashboard_Rubens : MonoBehaviour, IScrollHandler
     [SerializeField] Transform CameraLimitationBotRight;
     [SerializeField] Transform CameraLimitationTopLeft;
     [SerializeField] Transform CameraLimitationBotLeft;
+
     Vector3 CameraLimitationCenter;
 
     [Space (10)]
@@ -77,7 +78,11 @@ public class Dashboard_Rubens : MonoBehaviour, IScrollHandler
         CameraManager.CM.CameraDashboard = CameraForDashboard;
         CameraManager.CM.EmplacementCameraDashboard = EmplacementCamera;
 
-        CameraLimitationCenter = CameraLimitationBotLeft.position + (1 / 2) *(-CameraLimitationBotLeft.position + CameraLimitationBotRight.position) + (1 / 2) * (-CameraLimitationBotLeft.position + CameraLimitationTopLeft.position);
+        //CameraLimitationCenter = CameraLimitationBotLeft.position + (1 / 2) * (-CameraLimitationBotLeft.position + CameraLimitationBotRight.position) + (1 / 2) * (-CameraLimitationBotLeft.position + CameraLimitationTopLeft.position);
+         
+        CameraLimitationCenter = (CameraLimitationBotLeft.position + CameraLimitationTopRight.position) / 2 ;
+
+        Debug.Log("Les coordonnées de la limite de caméra centre sont" + CameraLimitationCenter);
 
     }
 
@@ -207,23 +212,25 @@ public class Dashboard_Rubens : MonoBehaviour, IScrollHandler
 
         Vector3 NextPosition = CameraForDashboard.transform.position + DirectionOfZoom * 0.1f;
 
-        Vector3 ClosestPointOnLineBaseSommet = GetClosestPointOnLine(-EmplacementCamera.position, CameraLimitationCenter, NextPosition);
+        Vector3 ClosestPointOnLineBaseSommet = GetClosestPointOnLine(EmplacementCamera.position, CameraLimitationCenter, NextPosition);
 
-        if ((-CameraLimitationCenter + ClosestPointOnLineBaseSommet).magnitude >= (-CameraLimitationCenter + EmplacementCamera.position).magnitude)
+        float MagnitudeMax = (-CameraLimitationCenter + EmplacementCamera.position).magnitude;
+
+
+        if ((-CameraLimitationCenter + ClosestPointOnLineBaseSommet).magnitude >= MagnitudeMax)
         {
             CameraForDashboard.transform.position = EmplacementCamera.position;
 
             return;
         }
 
-        if ((-EmplacementCamera.position + ClosestPointOnLineBaseSommet).magnitude >= .9f * (-EmplacementCamera.position + CameraLimitationCenter).magnitude)
+        if ((-EmplacementCamera.position + ClosestPointOnLineBaseSommet).magnitude >= .95f * MagnitudeMax)
         {
-            //@RUBENS : Temps fix pour zoom
-            //return;
+            return;
         }
 
         CameraForDashboard.transform.position = NextPosition;
-
+        
     }
 
     public Vector3 GetClosestPointOnLine(Vector3 A, Vector3 B, Vector3 C)

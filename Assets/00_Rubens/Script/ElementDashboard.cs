@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using System;
 
 public class ElementDashboard : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IEndDragHandler, IDragHandler, IScrollHandler
 {
@@ -12,6 +13,8 @@ public class ElementDashboard : MonoBehaviour, IPointerDownHandler, IBeginDragHa
     public DashboardRope _rope;
     [SerializeField] public Material _lineQuestionMaterial;
     [SerializeField] public Material _lineHintMaterial;
+
+    static public Action OnDragElementOnDashboard; 
 
 
     public Transform _parentTransform;
@@ -69,10 +72,10 @@ public class ElementDashboard : MonoBehaviour, IPointerDownHandler, IBeginDragHa
         if (_rope == null) return;
 
         if (_parentTransform == null){
-            Debug.Log(" Parent is nuul ");
+            //Debug.Log(" Parent is nuul ");
         }
 
-        Debug.Log("Reachjing");
+        //Debug.Log("Reachjing");
         _rope.enabled = true;
         _rope.SetTarget(_parentTransform, hintMat);
     }
@@ -85,6 +88,8 @@ public class ElementDashboard : MonoBehaviour, IPointerDownHandler, IBeginDragHa
     public void OnDrag(PointerEventData eventData)
     {
         Vector3 Nextposition = eventData.pointerCurrentRaycast.worldPosition;
+
+        OnDragElementOnDashboard?.Invoke();
 
         //Nextposition += eventData.pointerCurrentRaycast.worldNormal *.1f;
 

@@ -28,7 +28,6 @@ public class Object_XNod : DashB_XNode
 
 	public bool IsStaticObject;
 
-
 	public bool PictureTaken;
 
 	public bool DisponibleIfParticularCondition;

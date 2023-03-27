@@ -623,7 +623,7 @@ MonoBehaviour:
   PreDialogueTime: 0.1
   PostDialogueTime: 0.36
   DefaultTime: 5
-  HasBeenRun: 0
+  HasBeenRun: 1
   OperationsAfterRun: []
   Annotation: (texte alternatif au 000009)
   IsRecorded: 0

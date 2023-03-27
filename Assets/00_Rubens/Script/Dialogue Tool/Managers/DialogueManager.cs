@@ -74,9 +74,9 @@ public class DialogueManager : MonoBehaviour
             return;
         }
 
-        Dialogue_XNod dialogue = _dg.GetDialogueWithTag(tag);
+        Dialogue_XNod dialogue;
 
-        if(dialogue == null)
+        if((dialogue = _dg.GetDialogueWithTag(tag)) == null)
         {
             Logger.LogInfo("Le Dialogue qui a été lancé n'existe pas. Tag :" + tag);
             return;

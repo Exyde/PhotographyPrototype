@@ -496,6 +496,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PF_HUD
       objectReference: {fileID: 0}
+    - target: {fileID: 6796963556833045630, guid: e8dce1d6bdf0c63459bb0f041dfaceae, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e8dce1d6bdf0c63459bb0f041dfaceae, type: 3}
 --- !u!1001 &2022390871
@@ -621,6 +625,10 @@ PrefabInstance:
     - target: {fileID: 2310818484860130558, guid: a0650ed3c473c164cb20928c938b8493, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2310818486000735744, guid: a0650ed3c473c164cb20928c938b8493, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a0650ed3c473c164cb20928c938b8493, type: 3}
