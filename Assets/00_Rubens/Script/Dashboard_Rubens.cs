@@ -229,9 +229,16 @@ public class Dashboard_Rubens : MonoBehaviour, IScrollHandler, IPointerDownHandl
     }
 
     public void OnDrag(PointerEventData eventData)
+    //Y a des chances que selon la taille de la fenetre ça vas pas à la meme vitesse mais on verra ça une prochaine fois
     {
-        CameraForDashboard.transform.position -= (Vector3)eventData.delta / 1500;
-        //Y a des chances que selon la taille de la fenetre ça vas pas à la meme vitesse mais on verra ça une prochaine fois
+        Vector3 NextPosition = CameraForDashboard.transform.position - ((Vector3)eventData.delta / 1500);
+
+        if (CheckDragOnRight(NextPosition) || CheckDragOnLeft(NextPosition) || CheckDragOnTop(NextPosition) || CheckDragOnBot(NextPosition))
+        {
+            return;
+        }
+
+        CameraForDashboard.transform.position = NextPosition;
     }
 
     public void OnPointerDown(PointerEventData eventData)
@@ -249,12 +256,37 @@ public class Dashboard_Rubens : MonoBehaviour, IScrollHandler, IPointerDownHandl
         
     }
 
-    
+    bool CheckDragOnRight(Vector3 verifyPoint)
+    {
+        return IsBehindAPlane(EmplacementCamera.position, CameraLimitationTopRight.position, CameraLimitationBotRight.position, verifyPoint);
+    }
+
+    bool CheckDragOnLeft(Vector3 verifyPoint)
+    {
+        return IsBehindAPlane(EmplacementCamera.position, CameraLimitationBotLeft.position, CameraLimitationTopLeft.position, verifyPoint);
+    }
+
+    bool CheckDragOnTop(Vector3 verifyPoint)
+    {
+        return IsBehindAPlane(EmplacementCamera.position, CameraLimitationTopLeft.position, CameraLimitationTopRight.position, verifyPoint);
+    }
+
+    bool CheckDragOnBot(Vector3 verifyPoint)
+    {
+        return IsBehindAPlane(EmplacementCamera.position, CameraLimitationBotRight.position, CameraLimitationBotLeft.position, verifyPoint);
+    }
+
+    bool IsBehindAPlane(Vector3 a, Vector3 b, Vector3 c, Vector3 verifyPoint)
+    {
+        Plane PlaneABC = new Plane(a, b, c);
+
+        return PlaneABC.GetSide(verifyPoint);
+    }
 
 
 
 
-    public Vector3 GetClosestPointOnLine(Vector3 A, Vector3 B, Vector3 C)
+    Vector3 GetClosestPointOnLine(Vector3 A, Vector3 B, Vector3 C)
     //Merci ChatGpt => "trouver le point sur une ligne AB le plus proche d'un point C dans un espace 3D"
     {
         Vector3 AB = B - A;
