@@ -99,7 +99,7 @@ MonoBehaviour:
       _typeConstraint: 0
       _dynamic: 0
   Tag: 11
-  Dialogue: 
+  Dialogue: Soyons discret.
   _curentPriority: 2
   AudioClipDialogue: {fileID: 0}
   _bufferTime: 5
@@ -562,7 +562,7 @@ MonoBehaviour:
       _typeConstraint: 0
       _dynamic: 0
   Tag: 12
-  Dialogue: 
+  Dialogue: C'est parti.
   _curentPriority: 2
   AudioClipDialogue: {fileID: 0}
   _bufferTime: 5
@@ -615,7 +615,7 @@ MonoBehaviour:
       _typeConstraint: 0
       _dynamic: 0
   Tag: 10
-  Dialogue: 
+  Dialogue: C'est le moment de pas faire de bruit.
   _curentPriority: 2
   AudioClipDialogue: {fileID: 0}
   _bufferTime: 5
@@ -668,7 +668,7 @@ MonoBehaviour:
       _typeConstraint: 0
       _dynamic: 0
   Tag: 9
-  Dialogue: "Ok, c'est parti, soyons prudents, il faut pas le r\xE9veiller."
+  Dialogue: "Ok, c'est parti, soyons prudents, faut pas le r\xE9veiller."
   _curentPriority: 2
   AudioClipDialogue: {fileID: 0}
   _bufferTime: 5
@@ -755,7 +755,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 15a1d13cc6e154746a0f5e3f4037796f, type: 3}
-  m_Name: Arthur_Dialogue_Tool
+  m_Name: Common_Dialogue_Tool
   m_EditorClassIdentifier: 
   nodes:
   - {fileID: 2841136612804665393}

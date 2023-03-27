@@ -4,15 +4,27 @@ using UnityEngine;
 
 public class AtActionDialogueManager : MonoBehaviour
 {
+    public List<int> DialogueRandomOnEnterCabine;
 
+    private void Start()
+    {
+        DialogueManager.DM?.SendDialogue(1);
+    }
     private void OnEnable()
     {
         Polaroid.OnPictureTaken += SendDialogueAtPicture;
+
+        Cabine._OnCabineEnter += SendDialogueAtEnterCabine;
+        Cabine._OnCabineExit += SendDialogueAtExitCabine;
+
     }
 
     private void OnDisable()
     {
         Polaroid.OnPictureTaken -= SendDialogueAtPicture;
+
+        Cabine._OnCabineEnter += SendDialogueAtEnterCabine;
+        Cabine._OnCabineExit += SendDialogueAtExitCabine;
     }
 
 
@@ -24,6 +36,16 @@ public class AtActionDialogueManager : MonoBehaviour
     void SendDialogueAtDashBoard(Object_XNod objectDashboard)
     {
         DialogueManager.DM?.SendDialogue(objectDashboard.DialogueAtLookDashboard);
+    }
+
+    void SendDialogueAtEnterCabine()
+    {
+
+    }
+
+    void SendDialogueAtExitCabine()
+    {
+        DialogueManager.DM?.SendDialogue(DialogueRandomOnEnterCabine[Random.Range(0, DialogueRandomOnEnterCabine.Count) ]);
     }
 
 }
