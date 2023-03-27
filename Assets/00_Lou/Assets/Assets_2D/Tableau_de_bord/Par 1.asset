@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 47b76b3dabbc16d4db2f357bead46de4, type: 3}
-  m_Name: Test NarrativeBloc
+  m_Name: Par 1
   m_EditorClassIdentifier: 
   _itemType: 2
   _texture: {fileID: 0}
-  _spriteBase: {fileID: 21300000, guid: 0f6ed184745e1af4ba77604183da0574, type: 3}
+  _spriteBase: {fileID: 21300000, guid: 009156743d02c8143bfacfae716f07c1, type: 3}
   _spriteComplete: {fileID: 0}
   _spriteOver: {fileID: 0}
   _pictureOffsetX: 0
