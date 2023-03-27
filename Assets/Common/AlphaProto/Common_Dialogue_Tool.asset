@@ -287,7 +287,7 @@ MonoBehaviour:
   PreDialogueTime: 0.1
   PostDialogueTime: 0.36
   DefaultTime: 5
-  HasBeenRun: 0
+  HasBeenRun: 1
   OperationsAfterRun: []
   Annotation: 
   IsRecorded: 0
@@ -457,7 +457,7 @@ MonoBehaviour:
   PreDialogueTime: 0.1
   PostDialogueTime: 0.36
   DefaultTime: 5
-  HasBeenRun: 0
+  HasBeenRun: 1
   OperationsAfterRun: []
   Annotation: 
   IsRecorded: 0
