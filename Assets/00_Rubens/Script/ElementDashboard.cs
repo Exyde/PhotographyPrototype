@@ -10,6 +10,9 @@ public class ElementDashboard : MonoBehaviour, IPointerDownHandler, IBeginDragHa
     [Header("Line Rendering")]
     public DashB_XNode _parent; //Line parent
     public DashboardRope _rope;
+    [SerializeField] public Material _lineQuestionMaterial;
+    [SerializeField] public Material _lineHintMaterial;
+
 
     public Transform _parentTransform;
 
@@ -26,10 +29,6 @@ public class ElementDashboard : MonoBehaviour, IPointerDownHandler, IBeginDragHa
         if (ObjX != null && ObjX._dashboardItem != null && ObjX._dashboardItem.GetSprite() != null)
         {
             SR.sprite = ObjX._dashboardItem.GetSprite();
-        }
-
-        if (TryGetComponent<DashboardRope>(out _rope)){
-            _rope.enabled = false;
         }
     }
 
@@ -49,6 +48,7 @@ public class ElementDashboard : MonoBehaviour, IPointerDownHandler, IBeginDragHa
 
                     if (elt.ObjX == _parent)
                         _parentTransform = elt.transform;
+                        if (_rope != null) AttachRope(true);
                 }
 
             break;
@@ -59,16 +59,22 @@ public class ElementDashboard : MonoBehaviour, IPointerDownHandler, IBeginDragHa
 
                     if (elt.ObjX == _parent)
                         _parentTransform = elt.transform;
+                        if (_rope != null) AttachRope(false);
                 }
             break;
         }
-
-        if (_rope != null) AttachRope();
     }
 
-    private void AttachRope(){
+    private void AttachRope(bool hintMat){
+        if (_rope == null) return;
+
+        if (_parentTransform == null){
+            Debug.Log(" Parent is nuul ");
+        }
+
+        Debug.Log("Reachjing");
         _rope.enabled = true;
-        _rope.SetTarget(_parentTransform);
+        _rope.SetTarget(_parentTransform, hintMat);
     }
 
     public void OnBeginDrag(PointerEventData eventData)

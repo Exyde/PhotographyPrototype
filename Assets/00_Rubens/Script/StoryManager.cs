@@ -8,6 +8,8 @@ public class StoryManager : MonoBehaviour
     public static Object_XNod.City LastCityVisited = Object_XNod.City.Military;
 
     public static Action EndOfDay;
+    public static Action StartOfDay;
+
 
     private void OnEnable()
     {

@@ -50,7 +50,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ObjX: {fileID: 0}
   _parent: {fileID: 0}
-  _rope: {fileID: 0}
+  _rope: {fileID: 1997740047961313358}
+  _lineQuestionMaterial: {fileID: 2100000, guid: e2b8008e5ac409d49b8b087ab94a79af, type: 2}
+  _lineHintMaterial: {fileID: 2100000, guid: b109b3fa509390f4a8b779e6a4ea318a, type: 2}
   _parentTransform: {fileID: 0}
   SR: {fileID: 43471305924784655}
   _item: {fileID: 0}
@@ -230,7 +232,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f05ecb790f1318d4b8fe845860634c46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _lineWidth: 0.05
+  _lineWidth: 0.01
   _segmentCount: 2
-  _material: {fileID: 2100000, guid: e2b8008e5ac409d49b8b087ab94a79af, type: 2}
+  _hintMaterial: {fileID: 2100000, guid: b109b3fa509390f4a8b779e6a4ea318a, type: 2}
+  _questionMaterial: {fileID: 2100000, guid: e2b8008e5ac409d49b8b087ab94a79af, type: 2}
   _target: {fileID: 0}
+  _hintMat: 0
