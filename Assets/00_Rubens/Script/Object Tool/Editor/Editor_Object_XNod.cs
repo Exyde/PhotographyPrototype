@@ -54,6 +54,10 @@ public class Editor_Object_XNod : NodeEditor
 
             EditorGUILayout.Space(5);
 
+            NodeEditorGUILayout.PropertyField(serializedObject.FindProperty("MyFBX"), new GUIContent("mon .fbx"));
+
+            EditorGUILayout.Space(5);
+
             EditorGUILayout.BeginHorizontal();
             GUILayout.Label("Débloqué si condition particulière ?");
             NodeEditorGUILayout.PropertyField(serializedObject.FindProperty("DisponibleIfParticularCondition"), new GUIContent(""));
@@ -85,7 +89,9 @@ public class Editor_Object_XNod : NodeEditor
 
         EditorGUILayout.Space(5);
 
+        NodeEditorGUILayout.PropertyField(serializedObject.FindProperty("MeshRendererToChange"), new GUIContent("Mesh Renderer qui s'actualisent sur mon objet"));
 
+        EditorGUILayout.Space(5);
 
 
         _showYounesShit = EditorGUILayout.BeginFoldoutHeaderGroup(_showYounesShit, "Afficher les trucs de Younes là");

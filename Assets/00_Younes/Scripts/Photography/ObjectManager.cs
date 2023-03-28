@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using XNode;
+using System.Linq;
 
 public class ObjectManager : MonoBehaviour
 {
@@ -16,6 +17,11 @@ public class ObjectManager : MonoBehaviour
     [Header ("Settings")]
     public Transform _cabineSpawnPoints;
     public int _objectsInCabineCount;
+
+    public Material _defaultPicturableMaterial;
+    public Material _picturedMaterial;
+    public Material _sabotageMaterial;
+
     #endregion
 
     private void Awake() {
@@ -53,16 +59,61 @@ public class ObjectManager : MonoBehaviour
 
         if (_xNodeObjectsAvailable == null || _xNodeObjectsAvailable.Count <= 0) return;
 
-        Vector3[] spawnPositions = GetItemSpawnPositions(_objectsInCabineCount);
+        List<Transform> SpawnPoints = GetItemSpawnPositions(_objectsInCabineCount);
 
-        for (int i = 0; i < _objectsInCabineCount; i++){//@TODO : TOI UN JOUR JVAIS TE FIXER TAZEJAZEHAZP
-            Vector3 pos = spawnPositions[i];
-            GameObject cabObject = Instantiate(_xNodeObjectsAvailable[i].PrefabObjectToSpawn, pos, Quaternion.identity);
-            cabObject.GetComponent<PicturableObject>().Initialize(_xNodeObjectsAvailable[i]);
+        for (int i = 0; i < _objectsInCabineCount; i++)
+        {
+
+            Vector3 pos = SpawnPoints[i].position;
+            Quaternion rot = SpawnPoints[i].rotation;
+
+            GameObject cabObject;
+
+            if (_xNodeObjectsAvailable[i].MyFBX == null)
+            {
+                cabObject = Instantiate(_xNodeObjectsAvailable[i].PrefabObjectToSpawn, pos, rot);
+                //a supprimer a terme.
+            }
+            else
+            {
+                cabObject = Instantiate(_xNodeObjectsAvailable[i].MyFBX, pos, rot);
+            }
+
+            cabObject.AddComponent<PicturableObject>().Initialize(_xNodeObjectsAvailable[i]);
             cabObject.transform.parent = this.transform;
         }
     }
 
+    //Take the number of item to spawn and feedback an array of Vector3 Positions.
+    //It copy the holder list and get random pos from it. Can be cleaner and faster.
+    List<Transform> GetItemSpawnPositions(int itemCount)
+    {
+        int itemCountFiltered = itemCount;
+
+        if (itemCountFiltered>= _cabineSpawnPoints.childCount)
+        {
+            itemCountFiltered = _cabineSpawnPoints.childCount;
+        }
+
+        List<Transform> spawnTransform = new List<Transform>();
+        List<Transform> ToReturn = new();
+
+        for (int i = 0; i < _cabineSpawnPoints.childCount; i++)
+        {
+            spawnTransform.Add(_cabineSpawnPoints.GetChild(i));
+        }
+                
+        for (int i = 0; i < itemCountFiltered; i++)
+        {
+            int index = UnityEngine.Random.Range(0, spawnTransform.Count);
+            ToReturn.Add(spawnTransform[index]);
+            spawnTransform.RemoveAt(index);
+        }
+
+        return ToReturn;
+    }
+
+    /*
     //Take the number of item to spawn and feedback an array of Vector3 Positions.
     //It copy the holder list and get random pos from it. Can be cleaner and faster.
     Vector3[] GetItemSpawnPositions(int itemCount){
@@ -82,6 +133,7 @@ public class ObjectManager : MonoBehaviour
 
         return spawnPos;
     }
+    */
 
     private void ClearTransform(){
         foreach(Transform t in this.transform){

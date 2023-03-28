@@ -102,11 +102,11 @@ public class Polaroid : MonoBehaviour
 
     #endregion
     #region Picture Methods
-    public void TogglePhotographyMechanic(bool state) => _photographyEnabled = state; //@DESIGN : Make it static ?
+    public void TogglePhotographyMechanic(bool state) => _photographyEnabled = state; 
 
     public void TogglePhotographyMechanicTrue() => TogglePhotographyMechanic(true);
 
-    public void TogglePhotographyMechanicFalse() => TogglePhotographyMechanic(false); //@DESIGN : Make it static ?
+    public void TogglePhotographyMechanicFalse() => TogglePhotographyMechanic(false);
 
     bool CanTakePicture() => _pictureTakensCount < _maxPicturesSlots;
     public void TakePicture(){

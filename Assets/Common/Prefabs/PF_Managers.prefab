@@ -48,6 +48,9 @@ MonoBehaviour:
   _xNodeObjectsAvailable: []
   _cabineSpawnPoints: {fileID: 0}
   _objectsInCabineCount: 3
+  _defaultPicturableMaterial: {fileID: 2100000, guid: 5b62d352d553c1943a5668b30698576e, type: 2}
+  _picturedMaterial: {fileID: 2100000, guid: 4ad83a9a8e275d14097fa69396477060, type: 2}
+  _sabotageMaterial: {fileID: 2100000, guid: 4ad83a9a8e275d14097fa69396477060, type: 2}
 --- !u!1 &225097500
 GameObject:
   m_ObjectHideFlags: 0
@@ -921,3 +924,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94d46edb04ebd2941a3e97d46b7c2604, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DialogueRandomOnEnterCabine: 
