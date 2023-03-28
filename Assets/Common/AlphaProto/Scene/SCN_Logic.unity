@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.1623852, g: 0.16363141, b: 0.16365111, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -452,30 +452,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: PF_HUD
       objectReference: {fileID: 0}
-    - target: {fileID: 6796963556833045630, guid: e8dce1d6bdf0c63459bb0f041dfaceae, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6796963556833045631, guid: e8dce1d6bdf0c63459bb0f041dfaceae, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6796963556833045631, guid: e8dce1d6bdf0c63459bb0f041dfaceae, type: 3}
-      propertyPath: m_BlockingMask.m_Bits
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6796963556833045631, guid: e8dce1d6bdf0c63459bb0f041dfaceae, type: 3}
-      propertyPath: m_IgnoreReversedGraphics
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6796963557285622468, guid: e8dce1d6bdf0c63459bb0f041dfaceae, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7363480268543165040, guid: e8dce1d6bdf0c63459bb0f041dfaceae, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e8dce1d6bdf0c63459bb0f041dfaceae, type: 3}
 --- !u!1 &549004935
@@ -548,10 +524,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 105299981, guid: 080da32e44fcb264bba5b4be0dd5230d, type: 3}
-      propertyPath: _objetManager
-      value: 
-      objectReference: {fileID: 818701233}
     - target: {fileID: 3553652086242992560, guid: 080da32e44fcb264bba5b4be0dd5230d, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -600,14 +572,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: PF_Player_Fps
       objectReference: {fileID: 0}
-    - target: {fileID: 3553652087395044055, guid: 080da32e44fcb264bba5b4be0dd5230d, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3553652087395044057, guid: 080da32e44fcb264bba5b4be0dd5230d, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 080da32e44fcb264bba5b4be0dd5230d, type: 3}
 --- !u!1 &742645328 stripped
@@ -628,17 +592,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.0026699372, y: 0.053654395, z: 0.033786923}
   m_Center: {x: -0.0009202118, y: 0.018793603, z: -0.0055132774}
---- !u!114 &818701233 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 152676212, guid: 1c1bfa96f62d6f14490a9823be4cb6bc, type: 3}
-  m_PrefabInstance: {fileID: 1504861128}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 823a5bf10b962d25bb6a92e95eed74ce, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &948188919 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3260874309242688743, guid: a3095a72466436748bb42d574334f253, type: 3}
@@ -1435,22 +1388,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1314000745, guid: a0650ed3c473c164cb20928c938b8493, type: 3}
-      propertyPath: m_Name
-      value: TEST_ElementDashbord | Debug Only
-      objectReference: {fileID: 0}
-    - target: {fileID: 1314000745, guid: a0650ed3c473c164cb20928c938b8493, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1314000749, guid: a0650ed3c473c164cb20928c938b8493, type: 3}
-      propertyPath: ObjX
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 2310818484860130529, guid: a0650ed3c473c164cb20928c938b8493, type: 3}
-      propertyPath: offSetValueForpictureToPut
-      value: -0.5
-      objectReference: {fileID: 0}
     - target: {fileID: 2310818484860130554, guid: a0650ed3c473c164cb20928c938b8493, type: 3}
       propertyPath: m_Name
       value: PF_DashBoard
@@ -1498,14 +1435,6 @@ PrefabInstance:
     - target: {fileID: 2310818484860130558, guid: a0650ed3c473c164cb20928c938b8493, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2310818485035587066, guid: a0650ed3c473c164cb20928c938b8493, type: 3}
-      propertyPath: near clip plane
-      value: 0.01
-      objectReference: {fileID: 0}
-    - target: {fileID: 2310818485035587069, guid: a0650ed3c473c164cb20928c938b8493, type: 3}
-      propertyPath: m_EventMask.m_Bits
-      value: 192
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a0650ed3c473c164cb20928c938b8493, type: 3}

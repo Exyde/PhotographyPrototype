@@ -88,7 +88,6 @@ public class CameraManager : MonoBehaviour
         StartCoroutine(_coroutine);
 
         Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
     }
 
     IEnumerator IE_LerpCameraPositionAndRotation(Transform camera, Transform to, float duration)
@@ -113,7 +112,6 @@ public class CameraManager : MonoBehaviour
 
         camera.position = to.position;
         camera.rotation = to.rotation;
-
     }
 
     IEnumerator IE_SetActiveCameraWithDelay(bool cameraDashboard, bool cameraPlayer, float duration)

@@ -1,5 +1,7 @@
 using UnityEngine;
 using TMPro;
+using UnityEngine.EventSystems;
+using System;
 
 public class PicturableObject : MonoBehaviour
 {
@@ -7,6 +9,11 @@ public class PicturableObject : MonoBehaviour
     [SerializeField] Object_XNod _xNodeObject;
     [SerializeField] Sprite _currentSprite;
     [SerializeField] Sprite _UISprite;
+
+    public static Action<Object_XNod> OnPointerEnterOnPicturableObject;
+
+    public static Action<Object_XNod> OnPointerExitOnPicturableObject;
+
 
 
     [Header("References")]
@@ -27,7 +34,7 @@ public class PicturableObject : MonoBehaviour
     public void Initialize(Object_XNod objectXNode){
         this._xNodeObject = objectXNode;
 
-        _color = new Color(Random.Range(0f,1f), Random.Range(0f,1f), Random.Range(0f,1f), 1f);
+        _color = new Color(UnityEngine.Random.Range(0f,1f), UnityEngine.Random.Range(0f,1f), UnityEngine.Random.Range(0f,1f), 1f);
 
         _renderer = GetComponent<MeshRenderer>();
         SetNonPicturedMaterial();
@@ -48,4 +55,9 @@ public class PicturableObject : MonoBehaviour
     public void SetNonPicturedMaterial() => _renderer.material = _defaultPicturableMaterial;
     public void SetPicturedMaterial() => _renderer.material = _picturedMaterial;
     public void SetSabotageMaterial() => _renderer.material = _sabotageMaterial;
+
+    public void OnPointer()
+    {
+        OnPointerEnterOnPicturableObject?.Invoke(_xNodeObject);
+    }
 }
