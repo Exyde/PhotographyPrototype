@@ -39,6 +39,11 @@ public class ElementDashboard : MonoBehaviour, IPointerDownHandler, IBeginDragHa
     {
         ObjX = ox;
 
+        if(ox is Object_XNod)
+        {
+            transform.localScale *= Constants.PICTURE_SIZE_MULTIPLIER;
+        }
+
         switch (ox){
             case NarrativeBloc_XNode narrativeBloc:
                 _parent = null;

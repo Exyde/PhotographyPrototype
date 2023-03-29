@@ -5,13 +5,12 @@ using UnityEngine;
 public class Picture : DashboardItem
 {
 
-
     public IEnumerator CreateTextureAndSprite(){
 
         yield return new WaitForEndOfFrame();
         _texture = new Texture2D(Screen.width - 2 * _pictureOffsetX, Screen.height - 2 * _pictureOffsetY, TextureFormat.RGB24, false);
 
-        Rect regionToRead = new Rect(0 + _pictureOffsetX, 0 + _pictureOffsetY, Screen.width - _pictureOffsetX, Screen.height - _pictureOffsetY);
+        Rect regionToRead = new Rect(0 + _pictureOffsetX, 0 + _pictureOffsetY, Screen.width - 2* _pictureOffsetX, Screen.height -2*  _pictureOffsetY);
 
         _texture.ReadPixels(regionToRead, 0, 0, false);
         _texture.Apply();
@@ -20,7 +19,7 @@ public class Picture : DashboardItem
     }
     
     protected void CreateSprite(){
-        Sprite sprite = Sprite.Create(_texture, new Rect(0, 0, _texture.width * Constants.PICTURE_SIZE_MULTIPLIER, _texture.height * Constants.PICTURE_SIZE_MULTIPLIER), new Vector2(0.5f, 0.5f), 100.0f);
+        Sprite sprite = Sprite.Create(_texture, new Rect(0, 0, _texture.width, _texture.height), new Vector2(0.5f, 0.5f), 100.0f);
         _spriteBase = sprite;
     }
 

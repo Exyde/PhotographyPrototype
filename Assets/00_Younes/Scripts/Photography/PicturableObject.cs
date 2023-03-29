@@ -31,8 +31,6 @@ public class PicturableObject : MonoBehaviour
     }
     public void Initialize(Object_XNod objectXNode)
     {
-        Debug.Log("Je viens dinitialiser :" + objectXNode.NameOfTheObject);
-
         _xNodeObject = objectXNode;
 
         InitialiseRenderer();

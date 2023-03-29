@@ -118,27 +118,30 @@ public class Polaroid : MonoBehaviour
         int slotIndex = GetAvailableSlotIndex();
         Logger.LogInfo("Slot index : " + slotIndex);
 
-        if (slotIndex >= 0){ //If a slot is available
+        if (slotIndex >= 0)
+        { //If a slot is available
 
             Object_XNod objXNode = picturable.GetObject_XNod();
 
-            if (ObjectAlreadyPictured(objXNode)){
+            if (ObjectAlreadyPictured(objXNode))
+            {
                 OnPictureAlreadyTaken?.Invoke(objXNode);
                 return;
             }
 
             _picturableObjects.Add(picturable);
-            picturable.SetPicturedMaterial();
 
             _currentXnodPicturedObjects[slotIndex] = objXNode;
 
             StartCoroutine(CreatePictureScriptable(slotIndex));
 
             _pictureTakenSlots[slotIndex] = true;
-            
+
             _pictureTakensCount++;
 
             OnPictureTaken?.Invoke(picturable.GetObject_XNod());
+
+            
         }
     }
 
@@ -223,7 +226,7 @@ public class Polaroid : MonoBehaviour
         _currentXnodPicturedObjects[index]._dashboardItem = picture;
         yield return new WaitForEndOfFrame();
 
-        
+        _picturableObjects[index].SetPicturedMaterial();
         HUDManager._instance.SetActiveHUD(true);
     }
 

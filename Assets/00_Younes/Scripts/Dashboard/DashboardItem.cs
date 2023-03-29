@@ -19,8 +19,8 @@ public class DashboardItem : ScriptableObject
 
     [SerializeField] protected Sprite _spriteOver;
 
-    [SerializeField] protected int _pictureOffsetX = 0;
-    [SerializeField] protected int _pictureOffsetY = 0;
+    [SerializeField] protected int _pictureOffsetX = (int) (1920/3.5f);
+    [SerializeField] protected int _pictureOffsetY = (int) (1080/3.5f);
 
     public Texture2D GetTexture () => _texture;
     public Sprite GetSprite () => _spriteBase;

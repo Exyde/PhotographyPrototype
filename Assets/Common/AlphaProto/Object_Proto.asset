@@ -73,7 +73,7 @@ MonoBehaviour:
   MeshRendererToChange: []
   ActiveABloc: 0
   IsStaticObject: 0
-  PictureTaken: 1
+  PictureTaken: 0
   DisponibleIfParticularCondition: 0
   HaveAUnderBloc: 0
   DialogueAtPicture: 0
@@ -153,7 +153,7 @@ MonoBehaviour:
   MeshRendererToChange: []
   ActiveABloc: 0
   IsStaticObject: 1
-  PictureTaken: 1
+  PictureTaken: 0
   DisponibleIfParticularCondition: 0
   HaveAUnderBloc: 0
   DialogueAtPicture: 0
@@ -373,7 +373,7 @@ MonoBehaviour:
   MySelf: {fileID: 0}
   Question: Qui sont ses interlocuteurs du Marchand ?
   PictureToTakeForAddValue: 3
-  PictureTakenInUnderbloc: 2
+  PictureTakenInUnderbloc: 0
   ValueForBloc: 3
 --- !u!114 &-5050229002421137596
 MonoBehaviour:
@@ -543,7 +543,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 74ccbac823f815f479355e63d07977c6, type: 3}
-  m_Name: "Bourse de pi\xE8ce / + 1"
+  m_Name: Contrat avec le Maire / + 1
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
   position: {x: 2296, y: 680}
@@ -600,18 +600,17 @@ MonoBehaviour:
   BlocOfNarration: {fileID: 0}
   ParticularConditionForActivate: 0
   MyUnderBloc: {fileID: 0}
-  NameOfTheObject: "Bourse de pi\xE8ce"
+  NameOfTheObject: Contrat avec le Maire
   DescriptionOfTheObject: "Contrat avec marqu\xE9 dans l\u2019en-t\xEAte \u201CVille
     1\u201D pour qu\u2019on sache qui est l\u2019interlocuteur du scientifique. On
     distingue juste deux signatures, peut-\xEAtre que l\u2019une d\u2019elles est
     encore luisante et qu\u2019on a un stylo pos\xE9 d\xE9capuchonn\xE9 \xE0 c\xF4t\xE9."
   ValueForBloc: 1
-  MyFBX: {fileID: 919132149155446097, guid: 671c054c7a4111c48b8699362401388c, type: 3}
-  MeshRendererToChange:
-  - {fileID: 7357571678057256012, guid: 671c054c7a4111c48b8699362401388c, type: 3}
+  MyFBX: {fileID: 0}
+  MeshRendererToChange: []
   ActiveABloc: 0
   IsStaticObject: 0
-  PictureTaken: 0
+  PictureTaken: 1
   DisponibleIfParticularCondition: 0
   HaveAUnderBloc: 0
   DialogueAtPicture: 0
@@ -695,7 +694,7 @@ MonoBehaviour:
   - {fileID: -3867306486738340705, guid: 3626ac23b6a71d6489131e80684f108b, type: 3}
   ActiveABloc: 0
   IsStaticObject: 0
-  PictureTaken: 1
+  PictureTaken: 0
   DisponibleIfParticularCondition: 0
   HaveAUnderBloc: 1
   DialogueAtPicture: 0
@@ -999,7 +998,7 @@ MonoBehaviour:
   MeshRendererToChange: []
   ActiveABloc: 0
   IsStaticObject: 1
-  PictureTaken: 1
+  PictureTaken: 0
   DisponibleIfParticularCondition: 0
   HaveAUnderBloc: 0
   DialogueAtPicture: 0
@@ -1084,7 +1083,7 @@ MonoBehaviour:
   MeshRendererToChange: []
   ActiveABloc: 0
   IsStaticObject: 0
-  PictureTaken: 0
+  PictureTaken: 1
   DisponibleIfParticularCondition: 0
   HaveAUnderBloc: 1
   DialogueAtPicture: 0
@@ -1169,7 +1168,7 @@ MonoBehaviour:
   - {fileID: 1343268087611224096, guid: 3d04fc255b634534c9ba1d9a0c4be963, type: 3}
   ActiveABloc: 0
   IsStaticObject: 0
-  PictureTaken: 1
+  PictureTaken: 0
   DisponibleIfParticularCondition: 0
   HaveAUnderBloc: 1
   DialogueAtPicture: 0
@@ -1253,7 +1252,7 @@ MonoBehaviour:
   MeshRendererToChange: []
   ActiveABloc: 0
   IsStaticObject: 0
-  PictureTaken: 1
+  PictureTaken: 0
   DisponibleIfParticularCondition: 0
   HaveAUnderBloc: 1
   DialogueAtPicture: 0
@@ -1317,7 +1316,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 74ccbac823f815f479355e63d07977c6, type: 3}
-  m_Name: Parapluie du desert. / + 1
+  m_Name: Bourse bien remplie / + 1
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
   position: {x: 984, y: -648}
@@ -1371,14 +1370,15 @@ MonoBehaviour:
   BlocOfNarration: {fileID: 0}
   ParticularConditionForActivate: 0
   MyUnderBloc: {fileID: 0}
-  NameOfTheObject: Parapluie du desert.
+  NameOfTheObject: Bourse bien remplie
   DescriptionOfTheObject: Parapluie du desert
   ValueForBloc: 1
-  MyFBX: {fileID: 0}
-  MeshRendererToChange: []
+  MyFBX: {fileID: 919132149155446097, guid: 671c054c7a4111c48b8699362401388c, type: 3}
+  MeshRendererToChange:
+  - {fileID: 7357571678057256012, guid: 671c054c7a4111c48b8699362401388c, type: 3}
   ActiveABloc: 0
   IsStaticObject: 0
-  PictureTaken: 1
+  PictureTaken: 0
   DisponibleIfParticularCondition: 0
   HaveAUnderBloc: 0
   DialogueAtPicture: 0
@@ -1605,7 +1605,7 @@ MonoBehaviour:
   Question: "Que s'est il pass\xE9 sur l'\xCEle avec l'arriv\xE9e des milliardaires
     \xE9trangers."
   PictureToTakeForAddValue: 3
-  PictureTakenInUnderbloc: 2
+  PictureTakenInUnderbloc: 1
   ValueForBloc: 3
 --- !u!114 &2105502932733360985
 MonoBehaviour:
@@ -1793,7 +1793,7 @@ MonoBehaviour:
   MeshRendererToChange: []
   ActiveABloc: 0
   IsStaticObject: 0
-  PictureTaken: 1
+  PictureTaken: 0
   DisponibleIfParticularCondition: 0
   HaveAUnderBloc: 0
   DialogueAtPicture: 0
@@ -1891,7 +1891,7 @@ MonoBehaviour:
   ValueForBloc: 1
   MyFBX: {fileID: 919132149155446097, guid: 7d9abf403d705dc41ae04f5ea6dec734, type: 3}
   MeshRendererToChange:
-  - {fileID: 3447038591770236762, guid: 7d9abf403d705dc41ae04f5ea6dec734, type: 3}
+  - {fileID: -8771694059044213588, guid: 7d9abf403d705dc41ae04f5ea6dec734, type: 3}
   ActiveABloc: 0
   IsStaticObject: 0
   PictureTaken: 0
@@ -2164,7 +2164,7 @@ MonoBehaviour:
   MySelf: {fileID: 0}
   Question: Qui est le marchand ?
   PictureToTakeForAddValue: 2
-  PictureTakenInUnderbloc: 2
+  PictureTakenInUnderbloc: 1
   ValueForBloc: 3
 --- !u!114 &8703900324349714643
 MonoBehaviour:
@@ -2243,7 +2243,7 @@ MonoBehaviour:
   - {fileID: -1388485733357891733, guid: 1d15749b836782744970d21e2c272c43, type: 3}
   ActiveABloc: 0
   IsStaticObject: 0
-  PictureTaken: 1
+  PictureTaken: 0
   DisponibleIfParticularCondition: 0
   HaveAUnderBloc: 1
   DialogueAtPicture: 0
@@ -2411,7 +2411,7 @@ MonoBehaviour:
   MeshRendererToChange: []
   ActiveABloc: 0
   IsStaticObject: 0
-  PictureTaken: 1
+  PictureTaken: 0
   DisponibleIfParticularCondition: 0
   HaveAUnderBloc: 1
   DialogueAtPicture: 0
@@ -2429,7 +2429,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 309bb0624c7cb7343ae5792c57a26fbb, type: 3}
-  m_Name: Que fait la machine ?  / ( 12 / 15 )
+  m_Name: Que fait la machine ?  / ( 1 / 15 )
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
   position: {x: -952, y: -392}
@@ -2529,7 +2529,7 @@ MonoBehaviour:
   _dashboardItem: {fileID: 11400000, guid: 7af20271beb09004d89bb8e35157c5aa, type: 2}
   Question: 'Que fait la machine ? '
   NecessaryResolution: 15
-  ActualResolution: 12
+  ActualResolution: 1
   TrueForActivate: 0
   Myself: {fileID: 0}
   WillActivateWhenResolution: 0
