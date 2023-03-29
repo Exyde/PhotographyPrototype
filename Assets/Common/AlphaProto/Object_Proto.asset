@@ -610,7 +610,7 @@ MonoBehaviour:
   MeshRendererToChange: []
   ActiveABloc: 0
   IsStaticObject: 0
-  PictureTaken: 1
+  PictureTaken: 0
   DisponibleIfParticularCondition: 0
   HaveAUnderBloc: 0
   DialogueAtPicture: 0
@@ -1083,7 +1083,7 @@ MonoBehaviour:
   MeshRendererToChange: []
   ActiveABloc: 0
   IsStaticObject: 0
-  PictureTaken: 1
+  PictureTaken: 0
   DisponibleIfParticularCondition: 0
   HaveAUnderBloc: 1
   DialogueAtPicture: 0
@@ -1462,7 +1462,7 @@ MonoBehaviour:
   MeshRendererToChange: []
   ActiveABloc: 0
   IsStaticObject: 0
-  PictureTaken: 1
+  PictureTaken: 0
   DisponibleIfParticularCondition: 0
   HaveAUnderBloc: 1
   DialogueAtPicture: 0
@@ -1605,7 +1605,7 @@ MonoBehaviour:
   Question: "Que s'est il pass\xE9 sur l'\xCEle avec l'arriv\xE9e des milliardaires
     \xE9trangers."
   PictureToTakeForAddValue: 3
-  PictureTakenInUnderbloc: 1
+  PictureTakenInUnderbloc: 0
   ValueForBloc: 3
 --- !u!114 &2105502932733360985
 MonoBehaviour:
@@ -2164,7 +2164,7 @@ MonoBehaviour:
   MySelf: {fileID: 0}
   Question: Qui est le marchand ?
   PictureToTakeForAddValue: 2
-  PictureTakenInUnderbloc: 1
+  PictureTakenInUnderbloc: 0
   ValueForBloc: 3
 --- !u!114 &8703900324349714643
 MonoBehaviour:
@@ -2429,7 +2429,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 309bb0624c7cb7343ae5792c57a26fbb, type: 3}
-  m_Name: Que fait la machine ?  / ( 1 / 15 )
+  m_Name: Que fait la machine ?  / ( 2 / 15 )
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
   position: {x: -952, y: -392}
@@ -2529,7 +2529,7 @@ MonoBehaviour:
   _dashboardItem: {fileID: 11400000, guid: 7af20271beb09004d89bb8e35157c5aa, type: 2}
   Question: 'Que fait la machine ? '
   NecessaryResolution: 15
-  ActualResolution: 1
+  ActualResolution: 0
   TrueForActivate: 0
   Myself: {fileID: 0}
   WillActivateWhenResolution: 0

@@ -92,6 +92,12 @@ public class ElementDashboard : MonoBehaviour, IPointerDownHandler, IBeginDragHa
 
     public void OnDrag(PointerEventData eventData)
     {
+        if(eventData.button == PointerEventData.InputButton.Middle)
+        {
+            Dashboard_Rubens.DB?.OnDrag(eventData);
+            return;
+        }
+
         Vector3 Nextposition = eventData.pointerCurrentRaycast.worldPosition;
 
         OnDragElementOnDashboard?.Invoke();

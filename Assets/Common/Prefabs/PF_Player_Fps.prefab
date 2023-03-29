@@ -86,7 +86,7 @@ MonoBehaviour:
   _jumpSpeed: 8
   _gravity: 20
   _lookSpeed: 2
-  _lookXLimit: 45
+  _lookXLimit: 75
   _useLegacyCamera: 1
   _canMove: 1
   _canMoveCamera: 1

@@ -9,10 +9,6 @@ public class Dashboard_Rubens : MonoBehaviour, IScrollHandler, IPointerDownHandl
 {
     #region variables
 
-    [HideInInspector]
-    public float offSetValueForpicture;
-
-    public float offSetValueForpictureToPut = .43f;
 
     public Transform EmplacementCamera;
 
@@ -62,8 +58,6 @@ public class Dashboard_Rubens : MonoBehaviour, IScrollHandler, IPointerDownHandl
         {
             Destroy(this);
         }
-
-        offSetValueForpicture = transform.position.z + offSetValueForpictureToPut;
     }
 
     private void Start()
@@ -231,7 +225,7 @@ public class Dashboard_Rubens : MonoBehaviour, IScrollHandler, IPointerDownHandl
     public void OnDrag(PointerEventData eventData)
     //Y a des chances que selon la taille de la fenetre ça vas pas à la meme vitesse mais on verra ça une prochaine fois
     {
-        Vector3 NextPosition = CameraForDashboard.transform.position - ((Vector3)eventData.delta / 1500);
+        Vector3 NextPosition = CameraForDashboard.transform.position - ((Vector3)eventData.delta / 1300);
 
         if (CheckDragOnRight(NextPosition) || CheckDragOnLeft(NextPosition) || CheckDragOnTop(NextPosition) || CheckDragOnBot(NextPosition))
         {
