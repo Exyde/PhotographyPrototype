@@ -14,6 +14,12 @@ public class ElementDashboard : MonoBehaviour, IPointerDownHandler, IBeginDragHa
     [SerializeField] public Material _lineQuestionMaterial;
     [SerializeField] public Material _lineHintMaterial;
 
+    public Transform ParentOfPostIt;
+
+    public GameObject DirtyPic;
+
+    PostIt MyPostIt;
+
     static public Action OnDragElementOnDashboard; 
 
 
@@ -42,6 +48,13 @@ public class ElementDashboard : MonoBehaviour, IPointerDownHandler, IBeginDragHa
         if(ox is Object_XNod)
         {
             transform.localScale *= Constants.PICTURE_SIZE_MULTIPLIER;
+
+            DirtyPic.SetActive(true);
+
+            GameObject goPostIt = ParentOfPostIt.GetChild(UnityEngine.Random.Range(0, ParentOfPostIt.childCount)).gameObject;
+            goPostIt.SetActive(true);
+            MyPostIt = goPostIt.GetComponent<PostIt>();
+            MyPostIt.setObjectXnod(ox as Object_XNod);
         }
 
         switch (ox){

@@ -373,7 +373,7 @@ MonoBehaviour:
   MySelf: {fileID: 0}
   Question: Qui sont ses interlocuteurs du Marchand ?
   PictureToTakeForAddValue: 3
-  PictureTakenInUnderbloc: 0
+  PictureTakenInUnderbloc: 1
   ValueForBloc: 3
 --- !u!114 &-5050229002421137596
 MonoBehaviour:
@@ -694,7 +694,7 @@ MonoBehaviour:
   - {fileID: -3867306486738340705, guid: 3626ac23b6a71d6489131e80684f108b, type: 3}
   ActiveABloc: 0
   IsStaticObject: 0
-  PictureTaken: 0
+  PictureTaken: 1
   DisponibleIfParticularCondition: 0
   HaveAUnderBloc: 1
   DialogueAtPicture: 0
@@ -1168,7 +1168,7 @@ MonoBehaviour:
   - {fileID: 1343268087611224096, guid: 3d04fc255b634534c9ba1d9a0c4be963, type: 3}
   ActiveABloc: 0
   IsStaticObject: 0
-  PictureTaken: 0
+  PictureTaken: 1
   DisponibleIfParticularCondition: 0
   HaveAUnderBloc: 1
   DialogueAtPicture: 0
@@ -1378,7 +1378,7 @@ MonoBehaviour:
   - {fileID: 7357571678057256012, guid: 671c054c7a4111c48b8699362401388c, type: 3}
   ActiveABloc: 0
   IsStaticObject: 0
-  PictureTaken: 0
+  PictureTaken: 1
   DisponibleIfParticularCondition: 0
   HaveAUnderBloc: 0
   DialogueAtPicture: 0
@@ -1605,7 +1605,7 @@ MonoBehaviour:
   Question: "Que s'est il pass\xE9 sur l'\xCEle avec l'arriv\xE9e des milliardaires
     \xE9trangers."
   PictureToTakeForAddValue: 3
-  PictureTakenInUnderbloc: 0
+  PictureTakenInUnderbloc: 1
   ValueForBloc: 3
 --- !u!114 &2105502932733360985
 MonoBehaviour:
@@ -1894,7 +1894,7 @@ MonoBehaviour:
   - {fileID: -8771694059044213588, guid: 7d9abf403d705dc41ae04f5ea6dec734, type: 3}
   ActiveABloc: 0
   IsStaticObject: 0
-  PictureTaken: 0
+  PictureTaken: 1
   DisponibleIfParticularCondition: 0
   HaveAUnderBloc: 0
   DialogueAtPicture: 0
@@ -2164,7 +2164,7 @@ MonoBehaviour:
   MySelf: {fileID: 0}
   Question: Qui est le marchand ?
   PictureToTakeForAddValue: 2
-  PictureTakenInUnderbloc: 0
+  PictureTakenInUnderbloc: 1
   ValueForBloc: 3
 --- !u!114 &8703900324349714643
 MonoBehaviour:
@@ -2243,7 +2243,7 @@ MonoBehaviour:
   - {fileID: -1388485733357891733, guid: 1d15749b836782744970d21e2c272c43, type: 3}
   ActiveABloc: 0
   IsStaticObject: 0
-  PictureTaken: 0
+  PictureTaken: 1
   DisponibleIfParticularCondition: 0
   HaveAUnderBloc: 1
   DialogueAtPicture: 0
@@ -2429,7 +2429,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 309bb0624c7cb7343ae5792c57a26fbb, type: 3}
-  m_Name: Que fait la machine ?  / ( 2 / 15 )
+  m_Name: Que fait la machine ?  / ( 3 / 15 )
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
   position: {x: -952, y: -392}
@@ -2529,7 +2529,7 @@ MonoBehaviour:
   _dashboardItem: {fileID: 11400000, guid: 7af20271beb09004d89bb8e35157c5aa, type: 2}
   Question: 'Que fait la machine ? '
   NecessaryResolution: 15
-  ActualResolution: 0
+  ActualResolution: 3
   TrueForActivate: 0
   Myself: {fileID: 0}
   WillActivateWhenResolution: 0
