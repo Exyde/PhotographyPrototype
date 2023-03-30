@@ -40,12 +40,16 @@ public class AtActionDialogueManager : MonoBehaviour
 
     void SendDialogueAtEnterCabine()
     {
+        if (DialogueRandomOnEnterCabine.Count > 0)
+        {
+            DialogueManager.DM?.SendDialogue(DialogueRandomOnEnterCabine[Random.Range(0, DialogueRandomOnEnterCabine.Count)]);
 
+        }
     }
 
     void SendDialogueAtExitCabine()
     {
-        DialogueManager.DM?.SendDialogue(DialogueRandomOnEnterCabine[Random.Range(0, DialogueRandomOnEnterCabine.Count-1) ]);
+        
     }
 
 }

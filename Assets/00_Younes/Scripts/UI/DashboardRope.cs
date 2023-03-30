@@ -28,23 +28,29 @@ public class DashboardRope : MonoBehaviour
         _ropePos = new Vector3[_segmentCount];
         _lineRenderer.positionCount = _segmentCount;
         _lineRenderer.material = _questionMaterial;
+
+        DrawRope();
     }
 
+    private void OnEnable()
+    {
+        ElementDashboard.OnDragElementOnDashboard += DrawRope;
+    }
 
-
-    private void Update() {
-        if (_target == null) return;
-        DrawRope(); //@Todo : Add Delay ? Update them only few frames.. ? If In dashboard ?
+    private void OnDisable()
+    {
+        ElementDashboard.OnDragElementOnDashboard -= DrawRope;
     }
 
     void DrawRope(){
+        if (_target == null) return;
 
-        if(_firstDraw){
+        if (_firstDraw){
             _lineRenderer.material = _hintMat  ? _hintMaterial : _questionMaterial;
             _firstDraw = false;
         }
 
-        Debug.Log("Drawing rope");
+        //Debug.Log("Drawing rope");
         float lineWidth = _lineWidth;
         _lineRenderer.startWidth = lineWidth;
         _lineRenderer.endWidth = lineWidth;

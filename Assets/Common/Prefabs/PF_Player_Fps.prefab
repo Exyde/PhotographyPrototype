@@ -86,7 +86,7 @@ MonoBehaviour:
   _jumpSpeed: 8
   _gravity: 20
   _lookSpeed: 2
-  _lookXLimit: 45
+  _lookXLimit: 75
   _useLegacyCamera: 1
   _canMove: 1
   _canMoveCamera: 1
@@ -182,7 +182,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3553652087395044057}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1

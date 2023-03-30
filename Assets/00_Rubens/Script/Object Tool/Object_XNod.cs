@@ -24,17 +24,19 @@ public class Object_XNod : DashB_XNode
 
 	[Range(0,5)] public int ValueForBloc = 1;
 
+	public GameObject MyFBX;
+
+	public List<Mesh> MeshRendererToChange;
+
 	[Output] public bool ActiveABloc;
 
 	public bool IsStaticObject;
-
 
 	public bool PictureTaken;
 
 	public bool DisponibleIfParticularCondition;
 
     public bool HaveAUnderBloc;
-
 
 	public int DialogueAtPicture;
 

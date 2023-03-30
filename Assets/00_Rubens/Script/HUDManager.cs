@@ -10,6 +10,9 @@ public class HUDManager : MonoBehaviour
     public TextMeshProUGUI Subtitle;
     public TextMeshProUGUI CurentTouchAvailable;
     public TextMeshProUGUI CountPicturesLeft;
+
+    public TextMeshProUGUI NameOfPicturableObjectOnPointer;
+
     public GameObject CrossAir;
     public GameObject AllHUD;
 
@@ -42,6 +45,9 @@ public class HUDManager : MonoBehaviour
 
         Cabine._OnCabineEnter += DisplayTensionHUD;
         Cabine._OnCabineExit += DisplayPoeticHUD;
+
+        PicturableObject.OnPointerEnterOnPicturableObject += DisplayNameOfPicturableObject;
+
     }
 
     private void OnDisable()
@@ -55,6 +61,8 @@ public class HUDManager : MonoBehaviour
 
         Cabine._OnCabineEnter -= DisplayTensionHUD;
         Cabine._OnCabineExit -= DisplayPoeticHUD;
+
+        PicturableObject.OnPointerEnterOnPicturableObject -= DisplayNameOfPicturableObject;
     }
 
     void DisplaySubtitle(Dialogue_XNod dialogue)
@@ -83,6 +91,16 @@ public class HUDManager : MonoBehaviour
     void OnPictureTaken_HUDManager(Object_XNod objectCabine)
     {
         ActualiseHUD();
+    }
+
+    void DisplayNameOfPicturableObject(Object_XNod objectCabine)
+    {
+        NameOfPicturableObjectOnPointer.text = objectCabine.NameOfTheObject;
+    }
+
+    public void StopDisplayNameOfPicturableObject()
+    {
+        NameOfPicturableObjectOnPointer.text = "";
     }
 
     void ActualiseHUD()

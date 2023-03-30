@@ -5,14 +5,10 @@ using System;
 using System.Linq;
 using UnityEngine.EventSystems;
 
-public class Dashboard_Rubens : MonoBehaviour, IScrollHandler
+public class Dashboard_Rubens : MonoBehaviour, IScrollHandler, IPointerDownHandler, IBeginDragHandler, IEndDragHandler, IDragHandler
 {
     #region variables
 
-    [HideInInspector]
-    public float offSetValueForpicture;
-
-    public float offSetValueForpictureToPut = .43f;
 
     public Transform EmplacementCamera;
 
@@ -40,6 +36,7 @@ public class Dashboard_Rubens : MonoBehaviour, IScrollHandler
     [SerializeField] Transform CameraLimitationBotRight;
     [SerializeField] Transform CameraLimitationTopLeft;
     [SerializeField] Transform CameraLimitationBotLeft;
+
     Vector3 CameraLimitationCenter;
 
     [Space (10)]
@@ -55,15 +52,12 @@ public class Dashboard_Rubens : MonoBehaviour, IScrollHandler
         if (DB == null)
         {
             DB = this;
-            //DontDestroyOnLoad(this.gameObject);
 
         }
         else
         {
             Destroy(this);
         }
-
-        offSetValueForpicture = transform.position.z + offSetValueForpictureToPut;
     }
 
     private void Start()
@@ -77,7 +71,9 @@ public class Dashboard_Rubens : MonoBehaviour, IScrollHandler
         CameraManager.CM.CameraDashboard = CameraForDashboard;
         CameraManager.CM.EmplacementCameraDashboard = EmplacementCamera;
 
-        CameraLimitationCenter = CameraLimitationBotLeft.position + (1 / 2) *(-CameraLimitationBotLeft.position + CameraLimitationBotRight.position) + (1 / 2) * (-CameraLimitationBotLeft.position + CameraLimitationTopLeft.position);
+        //CameraLimitationCenter = CameraLimitationBotLeft.position + (1 / 2) * (-CameraLimitationBotLeft.position + CameraLimitationBotRight.position) + (1 / 2) * (-CameraLimitationBotLeft.position + CameraLimitationTopLeft.position);
+         
+        CameraLimitationCenter = (CameraLimitationBotLeft.position + CameraLimitationTopRight.position) / 2 ;
 
     }
 
@@ -189,7 +185,6 @@ public class Dashboard_Rubens : MonoBehaviour, IScrollHandler
 
     public void OnScroll(PointerEventData eventData)
     {
-
         int SensOfZoom = (int)eventData.scrollDelta.y;
 
         Vector3 DirectionOfZoom = Vector3.zero;
@@ -207,26 +202,85 @@ public class Dashboard_Rubens : MonoBehaviour, IScrollHandler
 
         Vector3 NextPosition = CameraForDashboard.transform.position + DirectionOfZoom * 0.1f;
 
-        Vector3 ClosestPointOnLineBaseSommet = GetClosestPointOnLine(-EmplacementCamera.position, CameraLimitationCenter, NextPosition);
+        Vector3 ClosestPointOnLineBaseSommet = GetClosestPointOnLine(EmplacementCamera.position, CameraLimitationCenter, NextPosition);
 
-        if ((-CameraLimitationCenter + ClosestPointOnLineBaseSommet).magnitude >= (-CameraLimitationCenter + EmplacementCamera.position).magnitude)
+        float MagnitudeMax = (-CameraLimitationCenter + EmplacementCamera.position).magnitude;
+
+        if ((-CameraLimitationCenter + ClosestPointOnLineBaseSommet).magnitude >= MagnitudeMax)
         {
             CameraForDashboard.transform.position = EmplacementCamera.position;
 
             return;
         }
 
-        if ((-EmplacementCamera.position + ClosestPointOnLineBaseSommet).magnitude >= .9f * (-EmplacementCamera.position + CameraLimitationCenter).magnitude)
+        if ((-EmplacementCamera.position + ClosestPointOnLineBaseSommet).magnitude >= .95f * MagnitudeMax)
         {
-            //@RUBENS : Temps fix pour zoom
-            //return;
+            return;
         }
 
         CameraForDashboard.transform.position = NextPosition;
-
+        
     }
 
-    public Vector3 GetClosestPointOnLine(Vector3 A, Vector3 B, Vector3 C)
+    public void OnDrag(PointerEventData eventData)
+    //Y a des chances que selon la taille de la fenetre ça vas pas à la meme vitesse mais on verra ça une prochaine fois
+    {
+        Vector3 NextPosition = CameraForDashboard.transform.position - ((Vector3)eventData.delta / 1300);
+
+        if (CheckDragOnRight(NextPosition) || CheckDragOnLeft(NextPosition) || CheckDragOnTop(NextPosition) || CheckDragOnBot(NextPosition))
+        {
+            return;
+        }
+
+        CameraForDashboard.transform.position = NextPosition;
+    }
+
+    public void OnPointerDown(PointerEventData eventData)
+    {
+        
+    }
+
+    public void OnBeginDrag(PointerEventData eventData)
+    {
+        
+    }
+
+    public void OnEndDrag(PointerEventData eventData)
+    {
+        
+    }
+
+    bool CheckDragOnRight(Vector3 verifyPoint)
+    {
+        return IsBehindAPlane(EmplacementCamera.position, CameraLimitationTopRight.position, CameraLimitationBotRight.position, verifyPoint);
+    }
+
+    bool CheckDragOnLeft(Vector3 verifyPoint)
+    {
+        return IsBehindAPlane(EmplacementCamera.position, CameraLimitationBotLeft.position, CameraLimitationTopLeft.position, verifyPoint);
+    }
+
+    bool CheckDragOnTop(Vector3 verifyPoint)
+    {
+        return IsBehindAPlane(EmplacementCamera.position, CameraLimitationTopLeft.position, CameraLimitationTopRight.position, verifyPoint);
+    }
+
+    bool CheckDragOnBot(Vector3 verifyPoint)
+    {
+        return IsBehindAPlane(EmplacementCamera.position, CameraLimitationBotRight.position, CameraLimitationBotLeft.position, verifyPoint);
+    }
+
+    bool IsBehindAPlane(Vector3 a, Vector3 b, Vector3 c, Vector3 verifyPoint)
+    {
+        Plane PlaneABC = new Plane(a, b, c);
+
+        return PlaneABC.GetSide(verifyPoint);
+    }
+
+
+
+
+    Vector3 GetClosestPointOnLine(Vector3 A, Vector3 B, Vector3 C)
     //Merci ChatGpt => "trouver le point sur une ligne AB le plus proche d'un point C dans un espace 3D"
     {
         Vector3 AB = B - A;
@@ -236,5 +290,4 @@ public class Dashboard_Rubens : MonoBehaviour, IScrollHandler
         float t = abac / ab2;
         return A + AB * t;
     }
-
 }

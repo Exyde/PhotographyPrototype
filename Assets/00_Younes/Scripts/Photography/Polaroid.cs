@@ -48,13 +48,18 @@ public class Polaroid : MonoBehaviour
     #region UnityCallbacks
     void Start(){
         _cam = Camera.main;
+        TogglePhotographyMechanicFalse();
         ResetPolaroid();
     }
 
     private void OnEnable() {
         Cabine._OnCabineExit += UpdateXNodObjectPictureTakenTag;
         Cabine._OnCabineExit += SetDashboardPicturesForNextDay;
-       
+        Cabine._OnCabineExit += TogglePhotographyMechanicFalse;
+
+        Cabine._OnCabineEnter += TogglePhotographyMechanicTrue;
+
+
         StoryManager.EndOfDay += CallObjectManagerUpdateListAndSpawnObject;
         StoryManager.EndOfDay += ResetPolaroid;
     }
@@ -62,6 +67,9 @@ public class Polaroid : MonoBehaviour
     private void OnDisable() {
         Cabine._OnCabineExit -= UpdateXNodObjectPictureTakenTag;
         Cabine._OnCabineExit -= SetDashboardPicturesForNextDay;
+        Cabine._OnCabineExit -= TogglePhotographyMechanicFalse;
+
+        Cabine._OnCabineEnter -= TogglePhotographyMechanicTrue;
 
         StoryManager.EndOfDay -= CallObjectManagerUpdateListAndSpawnObject; 
         StoryManager.EndOfDay -= ResetPolaroid;
@@ -77,11 +85,29 @@ public class Polaroid : MonoBehaviour
         else if (Input.GetKeyDown(GameInputs.PhotographyResetKeyCode)){
             ResetPolaroid();
         }
+        else
+        {
+            PicturableObject po;
+
+            if (po = GetPicturableObject() )
+            {
+                po.OnPointer();
+            }
+            else
+            {
+                HUDManager._instance.StopDisplayNameOfPicturableObject();
+            }
+        }
     }
 
     #endregion
     #region Picture Methods
-    public void TogglePhotographyMechanic(bool state) => _photographyEnabled = state; //@DESIGN : Make it static ?
+    public void TogglePhotographyMechanic(bool state) => _photographyEnabled = state; 
+
+    public void TogglePhotographyMechanicTrue() => TogglePhotographyMechanic(true);
+
+    public void TogglePhotographyMechanicFalse() => TogglePhotographyMechanic(false);
+
     bool CanTakePicture() => _pictureTakensCount < _maxPicturesSlots;
     public void TakePicture(){
         PicturableObject picturable = GetPicturableObject();
@@ -92,27 +118,30 @@ public class Polaroid : MonoBehaviour
         int slotIndex = GetAvailableSlotIndex();
         Logger.LogInfo("Slot index : " + slotIndex);
 
-        if (slotIndex >= 0){ //If a slot is available
+        if (slotIndex >= 0)
+        { //If a slot is available
 
             Object_XNod objXNode = picturable.GetObject_XNod();
 
-            if (ObjectAlreadyPictured(objXNode)){
+            if (ObjectAlreadyPictured(objXNode))
+            {
                 OnPictureAlreadyTaken?.Invoke(objXNode);
                 return;
             }
 
             _picturableObjects.Add(picturable);
-            picturable.SetPicturedMaterial();
 
             _currentXnodPicturedObjects[slotIndex] = objXNode;
 
             StartCoroutine(CreatePictureScriptable(slotIndex));
 
             _pictureTakenSlots[slotIndex] = true;
-            
+
             _pictureTakensCount++;
 
             OnPictureTaken?.Invoke(picturable.GetObject_XNod());
+
+            
         }
     }
 
@@ -197,7 +226,7 @@ public class Polaroid : MonoBehaviour
         _currentXnodPicturedObjects[index]._dashboardItem = picture;
         yield return new WaitForEndOfFrame();
 
-        
+        _picturableObjects[index].SetPicturedMaterial();
         HUDManager._instance.SetActiveHUD(true);
     }
 

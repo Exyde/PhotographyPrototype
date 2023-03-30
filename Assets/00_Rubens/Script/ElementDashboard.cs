@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using System;
 
 public class ElementDashboard : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IEndDragHandler, IDragHandler, IScrollHandler
 {
@@ -12,6 +13,14 @@ public class ElementDashboard : MonoBehaviour, IPointerDownHandler, IBeginDragHa
     public DashboardRope _rope;
     [SerializeField] public Material _lineQuestionMaterial;
     [SerializeField] public Material _lineHintMaterial;
+
+    public Transform ParentOfPostIt;
+
+    public GameObject DirtyPic;
+
+    PostIt MyPostIt;
+
+    static public Action OnDragElementOnDashboard; 
 
 
     public Transform _parentTransform;
@@ -35,6 +44,18 @@ public class ElementDashboard : MonoBehaviour, IPointerDownHandler, IBeginDragHa
     public void Initialize(DashB_XNode ox) //Courage à celui qui reviendra debug cette fonction dans 1 mois :D
     {
         ObjX = ox;
+
+        if(ox is Object_XNod)
+        {
+            transform.localScale *= Constants.PICTURE_SIZE_MULTIPLIER;
+
+            DirtyPic.SetActive(true);
+
+            GameObject goPostIt = ParentOfPostIt.GetChild(UnityEngine.Random.Range(0, ParentOfPostIt.childCount)).gameObject;
+            goPostIt.SetActive(true);
+            MyPostIt = goPostIt.GetComponent<PostIt>();
+            MyPostIt.setObjectXnod(ox as Object_XNod);
+        }
 
         switch (ox){
             case NarrativeBloc_XNode narrativeBloc:
@@ -69,10 +90,10 @@ public class ElementDashboard : MonoBehaviour, IPointerDownHandler, IBeginDragHa
         if (_rope == null) return;
 
         if (_parentTransform == null){
-            Debug.Log(" Parent is nuul ");
+            //Debug.Log(" Parent is nuul ");
         }
 
-        Debug.Log("Reachjing");
+        //Debug.Log("Reachjing");
         _rope.enabled = true;
         _rope.SetTarget(_parentTransform, hintMat);
     }
@@ -84,7 +105,15 @@ public class ElementDashboard : MonoBehaviour, IPointerDownHandler, IBeginDragHa
 
     public void OnDrag(PointerEventData eventData)
     {
+        if(eventData.button == PointerEventData.InputButton.Middle)
+        {
+            Dashboard_Rubens.DB?.OnDrag(eventData);
+            return;
+        }
+
         Vector3 Nextposition = eventData.pointerCurrentRaycast.worldPosition;
+
+        OnDragElementOnDashboard?.Invoke();
 
         //Nextposition += eventData.pointerCurrentRaycast.worldNormal *.1f;
 

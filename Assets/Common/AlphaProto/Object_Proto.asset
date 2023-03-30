@@ -69,9 +69,12 @@ MonoBehaviour:
     le Marchand de Climat en super-h\xE9ros qui sauve la ferme mar\xE9cageuse de
     ses parents. \r\nTous le monde est maigre."
   ValueForBloc: 1
+  MyFBX: {fileID: 919132149155446097, guid: 62018edfa0743344ca7bf1e0f604dfe3, type: 3}
+  MeshRendererToChange:
+  - {fileID: 5736909779244990470, guid: 62018edfa0743344ca7bf1e0f604dfe3, type: 3}
   ActiveABloc: 0
   IsStaticObject: 0
-  PictureTaken: 0
+  PictureTaken: 1
   DisponibleIfParticularCondition: 0
   HaveAUnderBloc: 0
   DialogueAtPicture: 0
@@ -147,9 +150,11 @@ MonoBehaviour:
   DescriptionOfTheObject: "Le scientifique a emmen\xE9 sa machine avec lui dans son
     voyage."
   ValueForBloc: 2
+  MyFBX: {fileID: 0}
+  MeshRendererToChange: []
   ActiveABloc: 0
   IsStaticObject: 1
-  PictureTaken: 0
+  PictureTaken: 1
   DisponibleIfParticularCondition: 0
   HaveAUnderBloc: 0
   DialogueAtPicture: 0
@@ -224,6 +229,8 @@ MonoBehaviour:
   NameOfTheObject: Parallele 2 PH 2
   DescriptionOfTheObject: 
   ValueForBloc: 1
+  MyFBX: {fileID: 0}
+  MeshRendererToChange: []
   ActiveABloc: 0
   IsStaticObject: 0
   PictureTaken: 0
@@ -301,6 +308,8 @@ MonoBehaviour:
   NameOfTheObject: Parallele 1 PH 1
   DescriptionOfTheObject: Parallele 1 PH 3
   ValueForBloc: 1
+  MyFBX: {fileID: 0}
+  MeshRendererToChange: []
   ActiveABloc: 0
   IsStaticObject: 0
   PictureTaken: 0
@@ -360,12 +369,12 @@ MonoBehaviour:
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 0
-  _dashboardItem: {fileID: 11400000, guid: 237ca5368805a10438a3014d9cab3d60, type: 2}
+  _dashboardItem: {fileID: 11400000, guid: 1f5ba0039fe28c94cb8bd59a3a71fd95, type: 2}
   BlocOfNarration: {fileID: 0}
   MySelf: {fileID: 0}
   Question: Qui sont ses interlocuteurs du Marchand ?
   PictureToTakeForAddValue: 3
-  PictureTakenInUnderbloc: 2
+  PictureTakenInUnderbloc: 0
   ValueForBloc: 3
 --- !u!114 &-5050229002421137596
 MonoBehaviour:
@@ -434,6 +443,8 @@ MonoBehaviour:
   NameOfTheObject: Parallele 2 PH 3
   DescriptionOfTheObject: 
   ValueForBloc: 1
+  MyFBX: {fileID: 0}
+  MeshRendererToChange: []
   ActiveABloc: 0
   IsStaticObject: 0
   PictureTaken: 0
@@ -511,6 +522,8 @@ MonoBehaviour:
   NameOfTheObject: Parallele 1 PH 4
   DescriptionOfTheObject: 
   ValueForBloc: 1
+  MyFBX: {fileID: 0}
+  MeshRendererToChange: []
   ActiveABloc: 0
   IsStaticObject: 0
   PictureTaken: 0
@@ -531,7 +544,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 74ccbac823f815f479355e63d07977c6, type: 3}
-  m_Name: Contrat avec le scientiphique / + 1
+  m_Name: Contrat avec le Maire / + 1
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
   position: {x: 2296, y: 680}
@@ -588,12 +601,14 @@ MonoBehaviour:
   BlocOfNarration: {fileID: 0}
   ParticularConditionForActivate: 0
   MyUnderBloc: {fileID: 0}
-  NameOfTheObject: Contrat avec le scientiphique
+  NameOfTheObject: Contrat avec le Maire
   DescriptionOfTheObject: "Contrat avec marqu\xE9 dans l\u2019en-t\xEAte \u201CVille
     1\u201D pour qu\u2019on sache qui est l\u2019interlocuteur du scientifique. On
     distingue juste deux signatures, peut-\xEAtre que l\u2019une d\u2019elles est
     encore luisante et qu\u2019on a un stylo pos\xE9 d\xE9capuchonn\xE9 \xE0 c\xF4t\xE9."
   ValueForBloc: 1
+  MyFBX: {fileID: 0}
+  MeshRendererToChange: []
   ActiveABloc: 0
   IsStaticObject: 0
   PictureTaken: 0
@@ -675,6 +690,9 @@ MonoBehaviour:
   DescriptionOfTheObject: "Un m\xE9daillon un peu vieilli avec la photo d\u2019une
     femme tenant un b\xE9b\xE9 et un pr\xE9nom (celui de la femme)."
   ValueForBloc: 0
+  MyFBX: {fileID: 919132149155446097, guid: 3626ac23b6a71d6489131e80684f108b, type: 3}
+  MeshRendererToChange:
+  - {fileID: -3867306486738340705, guid: 3626ac23b6a71d6489131e80684f108b, type: 3}
   ActiveABloc: 0
   IsStaticObject: 0
   PictureTaken: 0
@@ -695,7 +713,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 309bb0624c7cb7343ae5792c57a26fbb, type: 3}
-  m_Name: Qui sont les habitants du deserts ? / ( 2 / 5 )
+  m_Name: Qui sont les habitants du deserts ? / ( 3 / 5 )
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
   position: {x: 1672, y: -2760}
@@ -744,7 +762,7 @@ MonoBehaviour:
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 0
-  _dashboardItem: {fileID: 0}
+  _dashboardItem: {fileID: 11400000, guid: b71bdf32fd291ca4db127f38ea22709f, type: 2}
   Question: Qui sont les habitants du deserts ?
   NecessaryResolution: 5
   ActualResolution: 0
@@ -818,6 +836,8 @@ MonoBehaviour:
   NameOfTheObject: Parallele 1 PH 2
   DescriptionOfTheObject: 
   ValueForBloc: 1
+  MyFBX: {fileID: 0}
+  MeshRendererToChange: []
   ActiveABloc: 0
   IsStaticObject: 0
   PictureTaken: 0
@@ -895,6 +915,8 @@ MonoBehaviour:
   NameOfTheObject: Parallele 2 PH 3
   DescriptionOfTheObject: 
   ValueForBloc: 1
+  MyFBX: {fileID: 0}
+  MeshRendererToChange: []
   ActiveABloc: 0
   IsStaticObject: 0
   PictureTaken: 0
@@ -973,6 +995,8 @@ MonoBehaviour:
   DescriptionOfTheObject: "Dipl\xF4me encadr\xE9, le scientifique a obtenu son dipl\xF4me
     de scientifique en m\xE9t\xE9orologie il y a 5 ans. "
   ValueForBloc: 2
+  MyFBX: {fileID: 0}
+  MeshRendererToChange: []
   ActiveABloc: 0
   IsStaticObject: 1
   PictureTaken: 0
@@ -1056,6 +1080,8 @@ MonoBehaviour:
     (port ?) ainsi qu\u2019un chantier naval avec beaucoup de petits bateaux en train
     d\u2019\xEAtre construits."
   ValueForBloc: 0
+  MyFBX: {fileID: 0}
+  MeshRendererToChange: []
   ActiveABloc: 0
   IsStaticObject: 0
   PictureTaken: 0
@@ -1138,6 +1164,9 @@ MonoBehaviour:
     la vente du d\xE9sert, pour l\u2019humanit\xE9\u201D.\r\n(Mais que ferait ce
     t-shirt chez le scientifique ?)"
   ValueForBloc: 0
+  MyFBX: {fileID: 919132149155446097, guid: 3d04fc255b634534c9ba1d9a0c4be963, type: 3}
+  MeshRendererToChange:
+  - {fileID: 1343268087611224096, guid: 3d04fc255b634534c9ba1d9a0c4be963, type: 3}
   ActiveABloc: 0
   IsStaticObject: 0
   PictureTaken: 0
@@ -1220,9 +1249,11 @@ MonoBehaviour:
     des deux villes et deux fl\xE8ches en pointill\xE9s indiquant la boucle d\u2019une
     ville vers l\u2019autre."
   ValueForBloc: 0
+  MyFBX: {fileID: 0}
+  MeshRendererToChange: []
   ActiveABloc: 0
   IsStaticObject: 0
-  PictureTaken: 1
+  PictureTaken: 0
   DisponibleIfParticularCondition: 0
   HaveAUnderBloc: 1
   DialogueAtPicture: 0
@@ -1286,7 +1317,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 74ccbac823f815f479355e63d07977c6, type: 3}
-  m_Name: Parapluie du desert. / + 1
+  m_Name: Bourse bien remplie / + 1
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
   position: {x: 984, y: -648}
@@ -1340,9 +1371,12 @@ MonoBehaviour:
   BlocOfNarration: {fileID: 0}
   ParticularConditionForActivate: 0
   MyUnderBloc: {fileID: 0}
-  NameOfTheObject: Parapluie du desert.
+  NameOfTheObject: Bourse bien remplie
   DescriptionOfTheObject: Parapluie du desert
   ValueForBloc: 1
+  MyFBX: {fileID: 919132149155446097, guid: 671c054c7a4111c48b8699362401388c, type: 3}
+  MeshRendererToChange:
+  - {fileID: 7357571678057256012, guid: 671c054c7a4111c48b8699362401388c, type: 3}
   ActiveABloc: 0
   IsStaticObject: 0
   PictureTaken: 0
@@ -1425,6 +1459,8 @@ MonoBehaviour:
     d\u2019une femme (et le m\xEAme nom que le scientifique ?), li\xE9 \xE0 une r\xE9cente
     catastrophe naturelle de l\u2019\xE9poque."
   ValueForBloc: 0
+  MyFBX: {fileID: 0}
+  MeshRendererToChange: []
   ActiveABloc: 0
   IsStaticObject: 0
   PictureTaken: 0
@@ -1502,6 +1538,8 @@ MonoBehaviour:
   NameOfTheObject: Cycle 2 PH 1
   DescriptionOfTheObject: 
   ValueForBloc: 1
+  MyFBX: {fileID: 0}
+  MeshRendererToChange: []
   ActiveABloc: 0
   IsStaticObject: 0
   PictureTaken: 0
@@ -1637,6 +1675,8 @@ MonoBehaviour:
   NameOfTheObject: Parallele 2 PH 2
   DescriptionOfTheObject: 
   ValueForBloc: 1
+  MyFBX: {fileID: 0}
+  MeshRendererToChange: []
   ActiveABloc: 0
   IsStaticObject: 0
   PictureTaken: 0
@@ -1691,7 +1731,7 @@ MonoBehaviour:
   m_Name: "Tract de Travail \xE0 la Ville 1 / + 1"
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 2296, y: 136}
+  position: {x: 2312, y: -8}
   ports:
     keys:
     - BlocOfNarration
@@ -1750,6 +1790,8 @@ MonoBehaviour:
     !\u201D\r\nTract avec une photo d\u2019un investisseur \xE9tranger avec 4 personnes
     du d\xE9sert en habit du d\xE9sert avec des casques de chantier"
   ValueForBloc: 1
+  MyFBX: {fileID: 0}
+  MeshRendererToChange: []
   ActiveABloc: 0
   IsStaticObject: 0
   PictureTaken: 0
@@ -1848,6 +1890,9 @@ MonoBehaviour:
   DescriptionOfTheObject: Vraiment juste un casque de chantier avec un parapluie
     dessus. WTF
   ValueForBloc: 1
+  MyFBX: {fileID: 919132149155446097, guid: 7d9abf403d705dc41ae04f5ea6dec734, type: 3}
+  MeshRendererToChange:
+  - {fileID: -8771694059044213588, guid: 7d9abf403d705dc41ae04f5ea6dec734, type: 3}
   ActiveABloc: 0
   IsStaticObject: 0
   PictureTaken: 0
@@ -1925,6 +1970,8 @@ MonoBehaviour:
   NameOfTheObject: Parallele 2 PH 1
   DescriptionOfTheObject: 
   ValueForBloc: 1
+  MyFBX: {fileID: 0}
+  MeshRendererToChange: []
   ActiveABloc: 0
   IsStaticObject: 0
   PictureTaken: 0
@@ -1994,7 +2041,7 @@ MonoBehaviour:
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 0
-  _dashboardItem: {fileID: 0}
+  _dashboardItem: {fileID: 11400000, guid: 585e1ff4eb545004b9de274a6a4df377, type: 2}
   Question: Cycle 2
   NecessaryResolution: 11
   ActualResolution: 0
@@ -2060,7 +2107,7 @@ MonoBehaviour:
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 0
-  _dashboardItem: {fileID: 0}
+  _dashboardItem: {fileID: 11400000, guid: 28e79e2b0a037e2498b5270bfd7e8c39, type: 2}
   Question: "Question \xE0 d\xE9finir"
   NecessaryResolution: 5
   ActualResolution: 0
@@ -2113,7 +2160,7 @@ MonoBehaviour:
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 0
-  _dashboardItem: {fileID: 11400000, guid: 237ca5368805a10438a3014d9cab3d60, type: 2}
+  _dashboardItem: {fileID: 11400000, guid: ea38c582eb4dcd947a3321abc12cf373, type: 2}
   BlocOfNarration: {fileID: 0}
   MySelf: {fileID: 0}
   Question: Qui est le marchand ?
@@ -2192,6 +2239,9 @@ MonoBehaviour:
     at nomDeLaVille2\u201D \r\nOn voit les investisseurs devant la ville (dans la
     boule)."
   ValueForBloc: 1
+  MyFBX: {fileID: 919132149155446097, guid: 1d15749b836782744970d21e2c272c43, type: 3}
+  MeshRendererToChange:
+  - {fileID: -1388485733357891733, guid: 1d15749b836782744970d21e2c272c43, type: 3}
   ActiveABloc: 0
   IsStaticObject: 0
   PictureTaken: 0
@@ -2273,9 +2323,11 @@ MonoBehaviour:
   DescriptionOfTheObject: "Affiche \xE9lectorale du Maire avec promesse de campagne
     contre mont\xE9e des eaux."
   ValueForBloc: 1
+  MyFBX: {fileID: 0}
+  MeshRendererToChange: []
   ActiveABloc: 0
   IsStaticObject: 0
-  PictureTaken: 1
+  PictureTaken: 0
   DisponibleIfParticularCondition: 0
   HaveAUnderBloc: 1
   DialogueAtPicture: 0
@@ -2356,6 +2408,8 @@ MonoBehaviour:
     d\xE9sert, on peut distinguer un panneau plant\xE9 dans le sol (avec marqu\xE9
     \u201Cvendu\u201D ou peut-\xEAtre plut\xF4t \u201CVille 2\u201D)."
   ValueForBloc: 1
+  MyFBX: {fileID: 919132149155446097, guid: 9bd0d055b0ef3584e8afe35b003e40dc, type: 3}
+  MeshRendererToChange: []
   ActiveABloc: 0
   IsStaticObject: 0
   PictureTaken: 1
@@ -2376,7 +2430,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 309bb0624c7cb7343ae5792c57a26fbb, type: 3}
-  m_Name: Que fait la machine ?  / ( 2 / 15 )
+  m_Name: Que fait la machine ?  / ( 4 / 15 )
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
   position: {x: -952, y: -392}
@@ -2473,10 +2527,10 @@ MonoBehaviour:
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 0
-  _dashboardItem: {fileID: 11400000, guid: 1f5ba0039fe28c94cb8bd59a3a71fd95, type: 2}
+  _dashboardItem: {fileID: 11400000, guid: 7af20271beb09004d89bb8e35157c5aa, type: 2}
   Question: 'Que fait la machine ? '
   NecessaryResolution: 15
-  ActualResolution: 2
+  ActualResolution: 4
   TrueForActivate: 0
   Myself: {fileID: 0}
   WillActivateWhenResolution: 0
