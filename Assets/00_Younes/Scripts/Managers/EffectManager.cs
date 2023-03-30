@@ -13,6 +13,7 @@ public class EffectManager : MonoBehaviour, IGameEventManager
     [SerializeField] Color _indorOutlineColor;
     [SerializeField] Color _outdoorOutileColor;
     [SerializeField] List<Light> _lights;
+    [SerializeField] bool _disableLightInCabine = true;
 
 
     private void OnEnable() {
@@ -36,16 +37,19 @@ public class EffectManager : MonoBehaviour, IGameEventManager
     private void OnCabineEnter_EffectManager(){
         _outlines.SetColor("_Outline_Color", _indorOutlineColor);
 
-        // foreach(Light light in _lights){
-        //     light.gameObject.SetActive(false);
-        // }
+        if (!_disableLightInCabine) return;
+        foreach(Light light in _lights){
+            light.gameObject.SetActive(false);
+        }
     }
 
     private void OnCabineExit_EffectManager(){
         _outlines.SetColor("_Outline_Color", _outdoorOutileColor);
-        // foreach(Light light in _lights){
-        //     light.gameObject.SetActive(true);
-        // }
+
+        if (!_disableLightInCabine) return;
+        foreach(Light light in _lights){
+            light.gameObject.SetActive(true);
+        }
     }
     #endregion
 
