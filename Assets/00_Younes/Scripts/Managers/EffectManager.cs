@@ -1,5 +1,6 @@
 using UnityEngine;
 using Core.GameEvents;
+using System.Collections.Generic;
 
 public class EffectManager : MonoBehaviour, IGameEventManager
 {
@@ -11,6 +12,7 @@ public class EffectManager : MonoBehaviour, IGameEventManager
     [SerializeField] Material _outlines;
     [SerializeField] Color _indorOutlineColor;
     [SerializeField] Color _outdoorOutileColor;
+    [SerializeField] List<Light> _lights;
 
 
     private void OnEnable() {
@@ -33,10 +35,17 @@ public class EffectManager : MonoBehaviour, IGameEventManager
     #region Cabine Enter And Exit
     private void OnCabineEnter_EffectManager(){
         _outlines.SetColor("_Outline_Color", _indorOutlineColor);
+
+        // foreach(Light light in _lights){
+        //     light.gameObject.SetActive(false);
+        // }
     }
 
     private void OnCabineExit_EffectManager(){
         _outlines.SetColor("_Outline_Color", _outdoorOutileColor);
+        // foreach(Light light in _lights){
+        //     light.gameObject.SetActive(true);
+        // }
     }
     #endregion
 
