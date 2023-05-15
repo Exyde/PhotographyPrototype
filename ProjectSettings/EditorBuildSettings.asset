@@ -4,5 +4,8 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Common/AlphaProto/Scene/SCN_Logic.unity
+    guid: e4d0f0756b25f9c4ea667a1f73fcfde8
   m_configObjects: {}
